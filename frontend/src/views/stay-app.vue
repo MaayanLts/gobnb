@@ -15,18 +15,18 @@ export default {
   },
   data() {
     return {
-      stay: null
+      // stay: null
     }
   },
   computed: {
-    // stay() {
-    //   return 
-    // },
+    stay() {
+      return this.$store.getters.getStays
+    },
   },
 
   created() {
-    this.stay = this.$store.getters.getStays
-    console.log('this.stay :', this.stay)
+    // this.stay = this.$store.getters.getStays
+    // console.log('this.stay :', this.stay)
 
 
   },
