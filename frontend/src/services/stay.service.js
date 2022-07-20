@@ -1,9 +1,8 @@
 import {storageService} from './async-storage.service.js'
-const gStays = {
-	'stay': [
+const gStays = [
 		{
 			'_id': '10006546',
-			'name': 'Ribeira Charming Duplex',
+			'name': 'Ribeira Charming Duplex 1',
 			'type': 'House',
 			'imgUrls': [
 				'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large',
@@ -52,7 +51,7 @@ const gStays = {
 		},
 		{
 			'_id': '10006547',
-			'name': 'Ribeira Charming Duplex',
+			'name': 'Ribeira Charming Duplex 2',
 			'type': 'House',
 			'imgUrls': [
 				'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large',
@@ -101,7 +100,7 @@ const gStays = {
 		},
 		{
 			'_id': '10006548',
-			'name': 'Ribeira Charming Duplex',
+			'name': 'Ribeira Charming Duplex 3',
 			'type': 'House',
 			'imgUrls': [
 				'https://a0.muscache.com/im/pictures/e83e702f-ef49-40fb-8fa0-6512d7e26e9b.jpg?aki_policy=large',
@@ -148,13 +147,14 @@ const gStays = {
 			],
 			'likedByUsers': ['mini-user'], // for user-wishlist : use $in
 		},
-	],
-}
+]
 
 const ENDPOINT = 'stay'
 
-async function getStays(filterBy) {
-	if (gStays) return gStays //*
+function _creatStays() {}
+
+async function query(filterBy) {
+	if (gStays) return Promise.resolve(gStays)
 	return await storageService.get(ENDPOINT, filterBy)
 }
 
@@ -191,7 +191,7 @@ function getEmptyStay() {
 }
 
 export const stayService = {
-	getStays,
+	query,
 	getStayById,
 	getEmptyStay,
 	removeStay,
