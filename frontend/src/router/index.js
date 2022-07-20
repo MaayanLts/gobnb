@@ -1,5 +1,5 @@
 import stayApp from '../views/stay-app.vue'
-// import stayDetails from '../views/stay-details.vue'
+import stayDetails from '../views/stay-details.vue'
 // import stayEdit from '../views/stay-edit.vue'
 // import loginPage from '../views/login-page.vue'
 // import signupPage from '../views/signup-page.vue'
@@ -16,15 +16,15 @@ const router = createRouter({
 			name: 'stay-app',
 			component: stayApp,
 		},
+		{
+			path: '/details',
+			name: 'stay-details',
+			component: stayDetails,
+		},
 		// {
 		// 	path: '/stay/edit/:id?',
 		// 	name: 'stay-edit',
 		// 	component: stayEdit,
-		// },
-		// {
-		// 	path: '/stay/:id',
-		// 	name: 'stay-details',
-		// 	component: stayDetails,
 		// },
 		// {
 		// 	path: '/login',
