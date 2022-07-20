@@ -153,8 +153,10 @@ const gStays = {
 
 const ENDPOINT = 'stay'
 
-async function getStays(filterBy) {
-	if (gStays) return gStays //*
+function _creatStays() {}
+
+async function query(filterBy) {
+	if (gStays) return Promise.resolve(gStays)
 	return await storageService.get(ENDPOINT, filterBy)
 }
 
@@ -191,7 +193,7 @@ function getEmptyStay() {
 }
 
 export const stayService = {
-	getStays,
+	query,
 	getStayById,
 	getEmptyStay,
 	removeStay,
