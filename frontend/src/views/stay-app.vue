@@ -1,6 +1,6 @@
 <template>
   <div class="filter-nav">
-
+<stay-list/>
   </div>
 
 </template>
