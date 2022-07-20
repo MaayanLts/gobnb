@@ -40,8 +40,9 @@ export default {
 		async loadStays(context) {
 			try {
 				var filterBy = context.state.filterBy ? context.state.filterBy : ''
-				const stays = await stayService.getStays(filterBy)
+				const stays = await stayService.query(filterBy)
 				context.commit({type: 'setStays', stays: stays})
+
 				return stays
 			} catch (err) {
 				console.log(err)
@@ -64,7 +65,7 @@ export default {
 			try {
 				await stayService.removeStay(stayId)
 				context.commit({type: 'removeStay', stayId})
-				socketService.emit('deleteStay', stayId)
+				// socketService.emit('deleteStay', stayId)
 				return
 			} catch (err) {
 				console.log(err)
