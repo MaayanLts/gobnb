@@ -1,0 +1,60 @@
+.main-details-container {
+    font-family: 'Airbnb-medium';
+    display: grid;
+    grid-template-columns: $layoutPadding 1fr $layoutPadding;
+
+    >* {
+        grid-column: 2;
+    }
+
+    @include for-narrow-layout {
+        @include layoutGTC($break-narrow);
+    }
+
+    @include for-normal-layout {
+        @include layoutGTC($break-normal);
+    }
+
+    @include for-wide-layout {
+        @include layoutGTC($break-wide);
+    }
+
+}
+
+.limks-line {
+    display: flex;
+    justify-content: space-between;
+
+    >* {}
+
+}
+
+.start-links {
+    >* {
+        margin-inline-end: 1rem;
+    }
+
+}
+
+.end-links {
+    >* {
+        margin-inline-start: 1rem;
+    }
+
+}
+
+.images-holder {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+
+
+    >* { 
+        object-fit:contain;
+        width: 100%;
+        max-height: 100%;
+
+    }
+
+}
