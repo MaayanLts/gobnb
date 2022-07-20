@@ -1,18 +1,7 @@
 <template>
-  <li class=" stay-preview-container flex space-between"
-    @click="showStayDetails">
-    <div class=" stay-preview-info flex column space-between">
-      <div>
-        <h3>{{ stay.name }}</h3>
-      </div>
-      <h4>{{ stay.price }}</h4>
-    </div>
-    <div class=" stay-preview-btns flex column space-between">
-      <!-- <router-link @click.native.stop :to="' stay/edit/' +  stay._id" class="btn">
-        edit
-      </router-link> -->
-      <button @click="toEdit(stay._id)">Edit</button>
-      <button @click.stop="removeStay">X</button>
+  <li class="stay-preview">
+    <div class="stay-picture-container">
+        Hello, from stay component
     </div>
   </li>
 </template>
@@ -38,3 +27,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.stay-preview {
+  border: 2px solid red;
+}
+</style>
