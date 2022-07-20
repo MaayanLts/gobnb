@@ -154,7 +154,7 @@ const gStays = {
 const ENDPOINT = 'stay'
 
 async function getStays(filterBy) {
-	if (gStays) return gStays
+	if (gStays) return gStays //*
 	return await storageService.get(ENDPOINT, filterBy)
 }
 
