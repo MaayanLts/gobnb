@@ -1,22 +1,31 @@
 <template>
   <li class="stay-preview">
-    <div class="stay-picture-container">
-        Hello, from stay component
-    </div>
+    
+  <img />
+  <div>Text</div>
   </li>
 </template>
 
 <script>
+
 export default {
+  name:'StayPrevew',
   props: {
-    stay: Object,
+    stay: {
+      type: Object,
+      required: true,
+    }
+  },
+  data() {
+  },
+  components: {
   },
   methods: {
     showStayDetails() {
-      this.$router.push('/ stay/' + this.stay._id);
+      this.$router.push('/stay/' + this.stay._id);
     },
     toEdit(stayId) {
-      this.$router.push(`/ stay/edit/${stayId}`);
+      this.$router.push(`/stay/edit/${stayId}`);
     },
     removeStay() {
       this.$store.dispatch({
@@ -27,8 +36,11 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .stay-preview {
   border: 2px solid red;
+  width: 200px;
+  height: 200px;
 }
 </style>
