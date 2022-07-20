@@ -16,7 +16,7 @@ export default {
       this.$router.push('/ stay/' + this.stay._id);
     },
     toEdit(stayId) {
-      this.$router.push(`/ stay/edit/${stayId}`);
+      this.$router.push(`stay/edit/${stayId}`);
     },
     removeStay() {
       this.$store.dispatch({

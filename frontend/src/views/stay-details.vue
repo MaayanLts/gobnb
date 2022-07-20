@@ -13,7 +13,7 @@
         <h2>{{ stay.name }} hosted by {{ stay.host.fullname }}</h2>
         <h3>{{ stay.capacity }} guests</h3>
     </div>
-    <img class="host.img" c="stay.host.imgUrl" alt="">
+    <img class="host-img" :src="stay.host.imgUrl" alt="">
 
 
     <p class="summary">{{ stay.summary }}</p>
@@ -24,16 +24,9 @@
     </div>
 
     <div class="reviews">
-        <h2>★</h2>
+        <h2>★ {{stay.reviews.rate}}</h2>
     
     </div>
-
-
-
-
-
-
-
 
 </template>
 
@@ -61,7 +54,7 @@ export default {
                 "host": {
                     "_id": "51399391",
                     "fullname": "Davit Pok",
-                    "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small",
+                    "imgUrl": "https://a0.muscache.com/im/pictures/c9b876fc-b30e-4951-8f88-af9add00939e.jpg?aki_policy=profile_small",
                 },
                 "loc": {
                     "country": "Portugal",
