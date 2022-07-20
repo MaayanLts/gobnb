@@ -1,9 +1,9 @@
 <template>
-  <li class="stay-preview">
+  <section class="stay-preview">
     
-  <img />
-  <div>Text</div>
-  </li>
+  <!-- <img :src="stay.imgUrls[0]" /> -->
+  <span>{{ stay.name }}</span>
+  </section>
 </template>
 
 <script>
@@ -19,6 +19,9 @@ export default {
   data() {
   },
   components: {
+  },
+  unmounted() {
+    console.log('Stay preview - this.stay :', this.stay.name)
   },
   methods: {
     showStayDetails() {
