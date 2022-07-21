@@ -1,5 +1,5 @@
 <template>
-  <div class="filter-nav"> </div>
+  <div class="filter-nav main-layout"> </div>
   <stay-filter />
   <stay-list :stays="stays" />
 </template>

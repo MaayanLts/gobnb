@@ -1,7 +1,7 @@
 <template>
 
 
-  <div class="header">
+  <div :class="headerClass">
     <div class="left-section">
       <div class="main-header-logo">
         <router-link to="/">
@@ -29,8 +29,7 @@
       <a>Become a Host</a>
       <img class="globe-icon" src="/src/assets/logo/Globe_icon.svg" alt="">
       <div class="user-humburger">
-        <img class="burger-icon" src="/src/assets/logo/Hamburger_icon.svg"
-          alt="">
+        <img class="burger-icon" src="/src/assets/logo/Hamburger_icon.svg" alt="">
         <img class="user-img" src="/src/assets/logo/user.jpg" alt="">
       </div>
     </div>
@@ -42,6 +41,13 @@
 import locationFitler from "./location-filter.cmp.vue"
 
 export default {
+  computed: {
+    headerClass() {
+      const isDetailsHeader = this.$route.params.id
+      return (isDetailsHeader) ? 'header details-header' : 'header'
+    }
+
+  },
   components: {
     locationFitler,
   }
