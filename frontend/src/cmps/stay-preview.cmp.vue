@@ -1,5 +1,5 @@
 <template>
-  <section class="stay-preview">
+  <section class="stay-preview" @click="goToStayDetails">
     
   <img class="preview-img-carusela" :src="imgUrl" />
   <span>{{ stay.name }}</span>
@@ -15,8 +15,6 @@ export default {
       type: Object,
       required: true,
     }
-  },
-  data() {
   },
   components: {
   },
@@ -40,6 +38,9 @@ export default {
         stayId: this.stay._id,
       });
     },
+    goToStayDetails(){
+      this.$router.push("/stay/"+ this.stay._id)
+    }
   },
 };
 </script>
