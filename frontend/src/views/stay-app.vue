@@ -1,6 +1,6 @@
 <template>
   <div class="filter-nav"> </div>
-  <stay-filter> </stay-filter>
+  <stay-filter />
   <stay-list :stays="stays" />
 </template>
 

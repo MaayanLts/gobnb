@@ -71,19 +71,20 @@ export default {
     },
     computed: {
         meanRate() {
-            // var sum = 0
-            // const reviews = this.stay.reviews
-            // console.log(reviews)
-            // reviews.forEach((rev) => { sum += rev.rate });
-            // return sum / reviews.length
+            var sum = 0
+            const reviews = this.stay.reviews
+            console.log(reviews)
+            reviews.forEach((rev) => { sum += rev.rate });
+            return sum / reviews.length
         },
         reviews() {
-           // const reviews = this.stay.reviews
-            //return reviews.length
+            const reviews = this.stay.reviews
+            return reviews.length
         }
     },
     created() {
         var stayId = this.$route.params.id
+        getStayById(stayId)
     },
 }
 </script>

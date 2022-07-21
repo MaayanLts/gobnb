@@ -36,12 +36,16 @@
     </div>
 
     <div class="middle-section">
-      <ul class="main-nav clean-list flex">
-        <li><a href="#">Anywhere</a></li>
-        <li><a href="#">Anyweek</a></li>
-        <li><a href="#">add gust</a></li>
-      </ul>
-      <img class="search-icon" src="/src/assets/logo/serch.png" alt="">
+      <nav class="main-header-nav">
+        <ul class="main-nav clean-list flex">
+          <li class="li-header"><a href="#">Anywhere</a></li>
+          <li class="li-header"><a href="#">Anyweek</a></li>
+          <li class="li-header"><a href="#">add gust</a>
+            <img class="search-icon" src="/src/assets/logo/serch.png" alt="">
+          </li>
+
+        </ul>
+      </nav>
     </div>
 
 
