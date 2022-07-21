@@ -1,0 +1,55 @@
+.header {
+
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(233, 232, 232);
+
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.middle-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 360px;
+
+}
+
+.right-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.user-humburger {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.logo {
+  width: 100px;
+}
+
+.search-icon {
+  width: 30px;
+}
+
+.globe-icon {
+  width: 16px;
+}
+
+.user-img {
+  width: 30px;
+  border-radius: 50px;
+}
