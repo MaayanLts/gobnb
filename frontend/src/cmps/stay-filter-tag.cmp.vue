@@ -1,5 +1,5 @@
 <template>
-  <section class="tag-containrt flex inline-flex">
+  <section class="tag-containrt flex inline-flex" @click="tagSelect(tag)">
     <img class="img" :src="tagImag" />
     <i>{{ tag }}</i>
   </section>
@@ -16,6 +16,13 @@ export default {
 
 
   methods: {
+
+    tagSelect(tag) {
+      this.$store.dispatch({
+        type: 'setFilterBy',
+        filterBy: { tag: JSON.parse(JSON.stringify(tag)) },
+      })
+    },
 
   },
   computed: {

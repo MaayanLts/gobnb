@@ -1,11 +1,15 @@
 import {storageService} from './async-storage.service.js'
-import stayData from '@/data/stay.json' 
+import stayData from '@/data/stay.json'
 
 const ENDPOINT = 'stay'
 
-
 async function query(filterBy) {
-	return Promise.resolve(stayData)
+	console.log('filterBy:', filterBy)
+	const regex = new RegExp(filterBy.tag, 'i')
+	let filteredStays = stayData.filter((stay) => regex.test(stay.tags))
+	console.log('filteredStays:', filteredStays)
+
+	return Promise.resolve(filteredStays)
 	//return storageService.get(ENDPOINT)//, filterBy)
 }
 
@@ -19,11 +23,11 @@ async function getStayById(stayId) {
 
 //Find element by id in JSON
 function findId(data, idToLookFor) {
-    for (let i = 0; i < data.length; i++) {
-        if (data[i]._id == idToLookFor) {
-            return(data[i]);
-        }
-    }
+	for (let i = 0; i < data.length; i++) {
+		if (data[i]._id == idToLookFor) {
+			return data[i]
+		}
+	}
 }
 
 async function removeStay(stayId) {
