@@ -1,18 +1,16 @@
 <template>
-  <section>
-    hhh
-    <img :src="tagImag" />
+  <section class="tag-containrt flex inline-flex">
+    <img class="img" :src="tagImag" />
+    <i>{{ tag }}</i>
   </section>
 </template>
 
 <script>
-import { ssrContextKey } from 'vue'
 
 export default {
   props: {
     tag: {
       type: String,
-      required: true,
     }
   },
 
@@ -26,7 +24,6 @@ export default {
     }
   },
   created() {
-    console.log(this.tag);
 
   },
 }

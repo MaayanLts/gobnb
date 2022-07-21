@@ -13,22 +13,13 @@
 
     <nav class="main-header-nav middle-section">
       <ul class="main-nav clean-list flex">
-        <div class="test">
-          <li class="li-header"><a href="#">Anywhere</a></li>
-        </div>
-
-        <div class="test">
-          <li class="li-header"><a href="#">Anyweek</a></li>
-        </div>
-
-        <div class="test">
-          <li class="li-header"><a href="#">Add gust</a>
-            <div class="search-icon-container">
-              <img class="search-icon" src="../assets/logo/serch_icon.png"
-                alt="">
-            </div>
-          </li>
-        </div>
+        <li class="li-header"><a href="#">Anywhere</a></li>
+        <li class="li-header"><a href="#">Anyweek</a></li>
+        <li class="li-header"><a href="#">Add gust</a>
+          <div class="search-icon-container">
+            <img class="search-icon" src="../assets/logo/serch_icon.png" alt="">
+          </div>
+        </li>
 
       </ul>
     </nav>
@@ -45,11 +36,14 @@
     </div>
   </div>
 
+  <location-filter></location-filter>
 </template>
 <script>
-export default {
-  computed: {
+import locationFitler from "./location-filter.cmp.vue"
 
+export default {
+  components: {
+    locationFitler,
   }
 }
 </script>
