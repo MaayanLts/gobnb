@@ -53,3 +53,36 @@
   width: 30px;
   border-radius: 50px;
 }
+
+.main-header-nav {
+  display: flex;
+  justify-self: end;
+  grid-area: nav;
+  top: 0px;
+  right: 0px;
+  z-index: 10;
+
+  .main-nav {
+    a {
+      @include btn($type: light, $padding: em(16px) em(20px));
+      display: block;
+
+      &.active {
+        background-color: $clr1;
+        color: $clr3;
+      }
+    }
+  }
+
+  .main-header-search {
+    svg {
+      width: 20px;
+    }
+  }
+
+}
+
+.li-header {
+  display: flex;
+  align-items: center;
+}
