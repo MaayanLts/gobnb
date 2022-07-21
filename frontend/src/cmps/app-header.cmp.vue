@@ -51,7 +51,7 @@
 
     <div class="right-section">
 
-      <button>swith to hosting</button>
+      <a>swith to hosting</a>
       <img class="globe-icon" src="/src/assets/logo/Globe_icon.svg" alt="">
       <div class="user-humburger">
         <i>≡</i>
