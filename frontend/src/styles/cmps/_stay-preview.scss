@@ -1,6 +1,9 @@
 .stay-preview {
     width: 325px;
     height: 406px;
+    img{
+      object-fit: cover;
+    }
   }
   
 .preview-img-carusela{
