@@ -26,7 +26,6 @@ export default {
     },
   },
   unmounted() {
-    console.log('Stay preview - this.stay :', this.stay.name)
   },
   methods: {
     showStayDetails() {
