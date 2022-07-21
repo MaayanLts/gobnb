@@ -1,20 +1,61 @@
 <template>
-  <header>
-    <nav>
+
+  <!-- <header class="main-header">
+
+    <div class="main-header-logo">
       <router-link to="/">
-        <span role="img" aria-label="logo">🙏</span>
+        <img src="/src/assets/logo/logo.png" alt="">
       </router-link>
-      <!-- <router-link to="/review">Reviews</router-link>
-      <router-link to="/chat">Chat</router-link>
-      <router-link to="/login">Login / Signup</router-link> -->
+    </div>
+
+    <nav class="main-header-nav">
+      <ul class="main-nav clean-list flex">
+        <li><a href="#">Anywhere</a></li>
+        <li><a href="#">Anyweek</a></li>
+        <li><a href="#">add gust</a></li>
+      </ul>
+      <button class="main-header-search ">
+        <img src="/src/assets/logo/serch.png" alt="">
+      </button>
     </nav>
-    <!-- <section class="loggedin-user" v-if="loggedInUser">
-      <router-link :to="`/user/${loggedInUser._id}`">
-        {{ loggedInUser.fullname }}
-      </router-link>
-      <span>{{ loggedInUser.score.toLocaleString() }}</span>
-    </section> -->
-  </header>
+    <div class="main-header-user">
+      <button>swith to hosting</button>
+      <button></button>
+
+    </div>
+
+  </header> -->
+
+  <div class="header">
+    <div class="left-section">
+      <div class="main-header-logo">
+        <router-link to="/">
+          <img class="logo" src="/src/assets/logo/logo.png" alt="">
+        </router-link>
+      </div>
+    </div>
+
+    <div class="middle-section">
+      <ul class="main-nav clean-list flex">
+        <li><a href="#">Anywhere</a></li>
+        <li><a href="#">Anyweek</a></li>
+        <li><a href="#">add gust</a></li>
+      </ul>
+      <img class="search-icon" src="/src/assets/logo/serch.png" alt="">
+    </div>
+
+
+    <div class="right-section">
+
+      <button>swith to hosting</button>
+      <img class="globe-icon" src="/src/assets/logo/Globe_icon.svg" alt="">
+      <div class="user-humburger">
+        <i>≡</i>
+        <img class="user-img" src="/src/assets/logo/user.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
 </template>
 <script>
 export default {
