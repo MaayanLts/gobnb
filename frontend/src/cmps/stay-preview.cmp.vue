@@ -1,7 +1,7 @@
 <template>
   <section class="stay-preview">
     
-  <img class="preview-img-carusela" :src="stay.imgUrls[0]" />
+  <img class="preview-img-carusela" :src="imgUrl" />
   <span>{{ stay.name }}</span>
   </section>
 </template>
@@ -19,6 +19,11 @@ export default {
   data() {
   },
   components: {
+  },
+  computed: {
+    imgUrl() {
+      return `src/images/${this.stay.imgUrls[0]}`
+    },
   },
   unmounted() {
     console.log('Stay preview - this.stay :', this.stay.name)
@@ -39,16 +44,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.stay-preview {
-  border: 2px solid rgb(158, 146, 146);
-  width: 250px;
-  height: 250px;
-}
-
-.preview-img-carusela{
-    width: 100%;
-    height: 200px;
-}
-</style>

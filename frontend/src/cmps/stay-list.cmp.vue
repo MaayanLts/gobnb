@@ -1,10 +1,10 @@
 <template>
   <section class="stay-list-container">
     <button @click="toAddStay()">Add Stay</button>
-    <ul class="stay-list">
+    <div class="stay-list">
       <!-- clean-list stay-list-layout">> -->
       <stay-preview v-for="stay in stays" :key="stay._id" :stay="stay" />
-    </ul>
+    </div>
   </section>
 </template>
 
@@ -35,10 +35,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.stay-list-container a {
-  margin-bottom: 10px;
-  display: inline-block;
-}
-</style>
