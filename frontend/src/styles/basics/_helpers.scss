@@ -29,6 +29,10 @@
     @include type(boldCondensed);
 }
 
+.clickable {
+    cursor: pointer;
+}
+
 // Aspect ratios
 
 .ratio-16-9 { @include aspect-ratio(100, 56); }
