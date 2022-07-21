@@ -2,6 +2,7 @@
   background-color: white;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: rgb(233, 232, 232);
@@ -16,21 +17,76 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: em(360px);
+  justify-content: space-around;
+  width: em(396px);
+  height: fit-content;
+  width: fit-content;
+  // width: em(352px);
+  padding-left: em(8px);
+  padding-right: em(8px);
+  border: 1px solid black;
+  justify-content: space-around;
+  border-radius: 25px;
+  z-index: 10;
+
+
+  .search-icon {
+    width: em(16px);
+  }
+
+
+  .test {}
+
+
 
 }
+
+.search-icon-container {
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: em(32px);
+  height: em(32px);
+  border-radius: 50%;
+
+  .search-icon {
+    width: em(15px);
+  }
+
+}
+
+
 
 .right-section {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: em(220px);
+  justify-content: space-around;
 
 }
+
+
+
 
 .user-humburger {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: em(77px);
+  border: 1px rgb(85, 85, 98) solid;
+  justify-content: space-around;
+  border-radius: 25px;
+  margin-top: em(19px);
+  margin-bottom: em(19px);
+
+  .burger-icon {
+    width: em(16px);
+
+  }
+
 
 }
 
@@ -38,9 +94,6 @@
   width: em(100px);
 }
 
-.search-icon {
-  width: em(30px);
-}
 
 .globe-icon {
   width: em(16px);
@@ -52,30 +105,15 @@
 }
 
 .main-header-nav {
-  display: flex;
-  justify-self: end;
-  grid-area: nav;
-  top: 0px;
-  right: 0px;
-  z-index: 10;
 
   .main-nav {
     a {
       @include btn($type: light, $padding: em(16px) em(20px));
-      display: block;
 
-      &.active {
-        background-color: $clr1;
-        color: $clr3;
-      }
+
     }
   }
 
-  .main-header-search {
-    svg {
-      width: 20px;
-    }
-  }
 
 }
 
