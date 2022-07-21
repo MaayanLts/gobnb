@@ -1,11 +1,18 @@
 <template>
 
+  <!-- <stay-filter-tag v-for="tag in tags" :tag="tag" /> -->
+
 </template>
 
 <script>
+import stayFilterTag from './stay-filter-tag.cmp.vue'
 export default {
-  data() {
 
+
+  data() {
+    return {
+      tags: ["island", "lake", "snow", "city", "camping"],
+    }
   },
 
   methods: {
@@ -25,5 +32,10 @@ export default {
       })
     },
   },
+  created() {
+  },
+  comments: {
+    stayFilterTag
+  }
 }
 </script>

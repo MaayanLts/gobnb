@@ -1,13 +1,10 @@
 .header {
-
   background-color: white;
   display: flex;
   justify-content: space-around;
-
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: rgb(233, 232, 232);
-
 }
 
 .left-section {
@@ -19,7 +16,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 360px;
+  width: em(360px);
 
 }
 
@@ -38,18 +35,51 @@
 }
 
 .logo {
-  width: 100px;
+  width: em(100px);
 }
 
 .search-icon {
-  width: 30px;
+  width: em(30px);
 }
 
 .globe-icon {
-  width: 16px;
+  width: em(16px);
 }
 
 .user-img {
   width: 30px;
   border-radius: 50px;
+}
+
+.main-header-nav {
+  display: flex;
+  justify-self: end;
+  grid-area: nav;
+  top: 0px;
+  right: 0px;
+  z-index: 10;
+
+  .main-nav {
+    a {
+      @include btn($type: light, $padding: em(16px) em(20px));
+      display: block;
+
+      &.active {
+        background-color: $clr1;
+        color: $clr3;
+      }
+    }
+  }
+
+  .main-header-search {
+    svg {
+      width: 20px;
+    }
+  }
+
+}
+
+.li-header {
+  display: flex;
+  align-items: center;
 }

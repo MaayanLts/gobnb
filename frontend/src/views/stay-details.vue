@@ -7,8 +7,8 @@
             <div class="start-links">
                 <a href="">★ {{ meanRate }}</a>
                 <a href="">{{ reviews }} reviews</a>
-                <a href=""> {{ stay.loc.city }}</a>
-                <a href=""> {{ stay.loc.country }}</a>
+                <a href=""> {{ stay.address.city }}</a>
+                <a href=""> {{ stay.address.country }}</a>
             </div>
 
             <div class="end-links">
@@ -18,15 +18,15 @@
         </div>
 
         <div class="images-holder">
-            <img class="large-img" :src="stay.imgUrls[0]" alt="">
+            <img class="large-img" :src="imgUrl(stay.imgUrls[0])" alt="">
             <div class="small-mid-img">
-                <img :src="stay.imgUrls[1]" alt="">
-                <img :src="stay.imgUrls[2]" alt="">
+                <img :src="imgUrl(stay.imgUrls[1])" alt="">
+                <img :src="imgUrl(stay.imgUrls[2])" alt="">
 
             </div>
             <div class="small-end-img">
-                <img :src="stay.imgUrls[3]" alt="">
-                <img :src="stay.imgUrls[4]" alt="">
+                <img :src="imgUrl(stay.imgUrls[3])" alt="">
+                <img :src="imgUrl(stay.imgUrls[4])" alt="">
 
             </div>
 
@@ -68,6 +68,10 @@ export default {
             this.stay = await this.$store.dispatch({ type: 'getStayById', stayId })
             console.log('this.stay', this.stay);
         },
+        imgUrl(imgName) {
+            console.log('imgName:', imgName)
+            return `src/images/${imgName}`
+        },
     },
     computed: {
         meanRate() {
@@ -78,11 +82,13 @@ export default {
             return sum / reviews.length
         },
         reviews() {
-           const reviews = this.stay.reviews
+            const reviews = this.stay.reviews
             return reviews.length
-        }
+        },
+
     },
     created() {
+
         var stayId = this.$route.params.id
         this.getStayById(stayId)
     },
