@@ -2,7 +2,10 @@
   <section class="stay-preview" @click="goToStayDetails">
     
   <img class="preview-img-carusela" :src="imgUrl" />
-  <span>{{ stay.name }}</span>
+  <span style="font-weight: bold">{{ stay.name }}</span><br/>
+  <span>{{ stay.propertyType }} ~ {{ stay.roomType }}</span><br/>
+  <span>${{ stay.price }} night</span><br/>
+  <span>{{ stay.beds }} beds ~ {{ stay.bedrooms }} bedrooms</span>
   </section>
 </template>
 
