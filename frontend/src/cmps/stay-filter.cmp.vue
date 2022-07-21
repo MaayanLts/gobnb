@@ -1,6 +1,5 @@
 <template>
 
-  bcvbv
   <!-- <stay-filter-tag v-for="tag in tags" :tag="tag" /> -->
 
 </template>
