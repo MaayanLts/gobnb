@@ -19,17 +19,13 @@
 
         <div class="images-holder">
             <img class="large-img" :src="imgUrl(stay.imgUrls[0])" alt="">
-            <div class="small-mid-img">
+            <div class="small-img-container">
                 <img :src="imgUrl(stay.imgUrls[1])" alt="">
                 <img :src="imgUrl(stay.imgUrls[2])" alt="">
-
-            </div>
-            <div class="small-end-img">
                 <img :src="imgUrl(stay.imgUrls[3])" alt="">
                 <img :src="imgUrl(stay.imgUrls[4])" alt="">
 
             </div>
-
         </div>
 
         <div class="hosted-by-txt">

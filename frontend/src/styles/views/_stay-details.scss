@@ -42,9 +42,19 @@
 }
 
 .images-holder {
+    display: flex;
+    flex-direction: row;
+    object-fit: cover;
     width: 100%;
- .large-img{
+    height: 500px;
+    
+ .small-img-container{
     width: 50%;
+    display: grid;
+    object-fit: cover;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
  }
 
 }
