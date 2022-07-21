@@ -6,6 +6,7 @@
         grid-column: 2;
     }
 
+
     @include for-narrow-layout {
         @include layoutGTC($break-narrow);
     }
@@ -67,4 +68,10 @@
     padding-top: rem(24px);
     margin: 0;
     
+}
+.limks-line{
+    margin-top: 1em;
+    >:first-child{
+        text-decoration: none;
+    }
 }

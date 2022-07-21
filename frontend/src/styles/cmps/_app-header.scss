@@ -1,12 +1,32 @@
 .header {
   background-color: white;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: rgb(233, 232, 232);
+  
+  @include for-narrow-layout {
+    @include layoutGTC($break-narrow);
+  }
+  
+  @include for-normal-layout {
+    @include layoutGTC($break-normal);
+  }
+  
+  @include for-wide-layout {
+    @include layoutGTC($break-wide);
+  }
+  
+  
 }
+.details-header{
+  padding-inline-start: $layoutPadding;
+  padding-inline-end: $layoutPadding;
+
+}
+
 
 .left-section {
   display: flex;
@@ -41,7 +61,7 @@
 }
 
 .search-icon-container {
-  background-color: red;
+  background-color: $primary-clr;
   display: flex;
   flex-direction: row;
   justify-content: center;
