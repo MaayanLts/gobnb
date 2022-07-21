@@ -1,5 +1,5 @@
 <template >
-<h2>details:</h2>
+    <h2>details:</h2>
     <section class="main-details-container" v-if="stay">
 
         <h2>{{ stay.name }}</h2>
@@ -18,7 +18,18 @@
         </div>
 
         <div class="images-holder">
-            <img v-for="url in stay.imgUrls" :src=url alt="">
+            <img class="large-img" :src="stay.imgUrls[0]" alt="">
+            <div class="small-mid-img">
+                <img :src="stay.imgUrls[1]" alt="">
+                <img :src="stay.imgUrls[2]" alt="">
+
+            </div>
+            <div class="small-end-img">
+                <img :src="stay.imgUrls[3]" alt="">
+                <img :src="stay.imgUrls[4]" alt="">
+
+            </div>
+
         </div>
 
         <div class="hosted-by-txt">
@@ -54,8 +65,8 @@ export default {
     },
     methods: {
         async getStayById(stayId) {
-            this.stay = await this.$store.dispatch({type: 'getStayById',stayId})
-            console.log('this.stay',this.stay);
+            this.stay = await this.$store.dispatch({ type: 'getStayById', stayId })
+            console.log('this.stay', this.stay);
         },
     },
     computed: {
