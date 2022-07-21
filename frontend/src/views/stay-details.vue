@@ -48,6 +48,8 @@
 export default {
     data() {
         return {
+            // stay: null,
+
             stay: {
                 "_id": "10006547",
                 "name": "Ribeira Charming Duplex",
@@ -105,9 +107,12 @@ export default {
         }
     },
     methods: {
-
-    },
-    components: {
+        async getStayById(stayId) {
+            this.stay = await this.$store.dispatch({
+                type: 'getStayById',
+                stayId,
+            })
+        },
     },
     computed: {
         meanRate() {
@@ -122,10 +127,12 @@ export default {
             return reviews.length
         }
     },
-    created() { },
+    created() {
+        var stayId = this.$route.params.id
+        this.getStayById(stayId)
+    },
 }
 </script>
 
 <style>
-
 </style>
