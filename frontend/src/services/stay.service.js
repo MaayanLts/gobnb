@@ -1,4 +1,6 @@
 import {storageService} from './async-storage.service.js'
+import stayData from '@/data/stay.json' 
+
 const gStays = [
 		{
 			'_id': '10006546',
@@ -159,8 +161,8 @@ const ENDPOINT = 'stay'
 function _creatStays() {}
 
 async function query(filterBy) {
-	if (gStays) return Promise.resolve(gStays)
-	return await storageService.get(ENDPOINT, filterBy)
+	return Promise.resolve(stayData)
+	//return await storageService.get(ENDPOINT, filterBy)
 }
 
 async function getStayById(stayId) {
