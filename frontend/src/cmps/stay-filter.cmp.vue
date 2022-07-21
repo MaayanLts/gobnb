@@ -1,11 +1,11 @@
 <template>
 
-  <!-- <stay-filter-tag v-for="tag in tags" :tag="tag" /> -->
+  <stay-filter-tag v-for="tag in tags" :key="tag" :tag="tag" />
 
 </template>
 
 <script>
-import stayFilterTag from './stay-filter-tag.cmp.vue'
+import stayFilterTag from '../cmps/stay-filter-tag.cmp.vue'
 export default {
 
 
@@ -34,7 +34,7 @@ export default {
   },
   created() {
   },
-  comments: {
+  components: {
     stayFilterTag
   }
 }

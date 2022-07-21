@@ -69,19 +69,14 @@
 // Buttons
 
 @mixin btn($type: regular, $bg: $clr1, $clr: $clr3, $padding: em(24px) em(44px), $hover: darken($bg, 8%)) {
-  display: inline-flex;
-  align-items: center;
   text-decoration: none;
   padding: $padding;
-  line-height: 1.25;
   font-size: em(14px);
   border: none;
   cursor: pointer;
 
-  transition: background-color 0.2s;
 
   @if $type ==regular {
-    background-color: $bg;
     color: $clr;
 
     &:hover {}
@@ -93,7 +88,6 @@
   }
 
   @else if $type ==light {
-    background-color: $clr3;
     color: $clr2;
 
     &:hover {}
