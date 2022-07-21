@@ -1,10 +1,10 @@
 <template >
     <section class="main-details-container" v-if="stay">
 
-        <h2>{{ stay.name }}</h2>
+        <h2 class="details-title">{{ stay.name }}</h2>
         <div class="limks-line">
             <div class="start-links">
-                <a href="">★ {{ meanRate }}</a>
+                <a href="">★ {{ stay.reviewScores.rating /20}}</a>
                 <a href="">{{ reviews }} reviews</a>
                 <a href=""> {{ stay.address.city }}</a>
                 <a href=""> {{ stay.address.country }}</a>
@@ -42,7 +42,7 @@
         </div>
 
         <div class="reviews">
-            <h2>★ {{ meanRate }}</h2>
+            <h2>★ {{ stay.reviewScores.rating /20}}</h2>
 
         </div>
     </section>
