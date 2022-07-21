@@ -6,7 +6,7 @@ import stayDetails from '../views/stay-details.vue'
 // import userDetails from '../views/user-details.vue'
 // import reviewPage from '../views/review-page.vue'
 
-import {createRouter, createWebHashHistory} from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
 	history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -17,15 +17,10 @@ const router = createRouter({
 			component: stayApp,
 		},
 		{
-			path: '/details',
+			path: '/stay/edit/:id?',
 			name: 'stay-details',
 			component: stayDetails,
 		},
-		// {
-		// 	path: '/stay/edit/:id?',
-		// 	name: 'stay-edit',
-		// 	component: stayEdit,
-		// },
 		// {
 		// 	path: '/login',
 		// 	name: 'login-page',
