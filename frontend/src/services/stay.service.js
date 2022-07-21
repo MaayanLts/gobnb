@@ -158,16 +158,35 @@ const gStays = [
 
 const ENDPOINT = 'stay'
 
-function _creatStays() {}
+//_creatStays()
+
+// function _creatStays() {
+// 	query().then((res) => {
+// 		if(!res)
+// 			storageService.postMany(ENDPOINT, stayData)
+// 	})
+// }
 
 async function query(filterBy) {
 	return Promise.resolve(stayData)
-	//return await storageService.get(ENDPOINT, filterBy)
+	//return storageService.get(ENDPOINT)//, filterBy)
 }
 
 async function getStayById(stayId) {
 	//return await storageService.get(`${ENDPOINT}/${stayId}`)
-	return await storageService.get(ENDPOINT, stayId)
+	//return await storageService.get(ENDPOINT, stayId)
+
+	var stay = findId(stayData, stayId)
+	return stay
+}
+
+//Find element by id in JSON
+function findId(data, idToLookFor) {
+    for (let i = 0; i < data.length; i++) {
+        if (data[i]._id == idToLookFor) {
+            return(data[i]);
+        }
+    }
 }
 
 async function removeStay(stayId) {

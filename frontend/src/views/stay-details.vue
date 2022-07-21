@@ -7,8 +7,8 @@
             <div class="start-links">
                 <a href="">★ {{ meanRate }}</a>
                 <a href="">{{ reviews }} reviews</a>
-                <a href=""> {{ stay.loc.city }}</a>
-                <a href=""> {{ stay.loc.country }}</a>
+                <a href=""> {{ stay.address.city }}</a>
+                <a href=""> {{ stay.address.country }}</a>
             </div>
 
             <div class="end-links">
@@ -84,7 +84,7 @@ export default {
     },
     created() {
         var stayId = this.$route.params.id
-        getStayById(stayId)
+        this.getStayById(stayId)
     },
 }
 </script>
