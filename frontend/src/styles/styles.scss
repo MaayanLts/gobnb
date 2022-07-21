@@ -10,11 +10,11 @@
 @import 'basics/layout';
 
 // COMPONENTS
-@import 'components/app-header';
-@import 'components/chat';
-@import 'components/stay-filter';
-@import 'components/stay-list';
-@import 'components/stay-preview';
+@import 'cmps/app-header';
+@import 'cmps/chat';
+@import 'cmps/stay-filter';
+@import 'cmps/stay-list';
+@import 'cmps/stay-preview';
 
 // PAGES
 @import 'views/home';

@@ -1,7 +1,7 @@
 <template>
   <section class="stay-preview">
     
-  <!-- <img :src="stay.imgUrls[0]" /> -->
+  <img class="preview-img-carusela" :src="stay.imgUrls[0]" />
   <span>{{ stay.name }}</span>
   </section>
 </template>
@@ -42,8 +42,13 @@ export default {
 
 <style scoped>
 .stay-preview {
-  border: 2px solid red;
-  width: 200px;
-  height: 200px;
+  border: 2px solid rgb(158, 146, 146);
+  width: 250px;
+  height: 250px;
+}
+
+.preview-img-carusela{
+    width: 100%;
+    height: 200px;
 }
 </style>
