@@ -9,14 +9,13 @@ import stayFilterTag from '../cmps/stay-filter-tag.cmp.vue'
 export default {
 
 
-  data() {
+data() {
     return {
       tags: ["island", "lake", "snow", "city", "camping"],
     }
-  },
+},
 
   methods: {
-
     setSortBy() {
       this.$store.commit({
         type: 'sortBy',
