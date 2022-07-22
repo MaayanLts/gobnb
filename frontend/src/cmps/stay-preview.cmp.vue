@@ -53,8 +53,7 @@ export default {
           if(this.stay.address.country) 
             propertyDesc += `, `
         }
-        //propertyDesc += this.stay.address.city
-
+        
         if(this.stay.address.country) 
           propertyDesc += `${this.stay.address.country}`
 
