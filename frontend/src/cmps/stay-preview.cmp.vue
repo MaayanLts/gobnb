@@ -3,7 +3,7 @@
 
 
 
-    <el-carousel trigger="click" interval="0">
+    <el-carousel trigger="click" :autoplay="false">
       <el-carousel-item v-for="(img, idx) in stay.imgUrls" :key="img">
         <img class="preview-img-carusela" :src="imgUrl + img" />
       </el-carousel-item>
@@ -25,7 +25,8 @@ export default {
     stay: {
       type: Object,
       required: true,
-    }
+    },
+
   },
   data() {
     return {
@@ -36,6 +37,9 @@ export default {
     slide,
   },
   computed: {
+    intraval() {
+      return 0
+    },
     imgUrl() {
       return `src/images/`
     },
