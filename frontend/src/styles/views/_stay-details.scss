@@ -29,6 +29,7 @@
     gap: .5rem;
     height: em(500px);
 
+
     img {
         object-fit: cover;
         width: 100%;
@@ -67,30 +68,34 @@
 }
 
 
-// .start-links {
-//     >* {
-//     }
-// }
-
 .end-links {
 
-    div{
+    .saveBtn {
+        position: relative;
+        left: 8px;
+    }
+
+
+    div {
         display: inline;
         padding: 8px;
         border-radius: 8px;
-        &:hover{
-            background-color:rgb(247, 247, 247);
+
+        &:hover {
+            background-color: #f7f7f7;
         }
+
         >* {
             color: $title-txt-clr;
         }
     }
-    :first-child { 
+
+    :first-child {
         width: em(16px);
     }
 }
 
-.limks-line {
+.links-line {
     display: flex;
     justify-content: space-between;
     margin-top: 1em;
@@ -114,22 +119,23 @@
     >* {
         text-size-adjust: 100%;
         line-height: 20px;
+
         >* {
             color: $title-txt-clr;
         }
     }
-    
+
     img {
         width: rem(8px);
         margin-right: 4px;
         position: relative;
-        top: 2px;  
+        top: 2px;
 
-        &.star{
+        &.star {
             width: rem(14px);
         }
     }
-    
+
     .superhost {
         font-family: 'Airbnb-book';
     }
@@ -137,5 +143,30 @@
     span.superhost {
         padding: 0;
     }
+
+}
+
+
+.host-holder {
+    width: 60%;
+    border-bottom: 1px solid #dfdddd;
+    margin-top: em(48px);
+    padding-bottom: em(24px);
+    display: flex;
+    justify-content: space-between;
+    
+    h2,h3 {
+        margin: 0;
+        width: max-content;
+    }
+    h3 {
+        display: inline-block;
+        font-weight: 200;
+    }
+    .host-img {
+        width: rem(56px);
+        border-radius: 50%;
+    }
+
 
 }
