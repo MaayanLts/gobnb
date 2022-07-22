@@ -1,10 +1,10 @@
 <template>
-  <section class="stay-preview" @click="showStayDetails">
+  <section class="stay-preview" @click.stop = "showStayDetails">
 
 
 
     <el-carousel trigger="click" :autoplay="false">
-      <el-carousel-item v-for="(img, idx) in stay.imgUrls" :key="img">
+      <el-carousel-item v-for="(img) in stay.imgUrls" :key="img">
         <img class="preview-img-carusela" :src="imgUrl + img" />
       </el-carousel-item>
     </el-carousel>
@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     showStayDetails() {
-      //  this.$router.push("/stay/"+ this.stay._id)
+      this.$router.push("/stay/"+ this.stay._id)
     },
   },
 
