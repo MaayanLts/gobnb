@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom-width: 1px;
-  border-bottom-style: solid;
+  //border-bottom-style: solid;
   border-bottom-color: rgb(233, 232, 232);
 
   @include for-narrow-layout {
@@ -18,6 +18,16 @@
   @include for-wide-layout {
     @include layoutGTC($break-wide);
   }
+}
+
+.dynamic-header{
+  border-bottom-style: solid;
+  border-bottom-color: rgb(233, 232, 232);
+  display: flex;
+  justify-content: center;
+  padding-bottom: em(15px);
+  transition: all 1s linear;
+  opacity: 1;
 }
 
 .details-header {
