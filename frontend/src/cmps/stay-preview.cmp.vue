@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     showStayDetails() {
-      //  this.$router.push("/stay/"+ this.stay._id)
+       this.$router.push("/stay/"+ this.stay._id)
     },
   },
 

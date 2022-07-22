@@ -4,20 +4,27 @@
         <h2 class="details-title">{{ stay.name }}</h2>
         <div class="limks-line">
             <div class="start-links">
-                <a href="">★ {{ stay.reviewScores.rating / 20 }}</a>
-                <span>.</span>
+                <a href=""><img class="star" src="../assets/logo/starAirbnb.svg"> {{ stay.reviewScores.rating / 20
+                }}</a>
+                <span>•</span>
                 <a href="">{{ reviews }} reviews</a>
-                <!-- <div class="superhost" v-if="stay.host.isSuperhost">
-                    <span>.</span>Superhost
-                </div> -->
-                <span>.</span>
-                <a href=""> {{ stay.address.city }}</a>
-                <a href=""> {{ stay.address.country }}</a>
+                <span class="superhost" v-if="stay.host.isSuperhost"><span>•</span>
+                    <img src="../assets/logo/superHost.png"> Superhost
+                </span>
+
+                <span>•</span>
+                <a href="">{{ stay.host.location }}</a>
             </div>
 
             <div class="end-links">
-                <a href="">⇧ Share</a>
-                <a href="">♡ Save</a>
+                <div class="shareBtn">
+                    <img src="../assets/logo/shareAirbnb.svg" alt="">
+                    <a href="">Share</a>
+                </div>
+                <div class="saveBtn">
+                    <img src="../assets/logo/saveAirbnb.svg" alt="">
+                    <a href="">Save</a>
+                </div>
             </div>
         </div>
         <div class="images-holder">
@@ -55,7 +62,10 @@
 </template>
 
 <script >
+
+
 export default {
+
     data() {
         return {
             stay: null,
