@@ -1,6 +1,6 @@
 <template>
 
-
+<div>
   <div :class="headerClass">
     <div class="left-section">
       <div class="main-header-logo">
@@ -10,8 +10,7 @@
       </div>
     </div>
 
-
-    <nav class="main-header-nav middle-section">
+    <nav class="main-header-nav middle-section" @click="showFullSearch" :style="displayInitSearch">
       <ul class="main-nav clean-list flex">
         <li class="li-header"><a href="#">Anywhere</a></li>
         <li class="li-header"><a href="#">Anyweek</a></li>
@@ -24,7 +23,6 @@
       </ul>
     </nav>
 
-
     <div class="right-section">
       <a>Become a Host</a>
       <img class="globe-icon" src="/src/assets/logo/Globe_icon.svg" alt="">
@@ -33,23 +31,42 @@
         <img class="user-img" src="/src/assets/logo/user.jpg" alt="">
       </div>
     </div>
+    
   </div>
+  <div class="dynamic-header" :style="displayFullSearch">
+    <stay-filter-search />
+  </div>
+</div>
 
-  <stay-filter-search />
 </template>
 <script>
 import stayFilterSearch from "./stay-filter-search.cmp.vue"
 
 export default {
+  data() {
+      return {
+        displaySearch: 'initSearch',
+      }
+  },
   computed: {
     headerClass() {
       const isDetailsHeader = this.$route.params.id
       return (isDetailsHeader) ? 'header details-header' : 'header'
+    },
+    displayInitSearch(){
+      return this.displaySearch === 'initSearch' ? 'opacity: 1' : 'opacity: 0' 
+    },
+    displayFullSearch(){
+      return this.displaySearch === 'fullSearch' ? 'opacity: 1; display: flex;' : 'opacity: 0; display: none;' 
     }
-
   },
   components: {
     stayFilterSearch,
-}
+  },
+  methods: {
+    showFullSearch(){
+      this.displaySearch = 'fullSearch'
+    }
+  },
 }
 </script>
