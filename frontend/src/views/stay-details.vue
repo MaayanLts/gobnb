@@ -2,7 +2,7 @@
     <section class="main-details-container" v-if="stay">
 
         <h2 class="details-title">{{ stay.name }}</h2>
-        <div class="limks-line">
+        <div class="links-line">
             <div class="start-links">
                 <a href=""><img class="star" src="../assets/logo/starAirbnb.svg"> {{ stay.reviewScores.rating / 20
                 }}</a>
@@ -36,12 +36,18 @@
             <img :src="imgUrl(stay.imgUrls[4])" alt="">
 
         </div>
+        <div class="host-holder">
 
-        <div class="hosted-by-txt">
-            <h2>{{ stay.name }} hosted by {{ stay.host.fullname }}</h2>
-            <h3>{{ stay.capacity }} guests</h3>
+            <div class="hosted-by-txt">
+                <h2>{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
+                <h3>{{ stay.capacity }} guests</h3><span> • </span>
+                <h3>{{ bedrooms }}</h3><span> • </span>
+                <h3>{{ stay.beds }} beds</h3><span> • </span>
+                <h3>{{ stay.bath }} bath</h3>
+            </div>
+            <img class="host-img" :src="stay.host.pictureUrl" alt="hostPic">
         </div>
-        <img class="host-img" :src="stay.host.imgUrl" alt="">
+
 
 
         <p class="summary">{{ stay.summary }}</p>
@@ -81,18 +87,15 @@ export default {
         },
     },
     computed: {
-        meanRate() {
-            var sum = 0
-            const reviews = this.stay.reviews
-            console.log(reviews)
-            reviews.forEach((rev) => { sum += rev.rate });
-            return sum / reviews.length
-        },
         reviews() {
             const reviews = this.stay.reviews
             return reviews.length
         },
-
+        bedrooms() {
+            const bedrooms = +this.stay.bedrooms
+            console.log(bedrooms)
+            return (bedrooms > 1) ? bedrooms + '\ bedrooms' : bedrooms + '\ bedroom'
+        }
     },
     created() {
 
