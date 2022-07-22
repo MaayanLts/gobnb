@@ -16,24 +16,14 @@ export default {
   },
 
   methods: {
-    // setFilterBy() {
-    //   var filter = this.filter
-    //   console.log(filter)
-    //   this.$store.commit({
-    //     type: 'setFilterBy',
-    //     filterBy: JSON.parse(JSON.stringify(filter)),
-    //   })
-    // },
+
     setSortBy() {
       this.$store.commit({
         type: 'sortBy',
         sortBy: JSON.parse(JSON.stringify(this.sortBy)),
       })
     },
-    tagSelect(tag) {
-      console.log('tag:', tag)
 
-    }
   },
   created() {
   },

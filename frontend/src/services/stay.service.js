@@ -5,9 +5,7 @@ const ENDPOINT = 'stay'
 
 async function query(filterBy) {
 	console.log('filterBy:', filterBy)
-	const regex = new RegExp(filterBy.tag, 'i')
-	let filteredStays = stayData.filter((stay) => regex.test(stay.tags))
-	console.log('filteredStays:', filteredStays)
+	let filteredStays = _buildFilterCriteria(filterBy)
 
 	return Promise.resolve(filteredStays)
 	//return storageService.get(ENDPOINT)//, filterBy)
@@ -65,4 +63,20 @@ export const stayService = {
 	removeStay,
 	saveStay,
 	// addReview
+}
+function _buildFilterCriteria(filterBy = {tag: '', conutry: ''}) {
+	const {tag, conutry} = filterBy
+	console.log('conutry:', conutry)
+	let filteredStays = stayData
+	if (tag) {
+		const regex = new RegExp(filterBy.tag, 'i')
+		filteredStays = stayData.filter((stay) => regex.test(stay.tags))
+	}
+	if (conutry) {
+		const regex = new RegExp(filterBy.conutry, 'i')
+		filteredStays = stayData.filter((stay) =>
+			regex.test(console.log('stay.address.country:', stay.address.country))
+		)
+	}
+	return filteredStays
 }

@@ -18,7 +18,7 @@ export default {
 
 		setFilterBy(state, {filterBy}) {
 			state.filterBy = filterBy
-			this.loasStays()
+			// this.loasStays()
 		},
 
 		removeStay(state, {stayId}) {
@@ -86,8 +86,9 @@ export default {
 			}
 		},
 		async setFilterBy(context, {filterBy}) {
+			console.log('filterBy:', filterBy)
 			try {
-				// context.commit({type: 'setFilterBy', filterBy})
+				context.commit({type: 'setFilterBy', filterBy})
 				const stays = await stayService.query(filterBy)
 				context.commit({type: 'setStays', stays: stays})
 			} catch (err) {

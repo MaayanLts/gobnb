@@ -6,27 +6,24 @@
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: rgb(233, 232, 232);
-  
+
   @include for-narrow-layout {
     @include layoutGTC($break-narrow);
   }
-  
+
   @include for-normal-layout {
     @include layoutGTC($break-normal);
   }
-  
+
   @include for-wide-layout {
     @include layoutGTC($break-wide);
   }
-  
-  
 }
-.details-header{
+
+.details-header {
   padding-inline-start: $layoutPadding;
   padding-inline-end: $layoutPadding;
-
 }
-
 
 .left-section {
   display: flex;
@@ -37,27 +34,17 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  width: em(396px);
   height: fit-content;
   width: fit-content;
-  // width: em(352px);
   padding-left: em(8px);
   padding-right: em(8px);
   border: 1px solid black;
   justify-content: space-around;
   border-radius: 25px;
 
-
   .search-icon {
     width: em(16px);
   }
-
-
-  .test {}
-
-
-
 }
 
 .search-icon-container {
@@ -73,10 +60,7 @@
   .search-icon {
     width: em(15px);
   }
-
 }
-
-
 
 .right-section {
   display: flex;
@@ -84,11 +68,7 @@
   align-items: center;
   width: em(220px);
   justify-content: space-around;
-
 }
-
-
-
 
 .user-humburger {
   display: flex;
@@ -103,16 +83,12 @@
 
   .burger-icon {
     width: em(16px);
-
   }
-
-
 }
 
 .logo {
   width: em(100px);
 }
-
 
 .globe-icon {
   width: em(16px);
@@ -124,16 +100,11 @@
 }
 
 .main-header-nav {
-
   .main-nav {
     a {
       @include btn($type: light, $padding: em(16px) em(20px));
-
-
     }
   }
-
-
 }
 
 .li-header {
