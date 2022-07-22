@@ -4,7 +4,7 @@
     <ul class="main-nav1 clean-list flex">
       <li class="li-header1" @click="onOpenWhere">
         <a href="#">where</a>
-        <input v-model="filterBy.conutry" @input="setFilterBy" type="text">
+        <input v-model="filterBy.country" type="text">
       </li>
       <li class="li-header1" @click="onOpenWhen">
         <a href="#">cheak in </a>
@@ -19,7 +19,7 @@
         <div class="li-header">
           <a href="#">who</a>
 
-          <div class="search-icon-container1">
+          <div class="search-icon-container1" @click="setFilterBy"> 
             <img class="search-icon1" src="../assets/logo/serch_icon.png"
               alt="">
           </div>
@@ -36,22 +36,17 @@ export default {
   data() {
     return {
       filterBy: {
-        conutry: '',
-
+        country: '',
       }
     }
   },
   created() { },
   methods: {
-
-
-
-
     setFilterBy() {
-      var filter = this.filterBy;
+      //var filter = filterBy.conutry//this.filterBy;
       this.$store.dispatch({
         type: 'setFilterBy',
-        filterBy: JSON.parse(JSON.stringify(filter)),
+        filterBy: {country: this.filterBy.country},//JSON.parse(JSON.stringify(this.filterBy.country)),
       });
     },
   },

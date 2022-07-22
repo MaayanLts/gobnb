@@ -64,18 +64,18 @@ export const stayService = {
 	saveStay,
 	// addReview
 }
-function _buildFilterCriteria(filterBy = {tag: '', conutry: ''}) {
-	const {tag, conutry} = filterBy
-	console.log('conutry:', conutry)
+function _buildFilterCriteria(filterBy = {tag: '', country: ''}) {
+	const {tag, country} = filterBy
+	console.log('conutry:', country)
 	let filteredStays = stayData
 	if (tag) {
 		const regex = new RegExp(filterBy.tag, 'i')
 		filteredStays = stayData.filter((stay) => regex.test(stay.tags))
 	}
-	if (conutry) {
-		const regex = new RegExp(filterBy.conutry, 'i')
+	if (country) {
+		const regex = new RegExp(filterBy.country, 'i')
 		filteredStays = stayData.filter((stay) =>
-			regex.test(console.log('stay.address.country:', stay.address.country))
+			regex.test(stay.address.country)
 		)
 	}
 	return filteredStays
