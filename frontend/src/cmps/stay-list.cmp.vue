@@ -31,7 +31,6 @@ export default {
   created() {
   },
   unmounted() {
-    console.log('Stay list - this.stays :', this.stays)
   },
 }
 </script>

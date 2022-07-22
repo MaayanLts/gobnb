@@ -1,10 +1,10 @@
 import {storageService} from './async-storage.service.js'
 import stayData from '@/data/stay.json'
+import {makeId} from './util.service.js'
 
 const ENDPOINT = 'stay'
 
 async function query(filterBy) {
-	console.log('filterBy:', filterBy)
 	let filteredStays = _buildFilterCriteria(filterBy)
 
 	return Promise.resolve(filteredStays)
@@ -55,6 +55,32 @@ function getEmptyStay() {
 	}
 	return emptyStay
 }
+function getEmptyTrip() {
+	var trip = {
+		_id: makeId(),
+		stayId: '',
+		startDate: '',
+		endDate: '',
+		price: 0,
+		guests: {
+			adults: 2,
+			kids: 1,
+		},
+		stayIddest: {
+			country: '',
+			countryCode: '',
+			address: '',
+			lat: 0,
+			lng: 0,
+		},
+		stayIdmainGuest: {
+			_id: '',
+			fullName: '',
+			imgUrl: '',
+		},
+	}
+	return trip
+}
 
 export const stayService = {
 	query,
@@ -62,11 +88,10 @@ export const stayService = {
 	getEmptyStay,
 	removeStay,
 	saveStay,
-	// addReview
+	getEmptyTrip,
 }
 function _buildFilterCriteria(filterBy = {tag: '', country: ''}) {
 	const {tag, country} = filterBy
-	console.log('conutry:', country)
 	let filteredStays = stayData
 	if (tag) {
 		const regex = new RegExp(filterBy.tag, 'i')
@@ -74,9 +99,7 @@ function _buildFilterCriteria(filterBy = {tag: '', country: ''}) {
 	}
 	if (country) {
 		const regex = new RegExp(filterBy.country, 'i')
-		filteredStays = stayData.filter((stay) =>
-			regex.test(stay.address.country)
-		)
+		filteredStays = stayData.filter((stay) => regex.test(stay.address.country))
 	}
 	return filteredStays
 }

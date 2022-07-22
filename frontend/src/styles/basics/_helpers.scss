@@ -2,13 +2,18 @@
 .flex {
     display: flex;
 }
+
+.space-between {
+    justify-content: space-between;
+}
+
 .flex.inline-flex {
     display: inline-flex;
 }
+
 .align-self-center {
     align-self: center;
 }
-
 
 // List 
 .clean-list {
