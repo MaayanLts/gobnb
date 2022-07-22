@@ -43,35 +43,59 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: .5rem;
-    height: em(406px);
+    height: em(500px);
 
     img {
         object-fit: cover;
         width: 100%;
         height: 100%;
     }
+
+    :first-child {
+        grid-column: span 2;
+        grid-row: span 2;
+        border-top-left-radius: 0.7em;
+        border-bottom-left-radius: 0.7em;
+
+    }
+
+    :nth-child(3) {
+        border-top-right-radius: 0.7em;
+    }
+
+    :nth-child(5) {
+        border-bottom-right-radius: 0.7em;
+    }
 }
 
-.images-holder> :first-child {
-    grid-column: span 2;
-    grid-row: span 2;
 
-}
 
 .details-title {
     font-family: 'Airbnb-bold';
     font-size: em(30px);
     font-weight: 600;
     color: $title-txt-clr;
-    line-height:rem(30px);
+    line-height: rem(30px);
 
     padding-top: rem(24px);
     margin: 0;
-    
+
 }
-.limks-line{
+
+.limks-line {
     margin-top: 1em;
-    >:first-child{
-        text-decoration: none;
+    font-size: em(14px);
+    
+
+    :first-child {
+        :first-child {
+            text-decoration: none;
+        }
+    }
+
+    >* {
+        >* {
+            color: $title-txt-clr;
+        }
     }
 }
