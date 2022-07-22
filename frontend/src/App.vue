@@ -14,6 +14,7 @@ import appHeader from './cmps/app-header.cmp.vue'
 export default {
   created() {
     this.$store.dispatch('loadStays')
+
   },
   methods: {
 

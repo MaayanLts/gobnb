@@ -13,8 +13,7 @@
 
 
         <div class="block">
-
-          <el-date-picker type="daterange" unlink-panels
+          <el-date-picker v-model="dates" type="daterange"
             start-placeholder="check in" end-placeholder="Check out" />
         </div>
       </li>
@@ -43,37 +42,32 @@ export default {
       filterBy: {
         country: '',
       },
-
-
-
-
-
+      dates: []
     }
   },
   created() {
-
-
-
-
-
-
-
   },
   methods: {
     setFilterBy() {
-      //var filter = filterBy.conutry//this.filterBy;
       this.$store.dispatch({
         type: 'setFilterBy',
-        filterBy: { country: this.filterBy.country },//JSON.parse(JSON.stringify(this.filterBy.country)),
+        filterBy: {
+          country: this.filterBy.country,
+        },
+      })
+      this.$store.dispatch({
+        type: 'setTrip',
+        trip: {
+          startDate: this.dates[0],
+          endDate: this.dates[1],
+        },
       });
+
     },
-
-
   },
   computed: {},
   unmounted() { },
 }
-
 
 </script>
 <style scoped>
