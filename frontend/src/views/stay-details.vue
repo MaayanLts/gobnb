@@ -4,8 +4,13 @@
         <h2 class="details-title">{{ stay.name }}</h2>
         <div class="limks-line">
             <div class="start-links">
-                <a href="">★ {{ stay.reviewScores.rating /20}}</a>
+                <a href="">★ {{ stay.reviewScores.rating / 20 }}</a>
+                <span>.</span>
                 <a href="">{{ reviews }} reviews</a>
+                <!-- <div class="superhost" v-if="stay.host.isSuperhost">
+                    <span>.</span>Superhost
+                </div> -->
+                <span>.</span>
                 <a href=""> {{ stay.address.city }}</a>
                 <a href=""> {{ stay.address.country }}</a>
             </div>
@@ -42,7 +47,7 @@
         </div>
 
         <div class="reviews">
-            <h2>★ {{ stay.reviewScores.rating /20}}</h2>
+            <h2>★ {{ stay.reviewScores.rating / 20 }}</h2>
 
         </div>
     </section>
