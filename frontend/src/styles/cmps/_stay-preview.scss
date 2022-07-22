@@ -17,3 +17,17 @@
 .stay-preview-info-container{
   padding-top: 1rem;
 }
+
+.svg-heart{
+  position:absolute;
+  object-fit: contain;
+  float: right;
+  fill: $clr6;
+  z-index: 100;
+  opacity: 0.8;
+  filter: drop-shadow(-.5px -.5px .5px white) 
+  drop-shadow(.5px -.5px 0px white) 
+  drop-shadow(.5px .5px 0px white)
+  drop-shadow(-.5px .5px 0px white)
+}
+
