@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: $layoutPadding 1fr $layoutPadding;
 
+
     >* {
         grid-column: 2;
     }
@@ -56,6 +57,7 @@
 
 
 .details-title {
+
     font-family: 'Airbnb-book';
     font-size: em(30px);
     font-weight: 500;
@@ -150,23 +152,30 @@
 .host-holder {
     width: 60%;
     border-bottom: 1px solid #dfdddd;
-    margin-top: em(48px);
+    padding-top: em(48px);
     padding-bottom: em(24px);
     display: flex;
     justify-content: space-between;
-    
-    h2,h3 {
+
+    h2,
+    h3 {
         margin: 0;
         width: max-content;
     }
+
     h3 {
         display: inline-block;
         font-weight: 200;
     }
+
     .host-img {
         width: rem(56px);
         border-radius: 50%;
     }
 
 
+}
+.left-bar{
+    width: 60%;
+    display: inline-block;
 }

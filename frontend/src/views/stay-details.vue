@@ -36,28 +36,47 @@
             <img :src="imgUrl(stay.imgUrls[4])" alt="">
 
         </div>
-        <div class="host-holder">
+        <stay-trip :stay="stay" />
+        <section class="left-bar">
+            <div class="host-holder">
 
-            <div class="hosted-by-txt">
-                <h2>{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
-                <h3>{{ stay.capacity }} guests</h3><span> • </span>
-                <h3>{{ bedrooms }}</h3><span> • </span>
-                <h3>{{ stay.beds }} beds</h3><span> • </span>
-                <h3>{{ stay.bath }} bath</h3>
+                <div class="hosted-by-txt">
+                    <h2>{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
+                    <h3>{{ stay.capacity }} guests</h3><span> • </span>
+                    <h3>{{ bedrooms }}</h3><span> • </span>
+                    <h3>{{ stay.beds }} beds</h3><span> • </span>
+                    <h3>{{ stay.bath }} bath</h3>
+                </div>
+                <img class="host-img" :src="stay.host.pictureUrl" alt="hostPic">
             </div>
-            <img class="host-img" :src="stay.host.pictureUrl" alt="hostPic">
-        </div>
 
 
+            <div class="highligths">
+                <div class="superhostTxt" v-if="stay.host.isSuperhost">
+                    <h2>{{ stay.host.fullname }} is a Superhost</h2>
+                    <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for
+                        gues
+                    </p>
+                </div>
+                <div class="locTxt" v-if="stay.location >= 9">
+                    <h2>Great location</h2>
+                    <p>{{ stay.location * 10 }}% of recent guests gave the location a 5-star rating.</p>
+                </div>
 
-        <p class="summary">{{ stay.summary }}</p>
+                <h2>Free cancellation for 48 hours.</h2>
 
-        <div class="amenities">
-            <h2>What this place offers</h2>
-            <ul>
-                <li v-for="ament in stay.amenities">{{ ament }}</li>
-            </ul>
-        </div>
+            </div>
+
+            <p class="summary">{{ stay.summary }}</p>
+
+            <div class="amenities">
+                <h2>What this place offers</h2>
+                <ul>
+                    <li v-for="ament in stay.amenities">{{ ament }}</li>
+                </ul>
+            </div>
+
+        </section>
 
         <div class="reviews">
             <h2>★ {{ stay.reviewScores.rating / 20 }}</h2>
@@ -68,6 +87,7 @@
 </template>
 
 <script >
+import stayTrip from '../cmps/stay-trip.cmp.vue'
 
 
 export default {
@@ -102,6 +122,7 @@ export default {
         var stayId = this.$route.params.id
         this.getStayById(stayId)
     },
+    components: { stayTrip }
 }
 </script>
 
