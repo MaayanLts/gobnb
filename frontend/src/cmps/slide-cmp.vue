@@ -1,6 +1,6 @@
 <template>
     <div class="mySlides fade">
-      <div class="numbertext">1 / 5</div>
+      <div class="numbertext">1</div>
       <img class="slide-img" :src="fullImageUrl">
       <div class="text">Caption Text</div>
     </div>
