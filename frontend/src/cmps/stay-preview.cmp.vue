@@ -1,18 +1,22 @@
 <template>
   <section class="stay-preview" @click.stop = "showStayDetails">
 
-
-
     <el-carousel trigger="click" :autoplay="false">
       <el-carousel-item v-for="(img) in stay.imgUrls" :key="img">
         <img class="preview-img-carusela" :src="imgUrl + img" />
       </el-carousel-item>
     </el-carousel>
 
-    <span class="bold">{{ stay.name }}</span><span>{{ rating }}</span><br />
-    <span>{{ stay.propertyType }} • {{ stay.roomType }}</span><br />
-    <span>{{ stay.beds }} beds • {{ stay.bedrooms }} bedrooms</span><br />
-    <span class="bold">${{ stay.price }} night</span><br /> -->
+    <div class="stay-preview-info-container">
+      <div class="flex space-between">
+        <span class="bold">{{ propertyTypeAndLocation }} </span>
+        <div><img src="src/images/star.svg" /><span>{{  rating }}</span></div>
+      </div>
+      <span>{{ stay.propertyType }} • {{ stay.roomType }}</span><br />
+      <span>{{ stay.beds }} beds • {{ stay.bedrooms }} bedrooms</span><br />
+      <span class="bold">${{ stay.price }} night</span><br />
+    </div>
+
   </section>
 </template>
 
@@ -37,6 +41,25 @@ export default {
     slide,
   },
   computed: {
+    propertyTypeAndLocation(){
+        let propertyDesc = ''
+        if(this.stay.propertyType){
+          propertyDesc = this.stay.propertyType
+          if(this.stay.address.city) 
+            propertyDesc += ` in `
+        }
+        if(this.stay.address.city){  
+          propertyDesc += `${this.stay.address.city}`
+          if(this.stay.address.country) 
+            propertyDesc += `, `
+        }
+        //propertyDesc += this.stay.address.city
+
+        if(this.stay.address.country) 
+          propertyDesc += `${this.stay.address.country}`
+
+        return propertyDesc
+    },
     intraval() {
       return 0
     },
@@ -59,9 +82,6 @@ export default {
 
 };
 </script>
-
-  
-
 
 <style scoped>
 .el-carousel__item h3 {
