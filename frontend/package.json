@@ -12,7 +12,7 @@
 		"axios": "^0.26.1",
 		"bootstrap": "^3.4.1",
 		"chart.js": "^3.7.1",
-		"element-plus": "^2.1.4",
+		"element-plus": "^2.2.10",
 		"font-face": "^2.3.4",
 		"sass": "^1.49.9",
 		"socket.io-client": "^4.4.1",
