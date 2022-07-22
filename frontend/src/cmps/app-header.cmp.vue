@@ -35,10 +35,10 @@
     </div>
   </div>
 
-  <location-filter></location-filter>
+  <stay-filter-search />
 </template>
 <script>
-import locationFitler from "./location-filter.cmp.vue"
+import stayFilterSearch from "./stay-filter-search.cmp.vue"
 
 export default {
   computed: {
@@ -49,7 +49,7 @@ export default {
 
   },
   components: {
-    locationFitler,
-  }
+    stayFilterSearch,
+}
 }
 </script>
