@@ -1,6 +1,6 @@
 .stay-preview {
-    width: 325px;
-    height: 406px;
+    //width: 325px;
+    //height: 406px;
     font: inherit;
     font-size: 100%;
     img{
@@ -10,13 +10,15 @@
   
 .preview-img-carusela{
       width: 100%;
-      height: 301px;
+      height: auto;
+      //height: 301px;
       border-radius: 0.7em;
 }
 
 .el-carousel, .el-carousel-item{
   border-radius: 0.7em;
   background-color: transparent;
+  object-fit: contain;
 }
 
 .stay-preview-info-container{
