@@ -3,9 +3,11 @@ body {
     width: 90%;
     align-self: center;
 
-    
-    font-size: em(14px);
-    font-family: 'Airbnb-book';
+}
+
+:root {
     line-height: 1.43;
     color: $primary-txt-clr;
+    font-size: em(14px);
+    font-family: 'Airbnb-book';
 }

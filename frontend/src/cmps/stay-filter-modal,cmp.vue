@@ -112,17 +112,7 @@ export default defineComponent({
     },
   },
   created() {
-    // let labels = [];
-    // let data = [];
-    // const dataset = this.$store.getters.getPrices;
-    // for (var price in dataset)
-    // {
-    //   console.log('price:', price)
-    //   labels.push(price);
-    //   labels.splice(this.minPrice, this.maxPrice)
-    //   data.push(dataset[price]);
-    //   data.splice(this.minPrice, this.maxPrice)
-    // }
+
   },
 })
 </script>
