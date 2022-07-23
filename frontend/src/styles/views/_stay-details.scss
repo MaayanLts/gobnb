@@ -191,11 +191,11 @@
 
 .highligths {
     border-bottom: 1px solid #dfdddd;
-    
+
     img {
         width: rem(24px);
     }
-    
+
     h2 {
         display: inline-block;
         margin-left: 1rem;
@@ -206,50 +206,56 @@
     padding-top: rem(20px);
     padding-bottom: rem(24px);
     border-bottom: 1px solid #dfdddd;
-    
+
     h2 {
         font-family: 'Airbnb-bold';
         font-size: rem(40px);
         margin: 0;
     }
-    p{
+
+    p {
         margin-top: 0;
     }
-    
+
     span {
         color: $clr1;
     }
-    
+
     a {
         color: $title-txt-clr;
         font-family: 'Airbnb-bold';
     }
 }
 
-.summary-holder{
+.summary-holder {
     padding-top: rem(24px);
     padding-bottom: rem(24px);
     border-bottom: 1px solid #dfdddd;
+
     a {
         color: $title-txt-clr;
         font-family: 'Airbnb-bold';
     }
-    h4,.summary{
+
+    h4,
+    .summary {
         margin: 0;
     }
-    
+
 }
 
-.amenities{
+.amenities {
     padding-top: rem(24px);
     padding-bottom: rem(24px);
     border-bottom: 1px solid #dfdddd;
-    li{
+
+    li {
         padding-bottom: rem(16px);
         font-size: rem(16px);
     }
-    .show-all-btn{
-        font-family:'Airbnb-bold';
+
+    .show-all-btn {
+        font-family: 'Airbnb-bold';
         padding: rem(13px) rem(23px);
         border: 1px solid $title-txt-clr;
         border-radius: rem(8px);
