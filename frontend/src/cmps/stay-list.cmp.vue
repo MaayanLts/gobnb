@@ -1,10 +1,9 @@
 <template>
-  <section class="stay-list-container">
+  <section class="stay-list">
     <!-- <button @click="toAddStay()">Add Stay</button> -->
-    <div class="stay-list">
-      <!-- clean-list stay-list-layout">> -->
-      <stay-preview v-for="stay in stays" :key="stay._id" :stay="stay" />
-    </div>
+    <!-- clean-list stay-list-layout">> -->
+    <stay-preview class="preview-layout" v-for="stay in stays" :key="stay._id"
+      :stay="stay" />
   </section>
 </template>
 
