@@ -46,18 +46,22 @@
                         <h3>{{ stay.capacity }} guests</h3><span> • </span>
                         <h3>{{ bedrooms }}</h3><span> • </span>
                         <h3>{{ stay.beds }} beds</h3><span> • </span>
-                        <h3>{{ stay.bath }} bath</h3>
+                        <h3>{{ stay.bathrooms }} bath</h3>
                     </div>
                     <img class="host-img" :src="stay.host.pictureUrl" alt="hostPic">
                 </div>
 
                 <div class="highligths">
                     <div class="superhostTxt" v-if="stay.host.isSuperhost">
+
                         <img src="../assets/logo/superhostHl.svg">
-                        <h2>{{ stay.host.fullname }} is a Superhost</h2>
-                        <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for
-                            gues
-                        </p>
+                        <div>
+                            <h2>{{ stay.host.fullname }} is a Superhost</h2>
+                            <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays
+                                for
+                                gues
+                            </p>
+                        </div>
                     </div>
                     <div class="locTxt" v-if="stay.reviewScores.location >= 9">
                         <img src="../assets/logo/locationHl.svg">
@@ -98,7 +102,7 @@
                         <li v-for=" (ament) in stay.amenities.slice(0, 7)">{{ ament }}</li>
                     </ul>
                     <div class="show-all-btn">
-                        Show all {{stay.amenities.length-7}} amenities
+                        Show all {{ stay.amenities.length - 7 }} amenities
                     </div>
                 </div>
 
@@ -108,8 +112,8 @@
 
             </section>
         </div>
-        <stay-reviews :stay="stay"/>
-        
+        <stay-reviews :stay="stay" />
+
     </section>
 
 </template>
@@ -147,7 +151,7 @@ export default {
         var stayId = this.$route.params.id
         this.getStayById(stayId)
     },
-    components: { tripDetails, stayReviews}
+    components: { tripDetails, stayReviews }
 }
 </script>
 
