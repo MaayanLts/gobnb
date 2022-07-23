@@ -3094,6 +3094,11 @@
   "resolved" "https://registry.npmjs.org/treeverse/-/treeverse-2.0.0.tgz"
   "version" "2.0.0"
 
+"uiv@^2.0.1":
+  "integrity" "sha512-nbTlgAkF64mdfz8PQNe73Da1ggC9yXx28cuAvnNcBgj1m8zrJ74V225XStGynsnZGaFgvbs6PFrAUv+WGhEByg=="
+  "resolved" "https://registry.npmjs.org/uiv/-/uiv-2.0.1.tgz"
+  "version" "2.0.1"
+
 "unique-filename@^1.1.1":
   "integrity" "sha512-Vmp0jIp2ln35UTXuryvjzkjGdRyf9b2lTXuSYUiPmzRcl3FDtYqAwOnTJkAngD9SWhnoJzDbTKwaOrZ+STtxNQ=="
   "resolved" "https://registry.npmjs.org/unique-filename/-/unique-filename-1.1.1.tgz"
@@ -3238,7 +3243,7 @@
     "@vue/compiler-sfc" "2.7.7"
     "csstype" "^3.1.0"
 
-"vue@^2.6.0 || ^3.2.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.0.2", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.31", "vue@>= 3", "vue@2 || 3", "vue@3.2.37":
+"vue@^2.6.0 || ^3.2.0", "vue@^3", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.0.2", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.31", "vue@>= 3", "vue@2 || 3", "vue@3.2.37":
   "integrity" "sha512-bOKEZxrm8Eh+fveCqS1/NkG/n6aMidsI6hahas7pa0w/l7jkbssJVsRhVDs07IdDq7h9KHswZOgItnwJAgtVtQ=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.2.37.tgz"
   "version" "3.2.37"
