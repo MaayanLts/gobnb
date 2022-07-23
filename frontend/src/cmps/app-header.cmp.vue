@@ -1,6 +1,6 @@
 <template>
 
-<div>
+<div :class="headerContainerStyle">
   <div :class="headerClass">
     <div class="left-section">
       <div class="main-header-logo">
@@ -49,6 +49,9 @@ export default {
       }
   },
   computed: {
+    headerContainerStyle(){
+      return (this.displaySearch === 'fullSearch') ? 'header-container full' : 'header-container'
+    },
     headerClass() {
       const isDetailsHeader = this.$route.params.id
       return (isDetailsHeader) ? 'header details-header' : 'header'
