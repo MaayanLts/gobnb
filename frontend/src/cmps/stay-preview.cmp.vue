@@ -11,7 +11,9 @@
             </path>
           </svg>
         </div>
-        <img class="preview-img-carusela" :src="imgUrl + img" />
+        <div class="img-container">
+          <img class="preview-img-carusela" :src="imgUrl + img" />
+        </div>
       </el-carousel-item>
     </el-carousel>
 
