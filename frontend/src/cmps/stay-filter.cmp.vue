@@ -1,7 +1,7 @@
 <template>
 
   <stay-filter-tag v-for="tag in tags" :key="tag" :tag="tag" />
-  <stay-filter-modal />
+  <!-- <stay-filter-modal /> -->
 </template>
 
 <script>

@@ -10,6 +10,20 @@ export default {
 		getStays(state) {
 			return state.stays
 		},
+
+		getPrices(state) {
+			const prices = state.stays.map((stay) => stay.price)
+			const count = {}
+			for (const element of prices) {
+				if (count[element]) {
+					count[element] += 1
+				} else {
+					count[element] = 1
+				}
+			}
+			console.log('count:', count)
+			return count
+		},
 	},
 	mutations: {
 		setStays(state, {stays}) {
