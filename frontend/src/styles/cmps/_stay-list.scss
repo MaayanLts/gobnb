@@ -6,13 +6,13 @@
     grid-auto-rows: minmax(300px, auto);
     grid-auto-flow: dense;
     gap: 10px;
-    @include aspect-ratio(100, 56); //ratio-16-9 
-    @include aspect-ratio(100, 100); //ratio-square 
+    // @include aspect-ratio(100, 56); //ratio-16-9 
+    // @include aspect-ratio(100, 100); //ratio-square 
 
-    @include for-narrow-layout {
-        @include layoutGTC($break-narrow);
-        @include aspect-ratio(100, 100); //ratio-square 
-    }
+    // @include for-narrow-layout {
+    //     @include layoutGTC($break-narrow);
+    //     @include aspect-ratio(100, 100); //ratio-square 
+    // }
 
     // @include for-normal-layout {
     //    // @include layoutGTC($break-normal);
