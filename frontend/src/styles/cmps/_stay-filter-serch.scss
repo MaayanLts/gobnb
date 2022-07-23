@@ -52,7 +52,10 @@
   height: 50% !important;
   width: 100% !important;
   text-align:left !important;
-
+  &::-webkit-input-placeholder {
+    color: $clr2;
+    font-weight: bold;
+  }
   &:focus{
     outline: 0 !important;
   }

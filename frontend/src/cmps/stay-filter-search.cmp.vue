@@ -11,18 +11,18 @@
     <div class="vl"></div>
     <div class="search-area date-from" @click="onOpenDateFrom"
       :class="{ active: selectedSrchArea === 'date-from' }">
-      <span class="bold">Check in</span>
-      <span :style="dateSpanDisplay">Add dates</span>
+      <!-- <span class="bold">Check in</span> -->
+      <!-- <span :style="dateSpanDisplay">Add dates</span> -->
       <el-date-picker class="picker-date-from" v-model="dates" type="daterange"
-        start-placeholder="check in" :style="datePickerDisplay" />
+        start-placeholder="Check in" />
     </div>
     <div class="vl"></div>
     <div class="search-area date-to" @click="onOpenDateTo"
       :class="{ active: selectedSrchArea === 'date-to' }">
-      <span class="bold">Check out</span>
-      <span :style="dateSpanDisplay">Add dates</span>
+      <!-- <span class="bold">Check out</span> -->
+      <!-- <span :style="dateSpanDisplay">Add dates</span> -->
       <el-date-picker class="picker-date-to" v-model="dates" type="daterange"
-        end-placeholder="Check out" :style="datePickerDisplay" />
+        end-placeholder="Check out" />
     </div>
     <div class="vl"></div>
     <div class="search-area guests" @click="onOpenGuests"
