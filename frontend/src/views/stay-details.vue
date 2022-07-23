@@ -36,47 +36,74 @@
             <img :src="imgUrl(stay.imgUrls[4])" alt="">
 
         </div>
-        <stay-trip :stay="stay" />
-        <section class="left-bar">
-            <div class="host-holder">
+        <div class="main-grid-container">
+            <trip-details :stay="stay" />
+            <section class="left-bar">
+                <div class="host-holder">
 
-                <div class="hosted-by-txt">
-                    <h2>{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
-                    <h3>{{ stay.capacity }} guests</h3><span> • </span>
-                    <h3>{{ bedrooms }}</h3><span> • </span>
-                    <h3>{{ stay.beds }} beds</h3><span> • </span>
-                    <h3>{{ stay.bath }} bath</h3>
-                </div>
-                <img class="host-img" :src="stay.host.pictureUrl" alt="hostPic">
-            </div>
-
-
-            <div class="highligths">
-                <div class="superhostTxt" v-if="stay.host.isSuperhost">
-                    <h2>{{ stay.host.fullname }} is a Superhost</h2>
-                    <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for
-                        gues
-                    </p>
-                </div>
-                <div class="locTxt" v-if="stay.location >= 9">
-                    <h2>Great location</h2>
-                    <p>{{ stay.location * 10 }}% of recent guests gave the location a 5-star rating.</p>
+                    <div class="hosted-by-txt">
+                        <h2>{{ stay.propertyType }} hosted by {{ stay.host.fullname }}</h2>
+                        <h3>{{ stay.capacity }} guests</h3><span> • </span>
+                        <h3>{{ bedrooms }}</h3><span> • </span>
+                        <h3>{{ stay.beds }} beds</h3><span> • </span>
+                        <h3>{{ stay.bath }} bath</h3>
+                    </div>
+                    <img class="host-img" :src="stay.host.pictureUrl" alt="hostPic">
                 </div>
 
-                <h2>Free cancellation for 48 hours.</h2>
+                <div class="highligths">
+                    <div class="superhostTxt" v-if="stay.host.isSuperhost">
+                        <img src="../assets/logo/superhostHl.svg">
+                        <h2>{{ stay.host.fullname }} is a Superhost</h2>
+                        <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays for
+                            gues
+                        </p>
+                    </div>
+                    <div class="locTxt" v-if="stay.reviewScores.location >= 9">
+                        <img src="../assets/logo/locationHl.svg">
+                        <h2>Great location</h2>
+                        <p>{{ stay.reviewScores.location * 10 }}% of recent guests gave the location a 5-star rating.
+                        </p>
+                    </div>
+                    <div class="commTxt" v-if="stay.reviewScores.communication >= 9">
+                        <img src="../assets/logo/communicationHl.svg">
+                        <h2>Great communication</h2>
+                        <p>{{ stay.reviewScores.communication * 10 }}% of recent guests rated Jean-Baptiste 5-star in
+                            communication.</p>
+                    </div>
+                    <div class="parkingTxt" v-if="stay.reviewScores.location < 7.5">
+                        <img src="../assets/logo/freeParkHl.svg">
+                        <h2>Park for free</h2>
+                        <p>This is one of the few places in the area with free parking.</p>
+                    </div>
+                    <img src="../assets/logo/freeCanHl.svg">
+                    <h2 class="freeCanTxt">Free cancellation for 48 hours.</h2>
+                </div>
 
-            </div>
+                <div class="coverTxt">
+                    <h2><span>air</span>cover</h2>
+                    <p>Every booking includes free protection from Host cancellations, listing inaccuracies, and other
+                        issues like trouble checking in.</p>
+                    <a href="">Learn more</a>
+                </div>
+                <div class="summary-holder">
+                    <p class="summary">{{ stay.summary }}</p>
+                    <h4>...</h4>
+                    <a href="">Show more<span>></span></a>
+                </div>
 
-            <p class="summary">{{ stay.summary }}</p>
+                <div class="amenities">
+                    <h2>What this place offers</h2>
+                    <ul>
+                        <li v-for=" (ament) in stay.amenities.slice(0, 7)">{{ ament }}</li>
+                    </ul>
+                    <div class="show-all-btn">
+                        Show all {{stay.amenities.length-7}} amenities
+                    </div>
+                </div>
 
-            <div class="amenities">
-                <h2>What this place offers</h2>
-                <ul>
-                    <li v-for="ament in stay.amenities">{{ ament }}</li>
-                </ul>
-            </div>
-
-        </section>
+            </section>
+        </div>
 
         <div class="reviews">
             <h2>★ {{ stay.reviewScores.rating / 20 }}</h2>
@@ -87,11 +114,9 @@
 </template>
 
 <script >
-import stayTrip from '../cmps/stay-trip.cmp.vue'
-
+import tripDetails from '../cmps/trip-details.vue'
 
 export default {
-
     data() {
         return {
             stay: null,
@@ -114,14 +139,13 @@ export default {
             const bedrooms = +this.stay.bedrooms
             console.log(bedrooms)
             return (bedrooms > 1) ? bedrooms + '\ bedrooms' : bedrooms + '\ bedroom'
-        }
+        },
     },
     created() {
-
         var stayId = this.$route.params.id
         this.getStayById(stayId)
     },
-    components: { stayTrip }
+    components: { tripDetails }
 }
 </script>
 
