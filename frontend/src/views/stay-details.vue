@@ -102,19 +102,21 @@
                     </div>
                 </div>
 
+                <div class="dates">
+                    <h2>days picker</h2>
+                </div>
+
             </section>
         </div>
-
-        <div class="reviews">
-            <h2>★ {{ stay.reviewScores.rating / 20 }}</h2>
-
-        </div>
+        <stay-reviews :stay="stay"/>
+        
     </section>
 
 </template>
 
 <script >
 import tripDetails from '../cmps/trip-details.vue'
+import stayReviews from '../cmps/stay-reviews.vue'
 
 export default {
     data() {
@@ -146,7 +148,7 @@ export default {
         var stayId = this.$route.params.id
         this.getStayById(stayId)
     },
-    components: { tripDetails }
+    components: { tripDetails, stayReviews}
 }
 </script>
 
