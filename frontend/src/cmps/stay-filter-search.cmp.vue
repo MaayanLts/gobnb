@@ -77,10 +77,10 @@ export default {
       this.selectedSrchArea = 'destination'
     },
     onOpenDateFrom(){
-      this.selectedSrchArea = 'dateFrom'
+      this.selectedSrchArea = 'date-from'
     },
     onOpenDateTo(){
-      this.selectedSrchArea = 'dateTo'
+      this.selectedSrchArea = 'date-to'
     },
     onOpenGuests(){
       this.selectedSrchArea = 'guests'
