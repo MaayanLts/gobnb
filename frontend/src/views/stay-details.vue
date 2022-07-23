@@ -52,10 +52,10 @@
                 </div>
 
                 <div class="highligths">
-                    <div class="superhostTxt" v-if="stay.host.isSuperhost">
+                    <div class="superhost-txt flex" v-if="stay.host.isSuperhost">
 
                         <img src="../assets/logo/superhostHl.svg">
-                        <div>
+                        <div class="txt-holder">
                             <h2>{{ stay.host.fullname }} is a Superhost</h2>
                             <p>Superhosts are experienced, highly rated hosts who are committed to providing great stays
                                 for
@@ -63,25 +63,38 @@
                             </p>
                         </div>
                     </div>
-                    <div class="locTxt" v-if="stay.reviewScores.location >= 9">
+                    <div class="locTxt flex" v-if="stay.reviewScores.location >= 9">
                         <img src="../assets/logo/locationHl.svg">
-                        <h2>Great location</h2>
-                        <p>{{ stay.reviewScores.location * 10 }}% of recent guests gave the location a 5-star rating.
-                        </p>
+                        <div class="txt-holder">
+                            <h2>Great location</h2>
+                            <p>{{ stay.reviewScores.location * 10 }}% of recent guests gave the location a 5-star
+                                rating.
+                            </p>
+                        </div>
                     </div>
-                    <div class="commTxt" v-if="stay.reviewScores.communication >= 9">
+                    <div class="commTxt flex" v-if="stay.reviewScores.communication >= 9">
                         <img src="../assets/logo/communicationHl.svg">
-                        <h2>Great communication</h2>
-                        <p>{{ stay.reviewScores.communication * 10 }}% of recent guests rated Jean-Baptiste 5-star in
-                            communication.</p>
+                        <div class="txt-holder">
+                            <h2>Great communication</h2>
+                            <p>{{ stay.reviewScores.communication * 10 }}% of recent guests rated Jean-Baptiste 5-star
+                                in
+                                communication.
+                            </p>
+                        </div>
                     </div>
-                    <div class="parkingTxt" v-if="stay.reviewScores.location < 7.5">
+                    <div class="parkingTxt flex" v-if="stay.reviewScores.location < 7.5">
                         <img src="../assets/logo/freeParkHl.svg">
-                        <h2>Park for free</h2>
-                        <p>This is one of the few places in the area with free parking.</p>
+                        <div class="txt-holder">
+                            <h2>Park for free</h2>
+                            <p>This is one of the few places in the area with free parking.</p>
+                        </div>
                     </div>
-                    <img src="../assets/logo/freeCanHl.svg">
-                    <h2 class="freeCanTxt">Free cancellation for 48 hours.</h2>
+                    <div class="flex">
+                        <img class="static" src="../assets/logo/freeCanHl.svg">
+                        <div class="txt-holder">
+                            <h2 class="freeCanTxt">Free cancellation for 48 hours.</h2>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="coverTxt">
