@@ -1,13 +1,15 @@
 <template>
 
-  <stay-filter-tag />
-  <stay-filter-modal />
+  <div class="stay-filter">
+    <stay-filter-tag />
+    <stay-filter-modal />
+  </div>
 
 </template>
 
 <script>
 import stayFilterTag from '../cmps/stay-filter-tag.cmp.vue'
-import stayFilterModal from './stay-filter-modal,cmp.vue'
+import stayFilterModal from './stay-filter-modal.cmp.vue'
 export default {
   methods: {
     // setSortBy() {
