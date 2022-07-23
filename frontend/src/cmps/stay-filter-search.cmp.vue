@@ -33,16 +33,16 @@
         <input v-model="filterBy.country" type="text" placeholder="Search destinations">
     </div>
     <div class="vl"></div>
-    <div class="search-area dates-from" @click="onOpenDateFrom" :class="{ active: selectedSrchArea === 'dates-from'}">
-        <span class="bold">Check in</span>
-        <span>Add dates</span>
-        <!-- <el-date-picker v-model="dates" type="daterange" start-placeholder="check in"/> -->
+    <div class="search-area date-from" @click="onOpenDateFrom" :class="{ active: selectedSrchArea === 'date-from'}">
+        <!-- <span class="bold">Check in</span> -->
+        <!-- <span :style="dateSpanDisplay">Add dates</span> -->
+        <el-date-picker class="picker-date-from" v-model="dates" type="daterange" start-placeholder="Check in" />  
     </div>
     <div class="vl"></div>
-    <div class="search-area dates-to" @click="onOpenDateTo" :class="{ active: selectedSrchArea === 'dates-to'}">
-        <span class="bold">Check out</span>
-        <span>Add dates</span>
-        <!-- <el-date-picker v-model="dates" type="daterange" end-placeholder="Check out" /> -->
+    <div class="search-area date-to" @click="onOpenDateTo" :class="{ active: selectedSrchArea === 'date-to'}">
+        <!-- <span class="bold">Check out</span> -->
+        <!-- <span :style="dateSpanDisplay">Add dates</span> -->
+        <el-date-picker class="picker-date-to" v-model="dates" type="daterange" end-placeholder="Check out"  /> 
     </div>
     <div class="vl"></div>
     <div class="search-area guests" @click="onOpenGuests" :class="{ active: selectedSrchArea === 'guests'}">
@@ -77,10 +77,10 @@ export default {
       this.selectedSrchArea = 'destination'
     },
     onOpenDateFrom(){
-      this.selectedSrchArea = 'dates-from'
+      this.selectedSrchArea = 'dateFrom'
     },
     onOpenDateTo(){
-      this.selectedSrchArea = 'dates-to'
+      this.selectedSrchArea = 'dateTo'
     },
     onOpenGuests(){
       this.selectedSrchArea = 'guests'
@@ -99,10 +99,16 @@ export default {
           endDate: this.dates[1],
         },
       });
-
     },
   },
-  computed: {},
+  computed: {
+    dateSpanDisplay(){
+      return !(this.selectedSrchArea === 'dateFrom' || this.selectedSrchArea === 'dateTo') ? 'display: block' : 'display: none'
+    },
+    datePickerDisplay(){
+      return (this.selectedSrchArea === 'dateFrom' || this.selectedSrchArea === 'dateTo') ? 'display: flex' : 'display: none'
+    },
+  },
   unmounted() { },
 }
 

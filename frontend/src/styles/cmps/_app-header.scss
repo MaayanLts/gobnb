@@ -20,14 +20,26 @@
   }
 }
 
+.header-container{
+  &.open{
+    transition: all 0.3s ease;
+  }
+}
+
 .dynamic-header{
   border-bottom-style: solid;
   border-bottom-color: rgb(233, 232, 232);
   display: flex;
   justify-content: center;
   padding-bottom: em(15px);
-  transition: all 1s linear;
-  opacity: 1;
+  // transition: all 1s linear;
+  // opacity: 1; 
+}
+
+@keyframes changeSize {
+  0% {transform: scale(1)}
+  65% {transform: scale(1.2)}
+  100% {transform: scale(1.4)}
 }
 
 .details-header {
