@@ -1,11 +1,16 @@
 .stay-list-container {}
 
 .stay-list {
+
+    max-width: 1600px;
+
+
+
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, auto));
-    grid-auto-rows: minmax(300px, auto);
-    grid-auto-flow: dense;
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    grid-auto-rows: minmax(400px, auto);
+    // grid-auto-flow: dense;
+    gap: 24px;
     // @include aspect-ratio(100, 56); //ratio-16-9 
     // @include aspect-ratio(100, 100); //ratio-square 
 
