@@ -1,11 +1,32 @@
-.tag-containrt {
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+.tags-container {
+  display: flex;
+  flex-direction: row;
+  //align-items: center;
+  //justify-content: space-around;
   font-size: em(12px);
+  width: 1120px;
 
   .img {
-    height: em(24px);
-    width: em(24px);
+    height: em(54px);
+    width: em(54px);
   }
+}
+
+.tag-card{
+  display: flex;
+  flex-direction: column;
+  height: 48px;
+  width: 39px;
+  padding: 10px;
+}
+
+.brd-red{
+  border: red solid 2px;
+}
+.brd-green{
+  border: rgb(8, 143, 60) solid 2px;
+}
+
+.brd-blue{
+  border: rgb(52, 11, 235) solid 2px;
 }
