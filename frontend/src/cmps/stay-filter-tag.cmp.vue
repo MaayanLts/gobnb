@@ -6,7 +6,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     tag: {
@@ -33,5 +32,6 @@ export default {
   created() {
 
   },
+
 }
 </script>
