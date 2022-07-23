@@ -1,6 +1,6 @@
 
 <template>
-  <BarChart :chartData="chartData" />
+  <BarChart :chartData="labelsData" />
   <div class="slider-demo-block">
     <el-slider v-model="value" range show-stops :max="maxPriceShow" />
   </div>
@@ -73,24 +73,59 @@ export default defineComponent({
 
 
   methods: {
-
     buildFilterObj() {
       this.value = ref([this.minPrice, this.maxPrice])
-
-
-    }
-
+    },
 
 
   },
   computed: {
     maxPriceShow() {
       return +this.maxPrice
-    }
+    },
+    labelsData() {
+      let labels = [];
+      let data = [];
+      const bigDataSet = this.$store.getters.getPrices;
+      const dataset = Array.from(bigDataSet).slice(this.minPrice, this.maxPrice)
+      for (var price in dataset)
+      {
+        console.log('price:', price)
+        labels.push(price);
+        data.push(dataset[price]);
+      }
+      return {
+        labels,
+        datasets: [
+          {
+            data,
+            backgroundColor: [
+              "#77CEFF",
+
+            ],
+          },
+        ],
+      };
+    },
+
   },
+
   created() {
-    this.$store.getters.getPrices
-    console.log(' this.$store.getters.getPrices:', this.$store.getters.getPrices)
+    let labels = [];
+    let data = [];
+    const bigDataSet = this.$store.getters.getPrices;
+    console.log('bigDataSet:', bigDataSet)
+
+
+    const dataset = [bigDataSet]
+    let x = dataset.splice(0)
+    console.log('dataset:', x)
+    // for (var price in dataset)
+    // {
+    //   console.log('price:', price)
+    //   labels.push(price);
+    //   data.push(dataset[price]);
+    // }
   },
 
 })

@@ -29,7 +29,6 @@ export default {
     },
   },
   created() {
-    console.log(this.stays);
   },
   unmounted() {
   },

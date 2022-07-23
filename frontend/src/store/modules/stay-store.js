@@ -21,7 +21,6 @@ export default {
 					count[element] = 1
 				}
 			}
-			console.log('count:', count)
 			return count
 		},
 	},
@@ -67,7 +66,6 @@ export default {
 		async getStayById(context, {stayId}) {
 			try {
 				var a = await stayService.getStayById(stayId)
-				console.log(a)
 				return a
 			} catch (err) {
 				console.log(err)
