@@ -1,7 +1,8 @@
 <template>
   <section v-if="stay" class="trip-details-holder">
+  <div class="trip-details">
 {{stay.price}}
-  </section>
+  </div></section>
 </template>
 
 <script>
