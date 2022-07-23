@@ -1,9 +1,14 @@
 <template>
   <div class="tags-container">
-    <div class="tag-card" v-for="tag in tags" :key="tag" @click="tagSelect(tag)">
-      <div><img class="img" :src="tagImage(tag)" /></div>
-      <div>{{ tag }}</div>
-    </div>
+    <!-- <el-carousel trigger="click" :autoplay="false"> -->
+      <!-- <el-carousel-item v-for="(internalTagsList,index) in tags" :key="index"> -->
+        <div class="tag-card" v-for="tag in tags" :key="tag" @click="tagSelect(tag)">
+          <div><img class="tag-img" :src="tagImage(tag)" /></div>
+          <div>{{ tag }}</div>
+        </div>
+      <!-- </el-carousel-item> -->
+    <!-- </el-carousel> -->
+    
   </div>
 </template>
 
@@ -16,10 +21,12 @@ export default {
   },
    data() {
     return {
-      tags: ["Islands", 'Beach', 'Amazing pools', 'OMG', 'National parks', 
-             'Cabins', 'Design', "Camping", 'Amazing views', 'Desert','Arctic', 
-             'Tiny homes', 'Lakefront', 'Surfing', 'Shared homes', 'Caves', 'Tropical', 'Bed & breakfasts', 'Earth homes',
-             'Iconic cities','Countryside','Luxe','Lake','A-frames','Castles','Farms','historical-homes',"City", "Boat"],
+      tags: ["Islands", 'Beach', 'Amazing pools', 'OMG', 'National parks','Cabins', 'Design', "Camping", 'Amazing views', 'Desert','Arctic', 'Tiny homes', 'Lakefront']
+      // tags: [
+      //         ["Islands", 'Beach', 'Amazing pools', 'OMG', 'National parks','Cabins', 'Design', "Camping", 'Amazing views', 'Desert','Arctic', 'Tiny homes', 'Lakefront'],
+      //         ['Arctic', 'Tiny homes', 'Lakefront','Surfing', 'Shared homes', 'Caves', 'Tropical', 'Bed & breakfasts', 'Earth homes','Iconic cities','Countryside','Luxe'],
+      //         ['Earth homes','Iconic cities','Countryside','Luxe','Lake','A-frames','Castles','Farms','historical-homes',"City", "Boat"]
+      //       ]
     }
   },
   methods: {
