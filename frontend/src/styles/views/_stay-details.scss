@@ -179,6 +179,7 @@
 .main-grid-container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    border-bottom: 1px solid #dfdddd;
 
     .left-bar {
         width: 100%;
@@ -246,6 +247,13 @@
     li{
         padding-bottom: rem(16px);
         font-size: rem(16px);
+    }
+    .show-all-btn{
+        font-family:'Airbnb-bold';
+        padding: rem(13px) rem(23px);
+        border: 1px solid $title-txt-clr;
+        border-radius: rem(8px);
+        display: inline-block;
     }
 
 }

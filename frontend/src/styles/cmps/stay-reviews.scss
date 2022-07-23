@@ -1,0 +1,24 @@
+.reviews-bars {
+    >* {
+        h4 {
+            display: inline-block;
+        }
+    }
+
+}
+
+.bar {
+    width: 100%;
+    background-color: #ddd;
+    height: 4px;  
+}
+
+.fill {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background-color:$title-txt-clr;
+}
+
+.reviews-bars {
+    width: 90%;
+}
