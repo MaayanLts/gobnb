@@ -127,7 +127,6 @@ export default {
     methods: {
         async getStayById(stayId) {
             this.stay = await this.$store.dispatch({ type: 'getStayById', stayId })
-            console.log('this.stay', this.stay);
         },
         imgUrl(imgName) {
             return `src/images/${imgName}`

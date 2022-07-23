@@ -1,59 +1,40 @@
 
 <template>
-  <!-- <nav class="main-header-nav1 ">
-    <ul class="main-nav1 clean-list flex">
-      <li class="li-header1" @click="onOpenWhere">
-        <a href="#">where</a>
-        <input v-model="filterBy.country" type="text">
-      </li>
-      <li class="li-header1" @click="onOpenWhen">
 
-        <div class="block">
-          <el-date-picker v-model="dates" type="daterange"
-            start-placeholder="check in" end-placeholder="Check out" />
-        </div>
-      </li>
-
-      <li @click="onOpenGuests">
-        <div class="li-header">
-          <a href="#">who</a>
-
-          <div class="search-icon-container1" @click="setFilterBy">
-            <img class="search-icon1" src="../assets/logo/serch_icon.png"
-              alt="">
-          </div>
-        </div>
-        <input type="number">
-      </li>
-    </ul>
-  </nav> -->
   <nav class="search-container">
-    <div class="search-area destination" @click="onOpenWhere" :class="{ active: selectedSrchArea === 'destination'}">
-        <span class="bold">Where</span>
-        <input v-model="filterBy.country" type="text" placeholder="Search destinations">
+    <div class="search-area destination" @click="onOpenWhere"
+      :class="{ active: selectedSrchArea === 'destination' }">
+      <span class="bold">Where</span>
+      <input v-model="filterBy.country" type="text"
+        placeholder="Search destinations">
     </div>
     <div class="vl"></div>
-    <div class="search-area date-from" @click="onOpenDateFrom" :class="{ active: selectedSrchArea === 'date-from'}">
-        <!-- <span class="bold">Check in</span> -->
-        <!-- <span :style="dateSpanDisplay">Add dates</span> -->
-        <el-date-picker class="picker-date-from" v-model="dates" type="daterange" start-placeholder="Check in" />  
+    <div class="search-area date-from" @click="onOpenDateFrom"
+      :class="{ active: selectedSrchArea === 'date-from' }">
+      <!-- <span class="bold">Check in</span> -->
+      <!-- <span :style="dateSpanDisplay">Add dates</span> -->
+      <el-date-picker class="picker-date-from" v-model="dates" type="daterange"
+        start-placeholder="Check in" />
     </div>
     <div class="vl"></div>
-    <div class="search-area date-to" @click="onOpenDateTo" :class="{ active: selectedSrchArea === 'date-to'}">
-        <!-- <span class="bold">Check out</span> -->
-        <!-- <span :style="dateSpanDisplay">Add dates</span> -->
-        <el-date-picker class="picker-date-to" v-model="dates" type="daterange" end-placeholder="Check out"  /> 
+    <div class="search-area date-to" @click="onOpenDateTo"
+      :class="{ active: selectedSrchArea === 'date-to' }">
+      <!-- <span class="bold">Check out</span> -->
+      <!-- <span :style="dateSpanDisplay">Add dates</span> -->
+      <el-date-picker class="picker-date-to" v-model="dates" type="daterange"
+        end-placeholder="Check out" />
     </div>
     <div class="vl"></div>
-    <div class="search-area guests" @click="onOpenGuests" :class="{ active: selectedSrchArea === 'guests'}">
-        <div class="guests-placeholder">
-          <span class="bold">Who</span>
-          <span>Add guests</span>
-        </div>
-        <div class="action-search clickable" @click.stop="setFilterBy">
-          <img class="search-icon" src="/src/assets/logo/serch_icon.png" alt="" />
-          <span>Search</span>
-        </div>
+    <div class="search-area guests" @click="onOpenGuests"
+      :class="{ active: selectedSrchArea === 'guests' }">
+      <div class="guests-placeholder">
+        <span class="bold">Who</span>
+        <span>Add guests</span>
+      </div>
+      <div class="action-search clickable" @click.stop="setFilterBy">
+        <img class="search-icon" src="/src/assets/logo/serch_icon.png" alt="" />
+        <span>Search</span>
+      </div>
     </div>
   </nav>
 </template>
@@ -73,16 +54,16 @@ export default {
   created() {
   },
   methods: {
-    onOpenWhere(){
+    onOpenWhere() {
       this.selectedSrchArea = 'destination'
     },
-    onOpenDateFrom(){
+    onOpenDateFrom() {
       this.selectedSrchArea = 'date-from'
     },
-    onOpenDateTo(){
+    onOpenDateTo() {
       this.selectedSrchArea = 'date-to'
     },
-    onOpenGuests(){
+    onOpenGuests() {
       this.selectedSrchArea = 'guests'
     },
     setFilterBy() {
@@ -102,10 +83,10 @@ export default {
     },
   },
   computed: {
-    dateSpanDisplay(){
+    dateSpanDisplay() {
       return !(this.selectedSrchArea === 'dateFrom' || this.selectedSrchArea === 'dateTo') ? 'display: block' : 'display: none'
     },
-    datePickerDisplay(){
+    datePickerDisplay() {
       return (this.selectedSrchArea === 'dateFrom' || this.selectedSrchArea === 'dateTo') ? 'display: flex' : 'display: none'
     },
   },
