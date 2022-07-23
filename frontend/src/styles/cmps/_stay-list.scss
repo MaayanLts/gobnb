@@ -1,11 +1,8 @@
 .stay-list-container {}
 
 .stay-list {
-
+    padding-top: 80px;
     max-width: 1600px;
-
-
-
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, auto));
     grid-auto-rows: minmax(400px, auto);

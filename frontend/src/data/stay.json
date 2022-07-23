@@ -326,7 +326,6 @@
 		"bedrooms": 2,
 		"beds": 2,
 		"numOfReviews": 18,
-		"tags": ["island", "lake", "snow", "city", "camping"],
 		"amenities": [
 			"TV",
 			"Cable TV",
@@ -601,6 +600,7 @@
 			}
 		],
 		"_id": "622f337a75c7d36e498aaafa",
+		"tags": ["island","cabins","Amazing pools"], 
 		"imgUrls": ["112.jpeg", "080.jpeg", "140.jpeg", "042.jpeg", "055.jpeg"]
 	},
 	{
@@ -892,7 +892,6 @@
 		"bedrooms": 1,
 		"beds": 1,
 		"numOfReviews": 2,
-		"tags": ["island", "lake", "snow", "city", "camping"],
 		"amenities": [
 			"Wifi",
 			"Kitchen",
@@ -964,6 +963,7 @@
 			}
 		],
 		"_id": "622f337a75c7d36e498aaafc",
+		"tags": ["island", "lake", "beach","Amazing views"], 
 		"imgUrls": ["088.jpeg", "027.jpeg", "008.jpeg", "023.jpeg", "136.jpeg"]
 	},
 	{
@@ -1805,6 +1805,7 @@
 			}
 		],
 		"_id": "622f337a75c7d36e498aaaff",
+		"tags": ["beach","Amazing views"],
 		"imgUrls": ["120.jpeg", "059.jpeg", "056.jpeg", "035.jpeg", "121.jpeg"]
 	},
 	{
@@ -6832,6 +6833,7 @@
 			}
 		],
 		"_id": "622f337a75c7d36e498aab15",
+		"tags": ["OMG", "beach","Amazing pools"], 
 		"imgUrls": ["135.jpeg", "020.jpeg", "015.jpeg", "039.jpeg", "125.jpeg"]
 	},
 	{
@@ -7669,6 +7671,7 @@
 			}
 		],
 		"_id": "622f337a75c7d36e498aab19",
+		"tags": ["beach","Amazing views"],
 		"imgUrls": ["030.jpeg", "091.jpeg", "075.jpeg", "097.jpeg", "049.jpeg"]
 	},
 	{
@@ -8536,6 +8539,7 @@
 			}
 		],
 		"_id": "622f337a75c7d36e498aab1d",
+		"tags": ["islands", "lake", "OMG", "beach","Amazing views"], 
 		"imgUrls": ["009.jpeg", "052.jpeg", "128.jpeg", "036.jpeg", "130.jpeg"]
 	},
 	{
