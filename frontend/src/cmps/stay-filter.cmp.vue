@@ -1,6 +1,6 @@
 <template>
 
-  <div class="stay-filter">
+  <div class="stay-filter clickable">
     <stay-filter-tag />
     <stay-filter-modal />
   </div>
@@ -17,7 +17,7 @@ export default {
     //     type: 'sortBy',
     //     sortBy: JSON.parse(JSON.stringify(this.sortBy)),
     //   })
-   // },
+    // },
   },
   created() {
   },

@@ -28,11 +28,12 @@
       </nav>
 
       <div class="right-section">
-        <a>Become a Host</a>
-        <img class="globe-icon" src="/src/assets/logo/Globe_icon.svg" alt="">
-        <div class="user-humburger">
-          <img class="burger-icon" src="/src/assets/logo/Hamburger_icon.svg"
-            alt="">
+        <a class="clickable">Become a Host</a>
+        <img class="globe-icon clickable" src="/src/assets/logo/Globe_icon.svg"
+          alt="">
+        <div class="user-humburger clickable">
+          <img class="burger-icon clickable"
+            src="/src/assets/logo/Hamburger_icon.svg" alt="">
           <img class="user-img" src="/src/assets/logo/user.jpg" alt="">
         </div>
       </div>
