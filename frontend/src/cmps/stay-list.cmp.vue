@@ -1,5 +1,5 @@
 <template>
-  <section class="stay-list">
+  <section class="stay-list main-layot">
     <!-- <button @click="toAddStay()">Add Stay</button> -->
     <!-- clean-list stay-list-layout">> -->
     <stay-preview class="preview-layout clickable" v-for="stay in stays"
