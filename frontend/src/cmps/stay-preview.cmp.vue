@@ -20,7 +20,7 @@
     <div class="stay-preview-info-container">
       <div class="flex space-between">
         <span class="bold">{{ propertyTypeAndLocation }} </span>
-        <div><img src="src/images/star.svg" /><span>{{ rating }}</span></div>
+        <div><img src="src/images/star.svg" />&nbsp&nbsp<span>{{ rating }}</span></div>
       </div>
       <span>{{ stay.propertyType }} • {{ stay.roomType }}</span><br />
       <span>{{ stay.beds }} beds • {{ stay.bedrooms }} bedrooms</span><br />
@@ -55,12 +55,12 @@ export default {
   computed: {
     propertyTypeAndLocation() {
       let propertyDesc = ''
-      if (this.stay.propertyType)
-      {
-        propertyDesc = this.stay.propertyType
-        if (this.stay.address.city)
-          propertyDesc += ` in `
-      }
+      // if (this.stay.propertyType)
+      // {
+      //   propertyDesc = this.stay.propertyType
+      //   if (this.stay.address.city)
+      //     propertyDesc += ` in `
+      // }
       if (this.stay.address.city)
       {
         propertyDesc += `${this.stay.address.city}`
