@@ -13,16 +13,15 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: .5rem;
-    height: 600px;
-
-
+      
     img {
         object-fit: cover;
         width: 100%;
         height: 100%;
     }
-
+    
     :first-child {
+        aspect-ratio: 1 / 1;
         grid-column: span 2;
         grid-row: span 2;
         border-top-left-radius: 0.7em;
