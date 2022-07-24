@@ -10,8 +10,9 @@
 .tag-card {
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: 48px;
   width: fit-content;
+
   padding: 10px;
   flex-wrap: nowrap;
   align-content: stretch;
@@ -54,6 +55,7 @@
   line-height: 16px;
   font-weight: 600;
   color: $clr10;
+  font-family:Circular;
 }
 
 .brd-red {
