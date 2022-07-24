@@ -1,15 +1,15 @@
 
 <template>
 
-  <nav class="search-container">
-    <div class="search-area destination" @click="onOpenWhere"
+  <nav class="search-container large-container">
+    <div class="search-area large-area destination" @click="onOpenWhere"
       :class="{ active: selectedSrchArea === 'destination' }">
       <span class="bold">Where</span>
       <input v-model="filterBy.country" type="text"
         placeholder="Search destinations">
     </div>
     <div class="vl"></div>
-    <div class="search-area date-from" @click="onOpenDateFrom"
+    <div class="search-area large-area date-from" @click="onOpenDateFrom"
       :class="{ active: selectedSrchArea === 'date-from' }">
       <!-- <span class="bold">Check in</span> -->
       <!-- <span :style="dateSpanDisplay">Add dates</span> -->
@@ -17,7 +17,7 @@
         start-placeholder="Check in" />
     </div>
     <div class="vl"></div>
-    <div class="search-area date-to" @click="onOpenDateTo"
+    <div class="search-area large-area date-to" @click="onOpenDateTo"
       :class="{ active: selectedSrchArea === 'date-to' }">
       <!-- <span class="bold">Check out</span> -->
       <!-- <span :style="dateSpanDisplay">Add dates</span> -->
@@ -25,7 +25,7 @@
         end-placeholder="Check out" />
     </div>
     <div class="vl"></div>
-    <div class="search-area guests" @click="onOpenGuests"
+    <div class="search-area large-area guests" @click="onOpenGuests"
       :class="{ active: selectedSrchArea === 'guests' }">
       <div class="guests-placeholder">
         <span class="bold">Who</span>

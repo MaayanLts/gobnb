@@ -10,19 +10,21 @@
         </div>
       </div>
 
-      <nav class="main-header-nav middle-section" @click="showFullSearch"
-        :style="displayInitSearch">
-        <ul class="main-nav clean-list flex">
-          <li class="li-header"><a href="#">Anywhere</a></li>
-          <li class="li-header"><a href="#">Anyweek</a></li>
-          <li class="li-header"><a href="#">Add gust</a>
+      <nav class="search-container" @click="showFullSearch" :style="displayInitSearch">
+        <div class="search-area destinations">
+          <span class="search-area-text">Anywhere</span>
+        </div>
+        <div class="vl"></div>
+        <div class="search-area date">
+          <span class="search-area-text">Any week</span>
+        </div>
+        <div class="vl"></div>
+        <div class="search-area guests">
+            <span class="search-area-text">Add guests</span>
             <div class="search-icon-container">
-              <img class="search-icon" src="../assets/logo/serch_icon.png"
-                alt="">
+              <img class="search-icon" src="../assets/logo/serch_icon.png" alt="">
             </div>
-          </li>
-
-        </ul>
+        </div>
       </nav>
 
       <div class="right-section">

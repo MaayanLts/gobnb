@@ -66,21 +66,43 @@
 //   align-items: center;
 // }
 
-.middle-section {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: fit-content;
-  width: fit-content;
-  padding-left: em(8px);
-  padding-right: em(8px);
-  border: 1px solid black;
-  justify-content: space-around;
-  border-radius: 25px;
+// .middle-section {
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   height: fit-content;
+//   width: fit-content;
+//   padding-left: em(8px);
+//   padding-right: em(8px);
+//   border: 1px solid black;
+//   justify-content: space-around;
+//   border-radius: 25px;
 
-  .search-icon {
-    width: em(16px);
+//   .search-icon {
+//     width: em(16px);
+//   }
+// }
+
+.search-area{
+  &.destinations
+  {
+    flex-grow: 1;
   }
+  &.date{
+    flex-grow: 1;
+  }
+  &.guests{
+    flex-grow: 3;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+
+.search-area-text{
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
 }
 
 .search-icon-container {
