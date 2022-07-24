@@ -1,9 +1,9 @@
-<template>
-    <div class="mySlides fade">
-      <div class="numbertext">1</div>
-      <img class="slide-img" :src="fullImageUrl">
-      <div class="text">Caption Text</div>
-    </div>
+<template  class=" clickable">
+  <div class="mySlides fade">
+    <div class="numbertext">1</div>
+    <img class="slide-img" :src="fullImageUrl">
+    <div class="text">Caption Text</div>
+  </div>
 </template>
 
 <script>
@@ -17,9 +17,9 @@ export default {
 
   },
   computed: {
-   fullImageUrl() {
+    fullImageUrl() {
       return `src/images/${this.imageUrl}`
-   },
+    },
   },
   created() {
   },

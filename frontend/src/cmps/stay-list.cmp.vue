@@ -2,8 +2,8 @@
   <section class="stay-list">
     <!-- <button @click="toAddStay()">Add Stay</button> -->
     <!-- clean-list stay-list-layout">> -->
-    <stay-preview class="preview-layout" v-for="stay in stays" :key="stay._id"
-      :stay="stay" />
+    <stay-preview class="preview-layout clickable" v-for="stay in stays"
+      :key="stay._id" :stay="stay" />
   </section>
 </template>
 

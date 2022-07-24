@@ -91,7 +91,7 @@ export const stayService = {
 	getEmptyTrip,
 }
 function _buildFilterCriteria(filterBy = {tag: '', country: ''}) {
-	const {tag, country} = filterBy
+	const {tag, country, byPrice} = filterBy
 	let filteredStays = stayData
 	if (tag) {
 		const regex = new RegExp(filterBy.tag, 'i')
@@ -100,6 +100,11 @@ function _buildFilterCriteria(filterBy = {tag: '', country: ''}) {
 	if (country) {
 		const regex = new RegExp(filterBy.country, 'i')
 		filteredStays = stayData.filter((stay) => regex.test(stay.address.country))
+	}
+
+	if (byPrice) {
+		filteredStays = stayData.filter((stay) => stay.price > byPrice.minPrice)
+		filteredStays = filteredStays.filter((stay) => stay.price < byPrice.maxPrice)
 	}
 	return filteredStays
 }
