@@ -1,5 +1,6 @@
 <template>
 
+
   <div :class="headerContainerStyle">
     <div :class="headerClass">
       <div class="left-section">
@@ -39,10 +40,13 @@
       </div>
 
     </div>
+    <div class="main-layout">
     <div class="dynamic-header" :style="displayFullSearch">
       <stay-filter-search />
     </div>
+    </div>
   </div>
+  <div class="horLine main-layout"></div>
 
 </template>
 <script>

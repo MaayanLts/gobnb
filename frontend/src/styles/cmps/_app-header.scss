@@ -32,15 +32,16 @@
   }
 }
 
-// .dynamic-header {
-//   border-bottom-style: solid;
-//   border-bottom-color: rgb(233, 232, 232);
-//   display: flex;
-//   justify-content: center;
-//   padding-bottom: em(15px);
-//   // transition: all 1s linear;
-//   // opacity: 1; 
-// }
+.dynamic-header {
+  border-bottom: solid 1px;
+  border-bottom-color: rgb(233, 232, 232);
+  display: flex;
+  justify-content: center;
+  padding-bottom: em(15px);
+  width: 100%;
+  // transition: all 1s linear;
+  // opacity: 1; 
+}
 
 @keyframes changeSize {
   0% {
@@ -168,4 +169,10 @@
 .li-header {
   display: flex;
   align-items: center;
+}
+
+.horLine{
+  background-color: $clr6;
+  width: auto;
+  height: 1px;
 }
