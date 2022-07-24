@@ -1,0 +1,13 @@
+.search-area{
+    display: flex;
+    flex-direction: column;
+    border-radius: 5em;
+    align-items:flex-start;
+    justify-content: center;
+    padding-left: em(30px);
+    flex-grow: 1;
+
+    &.large-area {
+        flex-grow: 3;
+    }
+  }
