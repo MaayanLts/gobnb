@@ -15,11 +15,6 @@
 
 <script>
 export default {
-  // props: {
-  //   tag: {
-  //     type: String,
-  //   }
-  // },
   data() {
     return {
       tags: ["Islands", 'Beach', 'Amazing pools', 'OMG', 'National parks', 'Cabins', 'Design', "Camping", 'Amazing views', 'Desert', 'Arctic', 'Tiny homes', 'Lakefront'],

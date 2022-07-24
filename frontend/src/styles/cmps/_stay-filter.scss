@@ -2,14 +2,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: em(40px);
-    padding-bottom: em(20px);
-    height: em(78px);
+    align-items: center;
+    width: 100%;
 }
 
 .btn.btn-default{
     width: em(91px);
     height: em(48px);
     border-radius: em(10px);
-    margin-left:  70px;
+    margin-left: 40px;
 }
