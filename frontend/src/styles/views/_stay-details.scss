@@ -181,18 +181,31 @@
 
     img {
         width: rem(24px);
+        position: relative;
+        top:-8px;
+    }
+    .static{
+        position:static;
     }
 
     h2 {
         display: inline-block;
         font-family: 'Airbnb-medium';
         font-size: 16px;
-        margin-left: 1rem;
+
     }
     p{
         font-family: 'Airbnb-book';
         font-size: 14px;
 
+    }
+    .superhost-txt{
+        // display: flex;
+    }
+
+
+    .txt-holder{
+        margin-left: 20px;
     }
 }
 
@@ -202,8 +215,9 @@
     border-bottom: 1px solid #dfdddd;
 
     h2 {
-        font-family: 'Airbnb-bold';
-        font-size: rem(40px);
+        font-family: 'montreal';
+        font-size: 40px;
+        font-weight:100;
         margin: 0;
     }
 
@@ -253,6 +267,7 @@
         padding: rem(13px) rem(23px);
         border: 1px solid $title-txt-clr;
         border-radius: rem(8px);
+        cursor: pointer;
         display: inline-block;
     }
 
