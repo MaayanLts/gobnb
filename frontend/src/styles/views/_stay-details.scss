@@ -1,6 +1,6 @@
 .main-details-container {
     display: grid;
-    grid-template-columns: 1fr minmax(auto, 1120px) 1fr;
+    grid-template-columns: minmax($layoutPadding, 1fr) minmax(auto, 1120px) minmax($layoutPadding, 1fr);
     >* {
         grid-column: 2;
     }
@@ -218,19 +218,21 @@
         font-family: 'montreal';
         font-size: 37px;
         font-weight:100;
-        margin: 0;
+        margin: 16px 0;
     }
 
     p {
         // margin-top: 0;
         font-size: 16px;
+        font-family: 'Airbnb-book';
     }
-
+    
     span {
         color: $clr1;
     }
-
+    
     a {
+        margin-top: 16px;
         color: $title-txt-clr;
         font-family: 'Airbnb-bold';
         font-size: 16px;
@@ -241,10 +243,16 @@
     padding-top: rem(24px);
     padding-bottom: rem(24px);
     border-bottom: 1px solid #dfdddd;
-
+    
+    p {
+        // margin-top: 0;
+        font-size: 16px;
+        font-family: 'Airbnb-book';
+    }
     a {
         color: $title-txt-clr;
         font-family: 'Airbnb-bold';
+        font-size: 16px;
     }
 
     h4,

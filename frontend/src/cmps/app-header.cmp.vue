@@ -48,17 +48,11 @@
           <stay-filter-search />
         </div>
       </div>
-<<<<<<< HEAD
       <div class="dynamic-header" :style="displayFullSearch">
         <stay-filter-search />
       </div>
       <div class="horLine full"></div>
     </div>
-=======
-      <div class="horLine full"></div>
-    </div>
-
->>>>>>> 6b695883ee0324effae4b4b5bcc2475085b0ac22
   </div>
 </template>
 <script>

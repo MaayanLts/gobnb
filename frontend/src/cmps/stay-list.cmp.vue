@@ -1,6 +1,6 @@
 <template>
-  <div class=" list-container main-layot brd-red">
-    <section class="stay-list brd-green">
+  <div class=" list-container main-layout">
+    <section class="stay-list">
       <!-- <button @click="toAddStay()">Add Stay</button> -->
       <!-- clean-list stay-list-layout">> -->
       <stay-preview class="preview-layout clickable" v-for="stay in stays" :key="stay._id" :stay="stay" />
