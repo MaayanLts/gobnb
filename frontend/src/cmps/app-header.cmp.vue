@@ -2,51 +2,64 @@
 
 
   <div class="main-layout">
-    <div :class="headerContainerStyle">
-      <div :class="headerClass">
-        <div class="left-section">
-          <div class="main-header-logo">
-            <router-link to="/">
-              <img class="logo" src="/src/assets/logo/logo.png" alt="">
-            </router-link>
-          </div>
-        </div>
-
-        <nav class="search-container" @click="showFullSearch" :style="displayInitSearch">
-          <div class="search-area destinations">
-            <span class="search-area-text">Anywhere</span>
-          </div>
-          <div class="vl"></div>
-          <div class="search-area date">
-            <span class="search-area-text">Any week</span>
-          </div>
-          <div class="vl"></div>
-          <div class="search-area guests">
-            <span class="search-area-text">Add guests</span>
-            <div class="search-icon-container">
-              <img class="search-icon" src="../assets/logo/serch_icon.png" alt="">
+    <div class="x" style="max-width:1600px ;margin:0,auto">
+      <div :class="headerContainerStyle">
+        <div :class="headerClass">
+          <div class="left-section">
+            <div class="main-header-logo">
+              <router-link to="/">
+                <img class="logo" src="/src/assets/logo/logo.png" alt="">
+              </router-link>
             </div>
           </div>
-        </nav>
 
-        <div class="right-section">
-          <a class="clickable">Become a Host</a>
-          <img class="globe-icon clickable" src="/src/assets/logo/Globe_icon.svg" alt="">
-          <div class="user-humburger clickable">
-            <img class="burger-icon clickable" src="/src/assets/logo/Hamburger_icon.svg" alt="">
-            <img class="user-img" src="/src/assets/logo/user.jpg" alt="">
+          <nav class="search-container" @click="showFullSearch"
+            :style="displayInitSearch">
+            <div class="search-area destinations">
+              <span class="search-area-text">Anywhere</span>
+            </div>
+            <div class="vl"></div>
+            <div class="search-area date">
+              <span class="search-area-text">Any week</span>
+            </div>
+            <div class="vl"></div>
+            <div class="search-area guests">
+              <span class="search-area-text">Add guests</span>
+              <div class="search-icon-container">
+                <img class="search-icon" src="../assets/logo/serch_icon.png"
+                  alt="">
+              </div>
+            </div>
+          </nav>
+
+          <div class="right-section">
+            <a class="clickable">Become a Host</a>
+            <img class="globe-icon clickable"
+              src="/src/assets/logo/Globe_icon.svg" alt="">
+            <div class="user-humburger clickable">
+              <img class="burger-icon clickable"
+                src="/src/assets/logo/Hamburger_icon.svg" alt="">
+              <img class="user-img" src="/src/assets/logo/user.jpg" alt="">
+            </div>
           </div>
-        </div>
 
+        </div>
+        <div class="dynamic-header" :style="displayFullSearch">
+          <stay-filter-search />
+        </div>
       </div>
+<<<<<<< HEAD
       <div class="dynamic-header" :style="displayFullSearch">
         <stay-filter-search />
       </div>
       <div class="horLine full"></div>
     </div>
+=======
+      <div class="horLine full"></div>
+    </div>
+
+>>>>>>> 6b695883ee0324effae4b4b5bcc2475085b0ac22
   </div>
-
-
 </template>
 <script>
 import stayFilterSearch from "./stay-filter-search.cmp.vue"
