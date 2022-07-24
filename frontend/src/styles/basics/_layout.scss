@@ -1,7 +1,8 @@
 .main-layout {
     display: grid;
     grid-template-columns: $layoutPadding 1fr $layoutPadding;
-
+    max-width: 1600px;
+    
     >* {
         grid-column: 2;
     }
