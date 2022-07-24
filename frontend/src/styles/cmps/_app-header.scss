@@ -113,6 +113,9 @@
   align-items: center;
   width: em(220px);
   justify-content: space-around;
+  a{
+    color: $primary-txt-clr;
+  }
 }
 
 .user-humburger {
