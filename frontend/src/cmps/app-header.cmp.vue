@@ -48,10 +48,7 @@
           <stay-filter-search />
         </div>
       </div>
-      <div class="dynamic-header" :style="displayFullSearch">
-        <stay-filter-search />
-      </div>
-      <div class="horLine full"></div>
+      
     </div>
   </div>
 </template>
