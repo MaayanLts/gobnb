@@ -11,7 +11,7 @@
 
 .header-container {
   // max-width: 1495px;
-  // margin: 0 auto;
+  margin: 0;
 
   &.open {
     transition: all 0.3s ease;
@@ -113,6 +113,9 @@
   align-items: center;
   width: em(220px);
   justify-content: space-around;
+  a{
+    color: $primary-txt-clr;
+  }
 }
 
 .user-humburger {
