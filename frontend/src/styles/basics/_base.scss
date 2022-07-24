@@ -1,11 +1,11 @@
 body {
     margin: auto;
-    width: 90%;
     align-self: center;
-
+    
 }
 
 :root {
+    width: 100%;
     line-height: 1.43;
     color: $primary-txt-clr;
     font-size: em(14px);

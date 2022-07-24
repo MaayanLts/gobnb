@@ -1,31 +1,18 @@
 .header {
-  background-color: white;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom-width: 1px;
-  max-width: 1495px;
   border-bottom-color: rgb(233, 232, 232);
-  max-width: 1495px;
-  margin: 0 auto;
-
-  // @include for-narrow-layout {
-  //   @include layoutGTC($break-narrow);
-  // }
-
-  // @include for-normal-layout {
-  //   @include layoutGTC($break-normal);
-  // }
-
-  // @include for-wide-layout {
-  //   @include layoutGTC($break-wide);
-  // }
+  height: 80px;
+  padding: 40px;
+  width: 100%;
+  
 }
 
 .header-container {
-  max-width: 1495px;
-  margin: 0 auto;
+  // max-width: 1495px;
+  // margin: 0 auto;
 
   &.open {
     transition: all 0.3s ease;
@@ -172,7 +159,7 @@
 }
 
 .horLine{
-  background-color: $clr6;
-  width: auto;
+  background-color: #dfdddd;
+  width: 100%;
   height: 1px;
 }
