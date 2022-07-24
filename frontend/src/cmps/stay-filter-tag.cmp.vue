@@ -4,8 +4,8 @@
     <!-- <el-carousel-item v-for="(internalTagsList,index) in tags" :key="index"> -->
     <div :class="{ active: selectedTag === tag }" class="tag-card"
       v-for="tag in tags" :key="tag" @click="tagSelect(tag)">
-      <div><img class="tag-img" :src="tagImage(tag)" /></div>
-      <span>{{ tag }}</span>
+      <div><img class="tag-card-img" :src="tagImage(tag)" /></div>
+      <span class="tag-card-text">{{ tag }}</span>
     </div>
     <!-- </el-carousel-item> -->
     <!-- </el-carousel> -->
