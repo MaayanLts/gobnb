@@ -1,6 +1,6 @@
 .main-layout {
     display: grid;
-    grid-template-columns: minmax($layoutPadding, 1fr) minmax(auto, 1600px) minmax($layoutPadding, 1fr);
+    grid-template-columns: minmax($MainLayoutPadding, 1fr) minmax(auto, 1600px) minmax($MainLayoutPadding, 1fr);
 
     >* {
         grid-column: 2;
