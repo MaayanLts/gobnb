@@ -1,10 +1,11 @@
 <template>
-  <section class="stay-list main-layot">
-    <!-- <button @click="toAddStay()">Add Stay</button> -->
-    <!-- clean-list stay-list-layout">> -->
-    <stay-preview class="preview-layout clickable" v-for="stay in stays"
-      :key="stay._id" :stay="stay" />
-  </section>
+  <div class=" list-container main-layot brd-red">
+    <section class="stay-list brd-green">
+      <!-- <button @click="toAddStay()">Add Stay</button> -->
+      <!-- clean-list stay-list-layout">> -->
+      <stay-preview class="preview-layout clickable" v-for="stay in stays" :key="stay._id" :stay="stay" />
+    </section>
+  </div>
 </template>
 
 <script>
