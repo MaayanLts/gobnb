@@ -111,8 +111,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: em(220px);
-  justify-content: space-around;
+  // width: em(220px);
+  // justify-content: space-around;
   a{
     color: $primary-txt-clr;
     text-decoration: none;
@@ -137,10 +137,23 @@
 
 .logo {
   width: em(100px);
+
 }
 
 .globe-icon {
-  width: em(16px);
+  width: 16px;
+  z-index: 0;
+  // border-radius: 50%;
+  margin: 16px;
+  &:hover{
+    background-color: aqua;
+  }
+  .img{
+    width: 100%;
+    z-index: 20;
+    padding: 16px;
+    background-color: rgb(227, 196, 222);
+  }
 }
 
 .user-img {

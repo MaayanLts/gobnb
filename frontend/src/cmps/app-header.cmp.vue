@@ -13,8 +13,7 @@
             </div>
           </div>
 
-          <nav class="search-container" @click="showFullSearch"
-            :style="displayInitSearch">
+          <nav class="search-container" @click="showFullSearch" :style="displayInitSearch">
             <div class="search-area destinations">
               <span class="search-area-text">Anywhere</span>
             </div>
@@ -26,19 +25,18 @@
             <div class="search-area guests">
               <span class="search-area-text">Add guests</span>
               <div class="search-icon-container">
-                <img class="search-icon" src="../assets/logo/serch_icon.png"
-                  alt="">
+                <img class="search-icon" src="../assets/logo/serch_icon.png" alt="">
               </div>
             </div>
           </nav>
 
           <div class="right-section">
             <a class="clickable">Become a Host</a>
-            <img class="globe-icon clickable"
-              src="/src/assets/logo/Globe_icon.svg" alt="">
+            <div class="globe-icon clickable">
+              <img src="/src/assets/logo/globe-icon-header Airbnb-5.svg" alt="">
+            </div>
             <div class="user-humburger clickable">
-              <img class="burger-icon clickable"
-                src="/src/assets/logo/Hamburger_icon.svg" alt="">
+              <img class="burger-icon clickable" src="/src/assets/logo/Hamburger_icon.svg" alt="">
               <img class="user-img" src="/src/assets/logo/user.jpg" alt="">
             </div>
           </div>
