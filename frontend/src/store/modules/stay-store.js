@@ -65,8 +65,8 @@ export default {
 
 		async getStayById(context, {stayId}) {
 			try {
-				var a = await stayService.getStayById(stayId)
-				return a
+				return  await stayService.getStayById(stayId)
+				
 			} catch (err) {
 				console.log(err)
 			}
