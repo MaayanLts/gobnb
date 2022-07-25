@@ -37,16 +37,19 @@
             </nav>
           </transition>
 
-          <div class="right-section">
-            <a @click="displaySearch = !displaySearch" class="clickable">Become
-              a Host</a>
-            <div class="globe-icon clickable">
-              <img src="/src/assets/logo/globe-icon-header Airbnb-5.svg" alt="">
+          <div class="user-settings-container">
+            <div class="user-section left">
+              <div class="host-btn bold clickable">Become a Host</div>
             </div>
-            <div class="user-humburger clickable">
+            <div class="user-section center">
+              <img class="globe-icon clickable"
+                src="/src/assets/logo/globe-icon-header Airbnb-5.svg" alt="">
+            </div>
+            <div class="user-section user-btn">
               <img class="burger-icon clickable"
                 src="/src/assets/logo/Hamburger_icon.svg" alt="">
-              <img class="user-img" src="/src/assets/logo/user.jpg" alt="">
+              <img class="user-img clickable" src="/src/assets/logo/user.jpg"
+                alt="">
             </div>
           </div>
         </div>
