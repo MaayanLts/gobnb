@@ -24,9 +24,20 @@
   display: flex;
   justify-content: center;
   padding-bottom: em(15px);
-  width: 100%;
+  width: 100%; 
+  border: red solid 2px;
   // transition: all 1s linear;
   // opacity: 1; 
+}
+
+.fullSearch-enter-active,
+.fullSearch-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fullSearch-enter-from,
+.fullSearch-leave-to {
+  opacity: 0;
 }
 
 @keyframes changeSize {

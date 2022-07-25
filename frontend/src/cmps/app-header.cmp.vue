@@ -3,7 +3,7 @@
 
   <div class="main-layout">
     <div class="x" style="max-width:1600px ;margin:0,auto">
-      <div :class="headerContainerStyle">
+      <div> <!--  :class="headerContainerStyle"-->
         <div :class="headerClass">
           <div class="left-section">
             <div class="main-header-logo">
@@ -11,9 +11,9 @@
                 <img class="logo" src="/src/assets/logo/logo.png" alt="">
               </router-link>
             </div>
-          </div>
+          </div> 
 
-          <nav class="search-container" @click="showFullSearch" :style="displayInitSearch">
+          <nav class="search-container" @click="showFullSearch"><!--  :style="displayInitSearch">-->
             <div class="search-area destinations">
               <span class="search-area-text">Anywhere</span>
             </div>
@@ -40,11 +40,13 @@
               <img class="user-img" src="/src/assets/logo/user.jpg" alt="">
             </div>
           </div>
+        </div>
 
-        </div>
-        <div class="dynamic-header" :style="displayFullSearch">
-          <stay-filter-search />
-        </div>
+        <Transition name="fullSearch">
+          <div v-if="displayFullSearch" class="dynamic-header"> <!-- :style="displayFullSearch"> -->
+            <stay-filter-search  />
+          </div>
+        </Transition>
       </div>
       
     </div>
@@ -56,30 +58,30 @@ import stayFilterSearch from "./stay-filter-search.cmp.vue"
 export default {
   data() {
     return {
-      displaySearch: 'initSearch',
+      displaySearch: false,
     }
   },
   computed: {
-    headerContainerStyle() {
-      return (this.displaySearch === 'fullSearch') ? 'header-container full' : 'header-container'
-    },
+    // headerContainerStyle() {
+    //   return (this.displaySearch === 'fullSearch') ? 'header-container full' : 'header-container'
+    // },
     headerClass() {
       const isDetailsHeader = this.$route.params.id
       return (isDetailsHeader) ? 'header details-header' : 'header'
     },
-    displayInitSearch() {
-      return this.displaySearch === 'initSearch' ? 'opacity: 1' : 'opacity: 0'
-    },
-    displayFullSearch() {
-      return this.displaySearch === 'fullSearch' ? 'opacity: 1; display: flex;' : 'opacity: 0; display: none;'
-    }
+    // displayInitSearch() {
+    //   return this.displaySearch === 'initSearch' ? 'opacity: 1' : 'opacity: 0'
+    // },
+    // displayFullSearch() {
+    //   return this.displaySearch === 'fullSearch' ? 'opacity: 1; display: flex;' : 'opacity: 0; display: none;'
+    // }
   },
   components: {
     stayFilterSearch,
   },
   methods: {
     showFullSearch() {
-      this.displaySearch = 'fullSearch'
+      this.displaySearch = !this.displaySearch
     }
   },
 }
