@@ -36,7 +36,7 @@
 
           <div class="user-settings-container">
             <div class="user-section left">
-              <div class="host-btn bold clickable">Become a Host</div>
+              <div class="host-btn clickable">Become a Host</div>
             </div>
             <div class="user-section center">
               <img class="globe-icon clickable" src="/src/assets/logo/globe-icon-header Airbnb-5.svg" alt="">
