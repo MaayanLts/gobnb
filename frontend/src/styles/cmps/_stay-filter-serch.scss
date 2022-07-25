@@ -1,4 +1,4 @@
-.el-range-editor{
+.el-range-editor {
   box-shadow: none !important;
   background-color: transparent !important;
   width: em(102px) !important;
@@ -6,11 +6,11 @@
   padding: 0px !important;
 }
 
-.el-input__wrapper{
+.el-input__wrapper {
   justify-content: flex-start !important;
 }
 
-.el-date-editor .el-range__icon{
+.el-date-editor .el-range__icon {
   display: none !important;
 }
 
@@ -19,53 +19,56 @@
   background-color: transparent !important;
   height: 50% !important;
   width: 100% !important;
-  text-align:left !important;
+  text-align: left !important;
+
   &::-webkit-input-placeholder {
     color: $clr2;
     font-weight: bold;
   }
-  &:focus{
+
+  &:focus {
     outline: 0 !important;
   }
 }
 
-.el-range-separator{
+.el-range-separator {
   display: none !important;
 }
 
-.picker-date-from > input:nth-child(4){
-    display: none !important;
-    width: 0px !important;
-}
-
-.picker-date-to >  input:nth-child(2){
+.picker-date-from>input:nth-child(4) {
   display: none !important;
   width: 0px !important;
 }
 
-.search-area.large-area{
-  &:hover{
+.picker-date-to>input:nth-child(2) {
+  display: none !important;
+  width: 0px !important;
+}
+
+.search-area.large-area {
+  &:hover {
     background-color: $clr9;
   }
 
-  &.active{
+  &.active {
     background-color: $clr3;
     box-shadow: 8px 10px 20px 0px rgb(0 0 0 / 8%), -9px -1px 12px rgb(0 0 0 / 5%);
   }
 
-  & > input{
+  &>input {
     border: none;
     background-color: transparent;
-    &:focus{
+
+    &:focus {
       outline: 0;
     }
   }
 
-  &.destination{
+  &.destination {
     flex-grow: 5;
   }
 
-  &.guests{
+  &.guests {
     flex-grow: 5;
     display: flex;
     flex-direction: row;
@@ -74,15 +77,15 @@
   }
 }
 
-.guests-placeholder{
-  display:flex;
+.guests-placeholder {
+  display: flex;
   flex-direction: column;
   justify-items: center;
 }
 
-.action-search{
+.action-search {
   background-color: $primary-clr;
-  color:$clr3;
+  color: $clr3;
   border-radius: 5em;
   min-width: em(120px);
   height: 70%;
@@ -94,11 +97,11 @@
   padding: em(2px) em(20px) em(2px) em(20px);
 }
 
-.action-search > img{
+.action-search>img {
   width: em(20px);
 }
 
-.action-search > span{
+.action-search>span {
   font-family: 'Airbnb-bold';
   font-size: large;
   margin-left: 10px;

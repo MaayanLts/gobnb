@@ -24,20 +24,31 @@
   display: flex;
   justify-content: center;
   padding-bottom: em(15px);
-  width: 100%; 
-  border: red solid 2px;
-  // transition: all 1s linear;
-  // opacity: 1; 
+  width: 100%;
 }
 
-.fullSearch-enter-active,
+.fullSearch-enter-active {
+  transition: opacity 0.3s ease;
+}
+
 .fullSearch-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.3s ease;
 }
 
-.fullSearch-enter-from,
+.fullSearch-enter-from {
+  opacity: 0;
+}
+
 .fullSearch-leave-to {
   opacity: 0;
+}
+
+.fullSearch-enter-to {
+  opacity: 1;
+}
+
+.fullSearch-leave-from {
+  opacity: 1;
 }
 
 @keyframes changeSize {
