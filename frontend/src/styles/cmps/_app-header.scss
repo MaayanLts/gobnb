@@ -30,11 +30,9 @@
   text-decoration: none;
   font-size:22px;
   color: $clr1;
-  //margin-left: 10px;
 }
 
 .header-container {
-  // max-width: 1495px;
   margin: 0;
 
   &.open {
@@ -75,46 +73,10 @@
   opacity: 1;
 }
 
-@keyframes changeSize {
-  0% {
-    transform: scale(1)
-  }
-
-  65% {
-    transform: scale(1.2)
-  }
-
-  100% {
-    transform: scale(1.4)
-  }
-}
-
 .details-header {
   max-width: 1120px;
   margin: auto;
 }
-
-// .left-section {
-//   display: flex;
-//   align-items: center;
-// }
-
-// .middle-section {
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   height: fit-content;
-//   width: fit-content;
-//   padding-left: em(8px);
-//   padding-right: em(8px);
-//   border: 1px solid black;
-//   justify-content: space-around;
-//   border-radius: 25px;
-
-//   .search-icon {
-//     width: em(16px);
-//   }
-// }
 
 .search-area {
   &.destinations {
@@ -154,48 +116,70 @@
   }
 }
 
-.right-section {
+.user-settings-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-
-  // width: em(220px);
-  // justify-content: space-around;
-  a {
-    color: $primary-txt-clr;
-    text-decoration: none;
-  }
+  justify-content: flex-end;
+  width: 468px;
+  height: 100%;
+  border:red solid 2p;
 }
 
-.user-humburger {
+.user-section {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: em(77px);
-  border: 1px rgb(85, 85, 98) solid;
+  height: 42px;
   justify-content: space-around;
   border-radius: 25px;
-  margin-top: em(19px);
-  margin-bottom: em(19px);
+  padding: 8px;
 
-  .burger-icon {
-    width: em(16px);
+  &:hover {
+    background-color: $clr8;
   }
-}
 
-.logo {
-  width: 118px;
+  .host-btn{
+    color: $primary-txt-clr;
+    text-decoration: none;
+    width: 107px;
+    height: 18px;
+  }  
+ }
 
+ .user-btn {
+    width: 79px;
+    border: 1px $clr9 solid;
+    justify-content: space-between;
+    border-radius: 25px;
+    margin-left: 14px;
+    padding: 8px;
+
+    .burger-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.7;
+      margin-left: 5px;
+    }
+    
+    .user-img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50px;
+      margin-right: -3px;
+    }
+
+    &:hover {
+      background-color: $clr3;
+      box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
+    }
 }
 
 .globe-icon {
   width: 16px;
-  z-index: 0;
-  // border-radius: 50%;
-  margin: 16px;
 
   &:hover {
-    background-color: aqua;
+    background-color: $clr9;
   }
 
   .img {
@@ -204,11 +188,6 @@
     padding: 16px;
     background-color: rgb(227, 196, 222);
   }
-}
-
-.user-img {
-  width: 30px;
-  border-radius: 50px;
 }
 
 .main-header-nav {
