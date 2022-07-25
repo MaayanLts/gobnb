@@ -228,12 +228,12 @@
         color: $clr1;
     }
     
-    a {
-        margin-top: 16px;
-        color: $title-txt-clr;
-        font-family: 'Airbnb-bold';
-        font-size: 16px;
-    }
+    // a {
+    //     margin-top: 16px;
+    //     color:red;// $title-txt-clr;
+    //     font-family: 'Airbnb-bold';
+    //     font-size: 16px;
+    // }
 }
 
 .summary-holder {
@@ -246,15 +246,16 @@
         font-size: 16px;
         font-family: 'Airbnb-book';
     }
-    a {
-        color: $title-txt-clr;
-        font-family: 'Airbnb-bold';
-        font-size: 16px;
-        img{
-           width: 12px;
-           margin-left: 3px;
-        }
-    }
+
+    // a {
+    //     color: green;// $title-txt-clr;
+    //     font-family: 'Airbnb-bold';
+    //     font-size: 16px;
+    //     img{
+    //        width: 12px;
+    //        margin-left: 3px;
+    //     }
+    // }
 
     h4,
     .summary {

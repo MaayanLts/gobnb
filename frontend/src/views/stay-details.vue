@@ -101,18 +101,18 @@
                     <h2><span>air</span>cover</h2>
                     <p>Every booking includes free protection from Host cancellations, listing inaccuracies, and other
                         issues like trouble checking in.</p>
-                    <a href="">Learn more</a>
+                    <a class="href-more" href="">Learn more</a>
                 </div>
                 <div class="summary-holder">
                     <p class="summary">{{ stay.summary }}</p>
                     <h4>...</h4>
-                    <a href="">Show more <img src="../assets/logo/reed-more-row.svg" alt=""></a>
+                    <a class="href-more" href="">Show more <img src="../assets/logo/reed-more-row.svg" alt=""></a>
                 </div>
 
                 <div class="amenities">
                     <h2>What this place offers</h2>
                     <ul>
-                        <li v-for=" (ament) in stay.amenities.slice(0, 7)">{{ ament }}</li>
+                        <li v-for=" (ament) in stay.amenities.slice(0, 7)" :key="ament">{{ ament }}</li>
                     </ul>
                     <div class="show-all-btn">
                         Show all {{ stay.amenities.length - 7 }} amenities
