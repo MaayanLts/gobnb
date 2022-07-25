@@ -14,16 +14,23 @@
   display: none !important;
 }
 
-.el-date-editor .el-range-input {
-  border: none !important;
-  background-color: transparent !important;
-  height: 50% !important;
+.el-range-input {
+  // border: none !important;
+  // background-color: transparent !important;
+  // height: 50% !important;
   width: 100% !important;
   text-align: left !important;
 
+
+  font-size: 1666px;
+  line-height: 18px;
+  font-weight: 600;
+  // color: '#222222';
+
+
   &::-webkit-input-placeholder {
-    color: $clr2;
-    font-weight: bold;
+    // color: $clr2;
+    // font-weight: bold;
   }
 
   &:focus {
@@ -45,6 +52,34 @@
   width: 0px !important;
 }
 
+.large-area input {
+  border: none;
+  background-color: transparent;
+
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  font-family: 'Airbnb-book';
+  color: '#717171';
+  text-overflow: ellipsis;
+
+  &.addGes {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+  }
+}
+
+.large-area span {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  font-family: 'Airbnb-book';
+  padding-bottom: 2px;
+
+}
+
 .search-area.large-area {
   &:hover {
     background-color: $clr9;
@@ -53,11 +88,13 @@
   &.active {
     background-color: $clr3;
     box-shadow: 8px 10px 20px 0px rgb(0 0 0 / 8%), -9px -1px 12px rgb(0 0 0 / 5%);
+
+
+    &>span {}
   }
 
   &>input {
-    border: none;
-    background-color: transparent;
+
 
     &:focus {
       outline: 0;
@@ -66,6 +103,7 @@
 
   &.destination {
     flex-grow: 5;
+
   }
 
   &.guests {
@@ -74,6 +112,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    position: relative;
   }
 }
 
@@ -105,4 +144,54 @@
   font-family: 'Airbnb-bold';
   font-size: large;
   margin-left: 10px;
+}
+
+.drop-menu {
+  // border: 1px solid black;
+  height: 100px;
+  position: absolute;
+  bottom: -428px;
+  background-color: rgb(175, 184, 192);
+  z-index: 1;
+  height: 406px;
+  width: 403px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 25px;
+  left: -150px;
+
+  & .input-num {
+
+    width: 330px;
+  }
+
+
+
+}
+
+
+.drop-item {
+  width: 330px;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.txt-drop-item {
+  flex-direction: column;
+  justify-self: flex-start;
+}
+
+.el-input-number__decrease {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.el-input-number__increase {
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
 }
