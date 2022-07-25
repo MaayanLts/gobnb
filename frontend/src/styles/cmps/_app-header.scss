@@ -10,7 +10,12 @@
 }
 
 .main-header-logo{
-  text-decoration: none;;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  width: 102px;
 }
 
 .svg-logo{
@@ -25,6 +30,7 @@
   text-decoration: none;
   font-size:22px;
   color: $clr1;
+  //margin-left: 10px;
 }
 
 .header-container {
