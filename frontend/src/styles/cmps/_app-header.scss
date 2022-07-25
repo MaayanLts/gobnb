@@ -6,7 +6,7 @@
   border-bottom-color: rgb(233, 232, 232);
   height: 80px;
   width: 100%;
-  
+
 }
 
 .header-container {
@@ -70,15 +70,16 @@
 //   }
 // }
 
-.search-area{
-  &.destinations
-  {
+.search-area {
+  &.destinations {
     flex-grow: 1;
   }
-  &.date{
+
+  &.date {
     flex-grow: 1;
   }
-  &.guests{
+
+  &.guests {
     flex-grow: 3;
     flex-direction: row;
     justify-content: space-evenly;
@@ -86,7 +87,7 @@
   }
 }
 
-.search-area-text{
+.search-area-text {
   font-size: 14px;
   line-height: 18px;
   font-weight: 600;
@@ -111,9 +112,10 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+
   // width: em(220px);
   // justify-content: space-around;
-  a{
+  a {
     color: $primary-txt-clr;
     text-decoration: none;
   }
@@ -136,7 +138,7 @@
 }
 
 .logo {
-  width: em(100px);
+  width: 118px;
 
 }
 
@@ -145,10 +147,12 @@
   z-index: 0;
   // border-radius: 50%;
   margin: 16px;
-  &:hover{
+
+  &:hover {
     background-color: aqua;
   }
-  .img{
+
+  .img {
     width: 100%;
     z-index: 20;
     padding: 16px;
@@ -174,7 +178,7 @@
   align-items: center;
 }
 
-.horLine{
+.horLine {
   background-color: #dfdddd;
   width: 100%;
   height: 1px;
