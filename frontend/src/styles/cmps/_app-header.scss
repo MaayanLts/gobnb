@@ -28,8 +28,9 @@
 .logo-text{
   font-family: 'Airbnb-bold';
   text-decoration: none;
-  font-size:22px;
+  font-size:21px;
   color: $clr1;
+  font-weight: 900;
 }
 
 .header-container {
@@ -144,6 +145,10 @@
     text-decoration: none;
     width: 107px;
     height: 18px;
+    font-family: 'Airbnb-medium';
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
   }  
  }
 
