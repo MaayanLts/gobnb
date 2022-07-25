@@ -9,11 +9,24 @@
 }
 
 .btn.btn-default{
-    width: em(91px);
-    height: em(48px);
+    width: 91px;
+    height: 48px;
     border-radius: em(10px);
     margin-left: 40px;
     margin-bottom: 23px;
-    //background-image: url('src/assets/fonts/airbnb-label-imgs/settings-sliders.png');
-    //object-fit: contain;
+    background-image: url('src/assets/fonts/airbnb-label-imgs/settings-sliders.png');
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: 20% 50%;
+    text-align: end;
+    padding: 16px;
+    font-family: 'Airbnb-bold';
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    border: solid $clr9 1px;
+
+    &:hover{
+        background-color: $clr3;
+    }
 }

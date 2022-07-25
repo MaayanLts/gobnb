@@ -4,19 +4,16 @@
   <nav class="search-container large-container">
     <div class="search-area large-area destination" @click="onOpenWhere"
       :class="{ active: selectedSrchArea === 'destination' }">
-      <span class="bold">Where</span>
+      <span>Where</span>
       <input v-model="filterBy.country" type="text"
         placeholder="Search destinations">
     </div>
-    <div class="vl"></div>
     <div class="search-area large-area date-from" @click="onOpenDateFrom"
       :class="{ active: selectedSrchArea === 'date-from' }">
-      <!-- <span class="bold">Check in</span> -->
-      <!-- <span :style="dateSpanDisplay">Add dates</span> -->
+
       <el-date-picker class="picker-date-from" v-model="dates" type="daterange"
         start-placeholder="Check in" />
     </div>
-    <div class="vl"></div>
     <div class="search-area large-area date-to" @click="onOpenDateTo"
       :class="{ active: selectedSrchArea === 'date-to' }">
       <!-- <span class="bold">Check out</span> -->
@@ -24,18 +21,68 @@
       <el-date-picker class="picker-date-to" v-model="dates" type="daterange"
         end-placeholder="Check out" />
     </div>
-    <div class="vl"></div>
     <div class="search-area large-area guests" @click="onOpenGuests"
       :class="{ active: selectedSrchArea === 'guests' }">
       <div class="guests-placeholder">
         <span class="bold">Who</span>
-        <span>Add guests</span>
+        <span class="addGes">Add guests</span>
+
+        <div class="drop-menu">
+
+
+          <div class="input-num flex">
+            <div class="drop-item flex">
+              <div class="txt-drop-item flex ">
+                <span>Adults</span>
+                <span> Ages 13 or above</span>
+              </div>
+            </div>
+            <div class="">
+              <el-input-number v-model="adults" size="small" />
+            </div>
+          </div>
+          <div class="input-num flex">
+            <div class="drop-item flex">
+              <div class="txt-drop-item flex ">
+                <span>Adults</span>
+                <span> Ages 13 or above</span>
+              </div>
+            </div>
+            <div class="">
+              <el-input-number v-model="adults" size="small" />
+            </div>
+          </div>
+          <div class="input-num flex">
+            <div class="drop-item flex">
+              <div class="txt-drop-item flex ">
+                <span>Adults</span>
+                <span> Ages 13 or above</span>
+              </div>
+            </div>
+            <div class="">
+              <el-input-number v-model="adults" size="small" />
+            </div>
+          </div>
+          <div class="input-num flex">
+            <div class="drop-item flex">
+              <div class="txt-drop-item flex ">
+                <span>Adults</span>
+                <span> Ages 13 or above</span>
+              </div>
+            </div>
+            <div class="">
+              <el-input-number v-model="adults" size="small" />
+            </div>
+          </div>
+
+        </div>
       </div>
       <div class="action-search clickable" @click.stop="setFilterBy">
         <img class="search-icon" src="/src/assets/logo/serch_icon.png" alt="" />
         <span>Search</span>
       </div>
     </div>
+
   </nav>
 </template>
 
@@ -44,6 +91,7 @@
 export default {
   data() {
     return {
+      adults: 0,
       selectedSrchArea: 'destination',
       filterBy: {
         country: '',
@@ -113,10 +161,23 @@ export default {
   border-right: none;
 }
 
-.demo-date-picker .demonstration {
-  display: block;
-  color: var(--el-text-color-secondary);
-  font-size: 14px;
-  margin-bottom: 20px;
+.el-dropdown-menu {
+  height: 200%;
+  width: 100%;
+  border-radius: 25px;
+}
+
+.el-dropdown-menu__item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  list-style: none;
+  line-height: 22px;
+  padding: 5px 16px;
+  margin: 0;
+  font-size: var(--el-font-size-base);
+  color: var(--el-text-color-regular);
+  cursor: pointer;
+  outline: 0
 }
 </style>

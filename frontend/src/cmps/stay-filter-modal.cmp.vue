@@ -1,6 +1,6 @@
 <template>
 
-  <Btn @click="open1 = true">filter</Btn>
+  <Btn @click="open1 = true">Filter</Btn>
   <Modal v-model="open1" ok-text="filter" ok-type="default"
     @hide="buildFilterObj">
     <template #title>
@@ -53,32 +53,23 @@ export default defineComponent({
   components: { DoughnutChart, BarChart },
   data() {
     return {
-
+      filterEmnt: [],
       open1: ref(false),
 
 
-      minPrice: ref(14),
-      maxPrice: ref(1000),
-      value: ref([0, 0]),
+      minPrice: 14,
+      maxPrice: 1600,
+      value: ref([14, 1600]),
       amenities: {
-        'TV': false,
-        'Internet': false,
-        'Wifi': false,
-        'AirConditioning': false,
-        'WheelchairAccessible': false,
-        'Pool': false,
-        'Kitchen': false,
+        TV: false,
+        Internet: false,
+        Wifi: false,
+        AirConditioning: false,
+        WheelchairAccessible: false,
+        Pool: false,
+        Kitchen: false,
       },
-      chartData: {
-        labels: ['this.minPrice', 'this.maxPrice'],
-        datasets: [
-          {
-            data: [0, 1600],
-            backgroundColor: ['#423f3d'],
-            // #123E6B
-          },
-        ],
-      },
+
     }
   },
   props: {
@@ -95,10 +86,17 @@ export default defineComponent({
         filterBy: filterBy,
       })
     },
-    callback() {
+    callback(label) {
+      console.log('label:', label.target.defaultValue)
       this.value = ref([this.minPrice, this.maxPrice])
-      console.log('msg:',)
-      console.log('this.$store.getters.getPrices.length:', this.$store.getters.getStays)
+      const filterEmnt = []
+      console.log('this.amenities[label.target.defaultValue]:', this.amenities[label.target.defaultValue])
+      if (!this.amenities[label.target.defaultValue]) filterEmnt.push(label.target.defaultValue)
+      // for (var amenitie in this.amenities)
+      // {
+      //   if (amenitie === true) filterEmnt.push(amenitie)
+      // }
+      console.log('filterEmnt:', filterEmnt)
 
     },
     filterBtn() {
@@ -117,7 +115,8 @@ export default defineComponent({
       const dataset = this.$store.getters.getPrices;
       for (var price in dataset)
       {
-        labels.push("");
+        labels.push(price)
+
         data.push(dataset[price]);
       }
       return {
@@ -126,7 +125,7 @@ export default defineComponent({
           {
             data,
             backgroundColor: [
-              "#77CEFF",
+              "gray",
             ],
           },
         ],

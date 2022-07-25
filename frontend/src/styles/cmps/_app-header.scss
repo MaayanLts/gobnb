@@ -6,11 +6,34 @@
   border-bottom-color: rgb(233, 232, 232);
   height: 80px;
   width: 100%;
-  
+
+}
+
+.main-header-logo{
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  width: 102px;
+}
+
+.svg-logo{
+  display: block;
+  width: 30px; 
+  height: 32px;
+  fill: $clr1;
+}
+
+.logo-text{
+  font-family: 'Airbnb-bold';
+  text-decoration: none;
+  font-size:21px;
+  color: $clr1;
+  font-weight: 900;
 }
 
 .header-container {
-  // max-width: 1495px;
   margin: 0;
 
   &.open {
@@ -25,22 +48,30 @@
   justify-content: center;
   padding-bottom: em(15px);
   width: 100%;
-  // transition: all 1s linear;
-  // opacity: 1; 
 }
 
-@keyframes changeSize {
-  0% {
-    transform: scale(1)
-  }
+.fullSearch-enter-active {
+  transition: opacity 0.3s ease;
+}
 
-  65% {
-    transform: scale(1.2)
-  }
+.fullSearch-leave-active {
+  transition: opacity 0.3s ease;
+}
 
-  100% {
-    transform: scale(1.4)
-  }
+.fullSearch-enter-from {
+  opacity: 0;
+}
+
+.fullSearch-leave-to {
+  opacity: 0;
+}
+
+.fullSearch-enter-to {
+  opacity: 1;
+}
+
+.fullSearch-leave-from {
+  opacity: 1;
 }
 
 .details-header {
@@ -48,37 +79,16 @@
   margin: auto;
 }
 
-// .left-section {
-//   display: flex;
-//   align-items: center;
-// }
-
-// .middle-section {
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   height: fit-content;
-//   width: fit-content;
-//   padding-left: em(8px);
-//   padding-right: em(8px);
-//   border: 1px solid black;
-//   justify-content: space-around;
-//   border-radius: 25px;
-
-//   .search-icon {
-//     width: em(16px);
-//   }
-// }
-
-.search-area{
-  &.destinations
-  {
+.search-area {
+  &.destinations {
     flex-grow: 1;
   }
-  &.date{
+
+  &.date {
     flex-grow: 1;
   }
-  &.guests{
+
+  &.guests {
     flex-grow: 3;
     flex-direction: row;
     justify-content: space-evenly;
@@ -86,7 +96,7 @@
   }
 }
 
-.search-area-text{
+.search-area-text {
   font-size: 14px;
   line-height: 18px;
   font-weight: 600;
@@ -107,58 +117,82 @@
   }
 }
 
-.right-section {
+.user-settings-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  // width: em(220px);
-  // justify-content: space-around;
-  a{
-    color: $primary-txt-clr;
-    text-decoration: none;
-  }
+  justify-content: flex-end;
+  width: 468px;
+  height: 100%;
+  border:red solid 2p;
 }
 
-.user-humburger {
+.user-section {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: em(77px);
-  border: 1px rgb(85, 85, 98) solid;
+  height: 42px;
   justify-content: space-around;
   border-radius: 25px;
-  margin-top: em(19px);
-  margin-bottom: em(19px);
+  padding: 8px;
 
-  .burger-icon {
-    width: em(16px);
+  &:hover {
+    background-color: $clr8;
   }
-}
 
-.logo {
-  width: em(100px);
+  .host-btn{
+    color: $primary-txt-clr;
+    text-decoration: none;
+    width: 107px;
+    height: 18px;
+    font-family: 'Airbnb-medium';
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+  }  
+ }
 
+ .user-btn {
+    width: 79px;
+    border: 1px $clr9 solid;
+    justify-content: space-between;
+    border-radius: 25px;
+    margin-left: 14px;
+    padding: 8px;
+
+    .burger-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.7;
+      margin-left: 5px;
+    }
+    
+    .user-img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50px;
+      margin-right: -3px;
+    }
+
+    &:hover {
+      background-color: $clr3;
+      box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
+    }
 }
 
 .globe-icon {
   width: 16px;
-  z-index: 0;
-  // border-radius: 50%;
-  margin: 16px;
-  &:hover{
-    background-color: aqua;
+
+  &:hover {
+    background-color: $clr9;
   }
-  .img{
+
+  .img {
     width: 100%;
     z-index: 20;
     padding: 16px;
     background-color: rgb(227, 196, 222);
   }
-}
-
-.user-img {
-  width: 30px;
-  border-radius: 50px;
 }
 
 .main-header-nav {
@@ -174,7 +208,7 @@
   align-items: center;
 }
 
-.horLine{
+.horLine {
   background-color: #dfdddd;
   width: 100%;
   height: 1px;
