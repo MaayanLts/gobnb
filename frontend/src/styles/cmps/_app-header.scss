@@ -9,7 +9,7 @@
 
 }
 
-.main-header-logo{
+.main-header-logo {
   text-decoration: none;
   display: flex;
   justify-content: space-between;
@@ -18,17 +18,17 @@
   width: 102px;
 }
 
-.svg-logo{
+.svg-logo {
   display: block;
-  width: 30px; 
+  width: 30px;
   height: 32px;
   fill: $clr1;
 }
 
-.logo-text{
+.logo-text {
   font-family: 'Airbnb-bold';
   text-decoration: none;
-  font-size:21px;
+  font-size: 21px;
   color: $clr1;
   font-weight: 900;
 }
@@ -41,12 +41,13 @@
   }
 }
 
+
 .dynamic-header {
   border-bottom: solid 1px;
-  border-bottom-color: rgb(233, 232, 232);
+  border-bottom-color: rgb(255, 255, 255);
+  z-index: 0;
   display: flex;
   justify-content: center;
-  padding-bottom: em(15px);
   width: 100%;
 }
 
@@ -111,6 +112,8 @@
   width: em(32px);
   height: em(32px);
   border-radius: 50%;
+  margin-left: 10px;
+  margin-right: 5px;
 
   .search-icon {
     width: em(15px);
@@ -119,20 +122,20 @@
 
 .user-settings-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  width: 468px;
-  height: 100%;
-  border:red solid 2p;
+  // flex-direction: row;
+  // align-items: center;
+  // justify-content: flex-end;
+  // width: 468px;
+  // height: 100%;
+  // border: red solid 2p;
 }
 
 .user-section {
   display: flex;
-  flex-direction: row;
+  // flex-direction: row;
   align-items: center;
   height: 42px;
-  justify-content: space-around;
+  // justify-content: space-around;
   border-radius: 25px;
   padding: 8px;
 
@@ -140,7 +143,7 @@
     background-color: $clr8;
   }
 
-  .host-btn{
+  .host-btn {
     color: $primary-txt-clr;
     text-decoration: none;
     width: 107px;
@@ -149,35 +152,35 @@
     font-size: 14px;
     line-height: 18px;
     font-weight: 400;
-  }  
- }
+  }
+}
 
- .user-btn {
-    width: 79px;
-    border: 1px $clr9 solid;
-    justify-content: space-between;
-    border-radius: 25px;
-    margin-left: 14px;
-    padding: 8px;
+.user-btn {
+  width: 79px;
+  border: 1px $clr9 solid;
+  justify-content: space-between;
+  border-radius: 25px;
+  margin-left: 14px;
+  padding: 8px;
 
-    .burger-icon {
-      width: 16px;
-      height: 16px;
-      opacity: 0.7;
-      margin-left: 5px;
-    }
-    
-    .user-img {
-      width: 28px;
-      height: 28px;
-      border-radius: 50px;
-      margin-right: -3px;
-    }
+  .burger-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+    margin-left: 5px;
+  }
 
-    &:hover {
-      background-color: $clr3;
-      box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
-    }
+  .user-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50px;
+    margin-right: -3px;
+  }
+
+  &:hover {
+    background-color: $clr3;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
+  }
 }
 
 .globe-icon {

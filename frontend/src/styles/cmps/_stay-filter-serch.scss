@@ -107,12 +107,15 @@
   }
 
   &.guests {
-    flex-grow: 5;
+    // flex-grow: 5;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     position: relative;
+
+
+
   }
 }
 
@@ -126,33 +129,51 @@
   background-color: $primary-clr;
   color: $clr3;
   border-radius: 5em;
-  min-width: em(120px);
-  height: 70%;
-  margin-right: em(10px);
+  height: 83%;
+  margin-right: em(6px);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  padding: em(2px) em(20px) em(2px) em(20px);
+  padding: 0 em(20px) 0 em(20px);
+
+  & span {}
 }
 
 .action-search>img {
   width: em(20px);
 }
 
+
+
+
 .action-search>span {
-  font-family: 'Airbnb-bold';
+  font-weight: 200;
+  font-family: 'Airbnb-book';
   font-size: large;
   margin-left: 10px;
+  letter-spacing: normal;
+}
+
+.drop-menu-container {
+  height: 2900vh;
+  width: 110vw;
+  position: absolute;
+  background-color: black;
+  z-index: 012;
+  opacity: 0.5;
+  top: 165px;
+  right: 0;
 }
 
 .drop-menu {
+
   // border: 1px solid black;
   height: 100px;
   position: absolute;
-  bottom: -428px;
-  background-color: rgb(175, 184, 192);
-  z-index: 1;
+  bottom: -415px;
+  background-color: rgb(255, 255, 255);
+  z-index: 1000;
   height: 406px;
   width: 403px;
   display: flex;
@@ -161,13 +182,42 @@
   align-items: center;
   border-radius: 25px;
   left: -150px;
+  line-height: 22px;
+  padding: 5px 16px;
+  text-align: start;
 
-  & .input-num {
 
+  & .input-num-container {
+    width: 100%;
+    display: flex;
     width: 330px;
+    // border: 1px black solid;
+    align-items: center;
   }
 
+  & .input-num {
+    width: 130px;
+    display: flex;
+    align-items: center;
+    // padding-right: 10px;
+    // padding-left: 10px;
+    justify-content: space-around;
 
+    & span {
+      font-size: 16px;
+    }
+
+    & button {
+      font-size: 16px;
+      margin-right: 10px;
+      margin-left: 10px;
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+      background-color: white;
+    }
+
+  }
 
 }
 
