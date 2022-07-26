@@ -58,6 +58,7 @@
         margin-top: 40px;
         display: grid;
         grid-template-columns: 1fr, 1fr;
+        height: 156px;
 
         .rev-head {
             // height: 40px;
@@ -97,6 +98,9 @@
             line-height: 24px;
             color: $title-txt-clr;
             font-size: 16px;
+            .href-more{
+                margin-top: 10px;
+            }
         }
     }
 }
