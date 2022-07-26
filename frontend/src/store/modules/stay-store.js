@@ -12,6 +12,7 @@ export default {
 		},
 
 		getPrices(state) {
+			if (!state.stays) return
 			const prices = state.stays.map((stay) => stay.price)
 			const count = {}
 			for (const element of prices) {

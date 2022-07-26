@@ -2,7 +2,9 @@
 
 
   <div class="main-layout">
-    <div class="x" style="max-width:1600px ;margin:0,auto">
+    <div v-if="isOpen" class="drop-menu-container">
+    </div>
+    <div style="max-width:1600px ;margin:0,auto">
       <div>
         <div :class="headerClass">
 
@@ -18,17 +20,17 @@
 
           <transition name="fullSearch">
             <nav v-if="!displaySearch" class="search-container"
-              @click="displaySearch = !displaySearch">
+              @click="display">
               <div class="search-area destinations">
-                <span class="search-area-text">Anywhere</span>
+                <span class="search-area-text">Anywhere </span>
               </div>
               <div class="vl"></div>
               <div class="search-area date">
-                <span class="search-area-text">Any week</span>
+                <span class="search-area-text">Any week </span>
               </div>
               <div class="vl"></div>
               <div class="search-area guests">
-                <span class="search-area-text">Add guests</span>
+                <span class="search-area-text-light">Add guests </span>
                 <div class="search-icon-container">
                   <img class="search-icon" src="../assets/logo/serch_icon.png"
                     alt="">
@@ -39,7 +41,8 @@
 
           <div class="user-settings-container">
             <div class="user-section left">
-              <div class="host-btn clickable">Become a Host</div>
+              <div class="host-btn clickable" @click="display">Become a Host
+              </div>
             </div>
             <div class="user-section center">
               <img class="globe-icon clickable"
@@ -68,6 +71,7 @@ import stayFilterSearch from "./stay-filter-search.cmp.vue"
 export default {
   data() {
     return {
+      isOpen: false,
       displaySearch: false
       ,
     }
@@ -84,6 +88,10 @@ export default {
     stayFilterSearch,
   },
   methods: {
+    display() {
+      this.displaySearch = !this.displaySearch
+      this.isOpen = !this.isOpen
+    }
 
   },
 }

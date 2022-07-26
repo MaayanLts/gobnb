@@ -1,24 +1,52 @@
-.reviews-bars {
-    >* {
-        h4 {
-            display: inline-block;
-        }
-    }
+.main-reviews-container{
+    .title{
+    color:$title-txt-clr;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 48px;
+    margin-bottom: 32px;
+}
+}
 
+
+.reviews-bars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    h4 {
+        color:$title-txt-clr;
+        font-size: 16px;
+        font-family:'Airbnb-medium';
+        display: inline-block;
+    }
+    span{
+        color:$title-txt-clr;
+        font-size: 12px;
+        font-family:'Airbnb-medium';
+        margin-left: 6px ;
+    }
+    
+    .holder{
+        display: flex;
+        justify-content: space-between;
+        margin-right: 95px;
+    }
 }
 
 .bar {
-    width: 100%;
+    width: 120px;
     background-color: #ddd;
-    height: 4px;  
+    height: 4px;
+    display: inline-block;
+    margin-left: 12px ;
 }
 
 .fill {
     padding-top: 2px;
     padding-bottom: 2px;
-    background-color:$title-txt-clr;
+    background-color: $title-txt-clr;
 }
 
-.reviews-bars {
-    width: 90%;
-}
+// .reviews-bars {
+//     width: 90%;
+// }

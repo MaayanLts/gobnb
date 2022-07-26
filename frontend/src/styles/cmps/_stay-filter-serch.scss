@@ -15,23 +15,11 @@
 }
 
 .el-range-input {
-  // border: none !important;
-  // background-color: transparent !important;
-  // height: 50% !important;
   width: 100% !important;
   text-align: left !important;
-
-
   font-size: 1666px;
   line-height: 18px;
   font-weight: 600;
-  // color: '#222222';
-
-
-  &::-webkit-input-placeholder {
-    // color: $clr2;
-    // font-weight: bold;
-  }
 
   &:focus {
     outline: 0 !important;
@@ -55,22 +43,15 @@
 .large-area input {
   border: none;
   background-color: transparent;
-
   font-size: 14px;
   line-height: 18px;
   font-weight: 400;
   font-family: 'Airbnb-book';
   color: '#717171';
   text-overflow: ellipsis;
-
-  &.addGes {
-    font-size: 14px;
-    line-height: 18px;
-    font-weight: 400;
-  }
 }
 
-.large-area span {
+.large-area-span {
   font-size: 12px;
   line-height: 16px;
   font-weight: 800;
@@ -87,14 +68,10 @@
 
   &.active {
     background-color: $clr3;
-    box-shadow: 8px 10px 20px 0px rgb(0 0 0 / 8%), -9px -1px 12px rgb(0 0 0 / 5%);
-
-
-    &>span {}
+    // box-shadow: 8px 10px 20px 0px rgb(0 0 0 / 8%), -9px -1px 12px rgb(0 0 0 / 5%);
   }
 
   &>input {
-
 
     &:focus {
       outline: 0;
@@ -103,11 +80,9 @@
 
   &.destination {
     flex-grow: 5;
-
   }
 
   &.guests {
-    flex-grow: 5;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -126,14 +101,13 @@
   background-color: $primary-clr;
   color: $clr3;
   border-radius: 5em;
-  min-width: em(120px);
-  height: 70%;
-  margin-right: em(10px);
+  height: 83%;
+  margin-right: em(6px);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  padding: em(2px) em(20px) em(2px) em(20px);
+  padding: 0 em(20px) 0 em(20px);
 }
 
 .action-search>img {
@@ -141,57 +115,73 @@
 }
 
 .action-search>span {
-  font-family: 'Airbnb-bold';
+  font-weight: 200;
+  font-family: 'Airbnb-book';
   font-size: large;
   margin-left: 10px;
+  letter-spacing: normal;
+}
+
+.drop-menu-container {
+  height: 2900vh;
+  width: 110vw;
+  position: absolute;
+  background-color: black;
+  z-index: 012;
+  opacity: 0.5;
+  top: 165px;
+  right: 0;
 }
 
 .drop-menu {
-  // border: 1px solid black;
   height: 100px;
   position: absolute;
-  bottom: -428px;
-  background-color: rgb(175, 184, 192);
-  z-index: 1;
-  height: 406px;
-  width: 403px;
+  bottom: -415px;
+  background-color: rgb(255, 255, 255);
+  z-index: 1000;
+  height: 403px;
+  width: 406px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   border-radius: 25px;
   left: -150px;
+  line-height: 22px;
+  padding: 5px 16px;
+  text-align: start;
+
+
 
   & .input-num {
+    display: flex;
+    align-items: center;
 
-    width: 330px;
+    & span {
+      font-size: 16px
+    }
+
+    & button {
+      font-size: 16px;
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+      background-color: white;
+    }
   }
-
-
-
 }
 
+.txt-drop-item {
+  flex-direction: column;
+  justify-self: start;
+  width: 250px;
+}
 
 .drop-item {
   width: 330px;
   padding-right: 0;
   padding-left: 0;
-}
-
-.txt-drop-item {
-  flex-direction: column;
-  justify-self: flex-start;
-}
-
-.el-input-number__decrease {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-}
-
-.el-input-number__increase {
-  width: 24px;
-  height: 24px;
-
-  border-radius: 50%;
+  justify-content: space-around;
+  border: 1px black solid;
+  align-items: center;
 }
