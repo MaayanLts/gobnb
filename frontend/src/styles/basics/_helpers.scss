@@ -63,28 +63,16 @@
     display: flex
 }
 
-<<<<<<< HEAD
 .href-more {
     color: $title-txt-clr;
     font-family: 'Airbnb-bold';
     font-size: 16px;
+    display: block;
 
     img {
         width: 12px;
         margin-left: 3px;
     }
-=======
-.href-more{
-        color: $title-txt-clr;
-        font-family: 'Airbnb-bold';
-        font-size: 16px;
-        display: block;
-        
-        img{
-            width: 12px;
-            margin-left: 3px;
-        }
->>>>>>> 6b5a6e453b408f7336441d48529f82f5f3c76ca3
 }
 
 // Aspect ratios

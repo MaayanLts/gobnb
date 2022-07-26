@@ -134,7 +134,7 @@
 }
 
 .drop-menu {
-  height: 100px;
+  // height: 100px;
   position: absolute;
   bottom: -415px;
   background-color: rgb(255, 255, 255);
@@ -143,8 +143,7 @@
   width: 406px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
   border-radius: 25px;
   left: -150px;
   line-height: 22px;
@@ -176,6 +175,13 @@
   }
 }
 
+.input-num-container {
+  // height: 100%;
+  flex-direction: column;
+
+  align-items: center;
+}
+
 .txt-drop-item {
   flex-direction: column;
   justify-self: start;
@@ -186,10 +192,10 @@
   width: 330px;
   padding-right: 0;
   padding-left: 0;
+  padding-top: 24px;
+  padding-bottom: 24px;
   justify-content: space-around;
   align-items: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
 
 
 }
