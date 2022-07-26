@@ -23,8 +23,9 @@ function _getEmptyTrip() {
 	const trip = {
 		_id: makeId(),
 		stayId: '',
-		startDate: '',
-		endDate: '',
+		//startDate: '',
+		//endDate: '',
+		dates: [],
 		price: 0,
 		guests: {
 			adults: 2,

@@ -1,41 +1,48 @@
+.picker-date{
+  &.el-range-editor {
+    box-shadow: none !important;
+    background-color: transparent !important;
+    width: em(102px) !important;
+    height: 5px !important;
+    padding: 0px !important;
+  }
+
+  &.el-input__wrapper {
+    justify-content: flex-start !important;
+  }
+
+  &.el-range-input {
+    width: 100% !important;
+    text-align: left !important;
+    font-size: 1666px;
+    line-height: 18px;
+    font-weight: 600;
+
+    &:focus {
+      outline: 0 !important;
+    }
+  }
+}
+
 .el-range-editor {
   box-shadow: none !important;
   background-color: transparent !important;
-  width: em(102px) !important;
-  height: 5px !important;
-  padding: 0px !important;
-}
-
-.el-input__wrapper {
-  justify-content: flex-start !important;
 }
 
 .el-date-editor .el-range__icon {
   display: none !important;
 }
 
-.el-range-input {
-  width: 100% !important;
-  text-align: left !important;
-  font-size: 1666px;
-  line-height: 18px;
-  font-weight: 600;
-
-  &:focus {
-    outline: 0 !important;
-  }
-}
-
 .el-range-separator {
   display: none !important;
 }
 
-.picker-date-from>input:nth-child(4) {
+.picker-date.from>input:nth-child(4) {
   display: none !important;
   width: 0px !important;
 }
 
-.picker-date-to>input:nth-child(2) {
+.picker-date.to>input:nth-child(2) {
   display: none !important;
   width: 0px !important;
 }

@@ -1,20 +1,102 @@
-.trip-details-holder{ // rigt grid colum
-    width: 100%;
-    display: inline-block;
-    grid-column: span 2;
-    
-    // .trip-details{
-    //     height: rem(500px);
-    //     border: 1px solid rgb(209, 73, 73);
-    //     margin: .5rem;
-    //     margin-right: 0;
-    //     position: sticky;
+.trip-card-text{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+}
 
-    // }
+.trip-details-holder{ 
+    margin-top: 40px;
+    max-width: 372px;
+    padding: 32px;
+    height: 507px;
+    align-items: center;
+    position: absolute;
+    justify-self: flex-end;
+    border: 1px solid rgb(221, 221, 221); 
+    border-radius: 12px; 
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+}
+
+.trip-details{
+    height: 226px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.trip-message{
+    height: 26px;
+    text-align: center;
+}
+
+.action-reserve {
+    background-color: $primary-clr;
+    color: $clr3;
+    border-radius: 1em;
+    height: 48px;
+    text-align: center;
+    padding: 1em;
+  }
+
+  .btn-hover {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);
+    box-shadow: 0 5px 15px rgb(242 97 103 / 40%);
+}
+
+.price-for-night{
+    width: 98px;
+    height: 26px;
 }
 
 .data-change-area{
     height: 112px;
     display:flex;
     flex-direction: column;
+}
+
+.el-date-picker-style{
+    height: 200p;
+    width: 400px;
+}
+
+.dates-labels{
+    display: flex;
+    width: 400px;
+    justify-content: space-around;
+}
+
+.trip-total-price{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.trip-fee{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.trip-footer{
+    border-top: $clr9 solid 1px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 125px;
+    border: green 2px solid;
 }

@@ -15,13 +15,13 @@
       <div class="search-area large-area date-from" @click="onOpenDateFrom"
         :class="{ active: selectedSrchArea === 'date-from' }">
 
-        <el-date-picker class="picker-date-from" v-model="dates"
+        <el-date-picker class="picker-date from" v-model="dates"
           type="daterange" start-placeholder="Check in" />
       </div>
       <div class="search-area large-area date-to" @click="onOpenDateTo"
         :class="{ active: selectedSrchArea === 'date-to' }">
 
-        <el-date-picker class="picker-date-to" v-model="dates" type="daterange"
+        <el-date-picker class="picker-date to" v-model="dates" type="daterange"
           end-placeholder="Check out" />
       </div>
       <div class="search-area large-area guests"
