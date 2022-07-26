@@ -17,9 +17,9 @@ export const socketService = createSocketService()
 // export const socketService = createDummySocketService()
 
 // for debugging from console
-// window.socketService = socketService
+window.socketService = socketService
 
-// socketService.setup()  ///
+socketService.setup()  ///
 
 function createSocketService() {
   var socket = null
@@ -44,46 +44,47 @@ function createSocketService() {
       socket.emit(eventName, data)
     },
     login(userId) {
-      socket.emit(SOCKET_EMIT_LOGIN, userId)
+        socket.emit(SOCKET_EMIT_LOGIN, userId)
     },
     logout() {
-      socket.emit(SOCKET_EMIT_LOGOUT)
+        socket.emit(SOCKET_EMIT_LOGOUT)
     },
     terminate() {
       socket = null
     },
-
-  }
-  return socketService
+    
+}
+return socketService
 }
 
 // eslint-disable-next-line
 function createDummySocketService() {
-  var listenersMap = {}
-  const socketService = {
-    listenersMap,
-    setup() {
-      listenersMap = {}
-    },
-    terminate() {
-      this.setup()
-    },
-    login() {
-    },
-    logout() {
-    },
-    on(eventName, cb) {
-      listenersMap[eventName] = [...(listenersMap[eventName]) || [], cb]
-    },
-    off(eventName, cb) {
-      if (!listenersMap[eventName]) return
-      if (!cb) delete listenersMap[eventName]
-      else listenersMap[eventName] = listenersMap[eventName].filter(l => l !== cb)
-    },
-    emit(eventName, data) {
-      if (!listenersMap[eventName]) return
-      listenersMap[eventName].forEach(listener => {
-        listener(data)
+    var listenersMap = {}
+    const socketService = {
+        listenersMap,
+        setup() {
+            listenersMap = {}
+        },
+        terminate() {
+            this.setup()
+        },
+        login() {
+        },
+        logout() {
+        },
+        on(eventName, cb) {
+            listenersMap[eventName] = [...(listenersMap[eventName]) || [], cb]
+        },
+        off(eventName, cb) {
+            if (!listenersMap[eventName]) return
+            if (!cb) delete listenersMap[eventName]
+            else listenersMap[eventName] = listenersMap[eventName].filter(l => l !== cb)
+        },
+        emit(eventName, data) {
+            if (!listenersMap[eventName]) return
+            listenersMap[eventName].forEach(listener => {
+                listener(data)
+                console.log('hi',data);
       })
     },
     debugMsg() {

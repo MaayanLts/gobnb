@@ -27,9 +27,9 @@ export default {
     }
   },
   created() {
-    // socketService.setup()
-    // socketService.emit(SOCKET_EMIT_SET_TOPIC, this.topic) ///
-    // socketService.on(SOCKET_EVENT_ADD_MSG, this.addMsg)
+    socketService.setup()
+    socketService.emit(SOCKET_EMIT_SET_TOPIC, 'mashu') ///
+    socketService.on(SOCKET_EVENT_ADD_MSG, this.addMsg)
   },
   destroyed() {
     socketService.off(SOCKET_EVENT_ADD_MSG, this.addMsg)
@@ -44,14 +44,14 @@ export default {
       // TODO: next line not needed after connecting to backend
       // this.addMsg(this.msg)
       // setTimeout(()=>this.addMsg({from: 'Dummy', txt: 'Yey'}), 2000)
-      const user = userService.getLoggedinUser()
-      const from = (user && user.fullname) || 'Guest'
+      
+      // const user = userService.getLoggedinUser()   ///
+      // const from = (user && user.fullname) || 'Guest'
+      const from = 'Guest'
       this.msg.from = from
+      console.log('msg;',this.msg);
       socketService.emit(SOCKET_EMIT_SEND_MSG, this.msg)
       this.msg = {from, txt: ''}
-    },
-    changeTopic() {
-      socketService.emit(SOCKET_EMIT_SET_TOPIC, this.topic)
     }
   }
 }
