@@ -11,8 +11,7 @@
     <div class="search-area large-area date-from" @click="onOpenDateFrom"
       :class="{ active: selectedSrchArea === 'date-from' }">
 
-      <el-date-picker class="picker-date-from" v-model="dates" type="daterange"
-        start-placeholder="Check in" />
+      <el-date-picker class="picker-date-from" v-model="dates" type="daterange" start-placeholder="Check in" @change="setFilterBy" />
     </div>
     <div class="search-area large-area date-to" @click="onOpenDateTo"
       :class="{ active: selectedSrchArea === 'date-to' }">
@@ -124,8 +123,9 @@ export default {
       this.$store.dispatch({
         type: 'setTrip',
         trip: {
-          startDate: this.dates[0],
-          endDate: this.dates[1],
+          //startDate: this.dates[0],
+          //endDate: this.dates[1],
+          dates: this.dates,
         },
       });
     },

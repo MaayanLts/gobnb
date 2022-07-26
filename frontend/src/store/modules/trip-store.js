@@ -5,13 +5,18 @@ export default {
 	state: {
 		trip: null,
 	},
-	getters: {},
+	getters: {
+		getTrip(state) {
+			return state.trip
+		},
+	},
 	mutations: {
 		setTrip(state, {trip}) {
 			state.trip = stayService.getEmptyTrip
 			const {startDate, endDate} = trip
-			state.trip.startDate = startDate
-			state.trip.endDate = endDate
+			//state.trip.startDate = startDate
+			//state.trip.endDate = endDate
+			state.trip.dates = trip.dates
 		},
 	},
 	actions: {
