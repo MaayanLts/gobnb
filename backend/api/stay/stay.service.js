@@ -92,8 +92,6 @@ async function getById(stayId) {
     try {
         const collection = await dbService.getCollection('stay')
         const stay = collection.findOne({ _id: ObjectId(stayId) })
-        // const stay = collection.findOne({ _id: stayId })
-        console.log('stay from id in service: ',stay);
         return stay
     } catch (err) {
         logger.error(`while finding stay ${stayId}`, err)
