@@ -19,7 +19,7 @@
         <p v-else>Language: English</p>
         <p>Response rate: 100%</p>
         <p> Response time: {{ stay.host.responseTime }} </p>
-        <div class="contact-btn">Contact Host</div>
+        <div class="contact-btn" @click="contact">Contact Host</div>
       </div>
       <div class="protect-holder">
         <img src="../assets/logo/protect-paymeent.svg" alt="">
@@ -47,6 +47,9 @@ export default {
       const intMonth = date.getMonth() + 1
       const year = date.getYear() + 1900
       return `${month[intMonth]}  ${year}`
+    },
+    contact() {
+      this.$router.push("/chat")
     }
   },
   computed: {

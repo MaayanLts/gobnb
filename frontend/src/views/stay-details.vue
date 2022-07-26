@@ -4,8 +4,7 @@
         <h2 class="details-title">{{ stay.name }}</h2>
         <div class="links-line">
             <div class="start-links">
-                <a href=""><img class="star" src="../assets/logo/starAirbnb.svg"> {{ stay.reviewScores.rating / 20
-                }}</a>
+                <a href=""><img class="star" src="../assets/logo/starAirbnb.svg"> {{ stay.reviewScores.rating / 20}}</a>
                 <span>•</span>
                 <a href="">{{ reviews }} reviews</a>
                 <span class="superhost" v-if="stay.host.isSuperhost"><span>•</span>

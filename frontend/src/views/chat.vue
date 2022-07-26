@@ -1,16 +1,8 @@
 <template>
-  <!-- <div class="container">
-    <h1>About Us</h1>
-    <p>We like You</p>
-    <h2>Lets Chat About {{topic}}</h2>
-    <label>
-      <input type="radio" value="Politics" v-model="topic" @change="changeTopic" /> 
-      Politics
-    </label>
-    <label>
-      <input type="radio" value="Love" v-model="topic" @change="changeTopic" /> 
-      Love
-    </label>
+  <div class="container">
+    <h1>Host name</h1>
+    <h2>Lets Chat About gobnb... </h2>
+    
     <ul>
       <li v-for="(msg, idx) in msgs" :key="idx">
         <span>{{msg.from}}:</span>{{msg.txt}}
@@ -21,7 +13,7 @@
       <input type="text" v-model="msg.txt" placeholder="Your msg"/>
       <button>Send</button>
     </form>
-  </div> -->
+  </div>
 </template>
 
 <script>
@@ -32,13 +24,12 @@ export default {
     return {
       msg: {from: 'Guest', txt: ''},
       msgs: [],
-      topic : 'Love',
     }
   },
   created() {
     // socketService.setup()
-    socketService.emit(SOCKET_EMIT_SET_TOPIC, this.topic)
-    socketService.on(SOCKET_EVENT_ADD_MSG, this.addMsg)
+    // socketService.emit(SOCKET_EMIT_SET_TOPIC, this.topic) ///
+    // socketService.on(SOCKET_EVENT_ADD_MSG, this.addMsg)
   },
   destroyed() {
     socketService.off(SOCKET_EVENT_ADD_MSG, this.addMsg)
