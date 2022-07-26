@@ -93,7 +93,9 @@
             <h5 class="date">{{ date(new Date(rev.at)) }}</h5>
           </div>
         </div>
-        <p class="rev">{{ rev.txt }}</p>
+        <p v-if="rev.txt.length<180" class="rev">{{ rev.txt }}</p>
+        <p v-else class="rev">{{ rev.txt.slice(0,175)}}...
+        <a class="href-more" href="">Show more <img src="../assets/logo/reed-more-row.svg" alt=""></a></p>
       </div>
     </div>
       <div class="show-all-btn">
