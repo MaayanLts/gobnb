@@ -2,8 +2,10 @@
 
 
   <div class="main-layout">
-    <div v-if="isOpen" class="drop-menu-container">
-    </div>
+    <transition name="fullSearch">
+      <div @click="display" v-if="isOpen" class="drop-menu-container ">
+      </div>
+    </transition>
     <div style="max-width:1600px ;margin:0,auto">
       <div>
         <div :class="headerClass">
@@ -41,7 +43,7 @@
 
           <div class="user-settings-container">
             <div class="user-section left">
-              <div class="host-btn clickable" @click="display">Become a Host
+              <div class="host-btn clickable">Become a Host
               </div>
             </div>
             <div class="user-section center">

@@ -105,7 +105,6 @@
                 </div>
                 <div class="summary-holder">
                     <p class="summary">{{ stay.summary }}</p>
-                    <h4>...</h4>
                     <a class="href-more" href="">Show more <img src="../assets/logo/reed-more-row.svg" alt=""></a>
                 </div>
 

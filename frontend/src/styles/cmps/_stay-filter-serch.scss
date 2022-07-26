@@ -134,7 +134,7 @@
 }
 
 .drop-menu {
-  height: 100px;
+  // height: 100px;
   position: absolute;
   bottom: -415px;
   background-color: rgb(255, 255, 255);
@@ -143,8 +143,7 @@
   width: 406px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
   border-radius: 25px;
   left: -150px;
   line-height: 22px;
@@ -154,21 +153,33 @@
 
 
   & .input-num {
-    display: flex;
     align-items: center;
+    box-sizing: border-box;
+    color: rgb(34, 34, 34);
+    display: inline-flex;
+    font-size: 16px;
+    font-weight: 400;
+    height: 32px;
+    justify-content: space-between;
+    line-break: strict;
+    line-height: 20px;
+    pointer-events: auto;
+    text-align: left;
+    width: 104px;
+    -moz-box-align: center;
 
     & span {
       font-size: 16px
     }
 
-    & button {
-      font-size: 16px;
-      height: 32px;
-      width: 32px;
-      border-radius: 50%;
-      background-color: white;
-    }
   }
+}
+
+.input-num-container {
+  // height: 100%;
+  flex-direction: column;
+
+  align-items: center;
 }
 
 .txt-drop-item {
@@ -181,7 +192,79 @@
   width: 330px;
   padding-right: 0;
   padding-left: 0;
+  padding-top: 24px;
+  padding-bottom: 24px;
   justify-content: space-around;
-  border: 1px black solid;
   align-items: center;
+
+
+}
+
+.inc-btn {
+  align-items: center;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: rgb(255, 255, 255);
+  background-image: none;
+  background-origin: padding-box;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-size: auto;
+  border-bottom-color: rgb(176, 176, 176);
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: rgb(176, 176, 176);
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-color: rgb(176, 176, 176);
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-color: rgb(176, 176, 176);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-top-style: solid;
+  border-top-width: 1px;
+  box-sizing: border-box;
+  color: rgb(113, 113, 113);
+  cursor: pointer;
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: 400;
+  height: 32px;
+  justify-content: center;
+  line-break: strict;
+  line-height: normal;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  outline-color: rgb(113, 113, 113);
+  outline-style: none;
+  outline-width: 0px;
+  // padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  pointer-events: auto;
+  text-align: center;
+  text-decoration-color: rgb(113, 113, 113);
+  text-decoration-line: none;
+  text-decoration-style: solid;
+  touch-action: manipulation;
+  width: 32px;
+  -moz-box-align: center;
+  -moz-box-flex: 0;
+  -moz-box-pack: center
+}
+
+.inc-btn:hover {
+  font-weight: 800;
+  color: black;
+  border-width: 2px;
+  border: black 1px solid;
 }
