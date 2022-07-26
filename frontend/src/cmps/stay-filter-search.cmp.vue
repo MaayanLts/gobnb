@@ -1,8 +1,7 @@
 
 <template>
   <div class="width-100">
-    <!-- <div @click="isOpen = !isOpen" v-if="isOpen" class="drop-menu-container">
-    </div> -->
+
     <nav class="search-container large-container">
 
       <div class="search-area large-area destination" @click="onOpenWhere"
@@ -21,18 +20,19 @@
       </div>
       <div class="search-area large-area date-to" @click="onOpenDateTo"
         :class="{ active: selectedSrchArea === 'date-to' }">
-        <!-- <span class="bold">Check out</span> -->
-        <!-- <span :style="dateSpanDisplay">Add dates</span> -->
+
         <el-date-picker class="picker-date-to" v-model="dates" type="daterange"
           end-placeholder="Check out" />
       </div>
-      <div class="search-area large-area guests" @click="onOpenGuests"
+      <div class="search-area large-area guests"
         :class="{ active: selectedSrchArea === 'guests' }">
-        <div class="guests-placeholder">
+        <div @click="onOpenGuests" class="guests-placeholder">
           <span class="large-area-span">Who</span>
           <span class="search-area-text-light">Add guests</span>
-          <div class="drop-menu">
+        </div>
 
+        <Transition name="fullSearch">
+          <div v-if="dropOpen" class="drop-menu">
             <div class="input-num-container flex">
               <div class="drop-item flex">
                 <div class="txt-drop-item flex ">
@@ -41,62 +41,68 @@
                     above</span>
                 </div>
                 <div class="input-num">
-                  <button @click="--adults" class="inc-btn">-</button>
+                  <button @click="decGust('adults')" class="inc-btn">-</button>
                   <span>
                     {{ adults }}
                   </span>
                   <button @click="++adults" class="inc-btn">+</button>
                 </div>
               </div>
-            </div>
-            <div class="input-num-container flex">
-              <div class="drop-item flex">
-                <div class="txt-drop-item flex ">
-                  <span class="search-area-text-Bold">Children</span>
-                  <span class="search-area-text-light"> Ages 2–12</span>
-                </div>
-                <div class="input-num">
-                  <button @click="--adults" class="inc-btn">-</button>
-                  <span>
-                    {{ adults }}
-                  </span>
-                  <button @click="++adults" class="inc-btn">+</button>
-                </div>
-              </div>
-            </div>
-            <div class="input-num-container flex">
-              <div class="drop-item flex">
-                <div class="txt-drop-item flex ">
-                  <span class="search-area-text-Bold">Infants</span>
-                  <span class="search-area-text-light"> Under 2</span>
-                </div>
-                <div class="input-num">
-                  <button @click="--adults" class="inc-btn">-</button>
-                  <span>
-                    {{ adults }}
-                  </span>
-                  <button @click="++adults" class="inc-btn">+</button>
+              <div class="ol"></div>
+              <div class="input-num-container flex">
+                <div class="drop-item flex">
+                  <div class="txt-drop-item flex ">
+                    <span class="search-area-text-Bold">Children</span>
+                    <span class="search-area-text-light"> Ages 2–12</span>
+                  </div>
+                  <div class="input-num">
+                    <button @click="decGust('children')"
+                      class="inc-btn">-</button>
+                    <span>
+                      {{ children }}
+                    </span>
+                    <button @click="++children" class="inc-btn">+</button>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="input-num-container flex">
-              <div class="drop-item flex">
-                <div class="txt-drop-item flex ">
-                  <span class="search-area-text-Bold">Pets</span>
-                  <span class="search-area-text-light  "> Bringing a service
-                    animal?</span>
+              <div class="ol"></div>
+
+              <div class="input-num-container flex">
+                <div class="drop-item flex">
+                  <div class="txt-drop-item flex ">
+                    <span class="search-area-text-Bold">Infants</span>
+                    <span class="search-area-text-light"> Under 2</span>
+                  </div>
+                  <div class="input-num">
+                    <button @click="decGust('infants')"
+                      class="inc-btn">-</button>
+                    <span>
+                      {{ infants }}
+                    </span>
+                    <button @click="++infants" class="inc-btn">+</button>
+                  </div>
                 </div>
-                <div class="input-num">
-                  <button @click="--adults" class="inc-btn">-</button>
-                  <span>
-                    {{ adults }}
-                  </span>
-                  <button @click="++adults" class="inc-btn">+</button>
+              </div>
+              <div class="ol"></div>
+              <div class="input-num-container flex">
+                <div class="drop-item flex">
+                  <div class="txt-drop-item flex ">
+                    <span class="search-area-text-Bold">Pets</span>
+                    <span class="search-area-text-light  "> Bringing a service
+                      animal?</span>
+                  </div>
+                  <div class="input-num">
+                    <button @click="decGust('pets')" class="inc-btn">-</button>
+                    <span>
+                      {{ pets }}
+                    </span>
+                    <button @click="++pets" class="inc-btn">+</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Transition>
         <div class="action-search clickable" @click.stop="setFilterBy">
           <img class="search-icon" src="/src/assets/logo/serch_icon.png"
             alt="" />
@@ -104,7 +110,6 @@
         </div>
       </div>
     </nav>
-
 
   </div>
 </template>
@@ -114,8 +119,12 @@
 export default {
   data() {
     return {
-      isOpen: true,
+
+      dropOpen: false,
       adults: 0,
+      children: 0,
+      infants: 0,
+      pets: 0,
       selectedSrchArea: 'destination',
       filterBy: {
         country: '',
@@ -126,19 +135,29 @@ export default {
   created() {
   },
   methods: {
+
     onOpenWhere() {
       this.selectedSrchArea = 'destination'
+      this.dropOpen = false
+
     },
     onOpenDateFrom() {
       this.selectedSrchArea = 'date-from'
+      this.dropOpen = false
+
     },
     onOpenDateTo() {
       this.selectedSrchArea = 'date-to'
+      this.dropOpen = false
+
     },
     onOpenGuests() {
       this.selectedSrchArea = 'guests'
+      this.dropOpen = !this.dropOpen
     },
     setFilterBy() {
+      this.dropOpen = false
+
       this.$store.dispatch({
         type: 'setFilterBy',
         filterBy: {
@@ -154,6 +173,12 @@ export default {
         },
       });
     },
+
+    decGust(guests) {
+      console.log('this[guests]:', this[guests])
+      if (this[guests] === 0) return
+      --this[guests]
+    }
   },
   computed: {
     dateSpanDisplay() {
