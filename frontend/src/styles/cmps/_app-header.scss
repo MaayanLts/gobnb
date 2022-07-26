@@ -31,6 +31,7 @@
   font-size:21px;
   color: $clr1;
   font-weight: 900;
+  // padding-right: 346px;
 }
 
 .header-container {
@@ -101,10 +102,6 @@
   line-height: 18px;
   font-weight: 600;
 }
-.search-container{
-  // position: 
-  float: left;
-}
 
 .search-icon-container {
   background-color: $primary-clr;
@@ -126,7 +123,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  width: 468px;
+  // width: 468px;
   height: 100%;
   border:red solid 2p;
 }
