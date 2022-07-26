@@ -31,7 +31,7 @@
         <div class="guests-placeholder">
           <span class="large-area-span">Who</span>
           <span class="search-area-text-light">Add guests</span>
-          <div class="drop-menu">
+          <div v-if="dropOpen" class="drop-menu">
 
             <div class="input-num-container flex">
               <div class="drop-item flex">
@@ -41,7 +41,7 @@
                     above</span>
                 </div>
                 <div class="input-num">
-                  <button @click="--adults" class="inc-btn">-</button>
+                  <button @click="decGust('adults')" class="inc-btn">-</button>
                   <span>
                     {{ adults }}
                   </span>
@@ -49,6 +49,7 @@
                 </div>
               </div>
             </div>
+            <div class="ol"></div>
             <div class="input-num-container flex">
               <div class="drop-item flex">
                 <div class="txt-drop-item flex ">
@@ -56,14 +57,17 @@
                   <span class="search-area-text-light"> Ages 2–12</span>
                 </div>
                 <div class="input-num">
-                  <button @click="--adults" class="inc-btn">-</button>
+                  <button @click="decGust('children')"
+                    class="inc-btn">-</button>
                   <span>
-                    {{ adults }}
+                    {{ children }}
                   </span>
-                  <button @click="++adults" class="inc-btn">+</button>
+                  <button @click="++children" class="inc-btn">+</button>
                 </div>
               </div>
             </div>
+            <div class="ol"></div>
+
             <div class="input-num-container flex">
               <div class="drop-item flex">
                 <div class="txt-drop-item flex ">
@@ -71,14 +75,15 @@
                   <span class="search-area-text-light"> Under 2</span>
                 </div>
                 <div class="input-num">
-                  <button @click="--adults" class="inc-btn">-</button>
+                  <button @click="decGust('infants')" class="inc-btn">-</button>
                   <span>
-                    {{ adults }}
+                    {{ infants }}
                   </span>
-                  <button @click="++adults" class="inc-btn">+</button>
+                  <button @click="++infants" class="inc-btn">+</button>
                 </div>
               </div>
             </div>
+            <div class="ol"></div>
             <div class="input-num-container flex">
               <div class="drop-item flex">
                 <div class="txt-drop-item flex ">
@@ -87,11 +92,11 @@
                     animal?</span>
                 </div>
                 <div class="input-num">
-                  <button @click="--adults" class="inc-btn">-</button>
+                  <button @click="decGust('pets')" class="inc-btn">-</button>
                   <span>
-                    {{ adults }}
+                    {{ pets }}
                   </span>
-                  <button @click="++adults" class="inc-btn">+</button>
+                  <button @click="++pets" class="inc-btn">+</button>
                 </div>
               </div>
             </div>
@@ -114,8 +119,12 @@
 export default {
   data() {
     return {
-      isOpen: true,
+
+      dropOpen: false,
       adults: 0,
+      children: 0,
+      infants: 0,
+      pets: 0,
       selectedSrchArea: 'destination',
       filterBy: {
         country: '',
@@ -137,6 +146,7 @@ export default {
     },
     onOpenGuests() {
       this.selectedSrchArea = 'guests'
+      this.dropOpen = !this.dropOpen
     },
     setFilterBy() {
       this.$store.dispatch({
@@ -154,6 +164,12 @@ export default {
         },
       });
     },
+
+    decGust(guests) {
+      console.log('this[guests]:', this[guests])
+      if (this[guests] === 0) return
+      --this[guests]
+    }
   },
   computed: {
     dateSpanDisplay() {
