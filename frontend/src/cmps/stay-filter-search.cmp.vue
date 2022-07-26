@@ -12,26 +12,9 @@
           placeholder="Search destinations">
       </div>
 
-<<<<<<< HEAD
-      <el-date-picker class="picker-date-from" v-model="dates" type="daterange" start-placeholder="Check in" @change="setFilterBy" />
-    </div>
-    <div class="search-area large-area date-to" @click="onOpenDateTo"
-      :class="{ active: selectedSrchArea === 'date-to' }">
-      <!-- <span class="bold">Check out</span> -->
-      <!-- <span :style="dateSpanDisplay">Add dates</span> -->
-      <el-date-picker class="picker-date-to" v-model="dates" type="daterange"
-        end-placeholder="Check out" />
-    </div>
-    <div class="search-area large-area guests" @click="onOpenGuests"
-      :class="{ active: selectedSrchArea === 'guests' }">
-      <div class="guests-placeholder">
-        <span class="bold">Who</span>
-        <span class="addGes">Add guests</span>
-=======
       <div class="vl"></div>
       <div class="search-area large-area date-from" @click="onOpenDateFrom"
         :class="{ active: selectedSrchArea === 'date-from' }">
->>>>>>> 598379aaa5f79106eb4f6f4c3b9f63520b70c847
 
         <el-date-picker class="picker-date-from" v-model="dates"
           type="daterange" start-placeholder="Check in" />
