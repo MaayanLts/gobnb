@@ -21,7 +21,7 @@
           </router-link>
 
           <transition name="fullSearch">
-            <nav v-if="!displaySearch" class="search-container"
+            <nav v-if="!displaySearch && isHome" class="search-container"
               @click="display">
               <div class="search-area destinations">
                 <span class="search-area-text">Anywhere </span>
@@ -37,6 +37,20 @@
                   <img class="search-icon" src="../assets/logo/serch_icon.png"
                     alt="">
                 </div>
+              </div>
+            </nav>
+          </transition>
+
+
+          <transition name="fullSearch">
+            <nav v-if="!displaySearch && !isHome"
+              class="search-container small-container" @click="display"
+              :class="headerClass">
+
+              <span>Start your search</span>
+              <div class="search-icon-container">
+                <img class="search-icon" src="../assets/logo/serch_icon.png"
+                  alt="">
               </div>
             </nav>
           </transition>
@@ -66,6 +80,7 @@
 
     </div>
   </div>
+  <div class="hol"></div>
 </template>
 <script>
 import stayFilterSearch from "./stay-filter-search.cmp.vue"
@@ -73,6 +88,7 @@ import stayFilterSearch from "./stay-filter-search.cmp.vue"
 export default {
   data() {
     return {
+      isHome: null,
       isOpen: false,
       displaySearch: false
       ,
@@ -94,6 +110,14 @@ export default {
       this.displaySearch = !this.displaySearch
       this.isOpen = !this.isOpen
     }
+
+
+  },
+  created() {
+    setTimeout(() => {
+      this.isHome = this.$store.getters.getIsHome
+      console.log(' this.isHome :', this.isHome)
+    }, 1)
 
   },
 }

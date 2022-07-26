@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <app-header />
+
     <router-view />
     <footer>
       <h5>copyright</h5>

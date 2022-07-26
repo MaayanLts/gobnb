@@ -3,12 +3,16 @@ import {stayService} from '../../services/stay.service.js'
 
 export default {
 	state: {
+		isHome: true,
 		stays: null,
 		filterBy: null,
 	},
 	getters: {
 		getStays(state) {
 			return state.stays
+		},
+		getIsHome(state) {
+			return state.isHome
 		},
 
 		getPrices(state) {
@@ -28,6 +32,10 @@ export default {
 	mutations: {
 		setStays(state, {stays}) {
 			state.stays = stays
+		},
+		setIsHome(state, {isHome}) {
+			state.isHome = isHome
+			console.log('state.isHome :', state.isHome)
 		},
 
 		setFilterBy(state, {filterBy}) {
@@ -66,8 +74,7 @@ export default {
 
 		async getStayById(context, {stayId}) {
 			try {
-				return  await stayService.getStayById(stayId)
-				
+				return await stayService.getStayById(stayId)
 			} catch (err) {
 				console.log(err)
 			}

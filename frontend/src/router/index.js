@@ -5,6 +5,7 @@ import stayDetails from '../views/stay-details.vue'
 // import signupPage from '../views/signup-page.vue'
 // import userDetails from '../views/user-details.vue'
 // import reviewPage from '../views/review-page.vue'
+import chat from '../views/chat.vue'
 
 import { createRouter, createWebHashHistory } from 'vue-router'
 
@@ -20,6 +21,11 @@ const router = createRouter({
 			path: '/stay/:id?',
 			name: 'stay-details',
 			component: stayDetails,
+		},
+		{
+			path: '/chat',
+			name: 'chat',
+			component: chat
 		},
 		// {
 		// 	path: '/login',
