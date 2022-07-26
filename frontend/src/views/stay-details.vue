@@ -125,6 +125,7 @@
             </section>
         </div>
         <stay-reviews :stay="stay" />
+        <host-details :stay="stay" />
 
     </section>
 
@@ -133,6 +134,7 @@
 <script >
 import tripDetails from '../cmps/trip-details.vue'
 import stayReviews from '../cmps/stay-reviews.vue'
+import hostDetails from '../cmps/host-details.cmp.vue'
 
 export default {
     data() {
@@ -163,7 +165,7 @@ export default {
         var stayId = this.$route.params.id
         this.getStayById(stayId)
     },
-    components: { tripDetails, stayReviews }
+    components: { tripDetails, stayReviews, hostDetails }
 }
 </script>
 
