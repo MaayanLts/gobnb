@@ -25,7 +25,7 @@
             <div class="bar">
               <div class="fill" :style="style('communication')"></div>
             </div>
-            <span>{{fixedNum(stay.reviewScores.communication)}}</span>
+            <span>{{ fixedNum(stay.reviewScores.communication) }}</span>
           </div>
 
         </div>
@@ -38,7 +38,7 @@
               <div class="fill" :style="style('checkin')"></div>
             </div>
 
-            <span>{{ fixedNum(stay.reviewScores.checkin)  }}</span>
+            <span>{{ fixedNum(stay.reviewScores.checkin) }}</span>
           </div>
         </div>
 
@@ -83,9 +83,22 @@
         </div>
 
       </div>
-
-
     </div>
+    <div class="reviews">
+      <div class="review" v-for="rev in stay.reviews.slice(0, 6)">
+        <div class="rev-head">
+          <img :src="rev.by.imgUrl" alt="">
+          <div class="rev-title">
+            <h4 class="name">{{ rev.by.fullname }}</h4>
+            <h5 class="date">{{ date(new Date(rev.at)) }}</h5>
+          </div>
+        </div>
+        <p class="rev">{{ rev.txt }}</p>
+      </div>
+    </div>
+      <div class="show-all-btn">
+        Show all {{ stay.amenities.length - 7 }} reviews
+      </div>
 
   </section>
 </template>
@@ -107,10 +120,16 @@ export default {
       return 'width:' + this.stay.reviewScores[rev] * 10 + '%'
     },
     fixedNum(num) {
-      num=num*0.5
+      num = num * 0.5
       return num.toFixed(1)
+    },
+    date(date) {
+      const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      const intMonth = date.getMonth() + 1
+      const year = date.getYear() + 1900
+      return `${month[intMonth]}  ${year}`
     }
-    
+
   },
   computed: {
   },
