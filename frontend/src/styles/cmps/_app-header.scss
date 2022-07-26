@@ -32,6 +32,7 @@
   font-size: 21px;
   color: $clr1;
   font-weight: 900;
+  // padding-right: 346px;
 }
 
 .header-container {
@@ -125,20 +126,14 @@
   display: flex;
   width: 300px;
   justify-self: end;
-  // flex-direction: row;
-  // align-items: center;
   justify-content: flex-end;
-  // width: 468px;
-  // height: 100%;
-  // border: red solid 2p;
+
 }
 
 .user-section {
   display: flex;
-  // flex-direction: row;
   align-items: center;
   height: 42px;
-  // justify-content: space-around;
   border-radius: 25px;
   padding: 8px;
 

@@ -55,6 +55,17 @@
     display: flex
 }
 
+.href-more{
+        color: $title-txt-clr;
+        font-family: 'Airbnb-bold';
+        font-size: 16px;
+        
+        img{
+            width: 12px;
+            margin-left: 3px;
+        }
+}
+
 // Aspect ratios
 
 .ratio-16-9 {

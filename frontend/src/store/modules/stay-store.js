@@ -12,6 +12,7 @@ export default {
 		},
 
 		getPrices(state) {
+			if (!state.stays) return
 			const prices = state.stays.map((stay) => stay.price)
 			const count = {}
 			for (const element of prices) {
@@ -65,8 +66,8 @@ export default {
 
 		async getStayById(context, {stayId}) {
 			try {
-				var a = await stayService.getStayById(stayId)
-				return a
+				return  await stayService.getStayById(stayId)
+				
 			} catch (err) {
 				console.log(err)
 			}
