@@ -71,32 +71,6 @@ function getEmptyStay() {
 	}
 	return emptyStay
 }
-function getEmptyTrip() {
-	var trip = {
-		_id: makeId(),
-		stayId: '',
-		startDate: '',
-		endDate: '',
-		price: 0,
-		guests: {
-			adults: 2,
-			kids: 1,
-		},
-		stayIddest: {
-			country: '',
-			countryCode: '',
-			address: '',
-			lat: 0,
-			lng: 0,
-		},
-		stayIdmainGuest: {
-			_id: '',
-			fullName: '',
-			imgUrl: '',
-		},
-	}
-	return trip
-}
 
 export const stayService = {
 	query,
@@ -104,8 +78,8 @@ export const stayService = {
 	getEmptyStay,
 	removeStay,
 	saveStay,
-	getEmptyTrip,
 }
+
 function _buildFilterCriteria(filterBy = {tag: '', country: ''}) {
 	const {tag, country, byPrice} = filterBy
 	let filteredStays = stayData
