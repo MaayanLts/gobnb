@@ -7,7 +7,7 @@
 
       <div class="search-area large-area destination" @click="onOpenWhere"
         :class="{ active: selectedSrchArea === 'destination' }">
-        <span>Where</span>
+        <span class="large-area-span">Where</span>
         <input v-model="filterBy.country" type="text"
           placeholder="Search destinations">
       </div>
@@ -29,74 +29,72 @@
       <div class="search-area large-area guests" @click="onOpenGuests"
         :class="{ active: selectedSrchArea === 'guests' }">
         <div class="guests-placeholder">
-          <span class="bold">Who</span>
-          <span class="addGes">Add guests</span>
+          <span class="large-area-span">Who</span>
+          <span class="search-area-text-light">Add guests</span>
           <div class="drop-menu">
 
             <div class="input-num-container flex">
               <div class="drop-item flex">
                 <div class="txt-drop-item flex ">
-                  <span>Adults</span>
+                  <span class="search-area-text-Bold">Adults</span>
                   <span class="search-area-text-light"> Ages 13 or
                     above</span>
                 </div>
-              </div>
-              <div class="input-num">
-                <button @click="--adults" class="decBtn">-</button>
-                <span>
-                  {{ adults }}
-                </span>
-                <button @click="++adults" class="incBtn">+</button>
+                <div class="input-num">
+                  <button @click="--adults" class="inc-btn">-</button>
+                  <span>
+                    {{ adults }}
+                  </span>
+                  <button @click="++adults" class="inc-btn">+</button>
+                </div>
               </div>
             </div>
             <div class="input-num-container flex">
               <div class="drop-item flex">
                 <div class="txt-drop-item flex ">
-                  <span>Children</span>
+                  <span class="search-area-text-Bold">Children</span>
                   <span class="search-area-text-light"> Ages 2–12</span>
                 </div>
-              </div>
-              <div class="input-num">
-                <button @click="--adults" class="decBtn">-</button>
-                <span>
-                  {{ adults }}
-                </span>
-                <button @click="++adults" class="incBtn">+</button>
+                <div class="input-num">
+                  <button @click="--adults" class="inc-btn">-</button>
+                  <span>
+                    {{ adults }}
+                  </span>
+                  <button @click="++adults" class="inc-btn">+</button>
+                </div>
               </div>
             </div>
             <div class="input-num-container flex">
               <div class="drop-item flex">
                 <div class="txt-drop-item flex ">
-                  <span>Infants</span>
+                  <span class="search-area-text-Bold">Infants</span>
                   <span class="search-area-text-light"> Under 2</span>
                 </div>
+                <div class="input-num">
+                  <button @click="--adults" class="inc-btn">-</button>
+                  <span>
+                    {{ adults }}
+                  </span>
+                  <button @click="++adults" class="inc-btn">+</button>
+                </div>
               </div>
-              <div class="input-num">
-                <button @click="--adults" class="decBtn">-</button>
-                <span>
-                  {{ adults }}
-                </span>
-                <button @click="++adults" class="incBtn">+</button>
-              </div>
-
             </div>
             <div class="input-num-container flex">
               <div class="drop-item flex">
                 <div class="txt-drop-item flex ">
-                  <span>Pets</span>
-                  <span class="search-area-text-light"> Bringing a service
+                  <span class="search-area-text-Bold">Pets</span>
+                  <span class="search-area-text-light  "> Bringing a service
                     animal?</span>
                 </div>
-              </div>
-              <div class="input-num">
-                <button @click="--adults" class="decBtn">-</button>
-                <span>
-                  {{ adults }}
-                </span>
-                <button @click="++adults" class="incBtn">+</button>
+                <div class="input-num">
+                  <button @click="--adults" class="inc-btn">-</button>
+                  <span>
+                    {{ adults }}
+                  </span>
+                  <button @click="++adults" class="inc-btn">+</button>
+                </div>
               </div>
             </div>
-
           </div>
         </div>
         <div class="action-search clickable" @click.stop="setFilterBy">
@@ -104,7 +102,6 @@
             alt="" />
           <span>Search</span>
         </div>
-
       </div>
     </nav>
 

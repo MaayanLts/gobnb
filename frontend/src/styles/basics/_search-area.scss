@@ -5,18 +5,25 @@
     align-items: flex-start;
     justify-content: center;
     padding-left: em(20px);
-    // flex-grow: 1;
-
-
-
-
-
-
 
 }
 
 .search-area-text-light {
-    font-weight: 200;
-    color: #717171;
+    font-weight: 400;
+    line-height: 18px;
+    line-break: strict;
+    text-align: left;
+    font-size: 14px;
+    color: rgb(113, 113, 113);
+}
+
+.search-area-text-Bold {
+    font-weight: 600;
+    line-height: 20px;
+    line-break: strict;
+    font-size: 16px;
+    color: rgb(113, 113, 113);
+    padding-bottom: 6px;
+    text-align: left;
 
 }
