@@ -1,7 +1,7 @@
-<template  >
+<template >
 
-
-  <div class="main-layout">
+  .
+  <div class="main-layout sticky" v-on:isHome="isHome, ans">
     <transition name="fullSearch">
       <div @click="display" v-if="isOpen" class="drop-menu-container ">
       </div>
@@ -21,7 +21,7 @@
           </router-link>
 
           <transition name="fullSearch">
-            <nav v-if="!displaySearch && isHome" class="search-container"
+            <nav v-if="!displaySearch" class="search-container"
               @click="display">
               <div class="search-area destinations">
                 <span class="search-area-text">Anywhere </span>
@@ -41,7 +41,7 @@
             </nav>
           </transition>
 
-
+          <!-- 
           <transition name="fullSearch">
             <nav v-if="!displaySearch && !isHome"
               class="search-container small-container" @click="display"
@@ -53,7 +53,7 @@
                   alt="">
               </div>
             </nav>
-          </transition>
+          </transition> -->
 
           <div class="user-settings-container">
             <div class="user-section left">
@@ -79,8 +79,8 @@
       </div>
 
     </div>
+    <div class="hol"></div>
   </div>
-  <div class="hol"></div>
 </template>
 <script>
 import stayFilterSearch from "./stay-filter-search.cmp.vue"
@@ -109,16 +109,14 @@ export default {
     display() {
       this.displaySearch = !this.displaySearch
       this.isOpen = !this.isOpen
+    },
+    isHome(yy) {
+      console.log('yy:', yy)
+
     }
 
-
   },
-  created() {
-    setTimeout(() => {
-      this.isHome = this.$store.getters.getIsHome
-      console.log(' this.isHome :', this.isHome)
-    }, 1)
 
-  },
+
 }
 </script>

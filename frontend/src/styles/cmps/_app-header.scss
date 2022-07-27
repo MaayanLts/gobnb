@@ -7,6 +7,17 @@
   height: 80px;
   width: 100%;
 
+
+
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+  // padding-top: 0;
 }
 
 .main-header-logo {
