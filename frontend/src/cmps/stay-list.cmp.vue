@@ -32,10 +32,6 @@ export default {
   created() {
 
 
-    this.$store.commit({
-      type: 'setIsHome',
-      isHome: false,
-    })
 
   },
   unmounted() {

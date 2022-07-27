@@ -183,16 +183,7 @@ export default {
         this.getStayById(stayId)
 
 
-        let isHome = false
-        const isDetailsHeader = this.$route.params.id
-        isDetailsHeader ? isHome : !isHome
-        // console.log('isHome:', isHome)
-        eventBus.emit('isHome', false)
-        // this.$store.commit({
-        //     type: 'setIsHome',
-        //     isHome,
-        // })
-
+     
     },
     components: { tripDetails, stayReviews, hostDetails }
 }
