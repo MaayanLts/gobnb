@@ -1,10 +1,11 @@
 import io from 'socket.io-client'
 import { userService } from './user.service'
 
-export const SOCKET_EVENT_ADD_MSG = 'chat-add-msg'
 export const SOCKET_EMIT_SEND_MSG = 'chat-send-msg'
 export const SOCKET_EMIT_SET_TOPIC = 'chat-set-topic'
 export const SOCKET_EMIT_USER_WATCH = 'user-watch'
+
+export const SOCKET_EVENT_ADD_MSG = 'chat-add-msg'
 export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
 export const SOCKET_EVENT_REVIEW_ADDED = 'review-added'
 export const SOCKET_EVENT_REVIEW_ABOUT_YOU = 'review-about-you'
