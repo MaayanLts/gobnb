@@ -3,20 +3,12 @@
     display: flex;
 }
 
-.self-center{
-    align-self: center;
-}
-
 .space-between {
     justify-content: space-between;
 }
 
 .flex.inline-flex {
     display: inline-flex;
-}
-
-.align-self-center {
-    align-self: center;
 }
 
 // List 
@@ -53,12 +45,12 @@
 
 }
 
-.ol {
-    border-bottom: 2px solid $clr9;
-    width: 100%;
-    height: fit-content;
-    align-self: center;
-}
+// .ol {
+//     border-bottom: 2px solid $clr9;
+//     width: 100%;
+//     height: fit-content;
+//     align-self: center;
+// }
 
 .hol {
     border-bottom: 1px solid $clr9;
@@ -66,7 +58,6 @@
     //padding: 100px;
     height: fit-content;
     //align-self: center;
-
 }
 
 .width-100 {

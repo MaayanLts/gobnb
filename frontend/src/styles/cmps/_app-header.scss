@@ -6,9 +6,6 @@
   border-bottom-color: rgb(233, 232, 232);
   height: 80px;
   width: 100%;
-
-
-
 }
 
 .sticky {
@@ -58,7 +55,6 @@
   }
 }
 
-
 .dynamic-header {
   border-bottom: solid 1px;
   border-bottom-color: rgb(255, 255, 255);
@@ -107,10 +103,10 @@
   }
 
   &.guests {
-    flex-grow: 3;
+    flex-grow: 1;
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content:space-around;
+    align-items:center;
   }
 }
 
@@ -126,14 +122,14 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: em(32px);
-  height: em(32px);
+  width: em(45px);
+  height: em(45px);
   border-radius: 50%;
-  margin-left: 10px;
-  margin-right: 5px;
-
+  margin-left: 20px;
+  //margin-right: 10px;
+  //justify-self: flex-start;
   .search-icon {
-    width: em(15px);
+    width: em(16px);
   }
 }
 
