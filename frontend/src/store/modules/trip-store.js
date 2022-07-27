@@ -9,7 +9,15 @@ export default {
 		},
 	},
 	mutations: {
-		setTrip(state, {trip}) {
+		setTripDates(state, dates) {
+			let trip = Store.getters.getTrip(state)
+			trip.dates = dates
+
+			tripService.save('trip', trip)
+		},
+		setTripGuests(state, { adults, kids }) {
+			let trip = getTrip(state)
+			//trip.guests = { adults: 2, kids: 1} -- ???
 			tripService.save('trip', trip)
 		},
 	},

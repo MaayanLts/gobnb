@@ -164,14 +164,15 @@ export default {
           country: this.filterBy.country,
         },
       })
-      this.$store.dispatch({
-        type: 'setTrip',
-        trip: {
-          //startDate: this.dates[0],
-          //endDate: this.dates[1],
-          dates: this.dates,
-        },
-      });
+      this.$store.commit('setTripDates', this.dates)
+      // this.$store.dispatch({
+      //   type: 'setTrip',
+      //   trip: {
+      //     //startDate: this.dates[0],
+      //     //endDate: this.dates[1],
+      //     dates: this.dates,
+      //   },
+      // });
     },
 
     decGust(guests) {
