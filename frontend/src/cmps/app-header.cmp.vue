@@ -5,7 +5,7 @@
       <transition name="fullSearch"></transition>
     <div>
 
-    <div :class="headerClass" class="bottom-border">
+    <div :class="headerClass">
         <router-link class="main-header-logo" style="text-decoration: none" to="/">
           <svg class="svg-logo">
             <path
