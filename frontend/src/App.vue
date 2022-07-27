@@ -20,6 +20,8 @@ export default {
   created() {
     this.$store.dispatch('loadStays')
 
+    this.$store.commit('loadTrip');
+
   },
   methods: {
 
