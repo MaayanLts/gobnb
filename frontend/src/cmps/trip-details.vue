@@ -34,8 +34,8 @@
       <Transition name="fullSearch">
         <div v-if="dropOpen" class="drop-menu-details">
           <div class="input-num-container flex">
-            <div class="drop-item flex">
-              <div class="txt-drop-item flex ">
+            <div class="drop-item-details flex">
+              <div class="txt-drop-item-details flex ">
                 <span class="search-area-text-Bold">Adults</span>
                 <span class="search-area-text-light"> Ages 13 or
                   above</span>
@@ -50,8 +50,8 @@
             </div>
             <div class="ol"></div>
             <div class="input-num-container flex">
-              <div class="drop-item flex">
-                <div class="txt-drop-item flex ">
+              <div class="drop-item-details flex">
+                <div class="txt-drop-item-details flex ">
                   <span class="search-area-text-Bold">Children</span>
                   <span class="search-area-text-light"> Ages 2–12</span>
                 </div>
@@ -68,8 +68,8 @@
             <div class="ol"></div>
 
             <div class="input-num-container flex">
-              <div class="drop-item flex">
-                <div class="txt-drop-item flex ">
+              <div class="drop-item-details flex">
+                <div class="txt-drop-item-details flex ">
                   <span class="search-area-text-Bold">Infants</span>
                   <span class="search-area-text-light"> Under 2</span>
                 </div>
@@ -84,7 +84,7 @@
             </div>
             <div class="ol"></div>
             <div class="input-num-container flex">
-              <div class="drop-item flex">
+              <div class="drop-item-details flex">
                 <div class="txt-drop-item flex ">
                   <span class="search-area-text-Bold">Pets</span>
                   <span class="search-area-text-light  "> Bringing a service
