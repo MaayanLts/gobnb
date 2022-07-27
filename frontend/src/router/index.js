@@ -2,6 +2,7 @@ import stayApp from '../views/stay-app.vue'
 import stayDetails from '../views/stay-details.vue'
 import loginPage from '../views/login-signup.vue'
 import chat from '../views/chat.vue'
+import chatHost from '../views/chat-host.vue'
 // import stayEdit from '../views/stay-edit.vue'
 // import signupPage from '../views/signup-page.vue'
 // import userDetails from '../views/user-details.vue'
@@ -26,6 +27,11 @@ const router = createRouter({
 			path: '/chat/:name?',
 			name: 'chat',
 			component: chat
+		},
+		{
+			path: '/chat-host',
+			name: 'chat-host',
+			component: chatHost
 		},
 		{
 			path: '/login',

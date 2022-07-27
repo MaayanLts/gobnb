@@ -1,20 +1,30 @@
 <template>
+    <h1>gobnb admin/host</h1>
   <div class="container">
-    <h1>gobnb</h1>
-    <h4>Hello {{ userName }}</h4>
-    <h4>write to {{ hostName }}</h4>
+
+
+    <form @submit.prevent="changeUser">
+      <input type="text" v-model="hostName" placeholder="hostName" />
+    </form>
+
+      </div>
+
     <ul>
       <li v-for="(msg, idx) in msgs" :key="idx">
         <span>{{ msg.from }}:</span>{{ msg.txt }}
       </li>
     </ul>
+    <hr />
+
 
     <form @submit.prevent="sendMsg">
       <input type="text" v-model="msg.txt" placeholder="Your msg" />
       <button>Send</button>
     </form>
 
-  </div>
+
+    <!-- <button @click="changeUser">admin: I am {{ hostName }}</button> -->
+
 </template>
 
 <script>
@@ -23,20 +33,16 @@ import { socketService, SOCKET_EMIT_SEND_MSG, SOCKET_EVENT_ADD_MSG, SOCKET_EMIT_
 export default {
   data() {
     return {
-      msg: { from: 'Guest', txt: '' },
+      msg: { from: '', txt: '' },
       msgs: [],
       hostName: null,
-      userName: null,
 
     }
   },
   created() {
-    this.userName = userService.getLoggedinUser().fullname
-    this.hostName = this.$route.params.name
     console.log(this.userName)
     console.log(this.hostName)
-
-    socketService.emit(SOCKET_EMIT_SET_TOPIC, this.hostName)
+    // socketService.setup()
     socketService.on(SOCKET_EVENT_ADD_MSG, this.addMsg)
   },
   destroyed() {
@@ -48,11 +54,17 @@ export default {
       this.msgs.push(msg)
     },
     sendMsg() {
-      const from = this.userName
+      console.log('Sending', this.msg)
+      socketService.emit(SOCKET_EMIT_SET_TOPIC, this.hostName)
+
+      const from = this.hostName
       this.msg.from = from
       socketService.emit(SOCKET_EMIT_SEND_MSG, this.msg)
       this.msg = { from, txt: '' }
     },
+    changeUser() {
+      socketService.emit(SOCKET_EMIT_SET_TOPIC, this.hostName)
+    }
   }
 }
 </script>
