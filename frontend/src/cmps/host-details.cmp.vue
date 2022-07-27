@@ -49,7 +49,8 @@ export default {
       return `${month[intMonth]}  ${year}`
     },
     contact() {
-      this.$router.push("/chat")
+      const host = this.stay.host
+      this.$router.push(`/chat/${host.fullname}`)
     }
   },
   computed: {

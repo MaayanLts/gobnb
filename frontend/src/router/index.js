@@ -23,7 +23,7 @@ const router = createRouter({
 			component: stayDetails,
 		},
 		{
-			path: '/chat',
+			path: '/chat/:name?',
 			name: 'chat',
 			component: chat
 		},
