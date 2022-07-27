@@ -30,3 +30,13 @@
         background-color: $clr3;
     }
 }
+
+.sticky-filter{
+   // position: relative;
+    // position: -webkit-sticky;
+    // position: sticky;
+    // bottom: 1050;
+    // z-index: 1000;
+    // background-color: #fff;
+    border-bottom: 0.8px solid $clr9;
+}

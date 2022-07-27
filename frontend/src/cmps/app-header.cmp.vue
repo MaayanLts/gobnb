@@ -1,13 +1,11 @@
 <template >
 
   <div @click="display" v-if="isOpen" class="drop-menu-container "></div>
-  <div class="main-layout">
-    <transition name="fullSearch">
-
-    </transition>
+    <div class="main-layout">
+      <transition name="fullSearch"></transition>
     <div>
-      <div :class="headerClass">
 
+    <div :class="headerClass" class="bottom-border">
         <router-link class="main-header-logo" style="text-decoration: none"
           to="/">
           <svg class="svg-logo">
@@ -74,12 +72,11 @@
       <Transition name="fullSearch">
         <stay-filter-search v-if="displaySearch" />
       </Transition>
-      <!-- <div class="hol"></div>- -->
+
     </div>
 
   </div>
 
-  <!-- <div class="hol"></div> -->
 
 </template>
 <script>

@@ -3,6 +3,10 @@
     display: flex;
 }
 
+.flex-row{
+    flex-direction: column;
+}
+
 .space-between {
     justify-content: space-between;
 }
@@ -45,7 +49,7 @@
 
 }
 
-.hol {
+.hl {
     border-bottom: 1px solid $clr9;
     width: 100vw;
     height: fit-content;
@@ -55,6 +59,10 @@
     width: 100vw;
     justify-content: center;
     display: flex
+}
+
+.bottom-border{
+    border-bottom: 0.8px solid $clr9;
 }
 
 .href-more {

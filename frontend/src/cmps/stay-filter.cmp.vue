@@ -1,7 +1,7 @@
 <template>
 
   <div class="main-layout">  
-    <div class="stay-filter clickable">
+    <div class="stay-filter">
       <stay-filter-tag />
       <stay-filter-modal />
     </div>

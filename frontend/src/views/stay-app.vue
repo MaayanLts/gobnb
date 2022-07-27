@@ -1,8 +1,8 @@
 <template>
   <!-- <div class="filter-nav main-layout"> </div> -->
-  <div class="width-100">
+  <!-- <div class="width-100 sticky-filter">
     <stay-filter />
-  </div> 
+  </div>  -->
   <div class="width-100">
     <stay-list :stays="stays" />
   </div>
@@ -10,13 +10,13 @@
 
 <script>
 import stayList from '../cmps/stay-list.cmp.vue'
-import stayFilter from '../cmps/stay-filter.cmp.vue'
+//import stayFilter from '../cmps/stay-filter.cmp.vue'
 
 export default {
   name: 'StayApp',
   components: {
     stayList,
-    stayFilter
+    //stayFilter
   },
   data() {
     return {
