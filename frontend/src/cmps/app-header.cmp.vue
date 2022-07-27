@@ -48,7 +48,7 @@
           </nav>
         </transition>
 
-        <div class="user-settings-container" @click="setHostChat">
+        <div class="user-settings-container" @click.stop="setHostChat">
           <div class="user-section left">
             <div class="host-btn clickable">Become a Host
             </div>
@@ -56,7 +56,7 @@
           <div class="user-section center">
             <img class="globe-icon clickable" src="/src/assets/logo/globe-icon-header Airbnb-5.svg" alt="">
           </div>
-          <div class="user-section user-btn" @click="setLogin">
+          <div class="user-section user-btn" @click.stop="setLogin">
             <img class="burger-icon clickable" src="/src/assets/logo/Hamburger_icon.svg" alt="">
             <img class="user-img clickable" src="/src/assets/logo/user.jpg" alt="">
           </div>
