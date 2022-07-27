@@ -1,7 +1,5 @@
 
 <template>
-  <div class="width-100">
-
     <nav class="search-container large-container">
 
       <div class="search-area large-area destination" @click="onOpenWhere"
@@ -117,8 +115,6 @@
         </div>
       </div>
     </nav>
-
-  </div>
 </template>
 
 <script>

@@ -3,6 +3,10 @@
     display: flex;
 }
 
+.self-center{
+    align-self: center;
+}
+
 .space-between {
     justify-content: space-between;
 }
@@ -54,21 +58,20 @@
     width: 100%;
     height: fit-content;
     align-self: center;
-
 }
 
 .hol {
     border-bottom: 1px solid $clr9;
     width: 100vw;
-    padding-: 100px;
-    // height: fit-content;
-    // align-self: center;
+    //padding: 100px;
+    height: fit-content;
+    //align-self: center;
 
 }
 
 .width-100 {
-    width: 100%;
-    justify-items: center;
+    width: 100vw;
+    justify-content: center;
     display: flex
 }
 

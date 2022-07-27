@@ -1,5 +1,6 @@
 <template >
-    <section class="main-details-container" v-if="stay">
+    <div class="width-100">
+        <section class="main-details-container" v-if="stay">
 
         <h2 class="details-title">{{ stay.name }}</h2>
         <div class="links-line">
@@ -143,8 +144,8 @@
         <stay-reviews :stay="stay" />
         <host-details :stay="stay" />
 
-    </section>
-
+        </section>
+    </div>
 </template>
 
 <script >
