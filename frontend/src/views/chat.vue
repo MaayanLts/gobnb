@@ -28,7 +28,7 @@ export default {
   },
   created() {
     socketService.setup()
-    socketService.emit(SOCKET_EMIT_SET_TOPIC, 'mashu') ///
+    socketService.emit(SOCKET_EMIT_SET_TOPIC, 'airbnb') 
     socketService.on(SOCKET_EVENT_ADD_MSG, this.addMsg)
   },
   destroyed() {
@@ -45,9 +45,8 @@ export default {
       // this.addMsg(this.msg)
       // setTimeout(()=>this.addMsg({from: 'Dummy', txt: 'Yey'}), 2000)
       
-      // const user = userService.getLoggedinUser()   ///
-      // const from = (user && user.fullname) || 'Guest'
-      const from = 'Guest'
+      const user = userService.getLoggedinUser()   ///
+      const from = (user && user.fullname) || 'Guest'
       this.msg.from = from
       console.log('msg;',this.msg);
       socketService.emit(SOCKET_EMIT_SEND_MSG, this.msg)
