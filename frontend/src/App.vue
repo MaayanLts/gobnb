@@ -16,10 +16,7 @@ export default {
   created() {
     this.$store.dispatch('loadStays')
 
-    this.$store.commit({
-      type: 'setFilterBy',
-      filterBy: JSON.parse(JSON.stringify(filter)),
-    });
+    this.$store.commit('loadTrip');
 
   },
   methods: {

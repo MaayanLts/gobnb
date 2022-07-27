@@ -6,11 +6,11 @@ export default {
 	},
 	getters: {
 		getTrip(state) {
-			return tripService.query()
+			return state.trip
 		},
 	},
 	mutations: {
-		loadTrip() {
+		loadTrip(state) {
 			state.trip = tripService.query()
 		},
 		setTripDates(state, dates) {
@@ -23,6 +23,13 @@ export default {
 			let trip = getTrip(state)
 			//trip.guests = { adults: 2, kids: 1} -- ???
 			tripService.save('trip', trip)
+		},
+
+		reserve(state, trip) {
+			const {dates} = trip
+			state.trip.dates = dates
+			console.log('state.trip:', state.trip)
+			tripService.save('trip', state.trip)
 		},
 	},
 

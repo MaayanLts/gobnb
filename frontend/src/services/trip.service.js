@@ -2,20 +2,21 @@ import {makeId} from '/src/services/util.service.js?t=1658850766837'
 
 export const tripService = {
 	query,
-    save,
+	save,
 }
 
 const entityType = 'trip'
 
 function query() {
-    let trip = JSON.parse(localStorage.getItem(entityType))
-    if(!trip)
-        trip = _getEmptyTrip()
+	let trip = JSON.parse(localStorage.getItem(entityType))
+	if (!trip) trip = _getEmptyTrip()
+	console.log('trip:', trip)
 
 	return trip
 }
 
 function save(trip) {
+	console.log('trip:', trip)
 	localStorage.setItem(entityType, JSON.stringify(trip))
 }
 
@@ -45,5 +46,6 @@ function _getEmptyTrip() {
 		},
 	}
 
+	console.log('trip:', trip)
 	return trip
 }

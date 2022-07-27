@@ -174,7 +174,6 @@ export default {
         },
         bedrooms() {
             const bedrooms = +this.stay.bedrooms
-            console.log(bedrooms)
             return (bedrooms > 1) ? bedrooms + '\ bedrooms' : bedrooms + '\ bedroom'
         },
     },
@@ -183,7 +182,7 @@ export default {
         this.getStayById(stayId)
 
 
-     
+
     },
     components: { tripDetails, stayReviews, hostDetails }
 }
