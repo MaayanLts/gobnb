@@ -1,6 +1,8 @@
 <template>
   <section class="main-reviews-container">
-    <h2 class="title">★ {{ stay.reviewScores.rating / 20 }}<span> • </span>{{ stay.numOfReviews }} reviews </h2>
+    <h2 class="title">★ {{ stay.reviewScores.rating / 20 }}<span> • </span>{{
+        stay.numOfReviews
+    }} reviews </h2>
     <div class="reviews-bars">
       <div class="left-rev">
 
@@ -93,14 +95,16 @@
             <h5 class="date">{{ date(new Date(rev.at)) }}</h5>
           </div>
         </div>
-        <p v-if="rev.txt.length<180" class="rev">{{ rev.txt }}</p>
-        <p v-else class="rev">{{ rev.txt.slice(0,175)}}...
-        <a class="href-more" href="">Show more <img src="../assets/logo/reed-more-row.svg" alt=""></a></p>
+        <p v-if="rev.txt.length < 180" class="rev">{{ rev.txt }}</p>
+        <p v-else class="rev">{{ rev.txt.slice(0, 175) }}...
+          <a class="href-more" href="">Show more <img
+              src="../assets/logo/reed-more-row.svg" alt=""></a>
+        </p>
       </div>
     </div>
-      <div class="show-all-btn">
-        Show all {{ stay.amenities.length - 7 }} reviews
-      </div>
+    <div class="show-all-btn">
+      Show all {{ stay.amenities.length - 7 }} reviews
+    </div>
 
   </section>
 </template>
@@ -118,7 +122,6 @@ export default {
   },
   methods: {
     style(rev) {
-      console.log(this.stay.reviewScores[rev])
       return 'width:' + this.stay.reviewScores[rev] * 10 + '%'
     },
     fixedNum(num) {

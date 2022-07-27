@@ -2,10 +2,10 @@
     display: flex;
     flex-direction: column;
     border-radius: 5em;
-    align-items: flex-start;
+    text-align: center;
     justify-content: center;
-    padding-left: em(20px);
-
+    padding-left: em(10px);
+    // padding-right: em(10px);
 }
 
 .search-area-text-light {
@@ -25,5 +25,4 @@
     color: rgb(113, 113, 113);
     padding-bottom: 6px;
     text-align: left;
-
 }

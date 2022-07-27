@@ -1,5 +1,6 @@
 <template >
-    <section class="main-details-container" v-if="stay">
+    <div class="width-100">
+        <section class="main-details-container" v-if="stay">
 
         <h2 class="details-title">{{ stay.name }}</h2>
         <div class="links-line">
@@ -143,8 +144,8 @@
         <stay-reviews :stay="stay" />
         <host-details :stay="stay" />
 
-    </section>
-
+        </section>
+    </div>
 </template>
 
 <script >
@@ -174,7 +175,6 @@ export default {
         },
         bedrooms() {
             const bedrooms = +this.stay.bedrooms
-            console.log(bedrooms)
             return (bedrooms > 1) ? bedrooms + '\ bedrooms' : bedrooms + '\ bedroom'
         },
     },
@@ -183,7 +183,7 @@ export default {
         this.getStayById(stayId)
 
 
-     
+
     },
     components: { tripDetails, stayReviews, hostDetails }
 }
