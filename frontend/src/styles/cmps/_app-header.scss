@@ -8,13 +8,12 @@
   width: 100%;
 }
 
-.sticky {
+.sticky-top {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 1000;
   background-color: #fff;
-  // padding-top: 0;
 }
 
 .none {
@@ -53,15 +52,6 @@
   &.open {
     transition: all 0.3s ease;
   }
-}
-
-.dynamic-header {
-  border-bottom: solid 1px;
-  border-bottom-color: rgb(255, 255, 255);
-  z-index: 0;
-  display: flex;
-  justify-content: center;
-  width: 100%;
 }
 
 .fullSearch-enter-active {

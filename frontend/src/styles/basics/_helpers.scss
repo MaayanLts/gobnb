@@ -45,19 +45,10 @@
 
 }
 
-// .ol {
-//     border-bottom: 2px solid $clr9;
-//     width: 100%;
-//     height: fit-content;
-//     align-self: center;
-// }
-
 .hol {
     border-bottom: 1px solid $clr9;
     width: 100vw;
-    //padding: 100px;
     height: fit-content;
-    //align-self: center;
 }
 
 .width-100 {
@@ -78,8 +69,15 @@
     }
 }
 
-// Aspect ratios
+.sticky-bottom{
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+    background-color: #fff;
+}
 
+// Aspect ratios
 .ratio-16-9 {
     @include aspect-ratio(100, 56);
 }

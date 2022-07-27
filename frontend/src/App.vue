@@ -1,13 +1,13 @@
 <template>
 
   <div id="app">
-    <div class="width-100 sticky">
-      <app-header /><!-- class="sticky" /> -->
+    <div class="width-100 sticky-top">
+      <app-header />
     </div>
     <div class="hol"></div>
     <router-view />
-    <footer>
-      <h5>copyright</h5>
+    <footer class="sticky-bottom" style="padding: 10px; height: 50px; ">
+      <h5 style="font-family: Airbnb-medium">© 2022 Gobnb</h5>
     </footer>
   </div>
 

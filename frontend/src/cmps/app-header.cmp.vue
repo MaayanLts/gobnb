@@ -1,7 +1,7 @@
 <template >
 
   <div @click="display" v-if="isOpen" class="drop-menu-container "></div>
-  <div class="main-layout sticky">
+  <div class="main-layout">
     <transition name="fullSearch">
 
     </transition>
@@ -72,7 +72,7 @@
       </div>
 
       <Transition name="fullSearch">
-        <stay-filter-search v-if="displaySearch" class="dynamic-header" />
+        <stay-filter-search v-if="displaySearch" />
       </Transition>
       <!-- <div class="hol"></div>- -->
     </div>
