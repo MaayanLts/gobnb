@@ -1,4 +1,4 @@
-.picker-date{
+.picker-date {
   &.el-range-editor {
     box-shadow: none !important;
     background-color: transparent !important;
@@ -56,7 +56,16 @@
   font-family: 'Airbnb-book';
   color: '#717171';
   text-overflow: ellipsis;
+
+
+  width: 60px;
+  line-break: strict;
+  text-align: left;
+
+  color: rgb(113, 113, 113);
 }
+
+* {}
 
 .large-area-span {
   font-size: 12px;
@@ -86,15 +95,23 @@
   }
 
   &.destination {
-    flex-grow: 5;
+    // flex-grow: 5;
+    width: 328px;
   }
 
   &.guests {
     display: flex;
-    flex-direction: row;
+    width: 261px;
     justify-content: space-between;
     align-items: center;
     position: relative;
+  }
+
+  &.date {
+
+    width: 130px;
+    height: 64px;
+    padding-top: 13px;
   }
 }
 
@@ -274,4 +291,21 @@
   color: black;
   border-width: 2px;
   border: black 1px solid;
+}
+
+.el-date-editor .el-range-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  outline: 0;
+  display: inline-block;
+  height: 100%;
+  margin: 0;
+  padding-bottom: 12px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+  background-color: transparent;
 }

@@ -20,8 +20,9 @@
             <div class="logo-text">gobnb</div>
           </router-link>
 
+          <!-- medium home -->
           <transition name="fullSearch">
-            <nav v-if="!displaySearch" class="search-container"
+            <nav v-if="!displaySearch" class="search-container" :class="details"
               @click="display">
               <div class="search-area destinations">
                 <span class="search-area-text">Anywhere </span>
@@ -41,11 +42,10 @@
             </nav>
           </transition>
 
-          <!-- 
+          <!-- small search -->
           <transition name="fullSearch">
-            <nav v-if="!displaySearch && !isHome"
-              class="search-container small-container" @click="display"
-              :class="headerClass">
+            <nav v-if="!displaySearch" class="search-container" @click="display"
+              :class="home">
 
               <span>Start your search</span>
               <div class="search-icon-container">
@@ -53,7 +53,7 @@
                   alt="">
               </div>
             </nav>
-          </transition> -->
+          </transition>
 
           <div class="user-settings-container">
             <div class="user-section left">
@@ -99,6 +99,20 @@ export default {
     headerClass() {
       const isDetailsHeader = this.$route.params.id
       return (isDetailsHeader) ? 'header details-header' : 'header'
+    },
+
+    home() {
+      const isDetailsHeader = this.$route.params.id
+      if (isDetailsHeader)
+      {
+        return 'small-container'
+      } else return 'none'
+    }, details() {
+      const isDetailsHeader = this.$route.params.id
+      if (isDetailsHeader)
+      {
+        return 'none'
+      } else return ''
     },
 
   },
