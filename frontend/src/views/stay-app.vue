@@ -1,7 +1,11 @@
 <template>
   <!-- <div class="filter-nav main-layout"> </div> -->
-  <stay-filter />
-  <stay-list :stays="stays" />
+  <div class="width-100">
+    <stay-filter />
+  </div> 
+  <div class="width-100">
+    <stay-list :stays="stays" />
+  </div>
 </template>
 
 <script>

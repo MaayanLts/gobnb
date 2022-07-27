@@ -1,10 +1,9 @@
 <template >
 
-  .
+  <div @click="display" v-if="isOpen" class="drop-menu-container "></div>
   <div class="main-layout sticky">
     <transition name="fullSearch">
-      <div @click="display" v-if="isOpen" class="drop-menu-container ">
-      </div>
+
     </transition>
     <div>
       <div :class="headerClass">
@@ -78,7 +77,9 @@
     </div>
 
   </div>
-  <div class="hol"></div>
+
+  <!-- <div class="hol"></div> -->
+
 </template>
 <script>
 import stayFilterSearch from "./stay-filter-search.cmp.vue"

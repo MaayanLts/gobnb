@@ -1,12 +1,16 @@
 <template>
-  <div id="app">
-    <app-header class="sticky" />
 
+  <div id="app">
+    <div class="width-100">
+      <app-header class="sticky" />
+    </div>
+    <div class="hol"></div>
     <router-view />
     <footer>
       <h5>copyright</h5>
     </footer>
   </div>
+
 </template>
 
 <script>
