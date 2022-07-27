@@ -74,7 +74,7 @@
       <Transition name="fullSearch">
         <stay-filter-search v-if="displaySearch" class="dynamic-header" />
       </Transition>
-      <div class="hol"></div>-
+      <!-- <div class="hol"></div>- -->
     </div>
 
   </div>
