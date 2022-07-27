@@ -16,7 +16,7 @@
           <span class="large-area-span">Check in</span>
           <!-- < class="picker-date from"></ -->
           <el-date-picker class="picker-date from" v-model="dates"
-            type="daterange" start-placeholder="Check in" />
+            type="daterange" start-placeholder="Check in" format="DD-MM-YYYY" value-format="x"/>
         </div>
         <div class="vl"></div>
 
@@ -25,7 +25,7 @@
           <span class="large-area-span">Check out</span>
 
           <el-date-picker class="picker-date to" v-model="dates" type="daterange"
-            end-placeholder="Check out" />
+            end-placeholder="Check out" format="DD-MM-YYYY" />
         </div>
 
         <div class="vl"></div>
