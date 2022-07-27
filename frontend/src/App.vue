@@ -1,8 +1,8 @@
 <template>
 
   <div id="app">
-    <div class="width-100">
-      <app-header class="sticky" />
+    <div class="width-100 sticky">
+      <app-header /><!-- class="sticky" /> -->
     </div>
     <div class="hol"></div>
     <router-view />
