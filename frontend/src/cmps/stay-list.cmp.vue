@@ -30,14 +30,8 @@ export default {
     },
   },
   created() {
-    let isHome = true
-    const isDetailsHeader = this.$route.params.id
-    isDetailsHeader ? isHome : !isHome
-    // console.log('isHome:', isHome)
-    this.$store.commit({
-      type: 'setIsHome',
-      isHome,
-    })
+
+
 
   },
   unmounted() {

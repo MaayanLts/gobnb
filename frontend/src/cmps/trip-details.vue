@@ -47,11 +47,11 @@ export default {
     getTrip(){
       this.trip = this.$store.getters.getTrip
     },
-    datesRange(){
+    daysCount(){
       return 5
     },
-    dateRangePrice(){
-      return this.stayPrice * this.datesRange()
+    daysRangePrice(){
+      return this.stayPrice * this.daysCount()
     },
     tripFee(){
      // const fee = 100//Math.round(this.dateRangePrice() * 0.17)
@@ -66,10 +66,12 @@ export default {
       return `$${this.stayPrice}`
     },
     tripPrice(){
-      return `$${ this.dateRangePrice() }`
+      const days = this.daysRangePrice()
+      return `$${ days }`
     },
     tripPriceDescription(){
-      return `$${ this.stayPrice } x ${this.datesRange()} nights`
+      const totalPrice = this.stayPrice  //this.datesRange()
+      return `$${ totalPrice } nights`
     },
     serviceFee(){
       return `$${ this.tripFee }`

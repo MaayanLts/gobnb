@@ -151,6 +151,7 @@
 import tripDetails from '../cmps/trip-details.vue'
 import stayReviews from '../cmps/stay-reviews.vue'
 import hostDetails from '../cmps/host-details.cmp.vue'
+import { eventBus } from '../services/event-bus.service'
 
 export default {
     data() {
@@ -182,16 +183,7 @@ export default {
         this.getStayById(stayId)
 
 
-        let isHome = false
-        const isDetailsHeader = this.$route.params.id
-        isDetailsHeader ? isHome : !isHome
-        // console.log('isHome:', isHome)
-
-        this.$store.commit({
-            type: 'setIsHome',
-            isHome,
-        })
-
+     
     },
     components: { tripDetails, stayReviews, hostDetails }
 }
