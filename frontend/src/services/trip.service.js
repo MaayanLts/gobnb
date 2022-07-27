@@ -10,7 +10,6 @@ const entityType = 'trip'
 function query() {
 	let trip = JSON.parse(localStorage.getItem(entityType))
 	if (!trip) trip = _getEmptyTrip()
-	console.log('trip:', trip)
 
 	return trip
 }
@@ -46,6 +45,5 @@ function _getEmptyTrip() {
 		},
 	}
 
-	console.log('trip:', trip)
 	return trip
 }

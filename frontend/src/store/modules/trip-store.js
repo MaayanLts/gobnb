@@ -10,26 +10,25 @@ export default {
 		},
 	},
 	mutations: {
-		loadTrip(state) {
-			state.trip = tripService.query()
-		},
-		setTripDates(state, dates) {
-			let trip = Store.getters.getTrip(state)
-			trip.dates = dates
+		// loadTrip(state) {
+		// 	state.trip = tripService.query()
+		// },
+		// setTripDates(state, dates) {
+		// 	let trip = Store.getters.getTrip(state)
+		// 	trip.dates = dates
 
-			tripService.save('trip', trip)
-		},
-		setTripGuests(state, {adults, kids}) {
-			let trip = getTrip(state)
-			//trip.guests = { adults: 2, kids: 1} -- ???
-			tripService.save('trip', trip)
-		},
+		// 	tripService.save('trip', trip)
+		// },
+		// setTripGuests(state, {adults, kids}) {
+		// 	let trip = getTrip(state)
+		// 	//trip.guests = { adults: 2, kids: 1} -- ???
+		// 	tripService.save('trip', trip)
+		// },
 
-		reserve(state, trip) {
+		reserve(state, {trip}) {
 			const {dates} = trip
 			state.trip.dates = dates
-			console.log('state.trip:', state.trip)
-			tripService.save('trip', state.trip)
+			tripService.save(state.trip, 'trip')
 		},
 	},
 

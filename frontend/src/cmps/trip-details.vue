@@ -1,19 +1,111 @@
 <template>
   <section v-if="stay" class="trip-details-holder">
     <div class="trip-details">
-      <span class="price-for-night">{{ priceForNight }}</span><span>night</span>
-      <div class="data-change-area">
-        <div @click="dd" class="dates-labels"><span>Check in</span><span>Check
-            out</span>
+
+      <div class="price-tag">
+        <span class="price-for-night">{{ priceForNight }} </span>
+        <span> night</span>
+      </div>
+
+      <div class="date-details">
+        <div @click="onOpenDateFrom" class="date-details-cell"
+          :class="{ active: selectedSrchArea === 'date-from' }">
+          <span class="check2">Check in</span>
+          <!-- < class="picker-date from"></ -->
+          <el-date-picker class="picker-date from" v-model="dates"
+            type="daterange" start-placeholder="Check in" />
         </div>
-        <el-date-picker class="el-date-picker-style" type="daterange"
-          v-model="dates" start-placeholder="Start date"
-          end-placeholder="End date" />
-        <div>
-          <span>GUESTS</span>
-          <span>1 guest</span>
+
+        <div @click="onOpenDateTo" class="date-details-cell"
+          :class="{ active: selectedSrchArea === 'date-to' }">
+          <span class="check">Check out</span>
+
+          <el-date-picker class="picker-date to" v-model="dates"
+            type="daterange" end-placeholder="Check out" />
         </div>
       </div>
+      <div class="gusts-details-container">
+        <div class="gusts-details">
+          <span class="check2">Gusts</span>
+          <span style="padding-left: 8px; width: fit-content;">som....</span>
+        </div>
+        <div @click="dropOpen = !dropOpen" class="btn-arrow-details">∨</div>
+      </div>
+      <Transition name="fullSearch">
+        <div v-if="dropOpen" class="drop-menu-details">
+          <div class="input-num-container flex">
+            <div class="drop-item flex">
+              <div class="txt-drop-item flex ">
+                <span class="search-area-text-Bold">Adults</span>
+                <span class="search-area-text-light"> Ages 13 or
+                  above</span>
+              </div>
+              <div class="input-num">
+                <button @click="decGust('adults')" class="inc-btn">-</button>
+                <span>
+                  {{ adults }}
+                </span>
+                <button @click="++adults" class="inc-btn">+</button>
+              </div>
+            </div>
+            <div class="ol"></div>
+            <div class="input-num-container flex">
+              <div class="drop-item flex">
+                <div class="txt-drop-item flex ">
+                  <span class="search-area-text-Bold">Children</span>
+                  <span class="search-area-text-light"> Ages 2–12</span>
+                </div>
+                <div class="input-num">
+                  <button @click="decGust('children')"
+                    class="inc-btn">-</button>
+                  <span>
+                    {{ children }}
+                  </span>
+                  <button @click="++children" class="inc-btn">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="ol"></div>
+
+            <div class="input-num-container flex">
+              <div class="drop-item flex">
+                <div class="txt-drop-item flex ">
+                  <span class="search-area-text-Bold">Infants</span>
+                  <span class="search-area-text-light"> Under 2</span>
+                </div>
+                <div class="input-num">
+                  <button @click="decGust('infants')" class="inc-btn">-</button>
+                  <span>
+                    {{ infants }}
+                  </span>
+                  <button @click="++infants" class="inc-btn">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="ol"></div>
+            <div class="input-num-container flex">
+              <div class="drop-item flex">
+                <div class="txt-drop-item flex ">
+                  <span class="search-area-text-Bold">Pets</span>
+                  <span class="search-area-text-light  "> Bringing a service
+                    animal?</span>
+                </div>
+                <div class="input-num">
+                  <button @click="decGust('pets')" class="inc-btn">-</button>
+                  <span>
+                    {{ pets }}
+                  </span>
+                  <button @click="++pets" class="inc-btn">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Transition>
+
+
+
+
       <div class="action-reserve btn-hover clickable" @click="reserve">
         <span>Reserve</span>
       </div>
@@ -33,6 +125,7 @@
 </template>
 
 <script>
+
 export default {
   props: {
     stay: {
@@ -42,7 +135,7 @@ export default {
   data() {
     return {
       dates: null,
-
+      dropOpen: false,
       trip: null,
       stayPrice: 0,
       hurtColor: '#423f3d',
@@ -66,31 +159,38 @@ export default {
       return 100
     },
     reserve() {
+      const trip = {
+        dates: this.dates,
+
+
+      }
+
       this.$store.commit({
         type: "reserve",
-        trip: this.trip,
+        trip,
       }
       )
     }
+
   },
   computed: {
     priceForNight() {
       return `$${this.stayPrice}`
     },
-    tripPrice() {
-      const days = this.daysRangePrice()
-      return `$${days}`
-    },
-    tripPriceDescription() {
-      const totalPrice = this.stayPrice  //this.datesRange()
-      return `$${totalPrice} nights`
-    },
-    serviceFee() {
-      return `$${this.tripFee}`
-    },
-    tripTotalPrice() {
-      return `$${this.tripPrice + this.tripFee}`
-    }
+    // tripPrice() {
+    //   const days = this.daysRangePrice()
+    //   return `$${days}`
+    // },
+    //   tripPriceDescription() {
+    //     const totalPrice = this.stayPrice  //this.datesRange()
+    //     return `$${totalPrice} nights`
+    //   },
+    //   serviceFee() {
+    //     return `$${this.tripFee}`
+    //   },
+    //   tripTotalPrice() {
+    //     return `$${this.tripPrice + this.tripFee}`
+    //   }
   },
   created() {
     this.getTrip()
