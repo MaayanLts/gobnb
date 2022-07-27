@@ -64,7 +64,7 @@
               <img class="globe-icon clickable"
                 src="/src/assets/logo/globe-icon-header Airbnb-5.svg" alt="">
             </div>
-            <div class="user-section user-btn">
+            <div class="user-section user-btn" @click="setLogin">
               <img class="burger-icon clickable"
                 src="/src/assets/logo/Hamburger_icon.svg" alt="">
               <img class="user-img clickable" src="/src/assets/logo/user.jpg"
@@ -109,6 +109,9 @@ export default {
     display() {
       this.displaySearch = !this.displaySearch
       this.isOpen = !this.isOpen
+    },
+    setLogin() {
+       this.$router.push("/login")
     }
 
 
