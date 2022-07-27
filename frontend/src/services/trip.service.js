@@ -15,7 +15,6 @@ function query() {
 }
 
 function save(trip) {
-	console.log('trip:', trip)
 	localStorage.setItem(entityType, JSON.stringify(trip))
 }
 
