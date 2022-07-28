@@ -30,7 +30,7 @@
         <div class="gusts-details-container">
           <div class="gusts-details">
             <span class="check">Gusts</span>
-            <span class="bold-trip">som....</span>
+            <span class="bold-trip">{{ hm }}</span>
           </div>
           <div @click="dropOpen = !dropOpen" class="btn-arrow-details">∨</div>
         </div>
@@ -193,10 +193,9 @@ export default {
     priceForNight() {
       return `$${this.stayPrice}`
     },
-    // tripPrice() {
-    //   const days = this.daysRangePrice()
-    //   return `$${days}`
-    // },
+    hm() {
+      return `${this.adults} adults ${this.children} children`
+    },
     nights() {
       const date_1 = new Date(this.dates[1])
       const date_2 = new Date(this.dates[0])
