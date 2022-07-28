@@ -20,7 +20,11 @@
     <div class="stay-preview-info-container">
       <div class="flex space-between">
         <span class="bold">{{ propertyTypeAndLocation }} </span>
-        <div><img src="src/images/star.svg" />&nbsp&nbsp<span>{{ rating }}</span></div>
+        <div>
+          <img src="src/images/star.svg" />
+          <span>{{ rating }}</span>
+          <span v-if="isFiltered"> • {{ reviews }}</span>
+        </div>
       </div>
       <span>{{ stay.propertyType }} • {{ stay.roomType }}</span><br />
       <span>{{ stay.beds }} beds • {{ stay.bedrooms }} bedrooms</span><br />
@@ -46,7 +50,8 @@ export default {
   data() {
     return {
       slideIndex: 0,
-      hurtColor: '#423f3d'
+      hurtColor: '#423f3d',
+      isFiltered: false,
     }
   },
   components: {
@@ -88,22 +93,23 @@ export default {
     }
   },
   created() {
+    this.filterBy = this.$store.getters.filterBy
+    this.isFiltered = ((this.filterBy !== undefined) && (this.filterBy !== null))
   },
   unmounted() {
   },
   methods: {
     showStayDetails() {
       this.$router.push("/stay/" + this.stay._id)
-
     },
     addToWishList() {
-
       // this.hurtColor = '#423f3d' ? 'red' : '#423f3d'
       this.hurtColor = this.hurtColor === 'red' ? '#423f3d' : 'red'
+    },
+    raingAndReviews(){
+      return 'here'
     }
   },
-
-
 };
 </script>
 
