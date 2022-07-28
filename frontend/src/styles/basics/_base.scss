@@ -1,8 +1,7 @@
 body {
-    // margin: auto;
+    margin: 0 auto;
     align-self: center;
     max-width: 1600px;
-    font-size: em(14px);
     font-family: 'Airbnb-book';
 }
 
@@ -10,7 +9,7 @@ body {
     width: 100%;
     line-height: 1.43;
     color: $primary-txt-clr;
-    font-size: em(14px);
+    font-size: 14px;
     font-family: 'Airbnb-book';
 
     a {
