@@ -133,7 +133,7 @@
       <div class="trip-message">You won't be charget yet</div>
 
       <div :class="none" class="trip-footer">
-        <div class="trip-total-price">
+        <div class="trip-fee">
           <span class="price-line">${{ stayPrice }} x {{ nights }} nights</span>
           <span class="price-total"> ${{ tripPrice }}</span>
         </div>
@@ -250,6 +250,13 @@ export default {
     },
     none() {
       if (this.TotalDays === 0) return 'none'
+    },
+
+    arrowDirection() {
+      let srcDown = "../assets/logo/down-arrow.png"
+      let srcUp = "'../assets/logo/up-arrow.png'"
+      if (!this.dropOpen) return srcDown
+      if (this.dropOpen) return srcUp
     }
   },
   created() {
