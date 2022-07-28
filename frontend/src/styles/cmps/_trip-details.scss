@@ -30,7 +30,6 @@
     border-top-style: solid;
     border-top-width: 1px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px 0px;
-
     color: rgb(34, 34, 34);
     font-size: 16px;
     font-weight: 400;
@@ -56,15 +55,11 @@
     justify-content: space-between !important;
     align-items: baseline !important;
     margin-bottom: 24px !important;
-
-
     white-space: nowrap !important;
     font-weight: 400 !important;
     font-size: 16px !important;
     line-height: 20px !important;
-
     color: rgb(34, 34, 34) !important;
-
 }
 
 .price-for-night {
@@ -74,7 +69,6 @@
 }
 
 .trip-details {
-
     height: 226px;
     display: flex;
     flex-direction: column;
@@ -91,7 +85,6 @@
     line-height: 20px !important;
     text-align: left !important;
     text-decoration: underline;
-
 }
 
 .price-total {
@@ -106,7 +99,6 @@
 }
 
 .check {
-
     font-size: 10px !important;
     line-height: 12px !important;
     text-transform: uppercase !important;
@@ -114,34 +106,24 @@
     width: fit-content;
 }
 
-
-
 .trip-order-container {
-    // border: 1px solid #cecece;
-
     color: rgb(34, 34, 34);
     font-size: 16px;
     font-weight: 400;
     line-break: strict;
     line-height: 20px;
     margin-bottom: 16px;
-    // width: 333px;
     background-color: rgb(255, 255, 255);
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     border-top-left-radius: 8px;
-
     border-top-right-radius: 8px;
-
 }
-
-
 
 .date-details {
     min-height: 56px;
     outline: currentcolor none medium;
     margin: 0px;
-
     background-color: transparent;
     color: inherit;
     font-family: inherit;
@@ -164,12 +146,10 @@
 
 .date-details :first-child {
     border-top-left-radius: 8px;
-
 }
 
 .date-details :last-child {
     border-top-right-radius: 8px;
-
 }
 
 .date-details-cell {
@@ -180,21 +160,15 @@
     font-family: inherit;
     cursor: pointer;
     flex-grow: 1;
-    // justify-content: center;
     border: 1px solid #cecece;
-    border-bottom: none;
-
-
+    border-bottom: none
 }
-
-
 
 .gusts-details-container {
     border-left: 1px solid #cecece;
     border-bottom: 1px solid #cecece;
     border-right: 1px solid #cecece;
     border-top: 1px solid #cecece;
-
     display: flex;
     flex-direction: row;
     color: rgb(34, 34, 34) !important;
@@ -203,10 +177,8 @@
     line-height: 20px !important;
     border-radius: 0px 0px 8px 8px;
     inset: 0px 0px -1px;
-    // border: 1px black solid;
     justify-content: space-between;
     height: 56px;
-
     font-weight: 400;
     line-break: strict;
     line-height: 20px;
@@ -229,7 +201,6 @@
     text-align: left !important;
     z-index: 999 !important;
     width: fit-content;
-
 }
 
 .trip-message {
@@ -243,11 +214,9 @@
     list-style-type: none !important;
     letter-spacing: 0.5px;
     padding-top: 1em;
-
 }
 
 .btn-hover {
-    // align-self: cnter;
     justify-self: flex-start;
     width: 100% !important;
     font-size: 16px !important;
@@ -274,8 +243,6 @@
     padding: 0.9em;
 }
 
-
-
 .trip-total-price {
     display: flex;
     align-content: center;
@@ -297,22 +264,14 @@
     font-size: 16px !important;
     line-height: 20px !important;
     color: rgb(34, 34, 34) !important;
-    // font-weight: 600 !important;
     font-family: 'Airbnb-bold';
-
 }
 
 .trip-footer {
-    // display: flex;
-    // align-content: center;
     justify-content: center;
     height: 125px;
-    // border: green 2px solid;
     margin-top: 24px !important;
-
 }
-
-
 
 .btn-arrow-details {
     width: fit-content;
@@ -321,7 +280,6 @@
     display: flex !important;
     align-items: center !important;
     height: 100% !important;
-
     min-width: 36px !important;
     padding-right: 12px !important;
     color: rgb(34, 34, 34) !important;
@@ -342,17 +300,12 @@
 
 .txt-drop-item-details {
     flex-direction: column;
-    // justify-self: start;
     width: fit-content;
     height: 42px;
     flex-grow: 115;
-
-
-
 }
 
 .stay-desc-details {
-
     color: rgb(34, 34, 34);
     font-size: 12px;
     font-weight: 400;
@@ -363,8 +316,6 @@
 }
 
 .drop-item-details {
-    // width: 330px;
-
     padding-top: 12px;
     padding-bottom: 12px;
     align-items: center;
@@ -375,7 +326,6 @@
         flex-grow: 1;
         justify-self: end;
         align-items: center;
-
         color: rgb(34, 34, 34);
         display: inline-flex;
         font-size: 16px;
@@ -393,11 +343,7 @@
             font-size: 16px;
             width: fit-content;
         }
-
-
-
     }
-
 }
 
 .search-area-text-Bold-details {
@@ -434,7 +380,6 @@
     border-top-right-radius: 50%;
     border-top-style: solid;
     border-top-width: 1px;
-
     color: rgb(113, 113, 113);
     cursor: pointer;
     display: flex;
@@ -453,7 +398,6 @@
     outline-color: rgb(113, 113, 113);
     outline-style: none;
     outline-width: 0px;
-    // padding-bottom: 0px;
     padding-left: 0px;
     padding-right: 0px;
     padding-top: 0px;
