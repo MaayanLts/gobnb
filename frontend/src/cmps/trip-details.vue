@@ -118,15 +118,15 @@
 
       <div class="trip-footer">
         <div class="trip-total-price">
-          <span>{{ priceForNight }} x {{ nights }}</span>
+          <span>${{ stayPrice }} x {{ nights }} nights</span>
           <span>= ${{ tripPrice }}</span>
         </div>
         <div class="trip-fee">
-          <span>Service fee</span>
+          <!-- <span>Service fee</span> -->
           <span>{{ serviceFee }}</span>
         </div>
-        <span>Total</span>
-        <span>{{ tripTotalPrice }}</span>
+        <!-- <span>Total</span> -->
+        <!-- <span>{{ tripTotalPrice }}</span> -->
       </div>
     </div>
 
@@ -165,6 +165,7 @@ export default {
 
     reserve() {
       const trip = {
+        stayIddest: { country: this.stay.address.country },
         dates: this.dates,
         guests: {
           adults: this.adults,
@@ -209,7 +210,7 @@ export default {
       return (Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice
     },
     serviceFee() {
-      return `$${this.fee}`
+      return `$${this.fee * this.totalPrice}`
     },
     //   tripTotalPrice() {
     //     return `$${this.tripPrice + this.tripFee}`
