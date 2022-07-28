@@ -1,7 +1,7 @@
 <template >
 
   <div @click="display" v-if="isOpen" class="drop-menu-container "></div>
-  <div :class="headerClass">
+  <div :class="headerClass" style="padding-bottom:10px">
     <transition name="fullSearch"></transition>
     <div>
 
@@ -125,8 +125,8 @@ export default {
     datesFilter(){
       this.trip = this.$store.getters.getTrip
       let dates = 'Any week'
-      if(this.trip){
-        dates = 'Any week'
+      if(this.trip.dates){
+        //dates = `${(new Date(this.trip.dates[0])).getDate()} - ${(new Date(this.trip.dates[1])).getMonth()}`
       }
 
       return dates
