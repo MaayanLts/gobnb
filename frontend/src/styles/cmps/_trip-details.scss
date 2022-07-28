@@ -43,7 +43,46 @@
 }
 
 .price-tag {
-    margin-bottom: 24px
+    -moz-box-align: baseline !important;
+    -moz-box-pack: justify !important;
+    -moz-box-direction: normal !important;
+    -moz-box-orient: horizontal !important;
+    display: flex !important;
+    flex-flow: row wrap !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+    margin-bottom: 24px !important;
+
+
+    white-space: nowrap !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+
+    color: rgb(34, 34, 34) !important;
+
+}
+
+.price-for-night {
+    font-weight: 550 !important;
+    font-size: 26px !important;
+    line-height: 26px !important;
+}
+
+.trip-order-container {
+    box-sizing: border-box;
+    color: rgb(34, 34, 34);
+    font-size: 16px;
+    font-weight: 400;
+    line-break: strict;
+    line-height: 20px;
+    margin-bottom: 16px;
+    width: 333px;
+    background-color: rgb(255, 255, 255);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px
 }
 
 .trip-details {
@@ -78,24 +117,17 @@
 
 .date-details-cell {
     min-height: 56px;
-    outline: currentcolor none medium;
+    // outline: currentcolor none medium;
     display: flex;
-    margin: 0px;
+
     flex-direction: column;
 
-    background-color: transparent;
-    color: inherit;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: inherit;
-    line-height: 18px;
-    appearance: none;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 161.5px;
-    height: 56px;
 
+    font-family: inherit;
+
+    cursor: pointer;
+
+    flex-grow: 1;
 
 }
 
@@ -164,10 +196,6 @@
     box-shadow: 0 5px 15px rgb(242 97 103 / 40%);
 }
 
-.price-for-night {
-    width: 98px;
-    height: 26px;
-}
 
 .data-change-area {
     height: 112px;

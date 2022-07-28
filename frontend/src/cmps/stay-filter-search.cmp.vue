@@ -185,7 +185,6 @@ export default {
           pets: this.pets
         }
       }
-      console.log('trip:', trip)
       this.$store.commit({
         type: "reserve",
         trip,

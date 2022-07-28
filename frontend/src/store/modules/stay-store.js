@@ -31,8 +31,25 @@ export default {
 		},
 
 		setFilterBy(state, {filterBy}) {
-			state.filterBy = filterBy
-			// this.loasStays()
+			console.log('filterBy:', filterBy)
+			let filteredStays = state.stays
+			const {tag, country, byPrice} = filterBy
+			if (tag) {
+				const regex = new RegExp(filterBy.tag, 'i')
+				filteredStays = state.stays.filter((stay) => regex.test(stay.tags))
+			}
+			if (country) {
+				const regex = new RegExp(filterBy.country, 'i')
+				filteredStays = state.stays.filter(
+					(stay) => regex.test(stay.address.country) || regex.test(stay.address.city)
+				)
+			}
+
+			if (byPrice) {
+				filteredStays = state.stays.filter((stay) => stay.price > byPrice.minPrice)
+				filteredStays = filteredStays.filter((stay) => stay.price < byPrice.maxPrice)
+			}
+			state.stays = filteredStays
 		},
 
 		removeStay(state, {stayId}) {
@@ -98,29 +115,14 @@ export default {
 			}
 		},
 		async setFilterBy(context, {filterBy}) {
-			console.log('filterBy:', filterBy)
 			try {
-				context.commit({type: 'setFilterBy', filterBy})
 				const stays = await stayService.query(filterBy)
 				context.commit({type: 'setStays', stays: stays})
+				context.commit({type: 'setFilterBy', filterBy})
 			} catch (err) {
 				console.log(err)
 			}
 		},
-
-		// async addReview(context, { stayId, reviewTxt }) {
-		//   const user = context.rootGetters.getUser;
-		//   if (!user) return router.push('/login');
-		//   const review = {
-		//     txt: reviewTxt,
-		//     miniUser: {
-		//       id: user._id,
-		//       username: user.username
-		//     }
-		//   }
-		//   const updatedStay = await stayService.addReview(stayId, review)
-		//   context.commit({ type: 'updateStay', stay: updatedStay })
-		// }
 	},
 	modules: {},
 }
