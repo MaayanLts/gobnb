@@ -27,8 +27,8 @@ function _getEmptyTrip() {
 		dates: [new Date(), new Date()],
 		price: 0,
 		guests: {
-			adults: 2,
-			kids: 1,
+			adults: 0,
+			kids: 0,
 		},
 		stayIddest: {
 			country: '',
