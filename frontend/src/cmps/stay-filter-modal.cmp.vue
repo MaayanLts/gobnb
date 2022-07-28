@@ -1,6 +1,6 @@
 <template>
 
-  <Btn @click.stop="open1 = true">Filter</Btn>
+  <Btn @click="open1 = true">Filter</Btn>
   <Modal v-model="open1" ok-text="filter" ok-type="default"
     @hide="buildFilterObj" style="display:none">
     <template #title>
