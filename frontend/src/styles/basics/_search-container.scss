@@ -25,12 +25,15 @@
         width: 300px;
         height: 48px;
         align-items: center;
-        font-size: 14px;
+        font-size: 15px;
         line-height: 18px;
-        font-weight: 600;
+        //font-weight: 1600;
         text-overflow: ellipsis;
         padding-left: 10px;
-        justify-content: space-evenly;
+        justify-content: space-between;
+        padding-left: 30px;
+        padding-right: 10px;
+        font-family: 'Airbnb-medium';//"lucida grande";
     }
 
     .txtc {}
