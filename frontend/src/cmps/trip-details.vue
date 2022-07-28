@@ -127,10 +127,10 @@
           <span class="price-line">Service fee</span>
           <span class="price-total">{{ serviceFee }}</span>
         </div>
-      </div>
-      <div class="trip-fee total">
-        <span>Total</span>
-        <span>{{ tripTotalPrice }}</span>
+        <div class="trip-fee total">
+          <span>Total</span>
+          <span>{{ tripTotalPrice }}</span>
+        </div>
       </div>
     </div>
 
