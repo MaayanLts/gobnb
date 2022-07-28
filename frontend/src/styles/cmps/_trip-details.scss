@@ -78,6 +78,29 @@
     justify-content: space-between;
 }
 
+.price-line {
+    color: rgb(34, 34, 34) !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-break: strict !important;
+    line-height: 20px !important;
+    text-align: left !important;
+    text-decoration: underline;
+
+}
+
+.price-total {
+    color: rgb(34, 34, 34);
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-break: strict;
+    line-height: 20px;
+    order: 2;
+    white-space: nowrap
+}
+
 .check {
 
     font-size: 10px !important;
@@ -195,22 +218,23 @@
 }
 
 .btn-hover {
-    width: 200px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    cursor: pointer;
-    margin: 20px;
-    height: 55px;
-    text-align: center;
-    border: none;
-    background-size: 300% 100%;
-    -moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-    background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);
-    box-shadow: 0 5px 15px rgb(242 97 103 / 40%);
+    align-self: center;
+    width: 200px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    margin: 20px !important;
+    height: 55px !important;
+    text-align: center !important;
+    border: none !important;
+    background-size: 300% 100% !important;
+    -moz-transition: all .4s ease-in-out !important;
+    -o-transition: all .4s ease-in-out !important;
+    -webkit-transition: all .4s ease-in-out !important;
+    transition: all .4s ease-in-out !important;
+    background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f) !important;
+    box-shadow: 0 5px 15px rgb(242 97 103 / 40%) !important;
 }
 
 .action-reserve {
@@ -248,15 +272,18 @@
     display: flex;
     align-content: center;
     justify-content: space-between;
+    padding-top: 16px;
 }
 
 .trip-footer {
-    border-top: $clr9 solid 1px;
-    display: flex;
-    align-content: center;
+    border-bottom: $clr9 solid 1px;
+    // display: flex;
+    // align-content: center;
     justify-content: center;
     height: 125px;
-    border: green 2px solid;
+    // border: green 2px solid;
+    margin-top: 24px !important;
+
 }
 
 

@@ -118,17 +118,19 @@
 
       <div class="trip-footer">
         <div class="trip-total-price">
-          <span>${{ stayPrice }} x {{ nights }} nights</span>
-          <span>= ${{ tripPrice }}</span>
+          <span class="price-line">${{ stayPrice }} x {{ nights }} nights</span>
+          <span class="price-total"> ${{ tripPrice }}</span>
         </div>
-        <br>
+
         <div class="trip-fee">
-          <!-- <span>Service fee</span> -->
-          <span>{{ serviceFee }}</span>
+          <span class="price-line">Service fee</span>
+          <span class="price-total">{{ serviceFee }}</span>
         </div>
-        <!-- <span>Total</span> -->
-        <!-- <span>{{ tripTotalPrice }}</span> -->
       </div>
+      <!-- <div class="total">
+        <span>Total</span>
+        <span>{{ tripTotalPrice }}</span>
+      </div> -->
     </div>
 
   </section>
@@ -220,7 +222,7 @@ export default {
       return (Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice
     },
     serviceFee() {
-      return `$${this.fee * this.stayPrice}`
+      return `$${this.fee}`
     },
     //   tripTotalPrice() {
     //     return `$${this.tripPrice + this.tripFee}`
@@ -234,7 +236,7 @@ export default {
     const difference = date_1.getTime() - date_2.getTime()
     this.TotalDays = Math.ceil(difference / (1000 * 3600 * 24))
     this.stayPrice = this.stay.price
-    this.fee = this.stayPrice * 0.17
+    this.fee = this.stayPrice * 1.17
     this.adults = this.trip.guests.adults
     this.children = this.trip.guests.children
     this.infants = this.trip.guests.infants

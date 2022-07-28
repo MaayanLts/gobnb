@@ -21,7 +21,7 @@
           <nav v-if="!displaySearch" class="search-container" :class="details"
             @click="display">
             <div class="search-area destinations">
-              <span class="search-area-text">{{ locationFilter  }} </span>
+              <span class="search-area-text">{{ locationFilter }} </span>
             </div>
             <div class="vl"></div>
             <div class="search-area date">
@@ -80,7 +80,7 @@
 
 </template>
 <script>
-import { create } from "lodash"
+
 import stayFilterSearch from "./stay-filter-search.cmp.vue"
 
 export default {
@@ -105,7 +105,7 @@ export default {
       {
         return 'small-container'
       } else return 'none'
-    }, 
+    },
     details() {
       const isDetailsHeader = this.$route.params.id
       if (isDetailsHeader)
@@ -113,10 +113,11 @@ export default {
         return 'none'
       } else return ''
     },
-    locationFilter(){
+    locationFilter() {
       this.trip = this.$store.getters.getTrip
       let location = 'Anywhere'
-      if(this.trip.stayIddest && this.trip.stayIddest.country){
+      if (this.trip.stayIddest && this.trip.stayIddest.country)
+      {
         location = this.trip.stayIddest.country
       }
 
