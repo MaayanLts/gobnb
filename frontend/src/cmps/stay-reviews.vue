@@ -87,9 +87,9 @@
       </div>
     </div>
     <div class="reviews">
-      <div class="review" v-for="rev in stay.reviews.slice(0, 6)">
+      <div class="review" v-for="rev in stay.reviews.slice(0, 6)" :key="rev">
         <div class="rev-head">
-          <img :src="rev.by.imgUrl" alt="">
+          <img :src="reviewerImg" alt="">
           <div class="rev-title">
             <h4 class="name">{{ rev.by.fullname }}</h4>
             <h5 class="date">{{ date(new Date(rev.at)) }}</h5>
@@ -110,6 +110,7 @@
 </template>
 
 <script>
+import {utilService} from '../services/util.service.js'
 export default {
   props: {
     stay: {
@@ -118,6 +119,7 @@ export default {
   },
   data() {
     return {
+      userImageIndex: 1
     }
   },
   methods: {
@@ -133,10 +135,17 @@ export default {
       const intMonth = date.getMonth() + 1
       const year = date.getYear() + 1900
       return `${month[intMonth]}  ${year}`
+    },
+    updateImgIndex(){
+     this.userImageIndex = utilService.getRandomInt(1,100)
+     console.log(this.userImageIndex)
     }
-
   },
   computed: {
+    reviewerImg(){
+      this.updateImgIndex()
+      return `https://randomuser.me/api/portraits/men/${this.userImageIndex}.jpg`
+    },
   },
   created() {
   },

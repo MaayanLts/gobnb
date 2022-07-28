@@ -4,8 +4,8 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding-top: 6px;
-    margin-top: 30px;
+    padding-top: 10px;
+    //margin-top: 30px;
 }
 
 .btn.btn-default{
@@ -31,12 +31,13 @@
     }
 }
 
-.sticky-filter{
-   // position: relative;
-    // position: -webkit-sticky;
-    // position: sticky;
-    // bottom: 1050;
-    // z-index: 1000;
-    // background-color: #fff;
+.sticky-style{
+    border-top: 0.8px solid $clr9;
     border-bottom: 0.8px solid $clr9;
+    padding-top: 0px;
+}
+
+.border-top{
+    padding-top: 30px;
+    border-top: 0.8px solid $clr9;
 }

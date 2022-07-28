@@ -1,13 +1,10 @@
 <template>
 
   <div id="app">
-    <div class="width-100 sticky-top flex flex-row">{{ count }}
+    <div class="width-100 sticky-top flex flex-row">
       <app-header />
       <stay-filter :class="stickyStyle"  /> 
     </div>
-    <!-- <div class="width-100 sticky-filter bottom-border">
-      <stay-filter />
-    </div> -->
     <router-view />
     <footer class="sticky-bottom" style="padding: 10px; height: 50px; ">
       <h5 style="font-family: Airbnb-medium">© 2022 Gobnb</h5>
@@ -41,11 +38,8 @@ export default {
   },
   computed:{
    stickyStyle(){
-     return this.isStickyStyle ? 'sticky-filter' : ''
+     return this.isStickyStyle ? 'sticky-style' : 'border-top'
     },
-    count(){
-      return this.isStickyStyle
-    }
   },
   components: {
     appHeader,
