@@ -139,13 +139,13 @@ export default {
   },
   data() {
     return {
+      trip: null,
       dates: null,
       dropOpen: false,
       adults: 0,
       children: 0,
       infants: 0,
       pets: 0,
-      trip: null,
       stayPrice: 0,
       hurtColor: '#423f3d',
       fee: 0,
@@ -157,19 +157,17 @@ export default {
 
 
 
-    daysCount() {
-      return 5
-    },
-    daysRangePrice() {
-      // return this.stayPrice * this.daysCount()
-    },
-    tripFee() {
-      // const fee = 100//Math.round(this.dateRangePrice() * 0.17)
-      return 100
-    },
+
+
     reserve() {
       const trip = {
         dates: this.dates,
+        guests: {
+          adults: this.adults,
+          children: this.children,
+          infants: this.infants,
+          pets: this.pets
+        }
       }
       console.log('trip:', trip)
       this.$store.commit({
@@ -216,6 +214,7 @@ export default {
   },
   created() {
     this.trip = this.$store.getters.getTrip
+    console.log('this.trip:', this.trip)
     this.dates = this.trip.dates
     const date_1 = new Date(this.trip.dates[1])
     const date_2 = new Date(this.trip.dates[0])
@@ -223,6 +222,10 @@ export default {
     this.TotalDays = Math.ceil(difference / (1000 * 3600 * 24))
     this.stayPrice = this.stay.price
     this.fee = this.stayPrice * 0.17
+    this.adults = this.trip.guests.adults
+    this.children = this.trip.guests.children
+    this.infants = this.trip.guests.infants
+    this.pets = this.trip.guests.pets
   },
 }
 </script>
