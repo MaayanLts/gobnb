@@ -1,122 +1,123 @@
 
 <template>
-    <div class="main-layout">
-      <nav class="main-layout search-container large-container">
+  <div class="main-layout">
+    <nav class="main-layout search-container large-container">
 
-        <div class="search-area large-area destination" @click="onOpenWhere"
-          :class="{ active: selectedSrchArea === 'destination' }">
-          <span class="large-area-span">Where</span>
-          <input v-model="filterBy.country" type="text"
-            placeholder="Search destinations">
+      <div class="search-area large-area destination" @click="onOpenWhere"
+        :class="{ active: selectedSrchArea === 'destination' }">
+        <span class="large-area-span">Where</span>
+        <input v-model="filterBy.country" type="text"
+          placeholder="Search destinations">
+      </div>
+
+      <div class="vl"></div>
+      <div class="search-area large-area date" @click="onOpenDateFrom"
+        :class="{ active: selectedSrchArea === 'date-from' }">
+        <span class="large-area-span">Check in</span>
+        <!-- < class="picker-date from"></ -->
+        <el-date-picker class="picker-date from" v-model="dates"
+          type="daterange" start-placeholder="Check in" format="DD-MM-YYYY"
+          value-format="x" />
+      </div>
+      <div class="vl"></div>
+
+      <div class="search-area large-area date" @click="onOpenDateTo"
+        :class="{ active: selectedSrchArea === 'date-to' }">
+        <span class="large-area-span">Check out</span>
+
+        <el-date-picker class="picker-date to" v-model="dates" type="daterange"
+          end-placeholder="Check out" format="DD-MM-YYYY" />
+      </div>
+
+      <div class="vl"></div>
+
+      <div class="search-area large-area guests"
+        :class="{ active: selectedSrchArea === 'guests' }">
+        <div @click="onOpenGuests" class="guests-placeholder">
+          <span class="large-area-span">Who</span>
+          <span class="search-area-text-light">Add guests</span>
         </div>
 
-        <div class="vl"></div>
-        <div class="search-area large-area date" @click="onOpenDateFrom"
-          :class="{ active: selectedSrchArea === 'date-from' }">
-          <span class="large-area-span">Check in</span>
-          <!-- < class="picker-date from"></ -->
-          <el-date-picker class="picker-date from" v-model="dates"
-            type="daterange" start-placeholder="Check in" format="DD-MM-YYYY" value-format="x"/>
-        </div>
-        <div class="vl"></div>
-
-        <div class="search-area large-area date" @click="onOpenDateTo"
-          :class="{ active: selectedSrchArea === 'date-to' }">
-          <span class="large-area-span">Check out</span>
-
-          <el-date-picker class="picker-date to" v-model="dates" type="daterange"
-            end-placeholder="Check out" format="DD-MM-YYYY" />
-        </div>
-
-        <div class="vl"></div>
-
-        <div class="search-area large-area guests"
-          :class="{ active: selectedSrchArea === 'guests' }">
-          <div @click="onOpenGuests" class="guests-placeholder">
-            <span class="large-area-span">Who</span>
-            <span class="search-area-text-light">Add guests</span>
-          </div>
-
-          <Transition name="fullSearch">
-            <div v-if="dropOpen" class="drop-menu">
+        <Transition name="fullSearch">
+          <div v-if="dropOpen" class="drop-menu">
+            <div class="input-num-container flex">
+              <div class="drop-item flex">
+                <div class="txt-drop-item flex ">
+                  <span class="search-area-text-Bold">Adults</span>
+                  <span class="search-area-text-light"> Ages 13 or
+                    above</span>
+                </div>
+                <div class="input-num">
+                  <button @click="decGust('adults')" class="inc-btn">-</button>
+                  <span>
+                    {{ adults }}
+                  </span>
+                  <button @click="++adults" class="inc-btn">+</button>
+                </div>
+              </div>
+              <div class="ol"></div>
               <div class="input-num-container flex">
                 <div class="drop-item flex">
                   <div class="txt-drop-item flex ">
-                    <span class="search-area-text-Bold">Adults</span>
-                    <span class="search-area-text-light"> Ages 13 or
-                      above</span>
+                    <span class="search-area-text-Bold">Children</span>
+                    <span class="search-area-text-light"> Ages 2–12</span>
                   </div>
                   <div class="input-num">
-                    <button @click="decGust('adults')" class="inc-btn">-</button>
+                    <button @click="decGust('children')"
+                      class="inc-btn">-</button>
                     <span>
-                      {{ adults }}
+                      {{ children }}
                     </span>
-                    <button @click="++adults" class="inc-btn">+</button>
+                    <button @click="++children" class="inc-btn">+</button>
                   </div>
                 </div>
-                <div class="ol"></div>
-                <div class="input-num-container flex">
-                  <div class="drop-item flex">
-                    <div class="txt-drop-item flex ">
-                      <span class="search-area-text-Bold">Children</span>
-                      <span class="search-area-text-light"> Ages 2–12</span>
-                    </div>
-                    <div class="input-num">
-                      <button @click="decGust('children')"
-                        class="inc-btn">-</button>
-                      <span>
-                        {{ children }}
-                      </span>
-                      <button @click="++children" class="inc-btn">+</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="ol"></div>
+              </div>
+              <div class="ol"></div>
 
-                <div class="input-num-container flex">
-                  <div class="drop-item flex">
-                    <div class="txt-drop-item flex ">
-                      <span class="search-area-text-Bold">Infants</span>
-                      <span class="search-area-text-light"> Under 2</span>
-                    </div>
-                    <div class="input-num">
-                      <button @click="decGust('infants')"
-                        class="inc-btn">-</button>
-                      <span>
-                        {{ infants }}
-                      </span>
-                      <button @click="++infants" class="inc-btn">+</button>
-                    </div>
+              <div class="input-num-container flex">
+                <div class="drop-item flex">
+                  <div class="txt-drop-item flex ">
+                    <span class="search-area-text-Bold">Infants</span>
+                    <span class="search-area-text-light"> Under 2</span>
+                  </div>
+                  <div class="input-num">
+                    <button @click="decGust('infants')"
+                      class="inc-btn">-</button>
+                    <span>
+                      {{ infants }}
+                    </span>
+                    <button @click="++infants" class="inc-btn">+</button>
                   </div>
                 </div>
-                <div class="ol"></div>
-                <div class="input-num-container flex">
-                  <div class="drop-item flex">
-                    <div class="txt-drop-item flex ">
-                      <span class="search-area-text-Bold">Pets</span>
-                      <span class="search-area-text-light  "> Bringing a service
-                        animal?</span>
-                    </div>
-                    <div class="input-num">
-                      <button @click="decGust('pets')" class="inc-btn">-</button>
-                      <span>
-                        {{ pets }}
-                      </span>
-                      <button @click="++pets" class="inc-btn">+</button>
-                    </div>
+              </div>
+              <div class="ol"></div>
+              <div class="input-num-container flex">
+                <div class="drop-item flex">
+                  <div class="txt-drop-item flex ">
+                    <span class="search-area-text-Bold">Pets</span>
+                    <span class="search-area-text-light  "> Bringing a service
+                      animal?</span>
+                  </div>
+                  <div class="input-num">
+                    <button @click="decGust('pets')" class="inc-btn">-</button>
+                    <span>
+                      {{ pets }}
+                    </span>
+                    <button @click="++pets" class="inc-btn">+</button>
                   </div>
                 </div>
               </div>
             </div>
-          </Transition>
-          <div class="action-search clickable" @click.stop="setFilterBy">
-            <img class="search-icon" src="/src/assets/logo/serch_icon.png"
-              alt="" />
-            <span>Search</span>
           </div>
+        </Transition>
+        <div class="action-search clickable" @click.stop="setFilterBy">
+          <img class="search-icon" src="/src/assets/logo/serch_icon.png"
+            alt="" />
+          <span>Search</span>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -134,10 +135,12 @@ export default {
       filterBy: {
         country: '',
       },
-      dates: []
+      dates: null,
     }
   },
   created() {
+    this.trip = this.$store.getters.getTrip
+    this.dates = this.trip.dates
   },
   methods: {
 
@@ -169,15 +172,14 @@ export default {
           country: this.filterBy.country,
         },
       })
-      this.$store.commit('setTripDates', this.dates)
-      // this.$store.dispatch({
-      //   type: 'setTrip',
-      //   trip: {
-      //     //startDate: this.dates[0],
-      //     //endDate: this.dates[1],
-      //     dates: this.dates,
-      //   },
-      // });
+      const trip = {
+        dates: this.dates,
+      }
+      console.log('trip:', trip)
+      this.$store.commit({
+        type: "reserve",
+        trip,
+      })
     },
 
     decGust(guests) {

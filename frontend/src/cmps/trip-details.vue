@@ -114,11 +114,16 @@
     <div class="trip-message">You won't be charget yet</div>
 
     <div class="trip-footer">
-      <div class="trip-total-price"><span>{{ tripPriceDescription
-      }}</span><span>{{ tripPrice }}</span></div>
-      <div class="trip-fee"><span>Service fee</span><span>{{ serviceFee
-      }}</span></div>
-      <span>Total</span><span>{{ tripTotalPrice }}</span>
+      <div class="trip-total-price">
+        <span>{{ priceForNight }} x {{ nights }}</span>
+        <span>= ${{ tripPrice }}</span>
+      </div>
+      <div class="trip-fee">
+        <span>Service fee</span>
+        <span>{{ serviceFee }}</span>
+      </div>
+      <span>Total</span>
+      <span>{{ tripTotalPrice }}</span>
     </div>
 
   </section>
@@ -136,23 +141,27 @@ export default {
     return {
       dates: null,
       dropOpen: false,
+      adults: 0,
+      children: 0,
+      infants: 0,
+      pets: 0,
       trip: null,
       stayPrice: 0,
       hurtColor: '#423f3d',
+      fee: 0,
+      TotalDays: 0,
+      totalPrice: 0
     }
   },
   methods: {
 
 
-    getTrip() {
-      this.trip = this.$store.getters.getTrip
-      console.log('this.trip :', this.trip)
-    },
+
     daysCount() {
       return 5
     },
     daysRangePrice() {
-      return this.stayPrice * this.daysCount()
+      // return this.stayPrice * this.daysCount()
     },
     tripFee() {
       // const fee = 100//Math.round(this.dateRangePrice() * 0.17)
@@ -161,15 +170,20 @@ export default {
     reserve() {
       const trip = {
         dates: this.dates,
-
-
       }
-
+      console.log('trip:', trip)
       this.$store.commit({
         type: "reserve",
         trip,
-      }
-      )
+      })
+
+
+
+    },
+    decGust(guests) {
+      console.log('this[guests]:', this[guests])
+      if (this[guests] === 0) return
+      --this[guests]
     }
 
   },
@@ -181,20 +195,34 @@ export default {
     //   const days = this.daysRangePrice()
     //   return `$${days}`
     // },
-    //   tripPriceDescription() {
-    //     const totalPrice = this.stayPrice  //this.datesRange()
-    //     return `$${totalPrice} nights`
-    //   },
-    //   serviceFee() {
-    //     return `$${this.tripFee}`
-    //   },
+    nights() {
+      const date_1 = new Date(this.dates[1])
+      const date_2 = new Date(this.dates[0])
+      const difference = date_1.getTime() - date_2.getTime()
+      return (Math.ceil(difference / (1000 * 3600 * 24)))
+    },
+    tripPrice() {
+      const date_1 = new Date(this.dates[1])
+      const date_2 = new Date(this.dates[0])
+      const difference = date_1.getTime() - date_2.getTime()
+      return (Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice
+    },
+    serviceFee() {
+      return `$${this.fee}`
+    },
     //   tripTotalPrice() {
     //     return `$${this.tripPrice + this.tripFee}`
     //   }
   },
   created() {
-    this.getTrip()
+    this.trip = this.$store.getters.getTrip
+    this.dates = this.trip.dates
+    const date_1 = new Date(this.trip.dates[1])
+    const date_2 = new Date(this.trip.dates[0])
+    const difference = date_1.getTime() - date_2.getTime()
+    this.TotalDays = Math.ceil(difference / (1000 * 3600 * 24))
     this.stayPrice = this.stay.price
+    this.fee = this.stayPrice * 0.17
   },
 }
 </script>

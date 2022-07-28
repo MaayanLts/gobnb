@@ -89,7 +89,7 @@
     <div class="reviews">
       <div class="review" v-for="rev in stay.reviews.slice(0, 6)" :key="rev">
         <div class="rev-head">
-          <img :src="reviewerImg" alt="">
+          <img :src="reviewerImg()" alt="">
           <div class="rev-title">
             <h4 class="name">{{ rev.by.fullname }}</h4>
             <h5 class="date">{{ date(new Date(rev.at)) }}</h5>
@@ -139,13 +139,14 @@ export default {
     updateImgIndex(){
      this.userImageIndex = utilService.getRandomInt(1,100)
      console.log(this.userImageIndex)
-    }
+    },
+    reviewerImg(){
+      const index = utilService.getRandomInt(1,100)
+      const gender = (utilService.getRandomInt(1,100) % 2 === 0) ? 'men' : 'women'
+      return `https://randomuser.me/api/portraits/${gender}/${index}.jpg`
+    },
   },
   computed: {
-    reviewerImg(){
-      this.updateImgIndex()
-      return `https://randomuser.me/api/portraits/men/${this.userImageIndex}.jpg`
-    },
   },
   created() {
   },

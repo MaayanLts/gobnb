@@ -14,10 +14,10 @@ export default {
 			state.trip = tripService.query()
 		},
 		setTripDates(state, dates) {
-			let trip = Store.getters.getTrip(state)
-			trip.dates = dates
+			console.log('dates:', dates)
+			// trip.dates = dates
 
-			tripService.save('trip', trip)
+			// tripService.save('trip', trip)
 		},
 		setTripGuests(state, {adults, kids}) {
 			let trip = getTrip(state)
