@@ -20,10 +20,10 @@
     <div class="stay-preview-info-container">
       <div class="flex space-between">
         <span class="bold">{{ propertyTypeAndLocation }} </span>
-        <div>
+        <div class="flex space-between">
           <img src="src/images/star.svg" />
-          <span>{{ rating }}</span>
-          <span v-if="isFiltered"> • {{ reviews }}</span>
+          <span style="padding-left:2px">{{ rating }}</span>
+          <span v-if="isFiltered" style="padding-left:5px">{{ reviews }}</span>
         </div>
       </div>
       <span>{{ stay.propertyType }} • {{ stay.roomType }}</span><br />
@@ -52,6 +52,7 @@ export default {
       slideIndex: 0,
       hurtColor: '#423f3d',
       isFiltered: false,
+      trip: null,
     }
   },
   components: {
@@ -85,8 +86,16 @@ export default {
       return `src/images/`
     },
     rating() {
-      return this.stay.reviewScores.rating / 20
+      let rating = this.stay.reviewScores.rating / 20
+      return (rating === 5) ?  `${rating}.0` : rating
+    },
+    reviews(){
+      let reviewsCount = 0
+      if(this.stay.reviews)
+        reviewsCount = this.stay.reviews.length
 
+      const reviews = (reviewsCount === 0) ? '' : ` (${reviewsCount})`
+      return reviews
     },
     currentColor() {
       return this.hurtColor
@@ -94,7 +103,10 @@ export default {
   },
   created() {
     this.filterBy = this.$store.getters.filterBy
-    this.isFiltered = ((this.filterBy !== undefined) && (this.filterBy !== null))
+    this.trip = this.$store.getters.getTrip
+    this.isFiltered = (((this.filterBy !== undefined) && (this.filterBy !== null)) ||
+                       ((this.trip !== undefined) && (this.trip !== null))
+                      )
   },
   unmounted() {
   },
@@ -106,9 +118,6 @@ export default {
       // this.hurtColor = '#423f3d' ? 'red' : '#423f3d'
       this.hurtColor = this.hurtColor === 'red' ? '#423f3d' : 'red'
     },
-    raingAndReviews(){
-      return 'here'
-    }
   },
 };
 </script>
