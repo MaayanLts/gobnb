@@ -141,6 +141,10 @@ export default {
   created() {
     this.trip = this.$store.getters.getTrip
     this.dates = this.trip.dates
+    this.adults = this.trip.guests.adults
+    this.children = this.trip.guests.children
+    this.infants = this.trip.guests.infants
+    this.pets = this.trip.guests.pets
   },
   methods: {
 
@@ -174,6 +178,12 @@ export default {
       })
       const trip = {
         dates: this.dates,
+        guests: {
+          adults: this.adults,
+          children: this.children,
+          infants: this.infants,
+          pets: this.pets
+        }
       }
       console.log('trip:', trip)
       this.$store.commit({
