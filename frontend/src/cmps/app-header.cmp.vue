@@ -25,7 +25,7 @@
             </div>
             <div class="vl"></div>
             <div class="search-area date">
-              <span class="search-area-text">Any week </span>
+              <span class="search-area-text"> {{ datesFilter }}</span>
             </div>
             <div class="vl"></div>
             <div class="search-area guests">
@@ -92,7 +92,6 @@ export default {
     }
   },
   computed: {
-
     headerClass() {
       const isDetailsHeader = this.$route.params.id
       // return (isDetailsHeader) ? 'header details-header' : 'header'
@@ -122,6 +121,15 @@ export default {
 
       return location
     },
+    datesFilter(){
+      this.trip = this.$store.getters.getTrip
+      let dates = 'Any week'
+      if(this.trip){
+        dates = 'Any week'
+      }
+
+      return dates
+    }
   },
   components: {
     stayFilterSearch,
