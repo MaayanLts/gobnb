@@ -23,8 +23,9 @@
             :class="{ active: selectedSrchArea === 'date-to' }">
             <span class="check">Check out</span>
 
-            <el-date-picker class="picker-date to bold-trip" v-model="dates"
-              type="daterange" end-placeholder="Check out" />
+            <el-date-picker @click="show = true"
+              class="picker-date to bold-trip" v-model="dates" type="daterange"
+              end-placeholder="Check out" />
           </div>
         </div>
         <div class="gusts-details-container">
@@ -116,7 +117,7 @@
 
       <div class="trip-message">You won't be charget yet</div>
 
-      <div class="trip-footer">
+      <div :class="none" class="trip-footer">
         <div class="trip-total-price">
           <span class="price-line">${{ stayPrice }} x {{ nights }} nights</span>
           <span class="price-total"> ${{ tripPrice }}</span>
@@ -127,10 +128,10 @@
           <span class="price-total">{{ serviceFee }}</span>
         </div>
       </div>
-      <!-- <div class="total">
+      <div class="trip-fee total">
         <span>Total</span>
         <span>{{ tripTotalPrice }}</span>
-      </div> -->
+      </div>
     </div>
 
   </section>
@@ -138,6 +139,7 @@
 
 <script>
 import { ElNotification } from 'element-plus'
+import { round } from 'lodash'
 
 export default {
   props: {
@@ -147,6 +149,7 @@ export default {
   },
   data() {
     return {
+      show: false,
       trip: null,
       dates: null,
       dropOpen: false,
@@ -224,9 +227,15 @@ export default {
     serviceFee() {
       return `$${this.fee}`
     },
-    //   tripTotalPrice() {
-    //     return `$${this.tripPrice + this.tripFee}`
-    //   }
+    tripTotalPrice() {
+      const date_1 = new Date(this.dates[1])
+      const date_2 = new Date(this.dates[0])
+      const difference = date_1.getTime() - date_2.getTime()
+      return (Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice + this.fee
+    },
+    none() {
+      if (this.TotalDays === 0) return 'none'
+    }
   },
   created() {
     this.trip = this.$store.getters.getTrip
@@ -236,7 +245,7 @@ export default {
     const difference = date_1.getTime() - date_2.getTime()
     this.TotalDays = Math.ceil(difference / (1000 * 3600 * 24))
     this.stayPrice = this.stay.price
-    this.fee = this.stayPrice * 1.17
+    this.fee = Math.round(this.stayPrice * 1.17)
     this.adults = this.trip.guests.adults
     this.children = this.trip.guests.children
     this.infants = this.trip.guests.infants
