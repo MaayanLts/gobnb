@@ -21,8 +21,7 @@
           <nav v-if="!displaySearch" class="search-container" :class="details"
             @click="display">
             <div class="search-area destinations">
-              <span v-if="trip.stayIddest.country" class="search-area-text">{{ trip.stayIddest.country  }} </span>
-              <span v-else class="search-area-text">{{ "Anywhere"  }} </span>    
+              <span class="search-area-text">{{ locationFilter  }} </span>
             </div>
             <div class="vl"></div>
             <div class="search-area date">
@@ -115,6 +114,7 @@ export default {
       } else return ''
     },
     locationFilter(){
+      this.trip = this.$store.getters.getTrip
       let location = 'Anywhere'
       if(this.trip.stayIddest && this.trip.stayIddest.country){
         location = this.trip.stayIddest.country
@@ -141,7 +141,6 @@ export default {
   },
   created() {
     this.trip = this.$store.getters.getTrip
-    console.log('this.trip:', this.trip)
   },
 
 }
