@@ -309,6 +309,7 @@
         // grid-template-columns: minmax(24px, 1fr) minmax(200px, 500px) minmax(24px, 1fr);
         display: flex;
         flex-direction: column;
+        flex-wrap: wrap;
 
         >* {
             padding-inline-start: 24px;

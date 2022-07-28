@@ -3,7 +3,7 @@
   <div class="main-layout">  
     <div class="stay-filter" :style="isVisible">
       <stay-filter-tag />
-      <stay-filter-modal />
+      <!-- <stay-filter-modal /> -->
     </div>
   </div>
 
