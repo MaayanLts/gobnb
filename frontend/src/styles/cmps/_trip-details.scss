@@ -300,8 +300,16 @@
 
 .btn-arrow-details {
     width: fit-content;
-    width: 16px;
-    height: 16px;
+    -moz-box-pack: center !important;
+    -moz-box-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+
+    min-width: 36px !important;
+    padding-right: 12px !important;
+    color: rgb(34, 34, 34) !important;
+    cursor: pointer;
     align-self: center;
 }
 
