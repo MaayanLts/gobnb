@@ -21,8 +21,8 @@
           <nav v-if="!displaySearch" class="search-container" :class="details"
             @click="display">
             <div class="search-area destinations">
-              <span class="search-area-text">{{ trip.stayIddest.country }}}
-              </span>
+              <span v-if="trip.stayIddest.country" class="search-area-text">{{ trip.stayIddest.country  }} </span>
+              <span v-else class="search-area-text">{{ "Anywhere"  }} </span>    
             </div>
             <div class="vl"></div>
             <div class="search-area date">
@@ -87,7 +87,6 @@ import stayFilterSearch from "./stay-filter-search.cmp.vue"
 export default {
   data() {
     return {
-
       isOpen: false,
       displaySearch: false
       ,
@@ -107,14 +106,22 @@ export default {
       {
         return 'small-container'
       } else return 'none'
-    }, details() {
+    }, 
+    details() {
       const isDetailsHeader = this.$route.params.id
       if (isDetailsHeader)
       {
         return 'none'
       } else return ''
     },
+    locationFilter(){
+      let location = 'Anywhere'
+      if(this.trip.stayIddest && this.trip.stayIddest.country){
+        location = this.trip.stayIddest.country
+      }
 
+      return location
+    },
   },
   components: {
     stayFilterSearch,
