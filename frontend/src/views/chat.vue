@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="chat-container">
     <h1>gobnb</h1>
     <h4>Hello {{ userName }}</h4>
     <h4>write to {{ hostName }}</h4>
