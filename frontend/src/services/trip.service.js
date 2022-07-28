@@ -24,7 +24,7 @@ function _getEmptyTrip() {
 		stayId: '',
 		//startDate: '',
 		//endDate: '',
-		dates: [],
+		dates: [new Date(), new Date()],
 		price: 0,
 		guests: {
 			adults: 2,
