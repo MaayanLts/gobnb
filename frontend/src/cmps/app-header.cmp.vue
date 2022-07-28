@@ -71,7 +71,7 @@
       </div>
 
       <Transition name="fullSearch">
-        <stay-filter-search v-if="displaySearch" />
+        <stay-filter-search v-if="displaySearch" @searchClicked="display" />
       </Transition>
 
     </div>

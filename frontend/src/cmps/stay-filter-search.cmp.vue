@@ -110,7 +110,7 @@
             </div>
           </div>
         </Transition>
-        <div class="action-search clickable" @click.stop="setFilterBy">
+        <div class="action-search clickable" @click="setFilterBy">
           <img class="search-icon" src="/src/assets/logo/serch_icon.png"
             alt="" />
           <span>Search</span>
@@ -147,7 +147,6 @@ export default {
     this.pets = this.trip.guests.pets
   },
   methods: {
-
     onOpenWhere() {
       this.selectedSrchArea = 'destination'
       this.dropOpen = false
@@ -168,6 +167,7 @@ export default {
       this.dropOpen = !this.dropOpen
     },
     setFilterBy() {
+      this.$emit("searchClicked");
       this.dropOpen = false
 
       this.$store.dispatch({
@@ -176,6 +176,7 @@ export default {
           country: this.filterBy.country,
         },
       })
+
       const trip = {
         stayIddest: { country: this.filterBy.country },
         dates: this.dates,
