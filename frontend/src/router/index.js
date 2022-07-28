@@ -3,6 +3,8 @@ import stayDetails from '../views/stay-details.vue'
 import loginPage from '../views/login-signup.vue'
 import chat from '../views/chat.vue'
 import chatHost from '../views/chat-host.vue'
+import backofficePage from '../views/backoffice.vue'
+
 // import stayEdit from '../views/stay-edit.vue'
 // import signupPage from '../views/signup-page.vue'
 // import userDetails from '../views/user-details.vue'
@@ -37,6 +39,11 @@ const router = createRouter({
 			path: '/login',
 			name: 'login-page',
 			component: loginPage,
+		},
+		{
+			path: '/host',
+			name: 'host',
+			component: backofficePage,
 		},
 		// {
 		// 	path: '/user',

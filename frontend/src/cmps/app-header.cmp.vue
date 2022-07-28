@@ -51,10 +51,10 @@
           </nav>
         </transition>
 
-        <div class="user-settings-container" @click.stop="setHostChat">
+        <div class="user-settings-container"><!--  @click.stop="setHostChat"> -->
           <div class="user-section left">
-            <div class="host-btn clickable">Become a Host
-            </div>
+            <!-- <div class="host-btn clickable">Become a Host</div> -->
+            <router-link class="host-btn" style="text-decoration: none" :to="hostLink">{{ switchToText }}</router-link>
           </div>
           <div class="user-section center">
             <img class="globe-icon clickable"
@@ -69,9 +69,9 @@
         </div>
       </div>
 
-      <Transition name="fullSearch">
+      <Transition name="fullSearch"> 
         <stay-filter-search v-if="displaySearch" @searchClicked="display" />
-      </Transition>
+      </Transition> 
 
     </div>
 
@@ -92,25 +92,41 @@ export default {
     }
   },
   computed: {
+    switchToText(){
+      let text = "Switch to Host"
+      if(this.$route.name === 'host')
+        text = "Switch to Guest"
+
+      return text  
+    },
+    hostLink(){
+      let link = '/host'
+      if(this.$route.name === 'host')
+        link = '/'
+
+      return link
+    },
     headerClass() {
-      const isDetailsHeader = this.$route.params.id
+      const isDetailsHeader = this.$route.name === 'stay-details'
       // return (isDetailsHeader) ? 'header details-header' : 'header'
       return (isDetailsHeader) ? 'details-layout' : 'main-layout'
     },
 
     home() {
-      const isDetailsHeader = this.$route.params.id
+      const isDetailsHeader = this.$route.name === 'stay-details'
       if (isDetailsHeader)
       {
         return 'small-container'
       } else return 'none'
     },
     details() {
-      const isDetailsHeader = this.$route.params.id
-      if (isDetailsHeader)
+      const isMainScreen = !(this.$route.name === 'stay-details' || this.$route.name === 'host')
+      if (isMainScreen)
       {
+        return ''
+      } else {
         return 'none'
-      } else return ''
+      }
     },
     locationFilter() {
       this.trip = this.$store.getters.getTrip
