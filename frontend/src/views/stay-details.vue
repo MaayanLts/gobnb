@@ -1,18 +1,15 @@
 <template >
-    <div class="width-100">
-        <section class="main-details-container" v-if="stay">
+    <section class="details-layout" v-if="stay">
 
         <h2 class="details-title">{{ stay.name }}</h2>
         <div class="links-line">
             <div class="start-links">
-                <a href=""><img class="star"
-                        src="../assets/logo/starAirbnb.svg"> {{
-                                stay.reviewScores.rating / 20
-                        }}</a>
+                <a href=""><img class="star" src="../assets/logo/starAirbnb.svg"> {{
+                        stay.reviewScores.rating / 20
+                }}</a>
                 <span>•</span>
                 <a href="">{{ reviews }} reviews</a>
-                <span class="superhost"
-                    v-if="stay.host.isSuperhost"><span>•</span>
+                <span class="superhost" v-if="stay.host.isSuperhost"><span>•</span>
                     <img src="../assets/logo/superHost.png"> Superhost
                 </span>
                 <span>•</span>
@@ -29,7 +26,7 @@
                 </div>
             </div>
         </div>
-        <div class="images-holder">
+        <div class="images-holder ">
 
             <img :src="imgUrl(stay.imgUrls[0])" alt="">
             <img :src="imgUrl(stay.imgUrls[1])" alt="">
@@ -39,7 +36,7 @@
 
         </div>
         <div class="main-grid-container">
-            <trip-details :stay="stay" />
+
             <section class="left-bar">
                 <div class="host-holder">
 
@@ -52,13 +49,11 @@
                         <h3>{{ stay.beds }} beds</h3><span> • </span>
                         <h3>{{ stay.bathrooms }} bath</h3>
                     </div>
-                    <img class="host-img" :src="stay.host.pictureUrl"
-                        alt="hostPic">
+                    <img class="host-img" :src="stay.host.pictureUrl" alt="hostPic">
                 </div>
 
                 <div class="highligths">
-                    <div class="superhost-txt flex"
-                        v-if="stay.host.isSuperhost">
+                    <div class="superhost-txt flex" v-if="stay.host.isSuperhost">
 
                         <img src="../assets/logo/superhostHl.svg">
                         <div class="txt-holder">
@@ -70,8 +65,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="locTxt flex"
-                        v-if="stay.reviewScores.location >= 9">
+                    <div class="locTxt flex" v-if="stay.reviewScores.location >= 9">
                         <img src="../assets/logo/locationHl.svg">
                         <div class="txt-holder">
                             <h2>Great location</h2>
@@ -81,8 +75,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="commTxt flex"
-                        v-if="stay.reviewScores.communication >= 9">
+                    <div class="commTxt flex" v-if="stay.reviewScores.communication >= 9">
                         <img src="../assets/logo/communicationHl.svg">
                         <div class="txt-holder">
                             <h2>Great communication</h2>
@@ -93,8 +86,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="parkingTxt flex"
-                        v-if="stay.reviewScores.location < 7.5">
+                    <div class="parkingTxt flex" v-if="stay.reviewScores.location < 7.5">
                         <img src="../assets/logo/freeParkHl.svg">
                         <div class="txt-holder">
                             <h2>Park for free</h2>
@@ -120,15 +112,13 @@
                 </div>
                 <div class="summary-holder">
                     <p class="summary">{{ stay.summary }}</p>
-                    <a class="href-more" href="">Show more <img
-                            src="../assets/logo/reed-more-row.svg" alt=""></a>
+                    <a class="href-more" href="">Show more <img src="../assets/logo/reed-more-row.svg" alt=""></a>
                 </div>
 
                 <div class="amenities">
                     <h2>What this place offers</h2>
                     <ul>
-                        <li v-for=" (ament) in stay.amenities.slice(0, 7)"
-                            :key="ament">{{ ament }}</li>
+                        <li v-for=" (ament) in stay.amenities.slice(0, 7)" :key="ament">{{ ament }}</li>
                     </ul>
                     <div class="show-all-btn">
                         Show all {{ stay.amenities.length - 7 }} amenities
@@ -140,12 +130,15 @@
                 </div>
 
             </section>
+            <div class="right-bar">
+                <trip-details :stay="stay" />
+            </div>
         </div>
         <stay-reviews :stay="stay" />
         <host-details :stay="stay" />
 
-        </section>
-    </div>
+    </section>
+
 </template>
 
 <script >

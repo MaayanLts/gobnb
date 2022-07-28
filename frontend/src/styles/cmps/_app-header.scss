@@ -8,6 +8,11 @@
   width: 100%;
 }
 
+.details-header {
+  max-width: 1120px;
+  margin: auto;
+}
+
 .sticky-top {
   position: -webkit-sticky;
   position: sticky;
@@ -78,10 +83,6 @@
   opacity: 1;
 }
 
-.details-header {
-  max-width: 1120px;
-  margin: auto;
-}
 
 .search-area {
   &.destinations {

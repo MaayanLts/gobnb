@@ -1,11 +1,11 @@
 <template >
 
   <div @click="display" v-if="isOpen" class="drop-menu-container "></div>
-    <div class="main-layout">
+    <div :class="headerClass">
       <transition name="fullSearch"></transition>
     <div>
 
-    <div :class="headerClass">
+    <div class="header">
         <router-link class="main-header-logo" style="text-decoration: none" to="/">
           <svg class="svg-logo">
             <path
@@ -87,7 +87,8 @@ export default {
 
     headerClass() {
       const isDetailsHeader = this.$route.params.id
-      return (isDetailsHeader) ? 'header details-header' : 'header'
+      // return (isDetailsHeader) ? 'header details-header' : 'header'
+      return (isDetailsHeader) ? 'details-layout' : 'main-layout'
     },
 
     home() {
