@@ -1,13 +1,12 @@
 <template>
-    <h1>gobnb admin/host</h1>
+    <h1>gobnb host</h1>
   <div class="container">
 
 
-    <form @submit.prevent="changeUser">
+    <form v-if="!hostName" @submit.prevent="changeUser">
       <input type="text" v-model="hostName" placeholder="hostName" />
     </form>
 
-      </div>
 
     <ul>
       <li v-for="(msg, idx) in msgs" :key="idx">
@@ -22,8 +21,7 @@
       <button>Send</button>
     </form>
 
-
-    <!-- <button @click="changeUser">admin: I am {{ hostName }}</button> -->
+  </div>
 
 </template>
 
