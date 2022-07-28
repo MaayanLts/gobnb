@@ -27,7 +27,7 @@ export default {
 
 		reserve(state, {trip}) {
 			const {dates} = trip
-			state.trip.dates = dates
+			state.trip = trip
 			tripService.save(state.trip, 'trip')
 		},
 	},
