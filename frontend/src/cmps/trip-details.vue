@@ -33,7 +33,9 @@
             <span class="check">Gusts</span>
             <span class="bold-trip">{{ hm }}</span>
           </div>
-          <div @click="dropOpen = !dropOpen" class="btn-arrow-details">∨</div>
+          <div @click="dropOpen = !dropOpen" class="btn-arrow-details"><img
+              class="icon-arrow" src="../assets/logo/down-arrow.png" alt="">
+          </div>
         </div>
         <Transition name="fullSearch">
           <div v-if="dropOpen" class="drop-menu-details">
