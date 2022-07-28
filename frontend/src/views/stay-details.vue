@@ -134,8 +134,8 @@
                 <trip-details :stay="stay" />
             </div>
         </div>
-        <host-details :stay="stay" />
         <stay-reviews :stay="stay" />
+        <host-details :stay="stay" />
 
     </section>
 
