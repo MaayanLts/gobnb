@@ -69,23 +69,8 @@
     line-height: 26px !important;
 }
 
-.trip-order-container {
-    box-sizing: border-box;
-    color: rgb(34, 34, 34);
-    font-size: 16px;
-    font-weight: 400;
-    line-break: strict;
-    line-height: 20px;
-    margin-bottom: 16px;
-    width: 333px;
-    background-color: rgb(255, 255, 255);
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px
-}
-
 .trip-details {
+
     height: 226px;
     display: flex;
     flex-direction: column;
@@ -93,11 +78,41 @@
     justify-content: space-between;
 }
 
+.check {
+
+    font-size: 10px !important;
+    line-height: 12px !important;
+    text-transform: uppercase !important;
+    font-weight: 800 !important;
+    width: fit-content;
+}
+
+
+
+.trip-order-container {
+    // border: 1px solid #cecece;
+
+    color: rgb(34, 34, 34);
+    font-size: 16px;
+    font-weight: 400;
+    line-break: strict;
+    line-height: 20px;
+    margin-bottom: 16px;
+    // width: 333px;
+    background-color: rgb(255, 255, 255);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+
+
 .date-details {
     min-height: 56px;
     outline: currentcolor none medium;
     margin: 0px;
-    padding: 10px 0px 10px;
+
     background-color: transparent;
     color: inherit;
     font-family: inherit;
@@ -113,37 +128,52 @@
 
 
 
+
 }
 
 .date-details-cell {
     min-height: 56px;
-    // outline: currentcolor none medium;
     display: flex;
-
+    padding: 12.5px 0px 0px 12px !important;
     flex-direction: column;
-
-
     font-family: inherit;
-
     cursor: pointer;
-
     flex-grow: 1;
+    // justify-content: center;
+    border: 1px solid #cecece;
+
 
 }
 
-.check {
-    padding-left: 3px;
-    font-size: 12px;
-    font-weight: 600;
-    width: fit-content;
+
+
+.gusts-details-container {
+    border-left: 1px solid #cecece;
+    border-bottom: 1px solid #cecece;
+    border-right: 1px solid #cecece;
+
+    display: flex;
+    flex-direction: row;
+    color: rgb(34, 34, 34) !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    border-radius: 0px 0px 8px 8px;
+    inset: 0px 0px -1px;
+    // border: 1px black solid;
+    justify-content: space-between;
+    height: 56px;
+
+    font-weight: 400;
+    line-break: strict;
+    line-height: 20px;
 }
 
-.check2 {
-    padding-left: 8px;
-    font-size: 12px;
-    font-weight: 600;
+.gusts-details {
+    flex-direction: column;
     width: fit-content;
-
+    padding: 12.5px 0px 12.5px 12px !important;
+    display: flex !important;
 }
 
 .drop-menu-details {
@@ -164,12 +194,8 @@
     text-align: center;
 }
 
-.gusts-details {
-    display: flex !important;
-}
 
 .action-reserve {
-    //background-color: $primary-clr;
     color: $clr3;
     border-radius: 1em;
     height: 48px;
@@ -177,42 +203,22 @@
     padding: 1em;
 }
 
-.btn-hover {
-    width: 200px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    cursor: pointer;
-    margin: 20px;
-    height: 55px;
-    text-align: center;
-    border: none;
-    background-size: 300% 100%;
-    -moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-    background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);
-    box-shadow: 0 5px 15px rgb(242 97 103 / 40%);
-}
+// .data-change-area {
+// height: 112px;
+// display: flex;
+// flex-direction: column;
+// }
 
+// .el-date-picker-style {
+// height: 200p;
+// width: 400px;
+// }
 
-.data-change-area {
-    height: 112px;
-    display: flex;
-    flex-direction: column;
-}
-
-.el-date-picker-style {
-    height: 200p;
-    width: 400px;
-}
-
-.dates-labels {
-    display: flex;
-    width: 400px;
-    justify-content: space-around;
-}
+// .dates-labels {
+// display: flex;
+// width: 400px;
+// justify-content: space-around;
+// }
 
 .trip-total-price {
     display: flex;
@@ -237,42 +243,15 @@
 
 
 
-.gusts-details-container {
-    display: flex;
-    flex-direction: row;
-    color: rgb(34, 34, 34) !important;
-    font-weight: 400 !important;
-    font-size: 16px !important;
-    line-height: 20px !important;
-    border-radius: 0px 0px 8px 8px;
-    inset: 0px 0px -1px;
-    border: 1px black solid;
-    justify-content: space-between;
-}
-
 .btn-arrow-details {
     width: fit-content;
-    // align-self: flex-end;
     width: 16px;
     height: 16px;
     align-self: center;
-    // justify-self: end;
 }
-
-.gusts-details {
-    flex-direction: column;
-    width: fit-content;
-    // display: flex;
-}
-
-
-
-
 
 .input-num-container {
-    // height: 100%;
     flex-direction: column;
-
     align-items: center;
 }
 
@@ -289,7 +268,6 @@
 
     padding-top: 24px;
     padding-bottom: 24px;
-    // justify-content: space-around;
     align-items: center;
     border: 1px solid rgb(11, 9, 9);
 

@@ -13,7 +13,7 @@
         <div class="date-details">
           <div @click="onOpenDateFrom" class="date-details-cell"
             :class="{ active: selectedSrchArea === 'date-from' }">
-            <span class="check2">Check in</span>
+            <span class="check">Check in</span>
             <!-- < class="picker-date from"></ -->
             <el-date-picker class="picker-date from" v-model="dates"
               type="daterange" start-placeholder="Check in" />
@@ -23,14 +23,14 @@
             :class="{ active: selectedSrchArea === 'date-to' }">
             <span class="check">Check out</span>
 
-            <el-date-picker class="picker-date to" v-model="dates"
+            <el-date-picker class="picker-date to bold-trip" v-model="dates"
               type="daterange" end-placeholder="Check out" />
           </div>
         </div>
         <div class="gusts-details-container">
           <div class="gusts-details">
-            <span class="check2">Gusts</span>
-            <span style="padding-left: 8px; width: fit-content;">som....</span>
+            <span class="check">Gusts</span>
+            <span class="bold-trip">som....</span>
           </div>
           <div @click="dropOpen = !dropOpen" class="btn-arrow-details">∨</div>
         </div>

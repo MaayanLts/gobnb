@@ -177,6 +177,7 @@ export default {
         },
       })
       const trip = {
+        stayIddest: { country: this.filterBy.country },
         dates: this.dates,
         guests: {
           adults: this.adults,
