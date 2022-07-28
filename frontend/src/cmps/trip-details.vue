@@ -121,6 +121,7 @@
           <span>${{ stayPrice }} x {{ nights }} nights</span>
           <span>= ${{ tripPrice }}</span>
         </div>
+        <br>
         <div class="trip-fee">
           <!-- <span>Service fee</span> -->
           <span>{{ serviceFee }}</span>
@@ -134,6 +135,7 @@
 </template>
 
 <script>
+import { ElNotification } from 'element-plus'
 
 export default {
   props: {
@@ -164,6 +166,14 @@ export default {
 
 
     reserve() {
+      cancelIdleCallback
+      ElNotification({
+        title: 'Success',
+        message: 'Yor request was successfully sent to the host',
+        type: 'success',
+      })
+
+
       const trip = {
         stayIddest: { country: this.stay.address.country },
         dates: this.dates,
@@ -179,7 +189,7 @@ export default {
         type: "reserve",
         trip,
       })
-
+      this.$router.push("/")
 
 
     },
@@ -210,7 +220,7 @@ export default {
       return (Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice
     },
     serviceFee() {
-      return `$${this.fee * this.totalPrice}`
+      return `$${this.fee * this.stayPrice}`
     },
     //   tripTotalPrice() {
     //     return `$${this.tripPrice + this.tripFee}`
