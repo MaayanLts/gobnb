@@ -39,10 +39,10 @@
         </div>
         <Transition name="fullSearch">
           <div v-if="dropOpen" class="drop-menu-details">
-            <div class="input-num-container flex">
+            <div class="input-num-container-details flex">
               <div class="drop-item-details flex">
                 <div class="txt-drop-item-details flex ">
-                  <span class="search-area-text-Bold">Adults</span>
+                  <span class="search-area-text-Bold-details">Adults</span>
                   <span class="search-area-text-light"> Ages 13 or
                     above</span>
                 </div>
@@ -55,10 +55,10 @@
                 </div>
               </div>
               <div class="ol"></div>
-              <div class="input-num-container flex">
+              <div class="input-num-container-details flex">
                 <div class="drop-item-details flex">
                   <div class="txt-drop-item-details flex ">
-                    <span class="search-area-text-Bold">Children</span>
+                    <span class="search-area-text-Bold-details">Children</span>
                     <span class="search-area-text-light"> Ages 2–12</span>
                   </div>
                   <div class="input-num">
@@ -73,10 +73,10 @@
               </div>
               <div class="ol"></div>
 
-              <div class="input-num-container flex">
+              <div class="input-num-container-details flex">
                 <div class="drop-item-details flex">
                   <div class="txt-drop-item-details flex ">
-                    <span class="search-area-text-Bold">Infants</span>
+                    <span class="search-area-text-Bold-details">Infants</span>
                     <span class="search-area-text-light"> Under 2</span>
                   </div>
                   <div class="input-num">
@@ -90,10 +90,10 @@
                 </div>
               </div>
               <div class="ol"></div>
-              <div class="input-num-container flex">
+              <div class="input-num-container-details flex">
                 <div class="drop-item-details flex">
-                  <div class="txt-drop-item flex ">
-                    <span class="search-area-text-Bold">Pets</span>
+                  <div class="txt-drop-item-details flex ">
+                    <span class="search-area-text-Bold-details">Pets</span>
                     <span class="search-area-text-light  "> Bringing a service
                       animal?</span>
                   </div>
@@ -106,6 +106,19 @@
                   </div>
                 </div>
               </div>
+
+              <div class="input-num-container-details flex">
+                <div class="drop-item-details flex">
+                  <div class="txt-drop-item flex ">
+                    <p class="stay-desc-details">This place has a maximum of 6
+                      guests, not including
+                      infants. If you're bringing more than 2 pets, please let
+                      your host know.</p>
+                  </div>
+
+                </div>
+              </div>
+              <div @click="dropOpen = !dropOpen" class="close-drop">Close</div>
             </div>
           </div>
         </Transition>

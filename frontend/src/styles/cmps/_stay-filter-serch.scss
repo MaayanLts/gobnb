@@ -76,6 +76,7 @@
 .search-area.large-area {
   padding-left: 30px;
   height: 64px;
+
   &:hover {
     background-color: $clr9;
   }
@@ -84,7 +85,7 @@
     background-color: $clr3;
     //box-shadow: 8px 10px 20px 0px rgb(0 0 0 / 8%), -9px -1px 12px rgb(0 0 0 / 5%);
     //box-shadow: gray 0px 0px 5px, gray 0px 0px 5px; //border-radius: 2px;
-    box-shadow: 10px 7px 32px -10px rgba(176,169,176,1);
+    box-shadow: 10px 7px 32px -10px rgba(176, 169, 176, 1);
   }
 
   &>input {
@@ -198,12 +199,7 @@
   }
 }
 
-.input-num-container {
-  // height: 100%;
-  flex-direction: column;
 
-  align-items: center;
-}
 
 .txt-drop-item {
   flex-direction: column;
@@ -303,7 +299,7 @@
   margin: 0;
   padding-bottom: 12px;
   width: 100%;
-  text-align:start;
+  text-align: start;
   font-size: 14px;
   color: rgb(0, 0, 0);
   background-color: transparent;

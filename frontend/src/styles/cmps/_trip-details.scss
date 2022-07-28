@@ -39,7 +39,9 @@
     padding-bottom: 24px;
     padding-left: 24px;
     padding-right: 24px;
-    padding-top: 24px
+    padding-top: 24px;
+    justify-content: center;
+    align-items: center;
 }
 
 .price-tag {
@@ -126,7 +128,9 @@
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     border-top-left-radius: 8px;
+
     border-top-right-radius: 8px;
+
 }
 
 
@@ -148,9 +152,21 @@
     white-space: nowrap;
     width: 100%;
     display: flex;
+}
 
+.icon-arrow {
+    width: 19px;
+    height: 19px;
+    padding-top: 5px;
+}
 
+.date-details :first-child {
+    border-top-left-radius: 8px;
 
+}
+
+.date-details :last-child {
+    border-top-right-radius: 8px;
 
 }
 
@@ -164,6 +180,7 @@
     flex-grow: 1;
     // justify-content: center;
     border: 1px solid #cecece;
+    border-bottom: none;
 
 
 }
@@ -174,6 +191,7 @@
     border-left: 1px solid #cecece;
     border-bottom: 1px solid #cecece;
     border-right: 1px solid #cecece;
+    border-top: 1px solid #cecece;
 
     display: flex;
     flex-direction: row;
@@ -200,31 +218,44 @@
 }
 
 .drop-menu-details {
-    background-color: rgb(255, 255, 255);
-    z-index: 1000;
+    background: rgb(255, 255, 255) none repeat scroll 0% 0% !important;
+    border-radius: 4px !important;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 6px, rgba(0, 0, 0, 0.07) 0px 0px 0px 1px !important;
+    box-sizing: border-box !important;
+    // margin-bottom: 16px !important;
+    min-width: 280px !important;
+    padding: 16px !important;
+    position: absolute !important;
+    text-align: left !important;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: 25px;
-    line-height: 22px;
-    padding: 5px 16px;
-    text-align: start;
+    z-index: 999 !important;
+    // right: 0px !important;
+    width: fit-content;
+
 }
 
 .trip-message {
     height: 26px;
     text-align: center;
+    color: rgb(34, 34, 34) !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+    list-style-type: none !important;
+    letter-spacing: 0.5px;
+    padding-top: 1em;
+
 }
 
 .btn-hover {
-    align-self: center;
-    width: 200px !important;
+    // align-self: cnter;
+    justify-self: flex-start;
+    width: 100% !important;
     font-size: 16px !important;
     font-weight: 600 !important;
     color: #fff !important;
     cursor: pointer !important;
-    margin: 20px !important;
     height: 55px !important;
     text-align: center !important;
     border: none !important;
@@ -239,10 +270,10 @@
 
 .action-reserve {
     color: $clr3;
-    border-radius: 1em;
+    border-radius: 0.5em;
     height: 48px;
     text-align: center;
-    padding: 1em;
+    padding: 0.9em;
 }
 
 // .data-change-area {
@@ -318,23 +349,47 @@
     align-items: center;
 }
 
+.input-num-container-details {
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+
 .txt-drop-item-details {
     flex-direction: column;
-    justify-self: start;
-    width: 110px;
+    // justify-self: start;
+    width: fit-content;
     height: 42px;
+    flex-grow: 115;
+
+
 
 }
 
-.drop-item-details {
-    width: 330px;
+.stay-desc-details {
+    box-sizing: border-box;
+    color: rgb(34, 34, 34);
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-break: strict;
+    line-height: 16px;
+    margin-bottom: 16px;
+    text-align: left
+}
 
-    padding-top: 24px;
-    padding-bottom: 24px;
+.drop-item-details {
+    // width: 330px;
+
+    padding-top: 12px;
+    padding-bottom: 12px;
     align-items: center;
-    border: 1px solid rgb(11, 9, 9);
+    justify-content: start;
+    width: 290px;
 
     & .input-num {
+        flex-grow: 1;
+        justify-self: end;
         align-items: center;
         box-sizing: border-box;
         color: rgb(34, 34, 34);
@@ -346,17 +401,27 @@
         line-break: strict;
         line-height: 20px;
         pointer-events: auto;
-        text-align: left;
-        width: 104px;
+        width: 104px !important;
         -moz-box-align: center;
+        justify-self: flex-end;
 
         & span {
             font-size: 16px;
             width: fit-content;
         }
 
+
+
     }
 
+}
+
+.search-area-text-Bold-details {
+    font-size: 16px !important;
+    line-height: 20px !important;
+    padding-bottom: 4px !important;
+    font-weight: 600 !important;
+    width: fit-content;
 }
 
 .inc-btn-details {
@@ -426,4 +491,17 @@
     color: black;
     border-width: 2px;
     border: black 1px solid;
+}
+
+.close-drop {
+    color: rgb(34, 34, 34);
+    font-size: 16px;
+    font-weight: 800;
+    line-break: strict;
+    line-height: 20px;
+    margin-left: 248.3333px;
+    margin-right: 0px;
+    text-decoration: underline;
+    margin-bottom: 5px;
+    cursor: pointer;
 }
