@@ -10,22 +10,37 @@
 
 <script>
 import stayFilterTag from '../cmps/stay-filter-tag.cmp.vue'
+import { eventBus } from '../services/event-bus.service'
 import stayFilterModal from './stay-filter-modal.cmp.vue'
 export default {
+  data(){
+    return{
+      isFilterOpen: false
+    }
+  },
   methods: {
   },
   computed: {
     isVisible() {
       const isMainScreen = !(this.$route.name === 'stay-details' || this.$route.name === 'host')
-      return (isMainScreen) ? ' ' : 'display: none'
+      return (isMainScreen && !this.isFilterOpen) ? ' ' : 'display: none'
+      if (this.isFilterOpen) return 'display: none'
     },
   },
-  created() {
+  created() {},
+  mounted() {
+
   },
   components: {
     stayFilterTag,
     stayFilterModal
+  },
+  mounted() {
+    eventBus.on('filter-open', (data) => {
+       this.isFilterOpen = data
+    })
   }
 
 }
 </script>
+

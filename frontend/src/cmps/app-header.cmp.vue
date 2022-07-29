@@ -83,7 +83,9 @@
 </template>
 <script>
 
+import { eventBus } from "../services/event-bus.service"
 import stayFilterSearch from "./stay-filter-search.cmp.vue"
+
 
 export default {
   data() {
@@ -159,6 +161,7 @@ export default {
     display() {
       this.displaySearch = !this.displaySearch
       this.isOpen = !this.isOpen
+      eventBus.emit('filter-open', this.isOpen)
     },
     setLogin() {
       this.$router.push("/login")
