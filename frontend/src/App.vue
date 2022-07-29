@@ -1,7 +1,7 @@
 <template>
 
   <div id="app">
-    <div class="width-100 sticky-top flex flex-row">
+    <div :class="ifSticky">
       <app-header />
       <stay-filter :class="stickyStyle"  /> 
     </div>
@@ -39,6 +39,10 @@ export default {
   computed:{
    stickyStyle(){
      return this.isStickyStyle ? 'sticky-style' : 'border-top'
+    },
+   ifSticky(){
+    const isDetailsHeader = this.$route.name === 'stay-details'
+     return isDetailsHeader ? "width-100 flex flex-row" : "width-100 sticky-top flex flex-row"
     },
   },
   components: {
