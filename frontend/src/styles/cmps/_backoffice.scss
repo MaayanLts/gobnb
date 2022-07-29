@@ -35,3 +35,28 @@
 .el-tag{
     width: 80px !important;
 }
+
+.buttons-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.table-button{
+    width: 100px;
+    height: 30px;
+    border-radius: em(15px);
+    background-color: transparent;
+    border: $clr9 solid 1px;
+
+    &.decline:hover{
+        color: rgb(243, 49, 35);
+        border: rgb(243, 49, 35) solid 1px;
+    }
+
+    &.approve:hover{
+        color: #67c23a;
+        border: #67c23a solid 1px;
+    }
+}
+
