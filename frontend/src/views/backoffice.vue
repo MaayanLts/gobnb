@@ -7,26 +7,11 @@
             <section class="graph-holder"></section> 
         </div>
 
-        <el-table :data="tableData" border show-summary style="width: 100%">
-        <el-table-column prop="id" label="ID" width="180" />
-        <el-table-column prop="name" label="Name" />
-        <el-table-column prop="amount1" sortable label="Amount 1" />
-        <el-table-column prop="amount2" sortable label="Amount 2" />
-        <el-table-column prop="amount3" sortable label="Amount 3" />
-        </el-table>
-
-        <el-table
-        :data="tableData"
-        border
-        height="200"
-        :summary-method="getSummaries"
-        show-summary
-        style="width: 100%; margin-top: 20px">
-        <el-table-column prop="id" label="ID" width="180" />
-        <el-table-column prop="name" label="Name" />
-        <el-table-column prop="amount1" label="Cost 1 ($)" />
-        <el-table-column prop="amount2" label="Cost 2 ($)" />
-        <el-table-column prop="amount3" label="Cost 3 ($)" />
+        <el-table :data="orders" border stripe show-summary style="width: 100%">
+        <el-table-column prop="price" label="price" />
+        <el-table-column prop="stayIddest.address" sortable label="address" />
+        <el-table-column prop="guests.adults" sortable label="guests" />
+        <el-table-column prop="guests.pets" sortable label="price1" />
         </el-table>
 
     </div>
@@ -36,13 +21,15 @@
 <script>
 
 export default {
-  //import { TableColumnCtx } from 'element-plus/es/components/table/src/table-column/defaults'  
   data() {
     return {
-
+        orders: null,
     }
   },
-  async created() {
+  created() {
+    this.$store.commit('loadOrders')
+    this.orders = this.$store.getters.orders
+    console.log(this.orders)
   },
 }
 </script>
