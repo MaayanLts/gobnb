@@ -23,8 +23,9 @@
             :class="{ active: selectedSrchArea === 'date-to' }">
             <span class="check">Check out</span>
 
-            <el-date-picker class="picker-date to bold-trip" v-model="dates"
-              type="daterange" end-placeholder="Check out" />
+            <el-date-picker @click="show = true"
+              class="picker-date to bold-trip" v-model="dates" type="daterange"
+              end-placeholder="Check out" />
           </div>
         </div>
         <div class="gusts-details-container">
@@ -32,14 +33,16 @@
             <span class="check">Gusts</span>
             <span class="bold-trip">{{ hm }}</span>
           </div>
-          <div @click="dropOpen = !dropOpen" class="btn-arrow-details">∨</div>
+          <div @click="dropOpen = !dropOpen" class="btn-arrow-details"><img
+              class="icon-arrow" src="../assets/logo/down-arrow.png" alt="">
+          </div>
         </div>
         <Transition name="fullSearch">
           <div v-if="dropOpen" class="drop-menu-details">
-            <div class="input-num-container flex">
+            <div class="input-num-container-details flex">
               <div class="drop-item-details flex">
                 <div class="txt-drop-item-details flex ">
-                  <span class="search-area-text-Bold">Adults</span>
+                  <span class="search-area-text-Bold-details">Adults</span>
                   <span class="search-area-text-light"> Ages 13 or
                     above</span>
                 </div>
@@ -52,10 +55,10 @@
                 </div>
               </div>
               <div class="ol"></div>
-              <div class="input-num-container flex">
+              <div class="input-num-container-details flex">
                 <div class="drop-item-details flex">
                   <div class="txt-drop-item-details flex ">
-                    <span class="search-area-text-Bold">Children</span>
+                    <span class="search-area-text-Bold-details">Children</span>
                     <span class="search-area-text-light"> Ages 2–12</span>
                   </div>
                   <div class="input-num">
@@ -70,10 +73,10 @@
               </div>
               <div class="ol"></div>
 
-              <div class="input-num-container flex">
+              <div class="input-num-container-details flex">
                 <div class="drop-item-details flex">
                   <div class="txt-drop-item-details flex ">
-                    <span class="search-area-text-Bold">Infants</span>
+                    <span class="search-area-text-Bold-details">Infants</span>
                     <span class="search-area-text-light"> Under 2</span>
                   </div>
                   <div class="input-num">
@@ -87,10 +90,10 @@
                 </div>
               </div>
               <div class="ol"></div>
-              <div class="input-num-container flex">
+              <div class="input-num-container-details flex">
                 <div class="drop-item-details flex">
-                  <div class="txt-drop-item flex ">
-                    <span class="search-area-text-Bold">Pets</span>
+                  <div class="txt-drop-item-details flex ">
+                    <span class="search-area-text-Bold-details">Pets</span>
                     <span class="search-area-text-light  "> Bringing a service
                       animal?</span>
                   </div>
@@ -103,6 +106,19 @@
                   </div>
                 </div>
               </div>
+
+              <div class="input-num-container-details flex">
+                <div class="drop-item-details flex">
+                  <div class="txt-drop-item flex ">
+                    <p class="stay-desc-details">This place has a maximum of 6
+                      guests, not including
+                      infants. If you're bringing more than 2 pets, please let
+                      your host know.</p>
+                  </div>
+
+                </div>
+              </div>
+              <div @click="dropOpen = !dropOpen" class="close-drop">Close</div>
             </div>
           </div>
         </Transition>
@@ -116,17 +132,20 @@
 
       <div class="trip-message">You won't be charget yet</div>
 
-      <div class="trip-footer">
-        <div class="trip-total-price">
-          <span>{{ priceForNight }} x {{ nights }}</span>
-          <span>= ${{ tripPrice }}</span>
-        </div>
+      <div :class="none" class="trip-footer">
         <div class="trip-fee">
-          <span>Service fee</span>
-          <span>{{ serviceFee }}</span>
+          <span class="price-line">${{ stayPrice }} x {{ nights }} nights</span>
+          <span class="price-total"> ${{ tripPrice }}</span>
         </div>
-        <span>Total</span>
-        <span>{{ tripTotalPrice }}</span>
+
+        <div class="trip-fee">
+          <span class="price-line">Service fee</span>
+          <span class="price-total">{{ serviceFee }}</span>
+        </div>
+        <div class="trip-fee total">
+          <span>Total</span>
+          <span>{{ tripTotalPrice }}</span>
+        </div>
       </div>
     </div>
 
@@ -134,6 +153,8 @@
 </template>
 
 <script>
+import { ElNotification } from 'element-plus'
+import { round } from 'lodash'
 
 export default {
   props: {
@@ -143,6 +164,7 @@ export default {
   },
   data() {
     return {
+      show: false,
       trip: null,
       dates: null,
       dropOpen: false,
@@ -164,7 +186,16 @@ export default {
 
 
     reserve() {
+      cancelIdleCallback
+      ElNotification({
+        title: 'Success',
+        message: 'Yor request was successfully sent to the host',
+        type: 'success',
+      })
+
+
       const trip = {
+        stayIddest: { country: this.stay.address.country },
         dates: this.dates,
         guests: {
           adults: this.adults,
@@ -178,7 +209,7 @@ export default {
         type: "reserve",
         trip,
       })
-
+      this.$router.push("/")
 
 
     },
@@ -211,9 +242,22 @@ export default {
     serviceFee() {
       return `$${this.fee}`
     },
-    //   tripTotalPrice() {
-    //     return `$${this.tripPrice + this.tripFee}`
-    //   }
+    tripTotalPrice() {
+      const date_1 = new Date(this.dates[1])
+      const date_2 = new Date(this.dates[0])
+      const difference = date_1.getTime() - date_2.getTime()
+      return (Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice + this.fee
+    },
+    none() {
+      if (this.TotalDays === 0) return 'none'
+    },
+
+    arrowDirection() {
+      let srcDown = "../assets/logo/down-arrow.png"
+      let srcUp = "'../assets/logo/up-arrow.png'"
+      if (!this.dropOpen) return srcDown
+      if (this.dropOpen) return srcUp
+    }
   },
   created() {
     this.trip = this.$store.getters.getTrip
@@ -223,7 +267,7 @@ export default {
     const difference = date_1.getTime() - date_2.getTime()
     this.TotalDays = Math.ceil(difference / (1000 * 3600 * 24))
     this.stayPrice = this.stay.price
-    this.fee = this.stayPrice * 0.17
+    this.fee = Math.round(this.stayPrice * 1.17)
     this.adults = this.trip.guests.adults
     this.children = this.trip.guests.children
     this.infants = this.trip.guests.infants

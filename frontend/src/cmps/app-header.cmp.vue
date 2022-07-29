@@ -1,7 +1,7 @@
 <template >
 
   <div @click="display" v-if="isOpen" class="drop-menu-container "></div>
-  <div :class="headerClass">
+  <div :class="headerClass" style="padding-bottom:10px">
     <transition name="fullSearch"></transition>
     <div>
 
@@ -21,12 +21,11 @@
           <nav v-if="!displaySearch" class="search-container" :class="details"
             @click="display">
             <div class="search-area destinations">
-              <span class="search-area-text">{{ trip.stayIddest.country }}}
-              </span>
+              <span class="search-area-text">{{ locationFilter }} </span>
             </div>
             <div class="vl"></div>
             <div class="search-area date">
-              <span class="search-area-text">Any week </span>
+              <span class="search-area-text"> {{ datesFilter }}</span>
             </div>
             <div class="vl"></div>
             <div class="search-area guests">
@@ -52,10 +51,10 @@
           </nav>
         </transition>
 
-        <div class="user-settings-container" @click.stop="setHostChat">
+        <div class="user-settings-container"><!--  @click.stop="setHostChat"> -->
           <div class="user-section left">
-            <div class="host-btn clickable">Become a Host
-            </div>
+            <!-- <div class="host-btn clickable">Become a Host</div> -->
+            <router-link class="host-btn" style="text-decoration: none" :to="hostLink">{{ switchToText }}</router-link>
           </div>
           <div class="user-section center">
             <img class="globe-icon clickable"
@@ -70,9 +69,9 @@
         </div>
       </div>
 
-      <Transition name="fullSearch">
+      <Transition name="fullSearch"> 
         <stay-filter-search v-if="displaySearch" @searchClicked="display" />
-      </Transition>
+      </Transition> 
 
     </div>
 
@@ -81,40 +80,73 @@
 
 </template>
 <script>
-import { create } from "lodash"
+
 import stayFilterSearch from "./stay-filter-search.cmp.vue"
 
 export default {
   data() {
     return {
-
       isOpen: false,
       displaySearch: false
       ,
     }
   },
   computed: {
+    switchToText(){
+      let text = "Switch to Host"
+      if(this.$route.name === 'host')
+        text = "Switch to Guest"
 
+      return text  
+    },
+    hostLink(){
+      let link = '/host'
+      if(this.$route.name === 'host')
+        link = '/'
+
+      return link
+    },
     headerClass() {
-      const isDetailsHeader = this.$route.params.id
+      const isDetailsHeader = this.$route.name === 'stay-details'
       // return (isDetailsHeader) ? 'header details-header' : 'header'
       return (isDetailsHeader) ? 'like-details-layout' : 'main-layout'
     },
 
     home() {
-      const isDetailsHeader = this.$route.params.id
+      const isDetailsHeader = this.$route.name === 'stay-details'
       if (isDetailsHeader)
       {
         return 'small-container'
       } else return 'none'
-    }, details() {
-      const isDetailsHeader = this.$route.params.id
-      if (isDetailsHeader)
-      {
-        return 'none'
-      } else return ''
     },
+    details() {
+      const isMainScreen = !(this.$route.name === 'stay-details' || this.$route.name === 'host')
+      if (isMainScreen)
+      {
+        return ''
+      } else {
+        return 'none'
+      }
+    },
+    locationFilter() {
+      this.trip = this.$store.getters.getTrip
+      let location = 'Anywhere'
+      if (this.trip.stayIddest && this.trip.stayIddest.country)
+      {
+        location = this.trip.stayIddest.country
+      }
 
+      return location
+    },
+    datesFilter(){
+      this.trip = this.$store.getters.getTrip
+      let dates = 'Any week'
+      if(this.trip.dates){
+        //dates = `${(new Date(this.trip.dates[0])).getDate()} - ${(new Date(this.trip.dates[1])).getMonth()}`
+      }
+
+      return dates
+    }
   },
   components: {
     stayFilterSearch,
@@ -134,7 +166,6 @@ export default {
   },
   created() {
     this.trip = this.$store.getters.getTrip
-    console.log('this.trip:', this.trip)
   },
 
 }

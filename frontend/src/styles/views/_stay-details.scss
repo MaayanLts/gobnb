@@ -178,12 +178,15 @@
     }
 
     .right-bar {
-
+        margin-right: 50px;
         display: inline-block;
         grid-column: span 2;
         grid-row: 1;
+        padding-left: 80px;
     }
 }
+
+
 
 .highligths {
     border-bottom: 1px solid #dfdddd;

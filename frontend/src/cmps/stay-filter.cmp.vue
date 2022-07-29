@@ -3,10 +3,9 @@
   <div class="main-layout">  
     <div class="stay-filter" :style="isVisible">
       <stay-filter-tag />
-      <stay-filter-modal />
+      <stay-filter-modal />  
     </div>
   </div>
-
 </template>
 
 <script>
@@ -17,8 +16,8 @@ export default {
   },
   computed:{
     isVisible() {
-      const isDetailsHeader = this.$route.params.id
-      return (isDetailsHeader) ? 'display: none' : ' '
+      const isMainScreen = !(this.$route.name === 'stay-details' || this.$route.name === 'host')
+      return (isMainScreen) ? ' ' : 'display: none'
     },
   },
   created() {

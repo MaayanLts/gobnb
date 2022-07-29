@@ -1,0 +1,33 @@
+.backoffice{
+    height: 900px;
+    width: 100%
+}
+
+.graph-holder {
+    //margin-top: 40px;
+    width: 300px;
+    height: 300px;
+    border: rgb(221, 221, 221) solid 1px;
+    border-radius: 12px;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px 0px;
+    color: rgb(34, 34, 34);
+    font-size: 16px;
+    font-weight: 400;
+    line-break: strict;
+    line-height: 20px;
+    padding: 24px;
+   justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.items-area{
+    display:flex;
+    justify-content: space-around;
+    padding: 0px 50px 50px 50px;
+}

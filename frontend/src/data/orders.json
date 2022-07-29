@@ -1,0 +1,98 @@
+[
+    {
+		"_id": "",
+		"stayId": "",
+		"dates": [1659436117000, 1659954517000],
+		"price": 3060,
+		"guests": {
+			"adults": 2,
+			"children": 0,
+			"infants": 0,
+			"pets": 0
+		},
+		"stayIddest": {
+			"country": "Israel",
+			"countryCode": "Isr",
+			"address": "Sderot HaTmarim 24, Eilat",
+			"lat": 0,
+			"lng": 0
+		},
+		"stayIdmainGuest": {
+			"_id": "",
+			"fullName": "Tal Lifshits",
+			"imgUrl": "https://randomuser.me/api/portraits/men/12.jpg"
+		}
+	},
+    {
+		"_id": "",
+		"stayId": "",
+		"dates": [1659436117000, 1659954517000],
+		"price": 2400,
+		"guests": {
+			"adults": 2,
+			"children": 2,
+			"infants": 0,
+			"pets": 0
+		},
+		"stayIddest": {
+			"country": "Israel",
+			"countryCode": "Isr",
+			"address": "Sderot HaTivat HaNegev 17, Eilat",
+			"lat": 0,
+			"lng": 0
+		},
+		"stayIdmainGuest": {
+			"_id": "",
+			"fullName": "Tal Lifshits",
+			"imgUrl": "https://randomuser.me/api/portraits/men/12.jpg"
+		}
+	},
+	{
+		"_id": "",
+		"stayId": "",
+		"dates": [1657276117000, 1657448917000],
+		"price": 2400,
+		"guests": {
+			"adults": 4,
+			"children": 3,
+			"infants": 0,
+			"pets": 1
+		},
+		"stayIddest": {
+			"country": "Israel",
+			"countryCode": "Isr",
+			"address": "Sderot HaTivat HaNegev 17, Eilat",
+			"lat": 0,
+			"lng": 0
+		},
+		"stayIdmainGuest": {
+			"_id": "",
+			"fullName": "Tal Lifshits",
+			"imgUrl": "https://randomuser.me/api/portraits/men/12.jpg"
+		}
+	},
+	{
+		"_id": "",
+		"stayId": "",
+		"dates": [1657880917000, 1658053717000],
+		"price": 2400,
+		"guests": {
+			"adults": 3,
+			"children": 1,
+			"infants": 1,
+			"pets": 0
+		},
+		"stayIddest": {
+			"country": "Israel",
+			"countryCode": "Isr",
+			"address": "Sderot HaTivat HaNegev 17, Eilat",
+			"lat": 0,
+			"lng": 0
+		},
+		"stayIdmainGuest": {
+			"_id": "",
+			"fullName": "Tal Lifshits",
+			"imgUrl": "https://randomuser.me/api/portraits/men/12.jpg"
+		}
+	}
+]

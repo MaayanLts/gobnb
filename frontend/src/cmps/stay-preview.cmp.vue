@@ -20,15 +20,19 @@
     <div class="stay-preview-info-container">
       <div class="flex space-between">
         <span class="bold">{{ propertyTypeAndLocation }} </span>
-        <div class="flex space-between">
-          <img src="src/images/star.svg" />
-          <span style="padding-left:2px">{{ rating }}</span>
+        <div class="flex space-between" style="align-items: center;">
+          <!-- <img src="src/images/star.svg" /> -->
+          <img src="../assets/logo/starAirbnb.svg" style="width: 12px;height: 12px" />
+          <span style="padding-left:4px">{{ rating }}</span>
           <span v-if="isFiltered" style="padding-left:5px">{{ reviews }}</span>
         </div>
       </div>
-      <span>{{ stay.propertyType }} • {{ stay.roomType }}</span><br />
-      <span>{{ stay.beds }} beds • {{ stay.bedrooms }} bedrooms</span><br />
-      <span class="bold">${{ stay.price }} night</span><br />
+      <span style="opacity: 0.6">{{ stay.propertyType }} • {{ stay.roomType }}</span><br />
+      <span style="opacity: 0.6">{{ stay.beds }} beds • {{ stay.bedrooms }} bedrooms</span>
+      <div class="bold" style="    height: 30px;
+    align-content: inherit;
+    display: block;
+    padding-top: 8px">${{ stay.price }} night</div>
     </div>
 
   </section>
