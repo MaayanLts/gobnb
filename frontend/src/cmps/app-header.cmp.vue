@@ -83,7 +83,9 @@
 </template>
 <script>
 
+import { eventBus } from "../services/event-bus.service"
 import stayFilterSearch from "./stay-filter-search.cmp.vue"
+
 
 export default {
   data() {
@@ -110,7 +112,6 @@ export default {
     },
     headerClass() {
       const isDetailsHeader = this.$route.name === 'stay-details'
-      // return (isDetailsHeader) ? 'header details-header' : 'header'
       return (isDetailsHeader) ? 'like-details-layout' : 'main-layout'
     },
 
@@ -148,7 +149,6 @@ export default {
       {
         //dates = `${(new Date(this.trip.dates[0])).getDate()} - ${(new Date(this.trip.dates[1])).getMonth()}`
       }
-
       return dates
     }
   },
@@ -157,6 +157,7 @@ export default {
   },
   methods: {
     display() {
+      eventBus.emit('filter-open', !this.isOpen)
       this.displaySearch = !this.displaySearch
       this.isOpen = !this.isOpen
     },
@@ -171,9 +172,5 @@ export default {
   created() {
     this.trip = this.$store.getters.getTrip
   },
-
 }
-
-
-
 </script>
