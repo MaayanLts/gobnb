@@ -13,8 +13,8 @@ import stayFilterTag from '../cmps/stay-filter-tag.cmp.vue'
 import { eventBus } from '../services/event-bus.service'
 import stayFilterModal from './stay-filter-modal.cmp.vue'
 export default {
-  data(){
-    return{
+  data() {
+    return {
       isFilterOpen: false
     }
   },
@@ -22,12 +22,13 @@ export default {
   },
   computed: {
     isVisible() {
+      if (this.isFilterOpen)return 'display: none'
       const isMainScreen = !(this.$route.name === 'stay-details' || this.$route.name === 'host')
-      return (isMainScreen && !this.isFilterOpen) ? ' ' : 'display: none'
-      if (this.isFilterOpen) return 'display: none'
+      return (isMainScreen ||  this.isFilterOpen) ? ' ' : 'display: none'
+
     },
   },
-  created() {},
+  created() { },
   mounted() {
 
   },
@@ -37,7 +38,7 @@ export default {
   },
   mounted() {
     eventBus.on('filter-open', (data) => {
-       this.isFilterOpen = data
+      this.isFilterOpen = data
     })
   }
 
