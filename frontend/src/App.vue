@@ -1,10 +1,10 @@
 <template>
 
   <div id="app">
-    <!-- <div :class="isd" class="width-100  flex flex-row"> -->
-    <app-header />
-    <stay-filter :class="stickyStyle" />
-    <!-- </div> -->
+    <div :class="ifSticky">
+      <app-header />
+      <stay-filter :class="stickyStyle" />
+    </div>
     <router-view />
     <!-- <footer class="sticky-bottom" style="padding: 10px; height: 50px; ">
       <h5 style="font-family: Airbnb-medium">© 2022 Gobnb</h5>
@@ -35,6 +35,15 @@ export default {
     // updatePosition(event){
     //   this.isStickyStyle = (window.scrollY !== 0)
     // },
+  },
+  computed: {
+    stickyStyle() {
+      return this.isStickyStyle ? 'sticky-style' : 'border-top'
+    },
+    ifSticky() {
+      const isDetailsHeader = this.$route.name === 'stay-details'
+      return isDetailsHeader ? "width-100 flex flex-row" : "width-100 sticky-top flex flex-row"
+    },
   },
   // computed:{
   //  stickyStyle(){

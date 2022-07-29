@@ -9,6 +9,7 @@
 }
 
 .like-details-layout {
+  // position: absolute;
   display: grid;
   grid-template-columns: minmax($layoutPadding, 1fr) minmax(550px, 1120px) minmax($layoutPadding, 1fr);
 
