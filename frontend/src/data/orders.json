@@ -2,7 +2,10 @@
     {
 		"_id": "",
 		"stayId": "",
-		"dates": [1659436117000, 1659954517000],
+		"dates": [
+			"2022-07-29T10:37:55.048Z",
+			"2022-07-29T10:37:55.048Z"
+		  ],
 		"price": 3060,
 		"guests": {
 			"adults": 2,
@@ -10,23 +13,27 @@
 			"infants": 0,
 			"pets": 0
 		},
-		"stayIddest": {
+		"destination": {
 			"country": "Israel",
 			"countryCode": "Isr",
 			"address": "Sderot HaTmarim 24, Eilat",
 			"lat": 0,
 			"lng": 0
 		},
-		"stayIdmainGuest": {
+		"mainGuest": {
 			"_id": "",
 			"fullName": "Tal Lifshits",
 			"imgUrl": "https://randomuser.me/api/portraits/men/12.jpg"
-		}
+		},
+		"orderStatus": "approved"
 	},
     {
 		"_id": "",
 		"stayId": "",
-		"dates": [1659436117000, 1659954517000],
+		"dates": [
+			"2022-07-29T10:37:55.048Z",
+			"2022-07-29T10:37:55.048Z"
+		  ],
 		"price": 2400,
 		"guests": {
 			"adults": 2,
@@ -34,23 +41,27 @@
 			"infants": 0,
 			"pets": 0
 		},
-		"stayIddest": {
+		"destination": {
 			"country": "Israel",
 			"countryCode": "Isr",
 			"address": "Sderot HaTivat HaNegev 17, Eilat",
 			"lat": 0,
 			"lng": 0
 		},
-		"stayIdmainGuest": {
+		"mainGuest": {
 			"_id": "",
 			"fullName": "Tal Lifshits",
 			"imgUrl": "https://randomuser.me/api/portraits/men/12.jpg"
 		}
+		,"orderStatus": "approved"
 	},
 	{
 		"_id": "",
 		"stayId": "",
-		"dates": [1657276117000, 1657448917000],
+		"dates": [
+			"2022-07-29T10:37:55.048Z",
+			"2022-07-29T10:37:55.048Z"
+		  ],
 		"price": 2400,
 		"guests": {
 			"adults": 4,
@@ -58,23 +69,27 @@
 			"infants": 0,
 			"pets": 1
 		},
-		"stayIddest": {
+		"destination": {
 			"country": "Israel",
 			"countryCode": "Isr",
 			"address": "Sderot HaTivat HaNegev 17, Eilat",
 			"lat": 0,
 			"lng": 0
 		},
-		"stayIdmainGuest": {
+		"mainGuest": {
 			"_id": "",
 			"fullName": "Tal Lifshits",
 			"imgUrl": "https://randomuser.me/api/portraits/men/12.jpg"
-		}
+		},
+		"orderStatus": "pending"
 	},
 	{
 		"_id": "",
 		"stayId": "",
-		"dates": [1657880917000, 1658053717000],
+		"dates": [
+			"2022-07-29T10:37:55.048Z",
+			"2022-07-29T10:37:55.048Z"
+		  ],
 		"price": 2400,
 		"guests": {
 			"adults": 3,
@@ -82,17 +97,18 @@
 			"infants": 1,
 			"pets": 0
 		},
-		"stayIddest": {
+		"destination": {
 			"country": "Israel",
 			"countryCode": "Isr",
 			"address": "Sderot HaTivat HaNegev 17, Eilat",
 			"lat": 0,
 			"lng": 0
 		},
-		"stayIdmainGuest": {
+		"mainGuest": {
 			"_id": "",
 			"fullName": "Tal Lifshits",
 			"imgUrl": "https://randomuser.me/api/portraits/men/12.jpg"
-		}
+		},
+		"orderStatus": "pending"
 	}
 ]
