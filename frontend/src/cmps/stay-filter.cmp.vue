@@ -1,8 +1,10 @@
 <template>
 
-  <div class="stay-filter main-layout" :style="isVisible">
-    <stay-filter-tag />
-    <stay-filter-modal />
+  <div class="main-layout">
+    <div class="stay-filter" :style="isVisible">
+      <stay-filter-tag />
+      <stay-filter-modal />
+    </div>
   </div>
 </template>
 
