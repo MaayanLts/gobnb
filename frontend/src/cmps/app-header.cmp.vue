@@ -98,7 +98,7 @@ export default {
     headerClass() {
       const isDetailsHeader = this.$route.params.id
       // return (isDetailsHeader) ? 'header details-header' : 'header'
-      return (isDetailsHeader) ? 'details-layout' : 'main-layout'
+      return (isDetailsHeader) ? 'like-details-layout' : 'main-layout'
     },
 
     home() {

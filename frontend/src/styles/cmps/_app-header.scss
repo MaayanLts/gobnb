@@ -8,9 +8,14 @@
   width: 100%;
 }
 
-.details-header {
-  max-width: 1120px;
-  margin: auto;
+.like-details-layout {
+  display: grid;
+  grid-template-columns: minmax($layoutPadding, 1fr) minmax(550px, 1120px) minmax($layoutPadding, 1fr);
+
+  >* {
+      grid-column: 2;
+      width: 100%;
+  }
 }
 
 .sticky-top {
