@@ -180,11 +180,6 @@ export default {
     }
   },
   methods: {
-
-
-
-
-
     reserve() {
       cancelIdleCallback
       ElNotification({

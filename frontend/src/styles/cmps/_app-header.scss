@@ -13,9 +13,19 @@
   grid-template-columns: minmax($layoutPadding, 1fr) minmax(550px, 1120px) minmax($layoutPadding, 1fr);
 
   >* {
-      grid-column: 2;
-      width: 100%;
+    grid-column: 2;
+    width: 100%;
   }
+
+
+}
+
+.sticky-header {
+  // position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
 }
 
 .sticky-top {
@@ -101,8 +111,8 @@
   &.guests {
     flex-grow: 1;
     flex-direction: row;
-    justify-content:space-around;
-    align-items:center;
+    justify-content: space-around;
+    align-items: center;
   }
 }
 
@@ -122,6 +132,7 @@
   height: em(38.8px);
   border-radius: 50%;
   margin-left: 10px;
+
   //margin-right: 10px;
   //justify-self: flex-start;
   .search-icon {
