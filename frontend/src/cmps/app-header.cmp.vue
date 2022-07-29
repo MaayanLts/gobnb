@@ -109,7 +109,7 @@ export default {
     headerClass() {
       const isDetailsHeader = this.$route.name === 'stay-details'
       // return (isDetailsHeader) ? 'header details-header' : 'header'
-      return (isDetailsHeader) ? 'details-layout' : 'main-layout'
+      return (isDetailsHeader) ? 'like-details-layout' : 'main-layout'
     },
 
     home() {
