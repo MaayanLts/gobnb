@@ -51,10 +51,12 @@
           </nav>
         </transition>
 
-        <div class="user-settings-container"><!--  @click.stop="setHostChat"> -->
+        <div class="user-settings-container">
+          <!--  @click.stop="setHostChat"> -->
           <div class="user-section left">
             <!-- <div class="host-btn clickable">Become a Host</div> -->
-            <router-link class="host-btn" style="text-decoration: none" :to="hostLink">{{ switchToText }}</router-link>
+            <router-link class="host-btn" style="text-decoration: none"
+              :to="hostLink">{{ switchToText }}</router-link>
           </div>
           <div class="user-section center">
             <img class="globe-icon clickable"
@@ -69,9 +71,9 @@
         </div>
       </div>
 
-      <Transition name="fullSearch"> 
+      <Transition name="fullSearch">
         <stay-filter-search v-if="displaySearch" @searchClicked="display" />
-      </Transition> 
+      </Transition>
 
     </div>
 
@@ -92,16 +94,16 @@ export default {
     }
   },
   computed: {
-    switchToText(){
+    switchToText() {
       let text = "Switch to Host"
-      if(this.$route.name === 'host')
+      if (this.$route.name === 'host')
         text = "Switch to Guest"
 
-      return text  
+      return text
     },
-    hostLink(){
+    hostLink() {
       let link = '/host'
-      if(this.$route.name === 'host')
+      if (this.$route.name === 'host')
         link = '/'
 
       return link
@@ -124,7 +126,8 @@ export default {
       if (isMainScreen)
       {
         return ''
-      } else {
+      } else
+      {
         return 'none'
       }
     },
@@ -138,10 +141,11 @@ export default {
 
       return location
     },
-    datesFilter(){
+    datesFilter() {
       this.trip = this.$store.getters.getTrip
       let dates = 'Any week'
-      if(this.trip.dates){
+      if (this.trip.dates)
+      {
         //dates = `${(new Date(this.trip.dates[0])).getDate()} - ${(new Date(this.trip.dates[1])).getMonth()}`
       }
 

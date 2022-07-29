@@ -1,9 +1,9 @@
 <template>
 
   <div id="app">
-    <div class="width-100 sticky-top flex flex-row">
+    <div :class="ifSticky">
       <app-header />
-      <stay-filter :class="stickyStyle"  /> 
+      <stay-filter :class="stickyStyle" />
     </div>
     <router-view />
     <!-- <footer class="sticky-bottom" style="padding: 10px; height: 50px; ">
@@ -18,29 +18,38 @@ import appHeader from './cmps/app-header.cmp.vue'
 import stayFilter from './cmps/stay-filter.cmp.vue'
 
 export default {
-  data(){
-    return{
+  data() {
+    return {
       isStickyStyle: false,
     }
   },
   created() {
     this.$store.dispatch('loadStays')
     this.$store.commit('loadTrip')
-    window.addEventListener("scroll", this.updatePosition)
+    // window.addEventListener("scroll", this.updatePosition)
   },
-  destroyed() {
-    window.removeEventListener("scroll", this.updatePosition);
-  },
+  // destroyed() {
+  //   window.removeEventListener("scroll", this.updatePosition);
+  // },
   methods: {
-    updatePosition(event){
-      this.isStickyStyle = (window.scrollY !== 0)
+    // updatePosition(event){
+    //   this.isStickyStyle = (window.scrollY !== 0)
+    // },
+  },
+  computed: {
+    stickyStyle() {
+      return this.isStickyStyle ? 'sticky-style' : 'border-top'
+    },
+    ifSticky() {
+      const isDetailsHeader = this.$route.name === 'stay-details'
+      return isDetailsHeader ? "width-100 flex flex-row" : "width-100 sticky-top flex flex-row"
     },
   },
-  computed:{
-   stickyStyle(){
-     return this.isStickyStyle ? 'sticky-style' : 'border-top'
-    },
-  },
+  // computed:{
+  //  stickyStyle(){
+  //    return this.isStickyStyle ? 'sticky-style' : 'border-top'
+  //   },
+  // },
   components: {
     appHeader,
     stayFilter,

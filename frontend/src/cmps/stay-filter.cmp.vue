@@ -1,9 +1,9 @@
 <template>
 
-  <div class="main-layout">  
+  <div class="main-layout">
     <div class="stay-filter" :style="isVisible">
       <stay-filter-tag />
-      <stay-filter-modal />  
+      <stay-filter-modal />
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@ import stayFilterModal from './stay-filter-modal.cmp.vue'
 export default {
   methods: {
   },
-  computed:{
+  computed: {
     isVisible() {
       const isMainScreen = !(this.$route.name === 'stay-details' || this.$route.name === 'host')
       return (isMainScreen) ? ' ' : 'display: none'
