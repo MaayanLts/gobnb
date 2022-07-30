@@ -347,7 +347,7 @@ export default {
       const date_1 = new Date(this.dates[1])
       const date_2 = new Date(this.dates[0])
       const difference = date_1.getTime() - date_2.getTime()
-      return (Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice + this.fee
+      return '$'+ ((Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice + this.fee )
     },
     none() {
       if (this.TotalDays === 0) return 'none'

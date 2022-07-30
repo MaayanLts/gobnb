@@ -208,6 +208,7 @@
         display: inline-block;
         font-family: 'Airbnb-medium';
         font-size: 16px;
+        margin-bottom: 0;
 
     }
 
@@ -480,6 +481,8 @@
     text-align: center;
     width: 108.233px;
     border-radius: 8px;
+    
+
 }
 
 .detailes-line {
@@ -495,14 +498,21 @@
     z-index: 1000;
     display: flex;
     // border-right: solid 100px white;
+    align-content: space-between;
+    justify-content: space-between;
 }
 
 .header-margin {
     position: relative;
-    right: -290px;
+    right: -300px;
     height: 100%;
+<<<<<<< HEAD
     width: 30px;
     background-color: rgb(255, 255, 255);
     z-index: 1000;
+=======
+    width: 100px;
+    background-color: rgb(255, 255, 255) ;
+>>>>>>> bab229e642abb84c9d31d74c9f1d69d35114d52c
 
 }
