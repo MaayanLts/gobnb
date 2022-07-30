@@ -496,11 +496,13 @@
     display: flex;
     // border-right: solid 100px white;
 }
-.header-margin{
+
+.header-margin {
     position: relative;
     right: -290px;
     height: 100%;
     width: 30px;
-    background-color: rgb(255, 255, 255) ;
+    background-color: rgb(255, 255, 255);
+    z-index: 1000;
 
 }
