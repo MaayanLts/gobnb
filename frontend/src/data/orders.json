@@ -2,34 +2,63 @@
 	{
 		"_id": "1",
 		"stayId": "622f337a75c7d36e498aab11",
-		"orderDate": "Sat Jul 30 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"orderDate": "Sat Jul 30 2022 11:37:04 GMT+0300 (Eastern European Summer Time)",
+		"dates": [
+			"2022-08-25T10:37:55.048Z",
+			"2022-08-27T10:37:55.048Z"
+		  ],
+		"price": 338,
+		"guests": {
+			"adults": 1,
+			"children": 0,
+			"infants": 0,
+			"pets": 0
+		},
+		"destination": {
+			"country": "Spain",
+			"countryCode": "Sp",
+			"address": "Plaça del Mar 1, Barcelona",
+			"lat": 0,
+			"lng": 0
+		},
+		"mainGuest": {
+			"_id": "", 
+			"fullName": "Renee Martin",
+			"imgUrl": "https://randomuser.me/api/portraits/women/22.jpg"
+		},
+		"orderStatus": "pending"
+	},
+	{
+		"_id": "2",
+		"stayId": "622f337a75c7d36e498aab11",
+		"orderDate": "Sat Jul 30 2022 09:37:04 GMT+0300 (Eastern European Summer Time)",
 		"dates": [
 			"2022-08-12T10:37:55.048Z",
 			"2022-08-22T10:37:55.048Z"
 		  ],
 		"price": 1700,
 		"guests": {
-			"adults": 4,
+			"adults": 2,
 			"children": 3,
 			"infants": 0,
-			"pets": 1
+			"pets": 0
 		},
 		"destination": {
-			"country": "Israel",
-			"countryCode": "Isr",
-			"address": "Sderot HaTivat HaNegev 17, Eilat",
+			"country": "Spain",
+			"countryCode": "Sp",
+			"address": "Plaça del Mar 1, Barcelona",
 			"lat": 0,
 			"lng": 0
 		},
 		"mainGuest": {
 			"_id": "", 
-			"fullName": "Tal Lifshits",
-			"imgUrl": "https://randomuser.me/api/portraits/men/12.jpg"
+			"fullName": "Tasia Fay",
+			"imgUrl": "https://randomuser.me/api/portraits/women/89.jpg"
 		},
 		"orderStatus": "pending"
 	},
 	{
-		"_id": "2",
+		"_id": "3",
 		"stayId": "622f337a75c7d36e498aab11",
 		"orderDate": "Sat Jul 30 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
 		"dates": [
@@ -39,14 +68,43 @@
 		"price": 800,
 		"guests": {
 			"adults": 3,
+			"children": 0,
+			"infants": 1,
+			"pets": 0
+		},
+		"destination": {
+			"country": "Spain",
+			"countryCode": "Sp",
+			"address": "Plaça del Mar 1, Barcelona",
+			"lat": 0,
+			"lng": 0
+		},
+		"mainGuest": {
+			"_id": "",
+			"fullName": "Viktor Hugo",
+			"imgUrl": "https://randomuser.me/api/portraits/men/54.jpg"
+		},
+		"orderStatus": "pending"
+	},
+	{
+		"_id": "4",
+		"stayId": "622f337a75c7d36e498aab11",
+		"orderDate": "Sat Jul 30 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"dates": [
+			"2022-08-23T10:37:55.048Z",
+			"2022-08-27T10:37:55.048Z"
+		  ],
+		"price": 823,
+		"guests": {
+			"adults": 3,
 			"children": 1,
 			"infants": 1,
 			"pets": 0
 		},
 		"destination": {
-			"country": "Israel",
-			"countryCode": "Isr",
-			"address": "Sderot HaTivat HaNegev 17, Eilat",
+			"country": "Spain",
+			"countryCode": "Sp",
+			"address": "Plaça del Mar 1, Barcelona",
 			"lat": 0,
 			"lng": 0
 		},
@@ -55,27 +113,27 @@
 			"fullName": "Gal Barak",
 			"imgUrl": "https://randomuser.me/api/portraits/men/73.jpg"
 		},
-		"orderStatus": "pending"
+		"orderStatus": "approved"
 	},
     {
-		"_id": "3",
+		"_id": "5",
 		"stayId": "622f337a75c7d36e498aab05",
 		"orderDate": "Sat Jul 28 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
 		"dates": [
-			"Sat Jul 27 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
-			"Sat Jul 30 2022 02:30:28 GMT+0300 (Eastern European Summer Time)"
+			"Sat Aug 03 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+			"Sat Aug 08 2022 02:30:28 GMT+0300 (Eastern European Summer Time)"
 		  ],
-		"price": 620,
+		"price": 915,
 		"guests": {
 			"adults": 2,
-			"children": 0,
+			"children": 3,
 			"infants": 0,
 			"pets": 0
 		},
 		"destination": {
-			"country": "Israel",
-			"countryCode": "Isr",
-			"address": "Sderot HaTmarim 24, Eilat",
+			"country": "Spain",
+			"countryCode": "Sp",
+			"address": "Pla de Palau 19, Barcelona", 
 			"lat": 0,
 			"lng": 0
 		},
@@ -87,14 +145,14 @@
 		"orderStatus": "approved"
 	},
     {
-		"_id": "4",
+		"_id": "6",
 		"stayId": "622f337a75c7d36e498aab11",
 		"orderDate": "Sat Jul 26 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
 		"dates": [
 			"2022-07-19T10:37:55.048Z",
 			"2022-07-23T10:37:55.048Z"
 		  ],
-		"price": 700,
+		"price": 758,
 		"guests": {
 			"adults": 2,
 			"children": 2,
@@ -102,16 +160,103 @@
 			"pets": 0
 		},
 		"destination": {
-			"country": "Israel",
-			"countryCode": "Isr",
-			"address": "Sderot HaTivat HaNegev 17, Eilat",
+			"country": "Spain",
+			"countryCode": "Sp",
+			"address": "Plaça del Mar 1, Barcelona",
 			"lat": 0,
 			"lng": 0
 		},
 		"mainGuest": {
 			"_id": "",
-			"fullName": "Avigail Dor",
+			"fullName": "Katy Osio",
 			"imgUrl": "https://randomuser.me/api/portraits/women/36.jpg"
+		}
+		,"orderStatus": "approved"
+	},
+	{
+		"_id": "7",
+		"stayId": "622f337a75c7d36e498aab05",
+		"orderDate": "Sat Jul 12 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"dates": [
+			"2022-07-01T10:37:55.048Z",
+			"2022-07-05T10:37:55.048Z"
+		  ],
+		"price": 710,
+		"guests": {
+			"adults": 2,
+			"children": 0,
+			"infants": 0,
+			"pets": 0
+		},
+		"destination": {
+			"country": "Spain",
+			"countryCode": "Sp",
+			"address": "Pla de Palau 19, Barcelona", 
+			"lat": 0,
+			"lng": 0
+		},
+		"mainGuest": {
+			"_id": "",
+			"fullName": "Tameeka Ransome",
+			"imgUrl": "https://randomuser.me/api/portraits/women/86.jpg"
+		}
+		,"orderStatus": "approved"
+	},
+	{
+		"_id": "8",
+		"stayId": "622f337a75c7d36e498aab05",
+		"orderDate": "Sat Jul 5 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"dates": [
+			"2022-06-28T10:37:55.048Z",
+			"2022-06-30T10:37:55.048Z"
+		  ],
+		"price": 337,
+		"guests": {
+			"adults": 1,
+			"children": 0,
+			"infants": 0,
+			"pets": 0
+		},
+		"destination": {
+			"country": "Spain",
+			"countryCode": "Sp",
+			"address": "Pla de Palau 19, Barcelona", 
+			"lat": 0,
+			"lng": 0
+		},
+		"mainGuest": {
+			"_id": "",
+			"fullName": "Nicol Visco",
+			"imgUrl": "https://randomuser.me/api/portraits/women/16.jpg"
+		}
+		,"orderStatus": "approved"
+	},
+	{
+		"_id": "6",
+		"stayId": "622f337a75c7d36e498aab11",
+		"orderDate": "Sat Jul 4 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"dates": [
+			"2022-07-10T10:37:55.048Z",
+			"2022-07-13T10:37:55.048Z"
+		  ],
+		"price": 510,
+		"guests": {
+			"adults": 2,
+			"children": 0,
+			"infants": 0,
+			"pets": 0
+		},
+		"destination": {
+			"country": "Spain",
+			"countryCode": "Sp",
+			"address": "Plaça del Mar 1, Barcelona",
+			"lat": 0,
+			"lng": 0
+		},
+		"mainGuest": {
+			"_id": "",
+			"fullName": "Brian Wieting",
+			"imgUrl": "https://randomuser.me/api/portraits/men/61.jpg"
 		}
 		,"orderStatus": "approved"
 	}

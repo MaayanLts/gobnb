@@ -94,7 +94,7 @@
             <el-table-column type="index" width="30">
             </el-table-column>
             <el-table-column label="Orders info" header-align="center">
-                <el-table-column prop="orderDate" label="Booked" width="100" :formatter="formatter" header-align="center"></el-table-column>
+                <el-table-column prop="orderDate" label="Booked" width="130" :formatter="formatter" header-align="center"></el-table-column>
                 <el-table-column prop="dates" label="Check in/Check out" width="160" :formatter="formatter"></el-table-column>
                 <!-- <el-table-column prop="dates" label="Check out" width="120" sortable :formatter="formatter"></el-table-column> -->
                 <el-table-column prop="dates" label="Nights" width="67" :formatter="formatter"></el-table-column>
