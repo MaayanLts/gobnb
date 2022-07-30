@@ -1,68 +1,13 @@
 [
-    {
-		"_id": "1",
-		"stayId": "",
-		"dates": [
-			"2022-07-26T10:37:55.048Z",
-			"2022-07-29T10:37:55.048Z"
-		  ],
-		"price": 3060,
-		"guests": {
-			"adults": 2,
-			"children": 0,
-			"infants": 0,
-			"pets": 0
-		},
-		"destination": {
-			"country": "Israel",
-			"countryCode": "Isr",
-			"address": "Sderot HaTmarim 24, Eilat",
-			"lat": 0,
-			"lng": 0
-		},
-		"mainGuest": {
-			"_id": "",
-			"fullName": "Tal Lifshits",
-			"imgUrl": "https://randomuser.me/api/portraits/men/12.jpg"
-		},
-		"orderStatus": "approved"
-	},
-    {
-		"_id": "2",
-		"stayId": "",
-		"dates": [
-			"2022-07-19T10:37:55.048Z",
-			"2022-07-23T10:37:55.048Z"
-		  ],
-		"price": 2400,
-		"guests": {
-			"adults": 2,
-			"children": 2,
-			"infants": 0,
-			"pets": 0
-		},
-		"destination": {
-			"country": "Israel",
-			"countryCode": "Isr",
-			"address": "Sderot HaTivat HaNegev 17, Eilat",
-			"lat": 0,
-			"lng": 0
-		},
-		"mainGuest": {
-			"_id": "",
-			"fullName": "Tal Lifshits",
-			"imgUrl": "https://randomuser.me/api/portraits/men/12.jpg"
-		}
-		,"orderStatus": "approved"
-	},
 	{
-		"_id": "3",
-		"stayId": "",
+		"_id": "1",
+		"stayId": "622f337a75c7d36e498aab11",
+		"orderDate": "Sat Jul 30 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
 		"dates": [
 			"2022-08-12T10:37:55.048Z",
 			"2022-08-22T10:37:55.048Z"
 		  ],
-		"price": 2400,
+		"price": 1700,
 		"guests": {
 			"adults": 4,
 			"children": 3,
@@ -77,20 +22,21 @@
 			"lng": 0
 		},
 		"mainGuest": {
-			"_id": "",
+			"_id": "", 
 			"fullName": "Tal Lifshits",
 			"imgUrl": "https://randomuser.me/api/portraits/men/12.jpg"
 		},
 		"orderStatus": "pending"
 	},
 	{
-		"_id": "4",
-		"stayId": "",
+		"_id": "2",
+		"stayId": "622f337a75c7d36e498aab11",
+		"orderDate": "Sat Jul 30 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
 		"dates": [
 			"2022-08-23T10:37:55.048Z",
 			"2022-08-27T10:37:55.048Z"
 		  ],
-		"price": 2400,
+		"price": 800,
 		"guests": {
 			"adults": 3,
 			"children": 1,
@@ -106,9 +52,67 @@
 		},
 		"mainGuest": {
 			"_id": "",
-			"fullName": "Tal Lifshits",
-			"imgUrl": "https://randomuser.me/api/portraits/men/12.jpg"
+			"fullName": "Gal Barak",
+			"imgUrl": "https://randomuser.me/api/portraits/men/73.jpg"
 		},
 		"orderStatus": "pending"
+	},
+    {
+		"_id": "3",
+		"stayId": "622f337a75c7d36e498aab05",
+		"orderDate": "Sat Jul 28 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"dates": [
+			"Sat Jul 27 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+			"Sat Jul 30 2022 02:30:28 GMT+0300 (Eastern European Summer Time)"
+		  ],
+		"price": 620,
+		"guests": {
+			"adults": 2,
+			"children": 0,
+			"infants": 0,
+			"pets": 0
+		},
+		"destination": {
+			"country": "Israel",
+			"countryCode": "Isr",
+			"address": "Sderot HaTmarim 24, Eilat",
+			"lat": 0,
+			"lng": 0
+		},
+		"mainGuest": {
+			"_id": "",
+			"fullName": "Shelly Viner",
+			"imgUrl": "https://randomuser.me/api/portraits/women/33.jpg"
+		},
+		"orderStatus": "approved"
+	},
+    {
+		"_id": "4",
+		"stayId": "622f337a75c7d36e498aab11",
+		"orderDate": "Sat Jul 26 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"dates": [
+			"2022-07-19T10:37:55.048Z",
+			"2022-07-23T10:37:55.048Z"
+		  ],
+		"price": 700,
+		"guests": {
+			"adults": 2,
+			"children": 2,
+			"infants": 0,
+			"pets": 0
+		},
+		"destination": {
+			"country": "Israel",
+			"countryCode": "Isr",
+			"address": "Sderot HaTivat HaNegev 17, Eilat",
+			"lat": 0,
+			"lng": 0
+		},
+		"mainGuest": {
+			"_id": "",
+			"fullName": "Avigail Dor",
+			"imgUrl": "https://randomuser.me/api/portraits/women/36.jpg"
+		}
+		,"orderStatus": "approved"
 	}
 ]
