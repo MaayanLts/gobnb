@@ -75,18 +75,16 @@
                 </div>
             </div> 
 
-            <div class="graph-holder" style="margin-right: 30px;margin-left: 30px;">
-                <div class="rating-scores-chart">
-                    <div class="img-title">
-                        <span class="scores">Plaça del Mar 1, Barcelona</span>
-                    </div>
-                    <div class="host-stay-container">
-                        <img class="host-stay-img" src="../images/078.jpeg" @click="showStay('622f337a75c7d36e498aab11')"  />
-                    </div>
-                    <!-- <DoughnutChart :chartData="scoreData" :options="scoreOptions" class="scores-chart"/> -->
+            <div class="graph-holder" style="margin-right: 30px;margin-left: 30px;"> 
+                <div class="img-title">
+                    <span class="scores">Plaça del Mar 1, Barcelona</span>
                 </div>
+                <div class="host-stay-container">
+                    <img class="host-stay-img" src="../images/110.jpeg" @click="showStay('622f337a75c7d36e498aab11')"  />
+                </div>
+                    <!-- <DoughnutChart :chartData="scoreData" :options="scoreOptions" class="scores-chart"/> -->
             </div> 
-            <div class="graph-holder wide">
+            <div class="graph-holder">
                     <div class="img-title">
                         <span class="scores">Pla de Palau 19, Barcelona</span>
                     </div>
