@@ -180,8 +180,8 @@ Chart.register(...registerables);
 
         const dataSet = this.orders
 
-        this.toysData.datasets[0].data = [{ "1": 1, "2": 1, "3": 1, "4": 1, "5": 7}]
-        console.log(this.orders)
+        this.toysData.datasets[0].data = [1,5,7,10,44]
+        console.log(this.toysData.datasets[0])
     },
     computed:{
         
