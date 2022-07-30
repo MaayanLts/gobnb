@@ -38,12 +38,20 @@
         }
 
     }
+    .pic-holder{
 
-    .host-pic-txt {
-        margin-top: 48px;
-        margin-bottom: 16px;
-
+        .host-pic-txt {
+            margin-top: 48px;
+            margin-bottom: 16px;
+    
+        }
+        img{
+            width: 56px;
+           height: 56px;
+           border-radius: 50%;
+        }
     }
+
 
     .left-host {
 

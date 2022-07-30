@@ -1,31 +1,35 @@
 <template>
   <section class="host-details">
-    <div class="host-pic-txt">
-      <h3>Hosted by {{ stay.host.fullname }}</h3>
-      <h4>Joined in {{ date(new Date(stay.reviews[0].at)) }}</h4>
+    <div class="pic-holder">
+      <div class="host-pic-txt">
+        <h3>Hosted by {{ stay.host.fullname }}</h3>
+        <h4>Joined in {{ date(new Date(stay.reviews[0].at)) }}</h4>
+      </div>
+      <img :src="stay.host.pictureUrl" v-if="stay.host.pictureUrl">
     </div>
-  <div class="flex">
-    <div class="left-host">
-      <h5><img class="star" src="../assets/logo/starAirbnb.svg"> {{ stay.reviews.length }} Reviews</h5>
+    <div class="flex">
+      <div class="left-host">
+        <h5><img class="star" src="../assets/logo/starAirbnb.svg"> {{ stay.reviews.length }} Reviews</h5>
 
-    <h5 class="superhost" v-if="stay.host.isSuperhost">
-      <img src="../assets/logo/superHost.png"> Superhost
-    </h5>
-    <p>{{ stay.host.about }}</p>
-    </div>
-    <div class="right-host">
-      <div class="host-txt">
-        <p v-if="stay.host.language">Language: {{ stay.host.language }}</p>
-        <p v-else>Language: English</p>
-        <p>Response rate: 100%</p>
-        <p> Response time: {{ stay.host.responseTime }} </p>
-        <div class="contact-btn" @click="contact">Contact Host</div>
+        <h5 class="superhost" v-if="stay.host.isSuperhost">
+          <img src="../assets/logo/superHost.png"> Superhost
+        </h5>
+        <p>{{ stay.host.about }}</p>
       </div>
-      <div class="protect-holder">
-        <img src="../assets/logo/protect-paymeent.svg" alt="">
-        <span>To protect your payment, never transfer money or communicate outside of the Airbnb website or app.</span>
+      <div class="right-host">
+        <div class="host-txt">
+          <p v-if="stay.host.language">Language: {{ stay.host.language }}</p>
+          <p v-else>Language: English</p>
+          <p>Response rate: 100%</p>
+          <p> Response time: {{ stay.host.responseTime }} </p>
+          <div class="contact-btn" @click="contact">Contact Host</div>
+        </div>
+        <div class="protect-holder">
+          <img src="../assets/logo/protect-paymeent.svg" alt="">
+          <span>To protect your payment, never transfer money or communicate outside of the Airbnb website or
+            app.</span>
+        </div>
       </div>
-    </div>
     </div>
   </section>
 </template>
