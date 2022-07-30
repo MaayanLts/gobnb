@@ -1,21 +1,24 @@
 <template>
 
-  <Btn @click="open1 = true">Filter</Btn>
-  <Modal v-model="open1" ok-text="filter" ok-type="default"
-    @hide="buildFilterObj" style="display:none">
-    <template #title>
+
+  <!-- Form -->
+  <el-button text @click="dialogFormVisible = true">filter
+  </el-button>
+
+  <el-dialog v-model="dialogFormVisible" title="">
+    <el-form :model="form">
+
       <span><i class=""></i></span>
 
-      <BarChart width="80%" :chartData="labelsData" />
       <div class="slider-demo-block">
         <el-slider v-model="value" range show-stops :max="maxPriceShow" />
       </div>
       <label>min price
-        <el-input type="number" @input="callback" v-model.number="minPrice"
+        <el-input type="number" v-model.number="minPrice"
           placeholder="Please input" clearable />
       </label>
       <label>max Price
-        <el-input type="number" @input="callback" v-model.number="maxPrice"
+        <el-input type="number" v-model.number="maxPrice"
           placeholder="Please input" clearable />
       </label>
       <div>
@@ -34,28 +37,38 @@
         <el-checkbox @click="callback" v-model="amenities.Kitchen"
           label="Kitchen" size="large" />
       </div>
-      <button @click="open1 = false">f</button>
+
+    </el-form>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">Cancel</el-button>
+        <el-button type="primary" @click="dialogFormVisible = false">Confirm
+        </el-button>
+      </span>
     </template>
-  </Modal>
-
+  </el-dialog>
 </template>
-<script >
 
+<script lang="ts" >
 
-
-import { ref } from 'vue'
-import { defineComponent } from 'vue';
-import { BarChart } from 'vue-chart-3';
-import { DoughnutChart } from 'vue-chart-3';
-import { Chart, registerables } from "chart.js";
-Chart.register(...registerables);
-export default defineComponent({
-  components: { DoughnutChart, BarChart },
+import { reactive, ref } from 'vue'
+export default {
   data() {
     return {
+      dialogFormVisible: ref(false),
+      formLabelWidth: '140px',
+      form: reactive({
+        name: '',
+        region: '',
+        date1: '',
+        date2: '',
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: '',
+      }),
       filterEmnt: [],
       open1: ref(false),
-
 
       minPrice: 14,
       maxPrice: 1600,
@@ -69,71 +82,72 @@ export default defineComponent({
         Pool: false,
         Kitchen: false,
       },
-
     }
+
   },
   props: {
   },
-
   methods: {
     buildFilterObj() {
       const filterBy = {
         byPrice: { minPrice: this.minPrice, maxPrice: this.maxPrice }
       }
-
       this.$store.dispatch({
         type: 'setFilterBy',
         filterBy: filterBy,
       })
     },
     callback(label) {
-      console.log('label:', label.target.defaultValue)
-      this.value = ref([this.minPrice, this.maxPrice])
-      const filterEmnt = []
-      console.log('this.amenities[label.target.defaultValue]:', this.amenities[label.target.defaultValue])
-      if (!this.amenities[label.target.defaultValue]) filterEmnt.push(label.target.defaultValue)
-      // for (var amenitie in this.amenities)
-      // {
-      //   if (amenitie === true) filterEmnt.push(amenitie)
-      // }
-      console.log('filterEmnt:', filterEmnt)
+      console.log(this.amenities);
 
+      // this.value = ref([this.minPrice, this.maxPrice])
+      // if (!this.amenities[label.target.defaultValue]) this.filterEmnt.push(label.target.defaultValue)
+      // console.log('this.filterEmnt:', this.filterEmnt)
+      // for (var amenitie in this.amenities) {
+      //   if (amenitie === true) this.filterEmnt.push(amenitie)
+      // }
+      // console.log('this.filterEmnt:', this.filterEmnt)
     },
     filterBtn() {
       return this.$store.getters.getPrices.length
     },
-
   },
   computed: {
     maxPriceShow() {
       return +this.maxPrice
     },
 
-    labelsData() {
-      let labels = [];
-      let data = [];
-      const dataset = this.$store.getters.getPrices;
-      for (var price in dataset)
-      {
-        labels.push(price)
 
-        data.push(dataset[price]);
-      }
-      return {
-        labels,
-        datasets: [
-          {
-            data,
-            backgroundColor: [
-              "gray",
-            ],
-          },
-        ],
-      };
-    },
   },
+
+
   created() {
-
   },
-})
+
+
+}
+
+
+
+
+
+
+
 </script>
+<style scoped>
+.el-button--text {
+  margin-right: 15px;
+}
+
+.el-select {
+  width: 300px;
+}
+
+.el-input {
+  width: 300px;
+}
+
+.dialog-footer button:first-child {
+  margin-right: 10px;
+}
+</style>
