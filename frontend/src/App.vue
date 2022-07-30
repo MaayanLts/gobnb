@@ -45,11 +45,6 @@ export default {
       return isDetailsHeader ? "width-100 flex flex-row" : "width-100 sticky-top flex flex-row"
     },
   },
-  computed:{
-   stickyStyle(){
-     return this.isStickyStyle ? 'sticky-style' : 'border-top'
-    },
-  },
   components: {
     appHeader,
     stayFilter,
