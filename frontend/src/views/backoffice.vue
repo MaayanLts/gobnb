@@ -76,13 +76,24 @@
             </div> 
 
             <div class="graph-holder" style="margin-right: 30px;margin-left: 30px;">
-                <div class="toys-per-stock">
-                    <h3>★ Rating</h3>
-                    <DoughnutChart :chartData="toysData" />
+                <div class="rating-scores-chart">
+                    <div class="img-title">
+                        <span class="scores">Plaça del Mar 1, Barcelona</span>
+                    </div>
+                    <div class="host-stay-container">
+                        <img class="host-stay-img" src="../images/078.jpeg" @click="showStay('622f337a75c7d36e498aab11')"  />
+                    </div>
+                    <!-- <DoughnutChart :chartData="scoreData" :options="scoreOptions" class="scores-chart"/> -->
                 </div>
             </div> 
             <div class="graph-holder wide">
-                <BarChart width="70%" :chartData="ordersData" />
+                    <div class="img-title">
+                        <span class="scores">Pla de Palau 19, Barcelona</span>
+                    </div>
+                    <div class="host-stay-container">
+                        <img  class="host-stay-img" src="../images/028.jpeg" @click="showStay('622f337a75c7d36e498aab05')" />
+                    </div>
+                <!-- <BarChart class="revenue-chart" :chartData="ordersData" /> -->
             </div>  
         </div>
         
@@ -102,7 +113,7 @@
             </el-table-column> 
             <el-table-column prop="destination.address" label="Stay" width="250" @click="showStay" header-align="center">
                 <template v-slot="scope">
-                    <div class="address" @click="showStay(scope.row)">{{ scope.row.destination.address }}</div>  
+                    <div class="address" @click="showStay(scope.row.stayId)">{{ scope.row.destination.address }}</div>  
                 </template>
             </el-table-column>
             <el-table-column label="Guests info" header-align="center">
@@ -149,12 +160,13 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import { defineComponent } from 'vue';
-import { BarChart } from 'vue-chart-3';
-import { DoughnutChart } from 'vue-chart-3';
-import { Chart, registerables } from "chart.js";
-Chart.register(...registerables);
+    import { ref } from 'vue'
+    import { defineComponent } from 'vue';
+    import { BarChart } from 'vue-chart-3';
+    import { DoughnutChart } from 'vue-chart-3';
+    import { Chart, registerables } from "chart.js";
+    Chart.register(...registerables);
+   // Chart.defaults.global.legend.display = false;
 
   export default {
     components: { DoughnutChart, BarChart },
@@ -162,16 +174,30 @@ Chart.register(...registerables);
       return {
         orders: null,
 
-        toysData: {
-        labels: ["1", "2", "3", "4", "5"],
-        datasets: [
-          {
-            data: null,
-            backgroundColor: ["#eb4034", "#eb4034", '#8ba2d6', '#2d4d96', '#167520'],
-          },
-        ],
-      },
-
+        scoreData: {
+            //labels: ["2", "3", "4", "5"],
+            datasets: [
+                {
+                    data: [4,86],
+                    backgroundColor: ["#f56c6c", '#67c23a'],
+                    //labels: ["2", "3", "4", "5"]
+                },
+            ],
+        },
+        sccoreOptions: {
+            //responsive: true,
+            //maintainAspectRatios: false,
+            tooltips: {
+                enabled: true,
+                callbacks: {
+                    label:function (tooltipItem, data) {
+                        let dataset = data.datasets[tooltipItem.datasetIndex]
+                        let currentValue = dataset.data[tooltipItem.index]
+                        return currentValue + ' £'
+                    }
+                }
+            }
+        },
       }
     },
     created() {
@@ -179,19 +205,16 @@ Chart.register(...registerables);
         this.orders = this.$store.getters.orders
 
         const dataSet = this.orders
-
-        this.toysData.datasets[0].data = [1,5,7,10,44]
-        console.log(this.toysData.datasets[0])
+        console.log(this.scoreData.datasets[0])
     },
     computed:{
-        
     ordersData() {
         let labels = [];
         let data = [];
         const dataset = this.orders
         for (const price in dataset)
         {
-            labels.push('aaa')//(order.price)
+            labels.push((price))
             data.push(price);
         }
 
@@ -264,8 +287,8 @@ Chart.register(...registerables);
     //   formatedDate(date){
     //     return new Date(date).toLocaleString('en-GB',{ year:"numeric", day: "numeric", month:"numeric"})
     //   },
-      showStay(row){
-        this.$router.push(`/stay/${row.stayId}`)// + row._id)622f337a75c7d36e498aab05
+      showStay(stayId){
+        this.$router.push(`/stay/${stayId}`)// + row._id)622f337a75c7d36e498aab05
       },
       handleApprove(index, row) {
         this.$store.commit({type: "changeOrderOrder", orderId: row._id, status: 'approved' })
