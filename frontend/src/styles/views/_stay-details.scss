@@ -2,6 +2,10 @@
     display: grid;
     grid-template-columns: minmax($layoutPadding, 1fr) minmax(550px, 1120px) minmax($layoutPadding, 1fr);
 
+    >*.full {
+        grid-column: 1 / -1;
+    }
+
     >* {
         grid-column: 2;
         width: 100%;
@@ -354,6 +358,7 @@
     top: 0px;
     // justify-content: space-around;
 
+
 }
 
 .details-header-btn-container {
@@ -369,15 +374,6 @@
     align-items: center;
 
 }
-
-.show-details-header {
-    background-color: rgb(255, 255, 255);
-    z-index: 1000;
-    display: flex;
-
-
-}
-
 
 .show-btn-header {
     background-color: rgb(255, 255, 255);
@@ -484,4 +480,27 @@
     text-align: center;
     width: 108.233px;
     border-radius: 8px;
+}
+
+.detailes-line {
+    display: none;
+    background-color: aquamarine;
+    position: sticky !important;
+    top: 80px;
+
+}
+
+.show-details-header {
+    background-color: rgb(255, 255, 255);
+    z-index: 1000;
+    display: flex;
+    // border-right: solid 100px white;
+}
+.header-margin{
+    position: relative;
+    right: -290px;
+    height: 100%;
+    width: 30px;
+    background-color: rgb(255, 255, 255) ;
+
 }

@@ -43,6 +43,7 @@
                 <span class="details-header-nav">Amenities</span>
                 <span class="details-header-nav">location</span>
             </div>
+            <div class="header-margin"></div>
             <div :class="showBtnHeader" class="details-header-btn-container">
                 <div class="details-header-txt">
                     <span class="details-header-span-bold">${{ stay.price }}
@@ -62,8 +63,11 @@
                     </div>
                 </div>
                 <button class="details-header-btn">Reserve</button>
+                
             </div>
         </div>
+                 <div class=" hl detailes-line full" :class="showDetailsHeader"></div>
+            
 
 
         <div class="main-grid-container">
@@ -176,6 +180,7 @@
         <host-details :stay="stay" />
 
     </section>
+    
 
 </template>
 
