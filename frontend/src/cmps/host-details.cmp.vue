@@ -1,14 +1,15 @@
 <template>
   <section class="host-details">
-    <div class="pic-holder">
-      <div class="host-pic-txt">
-        <h3>Hosted by {{ stay.host.fullname }}</h3>
-        <h4>Joined in {{ date(new Date(stay.reviews[0].at)) }}</h4>
-      </div>
-      <img :src="stay.host.pictureUrl" v-if="stay.host.pictureUrl">
-    </div>
+
     <div class="flex">
       <div class="left-host">
+        <div class="pic-holder">
+          <div class="host-pic-txt">
+            <h3>Hosted by {{ stay.host.fullname }}</h3>
+            <h4>Joined in {{ date(new Date(stay.reviews[0].at)) }}</h4>
+          </div>
+          <img :src="stay.host.pictureUrl" v-if="stay.host.pictureUrl">
+        </div>
         <h5><img class="star" src="../assets/logo/starAirbnb.svg"> {{ stay.reviews.length }} Reviews</h5>
 
         <h5 class="superhost" v-if="stay.host.isSuperhost">
