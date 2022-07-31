@@ -59,18 +59,15 @@ function _buildCriteria(filterBy) {
 
 	if (filterBy.tag) {
 		var txtCriteria = {$regex: filterBy.tag, $options: 'i'}
-		criteria = {tags: txtCriteria}
+		criteria.tags = txtCriteria
 	}
 	if (filterBy.byAmenities) {
-		var amenities = []
-		for (let i = 0; i < filterBy.byAmenities.length; i++) {
-			amenities.push({amenities: {$regex: filterBy.byAmenities[i], $options: 'i'}})
-		}
-		criteria = {$or: amenities}
+		criteria.amenities = {$in: filterBy.byAmenities}
 	}
 	if (filterBy.byPrice) {
-		criteria = {price: {$gte: +filterBy.byPrice[0], $lte: +filterBy.byPrice[1]}}
+		criteria.price = {$gte: +filterBy.byPrice[0], $lte: +filterBy.byPrice[1]}
 	}
+	console.log('criteria:', criteria)
 	return criteria
 }
 
