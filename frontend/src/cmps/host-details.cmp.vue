@@ -10,7 +10,7 @@
           </div>
           <img :src="stay.host.pictureUrl" v-if="stay.host.pictureUrl">
         </div>
-        <h5><img class="star" src="../assets/logo/starAirbnb.svg"> {{ stay.reviews.length }} Reviews</h5>
+        <h5><img class="star" src="../assets/logo/starAirbnb.svg"> {{ stay.numOfReviews}} Reviews</h5>
 
         <h5 class="superhost" v-if="stay.host.isSuperhost">
           <img src="../assets/logo/superHost.png"> Superhost
