@@ -2,7 +2,6 @@
 
   <div id="app">
     <div :class="ifSticky">
-    hello
       <app-header />
       <stay-filter :class="stickyStyle" />
     </div>
