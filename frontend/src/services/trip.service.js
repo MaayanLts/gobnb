@@ -1,4 +1,4 @@
-import {makeId} from '/src/services/util.service.js?t=1658850766837'
+import {makeId} from '@/services/util.service.js?t=1658850766837'
 
 export const tripService = {
 	query,
