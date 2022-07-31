@@ -61,12 +61,13 @@
           </div>
           <div class="user-section center">
             <img class="globe-icon clickable"
-              src="/src/assets/logo/globe-icon-header Airbnb-5.svg" alt="">
+              src=@/assets/logo/globe-icon-header.svg alt="">
+              <!-- src="@/assets/logo/globe-icon-header Airbnb-5.svg" alt=""> -->
           </div>
           <div class="user-section user-btn" @click.stop="setLogin">
             <img class="burger-icon clickable"
-              src="/src/assets/logo/Hamburger_icon.svg" alt="">
-            <img class="user-img clickable" src="/src/assets/logo/user.jpg"
+              src=@/assets/logo/Hamburger_icon.svg alt="">
+            <img class="user-img clickable" src=@/assets/logo/user.jpg
               alt="">
           </div>
         </div>
