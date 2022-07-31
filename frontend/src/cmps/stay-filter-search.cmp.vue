@@ -169,9 +169,14 @@ export default {
     setFilterBy() {
       this.$emit("searchClicked");
       this.dropOpen = false
-
-      this.$store.dispatch({
+      this.$store.commit({
         type: 'setFilterBy',
+        filterBy: {
+          country: this.filterBy.country,
+        },
+      })
+      this.$store.dispatch({
+        type: 'loadStays',
         filterBy: {
           country: this.filterBy.country,
         },

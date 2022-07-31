@@ -1,7 +1,8 @@
 <template >
 
   <div @click="display" v-if="isOpen" class="drop-menu-container "></div>
-  <div :class="headerClass" style="padding-bottom:10px">
+  <!-- <div :class="headerClass" style="padding-bottom:10px"> -->
+  <div :class="headerClass">
     <transition name="fullSearch"></transition>
     <div>
 

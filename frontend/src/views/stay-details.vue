@@ -9,7 +9,7 @@
                                 stay.reviewScores.rating / 20
                         }}</a>
                 <span>•</span>
-                <a href="">{{ reviews }} reviews</a>
+                <a href="">{{ stay.numOfReviews }} reviews</a>
                 <span class="superhost"
                     v-if="stay.host.isSuperhost"><span>•</span>
                     <img src="../assets/logo/superHost.png"> Superhost
@@ -210,10 +210,6 @@ export default {
         },
     },
     computed: {
-        reviews() {
-            const reviews = this.stay.reviews
-            return reviews.length
-        },
         bedrooms() {
             const bedrooms = +this.stay.bedrooms
             return (bedrooms > 1) ? bedrooms + '\ bedrooms' : bedrooms + '\ bedroom'

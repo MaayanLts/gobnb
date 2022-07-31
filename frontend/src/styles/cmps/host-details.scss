@@ -64,8 +64,10 @@
 
     .right-host {
         margin-left: 95px;
+        margin-top: 50px;
 
         .protect-holder {
+            margin-top: 10px;
             display: flex;
             align-items: center;
 
@@ -76,6 +78,7 @@
             img {
                 width: 24px;
                 height: 24px;
+                margin-left: 0;
             }
         }
     }
