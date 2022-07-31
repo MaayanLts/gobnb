@@ -109,7 +109,7 @@
                 <el-table-column prop="dates" label="Nights" width="67" :formatter="formatter"></el-table-column>
                 <el-table-column prop="price" header-align="center" label="Price" width="70" :formatter="formatter"></el-table-column>
             </el-table-column> 
-            <el-table-column prop="destination.address" label="Stay" width="250" @click="showStay" header-align="center">
+            <el-table-column prop="destination.address" label="Stay" width="310" @click="showStay" header-align="center">
                 <template v-slot="scope">
                     <div class="address" @click="showStay(scope.row.stayId)">{{ scope.row.destination.address }}</div>  
                 </template>

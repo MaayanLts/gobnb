@@ -363,11 +363,17 @@ export default {
   created() {
     this.trip = this.$store.getters.getTrip
     this.dates = this.trip.dates
-
-    const date_1 = new Date(this.trip.dates[1])
-    const date_2 = new Date(this.trip.dates[0])
-
-
+    let date_1 = ''
+    let date_2 = ''
+    if (this.trip.dates)
+    {
+      date_1 = new Date(this.trip.dates[1])
+      date_2 = new Date(this.trip.dates[0])
+    } else
+    {
+      date_1 = new Date()
+      date_2 = new Date()
+    }
     const difference = date_1.getTime() - date_2.getTime()
     this.TotalDays = Math.ceil(difference / (1000 * 3600 * 24))
     this.stayPrice = this.stay.price

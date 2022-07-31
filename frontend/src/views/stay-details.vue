@@ -137,7 +137,7 @@
                     <div class="flex">
                         <img class="static" src="../assets/logo/freeCanHl.svg">
                         <div class="txt-holder">
-                            <h2 class="freeCanTxt">Free cancellation for 48
+                            <h2 class="free-can-txt">Free cancellation for 48
                                 hours.</h2>
                         </div>
                     </div>
@@ -167,9 +167,9 @@
                     </div>
                 </div>
 
-                <div class="dates">
+                <!-- <div class="dates">
                     <h2>days picker</h2>
-                </div>
+                </div> -->
 
             </section>
             <div class="right-bar">
