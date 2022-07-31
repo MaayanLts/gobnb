@@ -11,16 +11,14 @@
 
       <div class="trip-order-container">
         <div class="date-details">
-          <div @click="onOpenDateFrom" class="date-details-cell"
-            :class="{ active: selectedSrchArea === 'date-from' }">
+          <div @click="onOpenDateFrom" class="date-details-cell">
             <span class="check">Check in</span>
             <!-- < class="picker-date from"></ -->
             <el-date-picker class="picker-date from" v-model="dates"
               type="daterange" start-placeholder="Check in" />
           </div>
 
-          <div @click="onOpenDateTo" class="date-details-cell"
-            :class="{ active: selectedSrchArea === 'date-to' }">
+          <div @click="onOpenDateTo" class="date-details-cell">
             <span class="check">Check out</span>
 
             <el-date-picker @click="show = true"
@@ -236,6 +234,41 @@
         </div>
       </div>
 
+
+
+      <el-dialog v-model="dialogVisible" title="Reservation" width="30%">
+        <div class="reservation">
+          <span class="title-reservation price-for-night">Thank you for your
+            booking</span>
+          <div class="host-info-modal-container">
+            <img :src="stay.host.pictureUrl" alt="" srcset="">
+            <span class="host-reservation">your host {{ stay.host.fullname
+            }}</span>
+          </div>
+          <span class="info-reservation"> Thank you so much for choosing to stay
+            with us! We’ll send you
+            more information about check-in when your reservation date is
+            sooner.
+            In the meantime, if you feel like you have any questions or
+            concerns,
+            feel free to let us know, and we will do our best to accommodate
+            you.</span>
+          <span class=" price-total">
+            Reservation Code: <span class="code-reservation"> {{
+                reservationCode
+            }}</span></span>
+        </div>
+        <template #footer>
+          <span class="dialog-footer">
+            <el-button @click="dialogVisible = false">Confirm
+            </el-button>
+          </span>
+        </template>
+      </el-dialog>
+
+
+
+
       <div class="trip-message">You won't be charget yet</div>
 
       <div :class="none" class="trip-footer">
@@ -259,9 +292,9 @@
 </template>
 
 <script>
-import { ElNotification } from 'element-plus'
-import { round } from 'lodash'
-
+import { ref } from 'vue'
+import { ElMessageBox } from 'element-plus'
+import { makeId } from '../services/util.service'
 export default {
   props: {
     stay: {
@@ -270,6 +303,7 @@ export default {
   },
   data() {
     return {
+      reservationCode: null,
       show: false,
       trip: null,
       dates: null,
@@ -282,17 +316,12 @@ export default {
       hurtColor: '#423f3d',
       fee: 0,
       TotalDays: 0,
-      totalPrice: 0
+      totalPrice: 0,
+      dialogVisible: ref(false)
     }
   },
   methods: {
     reserve() {
-      cancelIdleCallback
-      ElNotification({
-        title: 'Success',
-        message: 'Yor request was successfully sent to the host',
-        type: 'success',
-      })
 
 
       const trip = {
@@ -305,12 +334,13 @@ export default {
           pets: this.pets
         }
       }
-      console.log('trip:', trip)
       this.$store.commit({
         type: "reserve",
         trip,
       })
-      this.$router.push("/")
+
+
+      this.dialogVisible = true
     },
     decGust(guests) {
       console.log('this[guests]:', this[guests])
@@ -355,6 +385,9 @@ export default {
   computed: {
     priceForNight() {
       return `$${this.stayPrice}`
+    },
+    imgUrl(imgName) {
+      return `src/images/${imgName}`
     },
     hm() {
       //return `${this.adults} adults ${this.children} children`
@@ -418,6 +451,7 @@ export default {
     this.adults = (this.trip.guests.adults === 0) ? 1 : this.trip.guests.adults 
     this.children = this.trip.guests.children
     this.infants = this.trip.guests.infants
+    this.reservationCode = makeId(9)
     this.pets = this.trip.guests.pets
   },
 }

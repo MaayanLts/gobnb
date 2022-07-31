@@ -63,11 +63,11 @@
                     </div>
                 </div>
                 <button class="details-header-btn">Reserve</button>
-                
+
             </div>
         </div>
-                 <div class=" hl detailes-line full" :class="showDetailsHeader"></div>
-            
+        <div class=" hl detailes-line full" :class="showDetailsHeader"></div>
+
 
 
         <div class="main-grid-container">
@@ -180,7 +180,7 @@
         <host-details :stay="stay" />
 
     </section>
-    
+
 
 </template>
 
@@ -205,7 +205,6 @@ export default {
             return `src/images/${imgName}`
         },
         updatePosition(event) {
-            console.log('window.scrollY:', window.scrollY)
             this.posY = window.scrollY
         },
     },
