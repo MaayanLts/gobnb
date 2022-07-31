@@ -111,7 +111,7 @@
           </div>
         </Transition>
         <div class="action-search clickable" @click="setFilterBy">
-          <img class="search-icon" src="/src/assets/logo/serch_icon.png"
+          <img class="search-icon" src=@/assets/logo/serch_icon.png
             alt="" />
           <span>Search</span>
         </div>
