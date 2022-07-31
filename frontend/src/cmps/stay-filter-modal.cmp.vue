@@ -2,7 +2,9 @@
 
 
   <!-- Form -->
-  <el-button text @click="dialogFormVisible = true">filter
+  <el-button text @click="dialogFormVisible = true">
+    <img class="filter-icon" src="../assets/logo/filter-icon.png" alt="">
+    filter
   </el-button>
 
   <el-dialog v-model="dialogFormVisible" title="">
@@ -11,24 +13,23 @@
         <span :id="titleId" :class="titleClass">Filters</span>
       </div>
     </template>
-    <el-form :model="form">
+    <el-form>
 
       <div class="price-filter">
         <span class="filter-modal-title">Price range</span>
         <span class="filter-modal-title-avg">The average nightly price is
           $431</span>
         <div class="slider-demo-block">
-          <el-slider v-model="priceRange" range show-stops
-            :max="maxPriceShow" />
+          <el-slider @mouseover="setPrice" v-model="priceRange" range show-stops
+            :min=14 :max=1600 />
         </div>
         <div class="price-container">
           <div class="price-cell">
             <div class="input-container">
               <span class="input-price"> min price </span>
               <label class="flex label-price">$
-                <input class="input-price-inp" type="number"
-                  v-model.number="minPrice" placeholder="Please input"
-                  clearable />
+                <input class="input-price-inp" v-model.number="minPrice"
+                  placeholder="Please input" clearable />
               </label>
             </div>
           </div>
@@ -37,9 +38,8 @@
             <div class="input-container">
               <span class="input-price">max price</span>
               <label class="flex label-price">$
-                <input class="input-price-inp" type="number"
-                  v-model.number="maxPrice" placeholder="Please input"
-                  clearable />
+                <input class="input-price-inp" v-model.number="maxPrice"
+                  placeholder="Please input" clearable />
               </label>
 
             </div>
@@ -63,14 +63,14 @@
             size="large" />
 
         </div>
-        <span style="text-decoration: underline ; cursor: pointer;"
-          class="filter-modal-essentials">Show more</span>
+        <!-- <span style="text-decoration: underline ; cursor: pointer;"
+          class="filter-modal-essentials">Show more</span> -->
       </div>
 
     </el-form>
     <template #footer>
       <span class="dialog-footer">
-        <span @click="dialogFormVisible = false">Cancel</span>
+        <span @click="clear">Clear all</span>
         <button class="filter-footer-btn" @click="buildFilterObj">show stays
         </button>
       </span>
@@ -87,7 +87,7 @@ export default {
     return {
       dialogFormVisible: ref(false),
       formLabelWidth: '140px',
-      priceRange: null,
+      priceRange: [14, 1600],
       filterEmnt: [],
       open1: ref(false),
       minPrice: 14,
@@ -114,7 +114,7 @@ export default {
       }
 
       const filterBy = {
-        byPrice: this.priceRange,
+        byPrice: [+this.minPrice, +this.maxPrice],
         byAmenities: this.filterEmnt
       }
       this.$store.commit({
@@ -123,6 +123,27 @@ export default {
       });
       this.$store.dispatch('loadStays');
       this.filterEmnt = []
+      this.dialogFormVisible = false
+
+    },
+    setPrice() {
+      this.minPrice = this.priceRange[0]
+      this.maxPrice = this.priceRange[1]
+
+    },
+    clear() {
+      this.minPrice = 14
+      this.maxPrice = 1600
+      this.priceRange = [14, 1600]
+      this.amenities = {
+        TV: false,
+        Internet: false,
+        Wifi: false,
+        AirConditioning: false,
+        WheelchairAccessible: false,
+        Pool: false,
+        Kitchen: false,
+      }
     },
 
     filterBtn() {
@@ -132,6 +153,8 @@ export default {
   computed: {
     maxPriceShow() {
       return +this.maxPrice
+    }, minPriceShow() {
+      return +this.minPrice
     },
 
 
