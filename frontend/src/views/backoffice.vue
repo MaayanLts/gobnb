@@ -95,62 +95,84 @@
             </div>  
         </div>
         
-        <div class="el-table-container">
+        <div class="details-title small">New ordes</div>
+        <div class="el-table-container small" v-if="pendingOrders.length > 0">
+            
             <el-table header-align="center"
             ref="filterTable"
-            :data="orders"
-            style="width: 100%">
-            <el-table-column type="index" width="40">
-            </el-table-column>
-            <el-table-column label="Orders info" header-align="center">
-                <el-table-column prop="orderDate" label="Booked" width="150" :formatter="formatter" header-align="center"></el-table-column>
-                <el-table-column prop="dates" label="Check in/Check out" width="180" :formatter="formatter"></el-table-column>
-                <!-- <el-table-column prop="dates" label="Check out" width="120" sortable :formatter="formatter"></el-table-column> -->
-                <el-table-column prop="dates" label="Nights" width="67" :formatter="formatter"></el-table-column>
-                <el-table-column prop="price" header-align="center" label="Price" width="90" :formatter="formatter"></el-table-column>
-            </el-table-column> 
-            <el-table-column prop="destination.address" label="Stay" sortable @click="showStay" header-align="center">
+            :data="pendingOrders"
+            style="width: 100%" :header-cell-style="{ color: 'white' }">
+            <el-table-column prop="orderDate" label="Booked" width="110" :formatter="formatter" header-align="center"></el-table-column>
+            <el-table-column prop="dates" label="Check in/Check out" width="180" :formatter="formatter"></el-table-column>
+            <el-table-column prop="dates" label="Nights" width="67" :formatter="formatter"></el-table-column>
+            <el-table-column prop="price" header-align="center" label="Price" width="90" :formatter="formatter"></el-table-column>
+            <el-table-column prop="destination.address" label="Stay"  @click="showStay" header-align="center">
                 <template v-slot="scope">
                     <div class="address" @click="showStay(scope.row.stayId)">{{ scope.row.destination.address }}</div>  
                 </template>
             </el-table-column>
-            <el-table-column label="Guests info" header-align="center">
-                <el-table-column prop="mainGuest.fullName"  header-align="center" label="Main guest" width="230">
-                    <template v-slot="scope">
-                        <div class="main-guest-container">
-                            <img class="main-guest-img" :src="scope.row.mainGuest.imgUrl"> 
-                            <div>{{ scope.row.mainGuest.fullName }}</div> 
-                        </div>
-                    </template>
-                </el-table-column>
-                <el-table-column prop="guests.adults" width="75" label="Guests" :formatter="formatter"/>
-                <!-- <el-table-column prop="guests.children" width="80" label="Children" />
-                <el-table-column prop="guests.infants" width="80" label="Infants" /> -->
-                <!-- <el-table-column prop="guests.pets" width="60"  label="Pets" /> -->
-            </el-table-column>
-            <el-table-column prop="orderStatus" label="Status" width="106" header-align="center">
-            <!-- :filters="[{ text: 'Approved', value: 'approved' }, { text: 'Pending', value: 'pending' }]"
-            :filter-method="filterTag"
-            filter-placement="bottom-end" -->
-
+            <el-table-column prop="mainGuest.fullName"  header-align="center" label="Main guest" width="230">
                 <template v-slot="scope">
-                    <el-tag round
-                    :type="statusLable(scope.row)"
-                    disable-transitions>{{scope.row.orderStatus}}</el-tag>
+                    <div class="main-guest-container">
+                        <img class="main-guest-img" :src="scope.row.mainGuest.imgUrl"> 
+                        <div>{{ scope.row.mainGuest.fullName }}</div> 
+                    </div>
                 </template>
             </el-table-column>
-
-            <el-table-column label="Operations" header-align="center" width="250" >
+            <el-table-column prop="guests.adults" width="75" label="Guests" :formatter="formatter"/>
+            <el-table-column prop="orderStatus" label="Status" header-align="center" width="360"  >
                 <template v-slot="scope">
-                    <div class="buttons-container"><button class="table-button approve"  v-if="scope.row.orderStatus === 'pending'" 
-                    @click="handleApprove(scope.$index, scope.row)">Approve</button>
-                    <button class="table-button decline" v-if="scope.row.orderStatus === 'pending'" 
-                    @click="handleDecline(scope.$index, scope.row)">Decline</button>
+                    <div class="buttons-container">
+                        <el-tag class="el-tag-status" round
+                        :type="statusLable(scope.row)"
+                        disable-transitions>{{scope.row.orderStatus}}</el-tag>
+                        <button class="table-button approve" v-if="scope.row.orderStatus === 'pending'" 
+                        @click="handleApprove(scope.$index, scope.row)">Approve</button>
+                        <button class="table-button decline" v-if="scope.row.orderStatus === 'pending'" 
+                        @click="handleDecline(scope.$index, scope.row)" >Decline</button> 
                     </div>  
                 </template>
             </el-table-column>
-        </el-table>
-    </div>
+            </el-table>
+        </div>
+
+        
+        <div class="el-table-container">
+            <div class="details-title small" style="margin-bottom: 20px">Orders history</div>
+            <el-table header-align="center"
+            ref="filterTable"
+            border
+            :data="oldOrders"
+            style="width: 100%" :header-cell-style="{ background: '#DDDDDD' }">
+            <el-table-column prop="orderDate" label="Booked" width="110" :formatter="formatter" header-align="center"></el-table-column>
+            <el-table-column prop="dates" label="Check in/Check out" width="180" :formatter="formatter"></el-table-column>
+            <el-table-column prop="dates" label="Nights" width="67" :formatter="formatter"></el-table-column>
+            <el-table-column prop="price" header-align="center" label="Price" width="90" :formatter="formatter"></el-table-column>
+            <el-table-column prop="destination.address" label="Stay"  @click="showStay" header-align="center">
+                <template v-slot="scope">
+                    <div class="address" @click="showStay(scope.row.stayId)">{{ scope.row.destination.address }}</div>  
+                </template>
+            </el-table-column>
+            <el-table-column prop="mainGuest.fullName"  header-align="center" label="Main guest" width="230">
+                <template v-slot="scope">
+                    <div class="main-guest-container">
+                        <img class="main-guest-img" :src="scope.row.mainGuest.imgUrl"> 
+                        <div>{{ scope.row.mainGuest.fullName }}</div> 
+                    </div>
+                </template>
+            </el-table-column>
+            <el-table-column prop="guests.adults" width="75" label="Guests" :formatter="formatter"/>
+            <el-table-column prop="orderStatus" label="Status" header-align="center" width="130"  >
+                <template v-slot="scope">
+                    <div class="buttons-container">
+                        <el-tag class="el-tag-status" round
+                        :type="statusLable(scope.row)"
+                        disable-transitions>{{scope.row.orderStatus}}</el-tag>
+                    </div>  
+                </template>
+            </el-table-column>
+            </el-table>
+        </div>
 
 
     </div>
@@ -171,7 +193,8 @@
     data() {
       return {
         orders: null,
-
+        oldOrders: null,
+        pendingOrders: null,
         scoreData: {
             //labels: ["2", "3", "4", "5"],
             datasets: [
@@ -201,8 +224,10 @@
     created() {
         this.$store.commit('loadOrders')
         this.orders = this.$store.getters.orders
+        this.oldOrders = this.orders.filter(order => order.orderStatus  !== 'pending')
+        this.pendingOrders = this.orders.filter(order => order.orderStatus  === 'pending')
 
-        const dataSet = this.orders
+       // const dataSet = this.orders
         console.log(this.scoreData.datasets[0])
     },
     computed:{
@@ -249,7 +274,11 @@
                     formatedData = `${bookedInterval} hours ago`
                 }
             }else{
-                formatedData = `${bookedInterval} days ago`
+                if(bookedInterval === 1){
+                    formatedData = 'yesterday'
+                }else{
+                    formatedData = new Date(row.orderDate).toLocaleString('en-GB',{ year:"numeric", day: "numeric", month:"numeric"})
+                } 
             }
         }
 
@@ -282,17 +311,22 @@
         const property = column['property'];
         return row[property] === value;
       },
-    //   formatedDate(date){
-    //     return new Date(date).toLocaleString('en-GB',{ year:"numeric", day: "numeric", month:"numeric"})
-    //   },
+
       showStay(stayId){
         this.$router.push(`/stay/${stayId}`)// + row._id)622f337a75c7d36e498aab05
       },
       handleApprove(index, row) {
         this.$store.commit({type: "changeOrderOrder", orderId: row._id, status: 'approved' })
+        this.orders = this.$store.getters.orders
+        this.oldOrders = this.orders.filter(order => order.orderStatus  !== 'pending')
+        this.pendingOrders = this.orders.filter(order => order.orderStatus  === 'pending')
       },
       handleDecline(index, row) {
         this.$store.commit({type: "changeOrderOrder", orderId: row._id, status: 'declined'})
+
+        this.orders = this.$store.getters.orders
+        this.oldOrders = this.orders.filter(order => order.orderStatus  !== 'pending')
+        this.pendingOrders = this.orders.filter(order => order.orderStatus  === 'pending')
       },
       statusLable(row){
         let lableType = ''

@@ -415,8 +415,9 @@ export default {
       //const dateTo = new Date(this.dates[1])
       //const dateFrom = new Date(this.dates[0])
      // const difference = dateTo.getTime() - dateFrom.getTime()
-     const totalPrice = this.getNights() * this.stayPrice  + this.fee
-      return '$' + Math.ceil(totalPrice)   //((Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice + this.fee)
+      let totalPrice = this.getNights() * this.stayPrice  + this.fee
+      totalPrice = `$${Math.ceil(totalPrice).toLocaleString()}`
+      return totalPrice//'$' + Math.ceil(totalPrice)   //((Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice + this.fee)
     },
     none() {
       if (this.TotalDays === 0) return 'none'
