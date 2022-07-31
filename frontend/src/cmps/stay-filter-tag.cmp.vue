@@ -31,12 +31,21 @@ export default {
     tagImage(tag) {
       return `/src/assets/fonts/airbnb-label-imgs/${tag.replace(' & ', '-').replace(' ', '-').toLowerCase()}.jpg`
     },
+    // tagSelect(tag) {
+    //   this.$store.dispatch({
+    //     type: 'setFilterBy',
+    //     filterBy: { tag: JSON.parse(JSON.stringify(tag)) },
+    //   })
+    // },
     tagSelect(tag) {
       this.selectedTag = tag
-      this.$store.dispatch({
+      // var filter = this.filter;
+      // console.log(filter);
+      this.$store.commit({
         type: 'setFilterBy',
         filterBy: { tag: JSON.parse(JSON.stringify(tag)) },
-      })
+      });
+      this.$store.dispatch('loadStays');
     },
   },
   computed: {

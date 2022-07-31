@@ -31,25 +31,7 @@ export default {
 		},
 
 		setFilterBy(state, {filterBy}) {
-			console.log('filterBy:', filterBy)
-			let filteredStays = state.stays
-			const {tag, country, byPrice} = filterBy
-			if (tag) {
-				const regex = new RegExp(filterBy.tag, 'i')
-				filteredStays = state.stays.filter((stay) => regex.test(stay.tags))
-			}
-			if (country) {
-				const regex = new RegExp(filterBy.country, 'i')
-				filteredStays = state.stays.filter(
-					(stay) => regex.test(stay.address.country) || regex.test(stay.address.city)
-				)
-			}
-
-			if (byPrice) {
-				filteredStays = state.stays.filter((stay) => stay.price > byPrice.minPrice)
-				filteredStays = filteredStays.filter((stay) => stay.price < byPrice.maxPrice)
-			}
-			state.stays = filteredStays
+			state.filterBy = filterBy
 		},
 
 		removeStay(state, {stayId}) {

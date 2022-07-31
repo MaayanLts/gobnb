@@ -18,7 +18,8 @@
         <span class="filter-modal-title-avg">The average nightly price is
           $431</span>
         <div class="slider-demo-block">
-          <el-slider v-model="value" range show-stops :max="maxPriceShow" />
+          <el-slider v-model="priceRange" range show-stops
+            :max="maxPriceShow" />
         </div>
         <div class="price-container">
           <div class="price-cell">
@@ -49,21 +50,17 @@
         <span class="filter-modal-title">Amenities</span>
         <span class="filter-modal-essentials">Essentials</span>
         <div class="essentials-container">
-          <el-checkbox @click="callback" v-model="amenities.TV" label="TV"
+          <el-checkbox v-model="amenities.TV" label="TV" size="large" />
+          <el-checkbox v-model="amenities.Internet" label="Internet"
             size="large" />
-          <el-checkbox @click="callback" v-model="amenities.Internet"
-            label="Internet" size="large" />
-          <el-checkbox @click="callback" v-model="amenities.Wifi" label="Wifi"
-            size="large" />
-          <el-checkbox @click="callback" v-model="amenities.AirConditioning"
+          <el-checkbox v-model="amenities.Wifi" label="Wifi" size="large" />
+          <el-checkbox v-model="amenities.AirConditioning"
             label="Air Conditioning" size="large" />
-          <el-checkbox @click="callback"
-            v-model="amenities.WheelchairAccessible"
+          <el-checkbox v-model="amenities.WheelchairAccessible"
             label="Wheelchair Accessible" size="large" />
-          <el-checkbox @click="callback" v-model="amenities.Pool" label="Pool"
+          <el-checkbox v-model="amenities.Pool" label="Pool" size="large" />
+          <el-checkbox v-model="amenities.Kitchen" label="Kitchen"
             size="large" />
-          <el-checkbox @click="callback" v-model="amenities.Kitchen"
-            label="Kitchen" size="large" />
 
         </div>
         <span style="text-decoration: underline ; cursor: pointer;"
@@ -74,8 +71,7 @@
     <template #footer>
       <span class="dialog-footer">
         <span @click="dialogFormVisible = false">Cancel</span>
-        <button class="filter-footer-btn"
-          @click="dialogFormVisible = false">show stays
+        <button class="filter-footer-btn" @click="buildFilterObj">show stays
         </button>
       </span>
     </template>
@@ -84,25 +80,16 @@
 
 <script lang="ts" >
 
+import { log } from 'console'
 import { reactive, ref } from 'vue'
 export default {
   data() {
     return {
       dialogFormVisible: ref(false),
       formLabelWidth: '140px',
-      form: reactive({
-        name: '',
-        region: '',
-        date1: '',
-        date2: '',
-        delivery: false,
-        type: [],
-        resource: '',
-        desc: '',
-      }),
+      priceRange: null,
       filterEmnt: [],
       open1: ref(false),
-
       minPrice: 14,
       maxPrice: 1600,
       value: ref([14, 1600]),
@@ -122,25 +109,22 @@ export default {
   },
   methods: {
     buildFilterObj() {
-      const filterBy = {
-        byPrice: { minPrice: this.minPrice, maxPrice: this.maxPrice }
+      for (var amenitie in this.amenities) {
+        if (this.amenities[amenitie] === true) this.filterEmnt.push(amenitie)
       }
-      this.$store.dispatch({
+
+      const filterBy = {
+        byPrice: this.priceRange,
+        byAmenities: this.filterEmnt
+      }
+      this.$store.commit({
         type: 'setFilterBy',
         filterBy: filterBy,
-      })
+      });
+      this.$store.dispatch('loadStays');
+      this.filterEmnt = []
     },
-    callback(label) {
-      console.log(this.amenities);
 
-      // this.value = ref([this.minPrice, this.maxPrice])
-      // if (!this.amenities[label.target.defaultValue]) this.filterEmnt.push(label.target.defaultValue)
-      // console.log('this.filterEmnt:', this.filterEmnt)
-      // for (var amenitie in this.amenities) {
-      //   if (amenitie === true) this.filterEmnt.push(amenitie)
-      // }
-      // console.log('this.filterEmnt:', this.filterEmnt)
-    },
     filterBtn() {
       return this.$store.getters.getPrices.length
     },
