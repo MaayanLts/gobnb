@@ -94,8 +94,10 @@
                 <!-- <BarChart class="revenue-chart" :chartData="ordersData" /> -->
             </div>  
         </div>
-        <div class="details-title">Orders history</div>
+        
+        <div class="details-title small">New ordes</div>
         <div class="el-table-container small" v-if="pendingOrders.length > 0">
+            
             <el-table header-align="center"
             ref="filterTable"
             :data="pendingOrders"
@@ -132,15 +134,11 @@
                 </template>
             </el-table-column>
             </el-table>
-
-
         </div>
 
-
-
-
-
+        
         <div class="el-table-container">
+            <div class="details-title small" style="margin-bottom: 20px">Orders history</div>
             <el-table header-align="center"
             ref="filterTable"
             border
