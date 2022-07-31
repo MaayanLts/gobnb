@@ -13,11 +13,8 @@ export default {
 		loadTrip(state) {
 			state.trip = tripService.query()
 		},
-		setTripDates(state, dates) {
-			console.log('dates:', dates)
-			// trip.dates = dates
-
-			// tripService.save('trip', trip)
+		setTripDates(state, { dates }) {
+			state.trip.dates = dates
 		},
 		setTripGuests(state, {adults, kids}) {
 			let trip = getTrip(state)

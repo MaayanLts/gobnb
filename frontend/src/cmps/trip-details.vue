@@ -30,7 +30,7 @@
         </div>
         <div class="gusts-details-container">
           <div class="gusts-details">
-            <span class="check">Gusts</span>
+            <span class="check">GUESTS</span>
             <span class="bold-trip">{{ hm }}</span>
           </div>
           <div @click="dropOpen = !dropOpen" class="btn-arrow-details"><img
@@ -311,43 +311,79 @@ export default {
         trip,
       })
       this.$router.push("/")
-
-
     },
     decGust(guests) {
       console.log('this[guests]:', this[guests])
       if (this[guests] === 0) return
       --this[guests]
-    }
+    },
+    setDates(){
+      if (!this.trip.dates || this.trip.dates.length === 0){
+        let dateFrom = new Date()
+        let dateTo =  new Date()
 
+        dateFrom = dateFrom.setDate(dateFrom.getDate() + 7)
+        dateTo = dateTo.setDate(dateTo.getDate() + 10)
+
+        this.$store.commit({type: "setTripDates", dates: [dateFrom, dateTo]})
+      }
+
+      this.dates = this.trip.dates
+    },
+    getNights(){
+      //let dateTo = new Date()
+      //let dateFrom = new Date()
+
+      //if (this.dates&&this.dates.length > 0){
+        const dateFrom = new Date(this.dates[0])
+        const dateTo = new Date(this.dates[1])
+      //} else{
+     //   dateFrom = new Date(dateFrom.setDate(dateFrom.getDate() + 7))
+      //  dateTo = new Date(dateTo.setDate(dateTo.getDate() + 10))
+
+       // this.$store.commit({type: "setTripDates", dates: {dateFrom, dateTo}})
+        //this.dates.push(dateFrom)
+       // this.dates.push(dateTo) TODO: 
+     // }
+
+      //const dateTo = new Date(this.dates[1])
+      //const dateFrom = new Date(this.dates[0])
+      const difference = dateTo.getTime() - dateFrom.getTime()
+      return (Math.ceil(difference / (1000 * 3600 * 24)))
+    }
   },
   computed: {
     priceForNight() {
       return `$${this.stayPrice}`
     },
     hm() {
-      return `${this.adults} adults ${this.children} children`
+      //return `${this.adults} adults ${this.children} children`
+      return `${this.adults + this.children}` //adults ${this.children} children`
     },
     nights() {
-      const date_1 = new Date(this.dates[1])
-      const date_2 = new Date(this.dates[0])
-      const difference = date_1.getTime() - date_2.getTime()
-      return (Math.ceil(difference / (1000 * 3600 * 24)))
+      // const dateTo = new Date(this.dates[1])
+      // const dateFrom = new Date(this.dates[0])
+      // const difference = dateTo.getTime() - dateFrom.getTime()
+      // return (Math.ceil(difference / (1000 * 3600 * 24)))
+      const nights = this.getNights()
+      return nights
     },
     tripPrice() {
-      const date_1 = new Date(this.dates[1])
-      const date_2 = new Date(this.dates[0])
-      const difference = date_1.getTime() - date_2.getTime()
-      return (Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice
+      // const dateTo = new Date(this.dates[1])
+      // const dateFrom = new Date(this.dates[0])
+      // const difference = dateTo.getTime() - dateFrom.getTime()
+      const price = Math.ceil(this.getNights() * this.stayPrice)
+      return price//(Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice
     },
     serviceFee() {
       return `$${this.fee}`
     },
     tripTotalPrice() {
-      const date_1 = new Date(this.dates[1])
-      const date_2 = new Date(this.dates[0])
-      const difference = date_1.getTime() - date_2.getTime()
-      return '$' + ((Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice + this.fee)
+      //const dateTo = new Date(this.dates[1])
+      //const dateFrom = new Date(this.dates[0])
+     // const difference = dateTo.getTime() - dateFrom.getTime()
+     const totalPrice = this.getNights() * this.stayPrice  + this.fee
+      return '$' + Math.ceil(totalPrice)   //((Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice + this.fee)
     },
     none() {
       if (this.TotalDays === 0) return 'none'
@@ -362,23 +398,24 @@ export default {
   },
   created() {
     this.trip = this.$store.getters.getTrip
-    this.dates = this.trip.dates
-    let date_1 = ''
-    let date_2 = ''
-    if (this.trip.dates)
-    {
-      date_1 = new Date(this.trip.dates[1])
-      date_2 = new Date(this.trip.dates[0])
-    } else
-    {
-      date_1 = new Date()
-      date_2 = new Date()
-    }
-    const difference = date_1.getTime() - date_2.getTime()
-    this.TotalDays = Math.ceil(difference / (1000 * 3600 * 24))
+    this.setDates()
+
+    // let dateTo = ''
+    // let dateFrom = ''
+    // if (this.trip.dates)
+    // {
+    //   dateTo = new Date(this.trip.dates[1])
+    //   dateFrom = new Date(this.trip.dates[0])
+    // } else
+    // {
+    //   dateTo = new Date()
+    //   dateFrom = new Date()
+    // }
+    //const difference = dateTo.getTime() - dateFrom.getTime()
+    this.TotalDays = this.getNights()//Math.ceil(difference / (1000 * 3600 * 24))
     this.stayPrice = this.stay.price
     this.fee = Math.round(this.stayPrice * 1.17)
-    this.adults = this.trip.guests.adults
+    this.adults = (this.trip.guests.adults === 0) ? 1 : this.trip.guests.adults 
     this.children = this.trip.guests.children
     this.infants = this.trip.guests.infants
     this.pets = this.trip.guests.pets
