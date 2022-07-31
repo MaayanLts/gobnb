@@ -260,7 +260,7 @@
         </div>
         <template #footer>
           <span class="dialog-footer">
-            <el-button @click="dialogVisible = false">Confirm
+            <el-button @click="goToMyTrip()">Ok
             </el-button>
           </span>
         </template>
@@ -322,8 +322,6 @@ export default {
   },
   methods: {
     reserve() {
-
-
       const trip = {
         stayIddest: { country: this.stay.address.country },
         dates: this.dates,
@@ -339,8 +337,11 @@ export default {
         trip,
       })
 
-
       this.dialogVisible = true
+    },
+    goToMyTrip(){
+      this.dialogVisible = false
+      this.$router.push("/myTrip")
     },
     decGust(guests) {
       console.log('this[guests]:', this[guests])

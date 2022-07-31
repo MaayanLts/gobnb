@@ -4,7 +4,7 @@ import loginPage from '../views/login-signup.vue'
 import chat from '../views/chat.vue'
 import chatHost from '../views/chat-host.vue'
 import backofficePage from '../views/backoffice.vue'
-
+import myTrips from '../views/my-trips.vue'
 // import stayEdit from '../views/stay-edit.vue'
 // import signupPage from '../views/signup-page.vue'
 // import userDetails from '../views/user-details.vue'
@@ -45,6 +45,11 @@ const router = createRouter({
 			name: 'host',
 			component: backofficePage,
 		},
+		{
+			path: '/myTrips',
+			name: 'myTrips',
+			component: myTrips,
+		}
 		// {
 		// 	path: '/user',
 		// 	name: 'user-details',
