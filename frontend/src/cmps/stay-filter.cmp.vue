@@ -22,8 +22,8 @@ export default {
   },
   computed: {
     isVisible() {
-      if (this.isFilterOpen)return 'display: none'
-      const isMainScreen = !(this.$route.name === 'stay-details' || this.$route.name === 'host')
+      if (this.isFilterOpen) return 'display: none'
+      const isMainScreen = !(this.$route.name === 'stay-details' || this.$route.name === 'host' || this.$route.name === 'my-trips')
       return (isMainScreen ||  this.isFilterOpen) ? ' ' : 'display: none'
 
     },

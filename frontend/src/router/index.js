@@ -47,7 +47,7 @@ const router = createRouter({
 		},
 		{
 			path: '/myTrips',
-			name: 'myTrips',
+			name: 'my-trips',
 			component: myTrips,
 		}
 		// {

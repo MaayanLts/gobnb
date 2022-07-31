@@ -341,7 +341,7 @@ export default {
     },
     goToMyTrip(){
       this.dialogVisible = false
-      this.$router.push("/myTrip")
+      this.$router.push("/myTrips")
     },
     decGust(guests) {
       console.log('this[guests]:', this[guests])
