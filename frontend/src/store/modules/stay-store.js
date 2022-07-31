@@ -5,6 +5,7 @@ export default {
 	state: {
 		stays: null,
 		filterBy: null,
+		country: '',
 	},
 	getters: {
 		getStays(state) {
@@ -31,7 +32,9 @@ export default {
 		},
 
 		setFilterBy(state, {filterBy}) {
+			if (filterBy.country) state.country = filterBy.country
 			state.filterBy = filterBy
+			state.filterBy.country = state.country
 		},
 
 		removeStay(state, {stayId}) {
@@ -54,6 +57,7 @@ export default {
 		async loadStays(context) {
 			try {
 				var filterBy = context.state.filterBy ? context.state.filterBy : ''
+				console.log('filterBy:', filterBy)
 				const stays = await stayService.query(filterBy)
 				context.commit({type: 'setStays', stays: stays})
 
@@ -97,10 +101,11 @@ export default {
 			}
 		},
 		async setFilterBy(context, {filterBy}) {
+			console.log('state.filterBy:', context.state.filterBy)
 			try {
-				const stays = await stayService.query(filterBy)
-				context.commit({type: 'setStays', stays: stays})
+				const stays = await stayService.query(context.state.filterBy)
 				context.commit({type: 'setFilterBy', filterBy})
+				context.commit({type: 'setStays', stays: stays})
 			} catch (err) {
 				console.log(err)
 			}
