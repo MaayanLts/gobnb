@@ -235,8 +235,6 @@
       </div>
 
 
-      <el-button text @click="reserve">click to open the Dialog
-      </el-button>
 
       <el-dialog v-model="dialogVisible" title="Reservation" width="30%">
         <span>Thank you for your booking</span>
