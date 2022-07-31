@@ -132,7 +132,7 @@ export default {
     },
     date(date) {
       const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-      const intMonth = date.getMonth() + 1
+      const intMonth = date.getMonth() 
       const year = date.getYear() + 1900
       return `${month[intMonth]}  ${year}`
     },
