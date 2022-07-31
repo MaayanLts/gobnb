@@ -237,20 +237,30 @@
 
 
       <el-dialog v-model="dialogVisible" title="Reservation" width="30%">
-        <span>Thank you for your booking</span>
-        <div class="host-info-modal-container">
-          <img :src="stay.host.pictureUrl" alt="" srcset="">
-          <span>your host {{ stay.host.fullname }}</span>
+        <div class="reservation">
+          <span class="title-reservation price-for-night">Thank you for your
+            booking</span>
+          <div class="host-info-modal-container">
+            <img :src="stay.host.pictureUrl" alt="" srcset="">
+            <span class="host-reservation">your host {{ stay.host.fullname
+            }}</span>
+          </div>
+          <span class="info-reservation"> Thank you so much for choosing to stay
+            with us! We’ll send you
+            more information about check-in when your reservation date is
+            sooner.
+            In the meantime, if you feel like you have any questions or
+            concerns,
+            feel free to let us know, and we will do our best to accommodate
+            you.</span>
+          <span class=" price-total">
+            Reservation Code: <span class="code-reservation"> {{
+                reservationCode
+            }}</span></span>
         </div>
-        <span> Thank you so much for choosing to stay with us! We’ll send you
-          more information about check-in when your reservation date is sooner.
-          In the meantime, if you feel like you have any questions or concerns,
-          feel free to let us know, and we will do our best to accommodate
-          you.</span>
-        <span>Reservation Code: {{ reservationCode }}</span>
         <template #footer>
           <span class="dialog-footer">
-            <el-button type="primary" @click="dialogVisible = false">Confirm
+            <el-button @click="dialogVisible = false">Confirm
             </el-button>
           </span>
         </template>

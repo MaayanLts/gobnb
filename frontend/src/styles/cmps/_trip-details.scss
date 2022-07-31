@@ -459,3 +459,52 @@
 
     color: rgb(53, 44, 44);
 }
+
+.host-info-modal-container {
+    // border: 1px solid rgb(181, 79, 79);
+    display: flex;
+    flex-direction: column;
+}
+
+.reservation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // height: 800px;
+
+}
+
+.host-info-modal-container>img:nth-child(1) {
+    width: 120px;
+    // max-height: 320px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+
+}
+
+
+.title-reservation {
+    padding-bottom: 30px;
+
+
+}
+
+.host-reservation {
+    font-size: 16px !important;
+    line-height: 20px !important;
+    color: rgb(34, 34, 34) !important;
+    font-family: "Airbnb-bold";
+    padding-bottom: 25px;
+
+}
+
+.info-reservation {
+    padding-bottom: 60px;
+}
+
+.code-reservation {
+    color: green;
+    text-decoration: underline;
+    text-decoration-color: green;
+}
