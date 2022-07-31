@@ -70,6 +70,7 @@ export default {
 			try {
 				return await stayService.getStayById(stayId)
 			} catch (err) {
+				4
 				console.log(err)
 			}
 		},
