@@ -11,14 +11,16 @@
 
       <div class="trip-order-container">
         <div class="date-details">
-          <div @click="onOpenDateFrom" class="date-details-cell">
+          <div @click="onOpenDateFrom" class="date-details-cell"
+            :class="{ active: selectedSrchArea === 'date-from' }">
             <span class="check">Check in</span>
             <!-- < class="picker-date from"></ -->
             <el-date-picker class="picker-date from" v-model="dates"
               type="daterange" start-placeholder="Check in" />
           </div>
 
-          <div @click="onOpenDateTo" class="date-details-cell">
+          <div @click="onOpenDateTo" class="date-details-cell"
+            :class="{ active: selectedSrchArea === 'date-to' }">
             <span class="check">Check out</span>
 
             <el-date-picker @click="show = true"
@@ -28,7 +30,7 @@
         </div>
         <div class="gusts-details-container">
           <div class="gusts-details">
-            <span class="check">GUESTS</span>
+            <span class="check">Gusts</span>
             <span class="bold-trip">{{ hm }}</span>
           </div>
           <div @click="dropOpen = !dropOpen" class="btn-arrow-details"><img
@@ -234,41 +236,6 @@
         </div>
       </div>
 
-
-
-      <el-dialog v-model="dialogVisible" title="Reservation" width="30%">
-        <div class="reservation">
-          <span class="title-reservation price-for-night">Thank you for your
-            booking</span>
-          <div class="host-info-modal-container">
-            <img :src="stay.host.pictureUrl" alt="" srcset="">
-            <span class="host-reservation">your host {{ stay.host.fullname
-            }}</span>
-          </div>
-          <span class="info-reservation"> Thank you so much for choosing to stay
-            with us! We’ll send you
-            more information about check-in when your reservation date is
-            sooner.
-            In the meantime, if you feel like you have any questions or
-            concerns,
-            feel free to let us know, and we will do our best to accommodate
-            you.</span>
-          <span class=" price-total">
-            Reservation Code: <span class="code-reservation"> {{
-                reservationCode
-            }}</span></span>
-        </div>
-        <template #footer>
-          <span class="dialog-footer">
-            <el-button @click="dialogVisible = false">Confirm
-            </el-button>
-          </span>
-        </template>
-      </el-dialog>
-
-
-
-
       <div class="trip-message">You won't be charget yet</div>
 
       <div :class="none" class="trip-footer">
@@ -292,9 +259,9 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import { ElMessageBox } from 'element-plus'
-import { makeId } from '../services/util.service'
+import { ElNotification } from 'element-plus'
+import { round } from 'lodash'
+
 export default {
   props: {
     stay: {
@@ -303,7 +270,6 @@ export default {
   },
   data() {
     return {
-      reservationCode: null,
       show: false,
       trip: null,
       dates: null,
@@ -316,12 +282,17 @@ export default {
       hurtColor: '#423f3d',
       fee: 0,
       TotalDays: 0,
-      totalPrice: 0,
-      dialogVisible: ref(false)
+      totalPrice: 0
     }
   },
   methods: {
     reserve() {
+      cancelIdleCallback
+      ElNotification({
+        title: 'Success',
+        message: 'Yor request was successfully sent to the host',
+        type: 'success',
+      })
 
 
       const trip = {
@@ -334,89 +305,49 @@ export default {
           pets: this.pets
         }
       }
+      console.log('trip:', trip)
       this.$store.commit({
         type: "reserve",
         trip,
       })
+      this.$router.push("/")
 
 
-      this.dialogVisible = true
     },
     decGust(guests) {
       console.log('this[guests]:', this[guests])
       if (this[guests] === 0) return
       --this[guests]
-    },
-    setDates(){
-      if (!this.trip.dates || this.trip.dates.length === 0){
-        let dateFrom = new Date()
-        let dateTo =  new Date()
-
-        dateFrom = dateFrom.setDate(dateFrom.getDate() + 7)
-        dateTo = dateTo.setDate(dateTo.getDate() + 10)
-
-        this.$store.commit({type: "setTripDates", dates: [dateFrom, dateTo]})
-      }
-
-      this.dates = this.trip.dates
-    },
-    getNights(){
-      //let dateTo = new Date()
-      //let dateFrom = new Date()
-
-      //if (this.dates&&this.dates.length > 0){
-        const dateFrom = new Date(this.dates[0])
-        const dateTo = new Date(this.dates[1])
-      //} else{
-     //   dateFrom = new Date(dateFrom.setDate(dateFrom.getDate() + 7))
-      //  dateTo = new Date(dateTo.setDate(dateTo.getDate() + 10))
-
-       // this.$store.commit({type: "setTripDates", dates: {dateFrom, dateTo}})
-        //this.dates.push(dateFrom)
-       // this.dates.push(dateTo) TODO: 
-     // }
-
-      //const dateTo = new Date(this.dates[1])
-      //const dateFrom = new Date(this.dates[0])
-      const difference = dateTo.getTime() - dateFrom.getTime()
-      return (Math.ceil(difference / (1000 * 3600 * 24)))
     }
+
   },
   computed: {
     priceForNight() {
       return `$${this.stayPrice}`
     },
-    imgUrl(imgName) {
-      return `src/images/${imgName}`
-    },
     hm() {
-      //return `${this.adults} adults ${this.children} children`
-      return `${this.adults + this.children}` //adults ${this.children} children`
+      return `${this.adults} adults ${this.children} children`
     },
     nights() {
-      // const dateTo = new Date(this.dates[1])
-      // const dateFrom = new Date(this.dates[0])
-      // const difference = dateTo.getTime() - dateFrom.getTime()
-      // return (Math.ceil(difference / (1000 * 3600 * 24)))
-      const nights = this.getNights()
-      return nights
+      const date_1 = new Date(this.dates[1])
+      const date_2 = new Date(this.dates[0])
+      const difference = date_1.getTime() - date_2.getTime()
+      return (Math.ceil(difference / (1000 * 3600 * 24)))
     },
     tripPrice() {
-      // const dateTo = new Date(this.dates[1])
-      // const dateFrom = new Date(this.dates[0])
-      // const difference = dateTo.getTime() - dateFrom.getTime()
-      const price = Math.ceil(this.getNights() * this.stayPrice)
-      return price//(Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice
+      const date_1 = new Date(this.dates[1])
+      const date_2 = new Date(this.dates[0])
+      const difference = date_1.getTime() - date_2.getTime()
+      return (Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice
     },
     serviceFee() {
       return `$${this.fee}`
     },
     tripTotalPrice() {
-      //const dateTo = new Date(this.dates[1])
-      //const dateFrom = new Date(this.dates[0])
-     // const difference = dateTo.getTime() - dateFrom.getTime()
-     const totalPrice = this.getNights() * this.stayPrice  + this.fee
-      return '$' + Math.ceil(totalPrice)   //((Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice + this.fee)
+      const date_1 = new Date(this.dates[1])
+      const date_2 = new Date(this.dates[0])
+      const difference = date_1.getTime() - date_2.getTime()
+      return '$' + ((Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice + this.fee)
     },
     none() {
       if (this.TotalDays === 0) return 'none'
@@ -431,27 +362,25 @@ export default {
   },
   created() {
     this.trip = this.$store.getters.getTrip
-    this.setDates()
-
-    // let dateTo = ''
-    // let dateFrom = ''
-    // if (this.trip.dates)
-    // {
-    //   dateTo = new Date(this.trip.dates[1])
-    //   dateFrom = new Date(this.trip.dates[0])
-    // } else
-    // {
-    //   dateTo = new Date()
-    //   dateFrom = new Date()
-    // }
-    //const difference = dateTo.getTime() - dateFrom.getTime()
-    this.TotalDays = this.getNights()//Math.ceil(difference / (1000 * 3600 * 24))
+    this.dates = this.trip.dates
+    let date_1 = ''
+    let date_2 = ''
+    if (this.trip.dates)
+    {
+      date_1 = new Date(this.trip.dates[1])
+      date_2 = new Date(this.trip.dates[0])
+    } else
+    {
+      date_1 = new Date()
+      date_2 = new Date()
+    }
+    const difference = date_1.getTime() - date_2.getTime()
+    this.TotalDays = Math.ceil(difference / (1000 * 3600 * 24))
     this.stayPrice = this.stay.price
     this.fee = Math.round(this.stayPrice * 1.17)
-    this.adults = (this.trip.guests.adults === 0) ? 1 : this.trip.guests.adults 
+    this.adults = this.trip.guests.adults
     this.children = this.trip.guests.children
     this.infants = this.trip.guests.infants
-    this.reservationCode = makeId(9)
     this.pets = this.trip.guests.pets
   },
 }
