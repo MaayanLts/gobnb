@@ -432,3 +432,30 @@
     margin-bottom: 5px;
     cursor: pointer;
 }
+
+.el-date-table td.end-date .el-date-table-cell__text,
+.el-date-table td.start-date .el-date-table-cell__text {
+    background-color: rgba(60, 56, 56, 0.933);
+}
+
+.el-date-table td.today .el-date-table-cell__text:hover {
+    color: rgb(34, 34, 34);
+    //     font-weight: 700;
+}
+
+.el-date-table td.today .el-date-table-cell__text {
+    color: rgb(34, 34, 34);
+    //     font-weight: 700;
+}
+
+.el-date-table .el-date-table-cell__text:hover {
+    color: rgb(53, 44, 44);
+    // font-weight: 700;
+}
+
+.el-date-table-cell:hover {}
+
+.el-date-table td.available:hover {
+
+    color: rgb(53, 44, 44);
+}
