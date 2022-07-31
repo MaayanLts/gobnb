@@ -27,13 +27,16 @@
     height: 100%;
 }
 
-.img-title{
+.card-title{
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     line-break: strict;
     line-height: 20px;
     font-family: "Airbnb-book";
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: solid 1px blue;
 }
 
 .host-stay-container{
@@ -55,8 +58,9 @@
 }
 
 .graph-holder {
+    display: none;
     width: 300px;
-    height: 350px;
+    height: 230px;
     border: rgb(221, 221, 221) solid 1px;
     border-radius: 12px;
     border-image-outset: 0;
@@ -66,29 +70,42 @@
     border-image-width: 1;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px 0px;
     color: rgb(34, 34, 34);
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     line-break: strict;
     line-height: 20px;
-    padding: 20px;
-    justify-content: center;
+    //padding: 0px;
+    //justify-content: center;
     flex-grow: 1;
-    display: flex;
+    //display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    margin-top: 30px;
+    //padding-top: 20px;
+    border: red solid 1px;
    &.wide{
     //flex-grow: 2;
    }
 }
 
-.reviews-title{
-    text-align: center;
-    margin-top: 0px;
+// .reviews-title{
+//     text-align: center;
+//     margin-top: 0px;
+// }
+
+.data-holder{
+    //padding: 0px 0px 0px 20px;
+    border: green 2px solid;
+
+    & .fill-bar{
+        height: 1px;
+        background-color:red;
+        border-color: red;
+        padding: 0.5px;
+    }
 }
 
-.reviews-holder{
-    padding: 10px 0px 20px 20px;
-}
+
 
 .bar-holder{
     display: flex;
@@ -102,7 +119,6 @@
 
 .bar-text{
     width: em(140px);
-    height: em(29px);
     padding-top: 4px;
     color: $clr10;
 }
@@ -110,14 +126,13 @@
 .bar-num{
     display:flex;
     width: 150px;
-    height: em(30px);
     flex-direction: row;
     justify-content: start;
     align-items: center;
 }
 
 .el-table-container{
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
 .el-tag{

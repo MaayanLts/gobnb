@@ -2,7 +2,7 @@
 	{
 		"_id": "1",
 		"stayId": "622f337a75c7d36e498aab11",
-		"orderDate": "Sat Jul 30 2022 11:37:04 GMT+0300 (Eastern European Summer Time)",
+		"orderDate": "Sat Jul 31 2022 15:37:04 GMT+0300 (Eastern European Summer Time)",
 		"dates": [
 			"2022-08-25T10:37:55.048Z",
 			"2022-08-27T10:37:55.048Z"
@@ -31,7 +31,7 @@
 	{
 		"_id": "2",
 		"stayId": "622f337a75c7d36e498aab11",
-		"orderDate": "Sat Jul 30 2022 09:37:04 GMT+0300 (Eastern European Summer Time)",
+		"orderDate": "Sat Jul 31 2022 14:37:04 GMT+0300 (Eastern European Summer Time)",
 		"dates": [
 			"2022-08-12T10:37:55.048Z",
 			"2022-08-22T10:37:55.048Z"
@@ -60,10 +60,10 @@
 	{
 		"_id": "3",
 		"stayId": "622f337a75c7d36e498aab11",
-		"orderDate": "Sat Jul 30 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"orderDate": "Sat Jul 31 2022 11:30:28 GMT+0300 (Eastern European Summer Time)",
 		"dates": [
-			"2022-08-23T10:37:55.048Z",
-			"2022-08-27T10:37:55.048Z"
+			"2022-09-13T10:37:55.048Z",
+			"2022-09-17T10:37:55.048Z"
 		  ],
 		"price": 800,
 		"guests": {
@@ -89,10 +89,10 @@
 	{
 		"_id": "4",
 		"stayId": "622f337a75c7d36e498aab11",
-		"orderDate": "Sat Jul 30 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"orderDate": "Sat Jul 30 2022 09:30:28 GMT+0300 (Eastern European Summer Time)",
 		"dates": [
-			"2022-08-23T10:37:55.048Z",
-			"2022-08-27T10:37:55.048Z"
+			"2022-08-07T10:37:55.048Z",
+			"2022-08-11T10:37:55.048Z"
 		  ],
 		"price": 823,
 		"guests": {
@@ -147,10 +147,10 @@
     {
 		"_id": "6",
 		"stayId": "622f337a75c7d36e498aab11",
-		"orderDate": "Sat Jul 26 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"orderDate": "Sat Jul 24 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
 		"dates": [
-			"2022-07-19T10:37:55.048Z",
-			"2022-07-23T10:37:55.048Z"
+			"2022-07-29T10:37:55.048Z",
+			"2022-08-02T10:37:55.048Z"
 		  ],
 		"price": 758,
 		"guests": {
@@ -176,10 +176,10 @@
 	{
 		"_id": "7",
 		"stayId": "622f337a75c7d36e498aab05",
-		"orderDate": "Sat Jul 12 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"orderDate": "Sat Jul 22 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
 		"dates": [
-			"2022-07-01T10:37:55.048Z",
-			"2022-07-05T10:37:55.048Z"
+			"2022-07-26T10:37:55.048Z",
+			"2022-07-30T10:37:55.048Z"
 		  ],
 		"price": 710,
 		"guests": {
@@ -205,10 +205,10 @@
 	{
 		"_id": "8",
 		"stayId": "622f337a75c7d36e498aab05",
-		"orderDate": "Sat Jul 5 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"orderDate": "Sat Jul 19 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
 		"dates": [
-			"2022-06-28T10:37:55.048Z",
-			"2022-06-30T10:37:55.048Z"
+			"2022-08-10T10:37:55.048Z",
+			"2022-08-12T10:37:55.048Z"
 		  ],
 		"price": 337,
 		"guests": {
@@ -232,12 +232,12 @@
 		,"orderStatus": "approved"
 	},
 	{
-		"_id": "6",
+		"_id": "9",
 		"stayId": "622f337a75c7d36e498aab11",
-		"orderDate": "Sat Jul 4 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"orderDate": "Sat Jul 19 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
 		"dates": [
-			"2022-07-10T10:37:55.048Z",
-			"2022-07-13T10:37:55.048Z"
+			"2022-09-04T10:37:55.048Z",
+			"2022-09-07T10:37:55.048Z"
 		  ],
 		"price": 510,
 		"guests": {
@@ -257,6 +257,209 @@
 			"_id": "",
 			"fullName": "Brian Wieting",
 			"imgUrl": "https://randomuser.me/api/portraits/men/61.jpg"
+		}
+		,"orderStatus": "approved"
+	},
+	{
+		"_id": "10",
+		"stayId": "622f337a75c7d36e498aab11",
+		"orderDate": "Sat Jul 13 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"dates": [
+			"2022-09-10T10:37:55.048Z",
+			"2022-09-11T10:37:55.048Z"
+		  ],
+		"price": 165,
+		"guests": {
+			"adults": 1,
+			"children": 0,
+			"infants": 0,
+			"pets": 0
+		},
+		"destination": {
+			"country": "Spain",
+			"countryCode": "Sp",
+			"address": "Plaça del Mar 1, Barcelona",
+			"lat": 0,
+			"lng": 0
+		},
+		"mainGuest": {
+			"_id": "",
+			"fullName": "Diana Berg",
+			"imgUrl": "https://randomuser.me/api/portraits/women/11.jpg"
+		}
+		,"orderStatus": "approved"
+	},
+	{
+		"_id": "11",
+		"stayId": "622f337a75c7d36e498aab11",
+		"orderDate": "Sat Jul 13 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"dates": [
+			"2022-09-19T10:37:55.048Z",
+			"2022-09-22T10:37:55.048Z"
+		  ],
+		"price": 499,
+		"guests": {
+			"adults": 1,
+			"children": 0,
+			"infants": 0,
+			"pets": 0
+		},
+		"destination": {
+			"country": "Spain",
+			"countryCode": "Sp",
+			"address": "Plaça del Mar 1, Barcelona",
+			"lat": 0,
+			"lng": 0
+		},
+		"mainGuest": {
+			"_id": "",
+			"fullName": "Rut Abramovich",
+			"imgUrl": "https://randomuser.me/api/portraits/women/17.jpg"
+		}
+		,"orderStatus": "approved"
+	},
+	{
+		"_id": "12",
+		"stayId": "622f337a75c7d36e498aab05",
+		"orderDate": "Sat Jul 12 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"dates": [
+			"2022-08-13T10:37:55.048Z",
+			"2022-08-18T10:37:55.048Z"
+		  ],
+		"price": 873,
+		"guests": {
+			"adults": 2,
+			"children": 1,
+			"infants": 0,
+			"pets": 0
+		},
+		"destination": {
+			"country": "Spain",
+			"countryCode": "Sp",
+			"address": "Pla de Palau 19, Barcelona", 
+			"lat": 0,
+			"lng": 0
+		},
+		"mainGuest": {
+			"_id": "",
+			"fullName": "Roman White",
+			"imgUrl": "https://randomuser.me/api/portraits/men/6.jpg"
+		}
+		,"orderStatus": "approved"
+	},
+	{
+		"_id": "13",
+		"stayId": "622f337a75c7d36e498aab05",
+		"orderDate": "Sat Jul 10 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"dates": [
+			"2022-09-01T10:37:55.048Z",
+			"2022-09-03T10:37:55.048Z"
+		  ],
+		"price": 320,
+		"guests": {
+			"adults": 1,
+			"children": 0,
+			"infants": 0,
+			"pets": 0
+		},
+		"destination": {
+			"country": "Spain",
+			"countryCode": "Sp",
+			"address": "Pla de Palau 19, Barcelona", 
+			"lat": 0,
+			"lng": 0
+		},
+		"mainGuest": {
+			"_id": "",
+			"fullName": "Ran Lidor",
+			"imgUrl": "https://randomuser.me/api/portraits/men/7.jpg"
+		}
+		,"orderStatus": "approved"
+	},
+	{
+		"_id": "14",
+		"stayId": "622f337a75c7d36e498aab05",
+		"orderDate": "Sat Jul 7 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"dates": [
+			"2022-09-05T10:37:55.048Z",
+			"2022-09-07T10:37:55.048Z"
+		  ],
+		"price": 350,
+		"guests": {
+			"adults": 2,
+			"children": 0,
+			"infants": 0,
+			"pets": 0
+		},
+		"destination": {
+			"country": "Spain",
+			"countryCode": "Sp",
+			"address": "Pla de Palau 19, Barcelona", 
+			"lat": 0,
+			"lng": 0
+		},
+		"mainGuest": {
+			"_id": "",
+			"fullName": "Tom Mile",
+			"imgUrl": "https://randomuser.me/api/portraits/men/5.jpg"
+		}
+		,"orderStatus": "approved"
+	},
+	{
+		"_id": "11",
+		"stayId": "622f337a75c7d36e498aab11",
+		"orderDate": "Sat Jul 6 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"dates": [
+			"2022-09-18T10:37:55.048Z",
+			"2022-09-21T10:37:55.048Z"
+		  ],
+		"price": 530,
+		"guests": {
+			"adults": 4,
+			"children": 0,
+			"infants": 0,
+			"pets": 0
+		},
+		"destination": {
+			"country": "Spain",
+			"countryCode": "Sp",
+			"address": "Plaça del Mar 1, Barcelona",
+			"lat": 0,
+			"lng": 0
+		},
+		"mainGuest": {
+			"_id": "",
+			"fullName": "Gita Berkovich",
+			"imgUrl": "https://randomuser.me/api/portraits/women/31.jpg"
+		}
+		,"orderStatus": "approved"
+	},
+	{
+		"_id": "12",
+		"stayId": "622f337a75c7d36e498aab11",
+		"orderDate": "Sat Jul 1 2022 02:30:28 GMT+0300 (Eastern European Summer Time)",
+		"dates": [
+			"2022-08-29T10:37:55.048Z",
+			"2022-08-31T10:37:55.048Z"
+		  ],
+		"price": 330,
+		"guests": {
+			"adults": 1,
+			"children": 0,
+			"infants": 0,
+			"pets": 0
+		},
+		"destination": {
+			"country": "Spain",
+			"countryCode": "Sp",
+			"address": "Plaça del Mar 1, Barcelona",
+			"lat": 0,
+			"lng": 0
+		},
+		"mainGuest": {
+			"_id": "",
+			"fullName": "Gustaff Beil",
+			"imgUrl": "https://randomuser.me/api/portraits/men/33.jpg"
 		}
 		,"orderStatus": "approved"
 	}

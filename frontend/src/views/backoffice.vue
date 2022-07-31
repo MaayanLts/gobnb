@@ -4,12 +4,12 @@
         <div class="items-area">
 
             <div class="graph-holder">
-                <h4 class="reviews-title">★ 4.9
-                    <span class="pr-5 pl-5"> • 
-                    </span>{{ 20 }} reviews 
-                </h4>
+                <div class="card-title">
+                    <span class="pr-5 pl-5">★ 4.9</span>
+                    <span class="pr-5 pl-5"> • </span>{{ 37 }} reviews 
+                </div>
 
-                <div class="reviews-holder">
+                <div class="data-holder">
 
                         <div class="bar-holder">
                             <span class="bar-text">Cleanliness</span>
@@ -76,20 +76,20 @@
             </div> 
 
             <div class="graph-holder" style="margin-right: 30px;margin-left: 30px;"> 
-                <div class="img-title">
-                    <span class="scores">Plaça del Mar 1, Barcelona</span>
+                <div class="card-title">
+                    <span>Plaça del Mar 1, Barcelona</span>
                 </div>
                 <div class="host-stay-container">
-                    <img class="host-stay-img" src="../images/110.jpeg" @click="showStay('622f337a75c7d36e498aab11')"  />
+                    <!-- <img class="host-stay-img" src="../images/110.jpeg" @click="showStay('622f337a75c7d36e498aab11')"  /> -->
                 </div>
                     <!-- <DoughnutChart :chartData="scoreData" :options="scoreOptions" class="scores-chart"/> -->
             </div> 
             <div class="graph-holder">
-                    <div class="img-title">
-                        <span class="scores">Pla de Palau 19, Barcelona</span>
+                    <div class="card-title">
+                        <span>Pla de Palau 19, Barcelona</span>
                     </div>
                     <div class="host-stay-container">
-                        <img  class="host-stay-img" src="../images/028.jpeg" @click="showStay('622f337a75c7d36e498aab05')" />
+                        <!-- <img  class="host-stay-img" src="../images/028.jpeg" @click="showStay('622f337a75c7d36e498aab05')" /> -->
                     </div>
                 <!-- <BarChart class="revenue-chart" :chartData="ordersData" /> -->
             </div>  
@@ -100,22 +100,22 @@
             ref="filterTable"
             :data="orders"
             style="width: 100%">
-            <el-table-column type="index" width="30">
+            <el-table-column type="index" width="40">
             </el-table-column>
             <el-table-column label="Orders info" header-align="center">
-                <el-table-column prop="orderDate" label="Booked" width="130" :formatter="formatter" header-align="center"></el-table-column>
-                <el-table-column prop="dates" label="Check in/Check out" width="160" :formatter="formatter"></el-table-column>
+                <el-table-column prop="orderDate" label="Booked" width="150" :formatter="formatter" header-align="center"></el-table-column>
+                <el-table-column prop="dates" label="Check in/Check out" width="180" :formatter="formatter"></el-table-column>
                 <!-- <el-table-column prop="dates" label="Check out" width="120" sortable :formatter="formatter"></el-table-column> -->
                 <el-table-column prop="dates" label="Nights" width="67" :formatter="formatter"></el-table-column>
-                <el-table-column prop="price" header-align="center" label="Price" width="70" :formatter="formatter"></el-table-column>
+                <el-table-column prop="price" header-align="center" label="Price" width="90" :formatter="formatter"></el-table-column>
             </el-table-column> 
-            <el-table-column prop="destination.address" label="Stay" width="310" @click="showStay" header-align="center">
+            <el-table-column prop="destination.address" label="Stay" sortable @click="showStay" header-align="center">
                 <template v-slot="scope">
                     <div class="address" @click="showStay(scope.row.stayId)">{{ scope.row.destination.address }}</div>  
                 </template>
             </el-table-column>
             <el-table-column label="Guests info" header-align="center">
-                <el-table-column prop="mainGuest.fullName"  header-align="center" label="Main guest" >
+                <el-table-column prop="mainGuest.fullName"  header-align="center" label="Main guest" width="230">
                     <template v-slot="scope">
                         <div class="main-guest-container">
                             <img class="main-guest-img" :src="scope.row.mainGuest.imgUrl"> 
