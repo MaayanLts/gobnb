@@ -202,7 +202,7 @@ export default {
             this.stay = await this.$store.dispatch({ type: 'getStayById', stayId })
         },
         imgUrl(imgName) {
-            return `src/images/${imgName}`
+            return `${import.meta.env.BASE_URL}images/${imgName}`
         },
         updatePosition(event) {
             this.posY = window.scrollY

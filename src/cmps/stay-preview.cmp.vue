@@ -4,15 +4,14 @@
     <el-carousel trigger="click" :autoplay="false">
       <el-carousel-item v-for="(img) in stay.imgUrls" :key="img">
         <div @click.stop="addToWishList" class="hurt-container">
-          <svg class="svg-heart" style="width:24px;height:24px"
-            viewBox="0 0 24 24">
+          <svg class="svg-heart" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path :fill="currentColor"
               d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z">
             </path>
           </svg>
         </div>
         <div class="img-container">
-          <img class="preview-img-carusela" :src="imgUrl + img" />
+          <img class="preview-img-carusela" :src="imgUrl + 'images/' + img" />
         </div>
       </el-carousel-item>
     </el-carousel>
@@ -71,8 +70,7 @@ export default {
       //   if (this.stay.address.city)
       //     propertyDesc += ` in `
       // }
-      if (this.stay.address.city)
-      {
+      if (this.stay.address.city) {
         propertyDesc += `${this.stay.address.city}`
         if (this.stay.address.country)
           propertyDesc += `, `
@@ -87,15 +85,15 @@ export default {
       return 0
     },
     imgUrl() {
-      return `src/images/`
+      return import.meta.env.BASE_URL
     },
     rating() {
       let rating = this.stay.reviewScores.rating / 20
-      return (rating === 5) ?  `${rating}.0` : rating
+      return (rating === 5) ? `${rating}.0` : rating
     },
-    reviews(){
+    reviews() {
       let reviewsCount = 0
-      if(this.stay.reviews)
+      if (this.stay.reviews)
         reviewsCount = this.stay.reviews.length
 
       const reviews = (reviewsCount === 0) ? '' : ` (${reviewsCount})`
@@ -109,8 +107,8 @@ export default {
     this.filterBy = this.$store.getters.filterBy
     this.trip = this.$store.getters.getTrip
     this.isFiltered = (((this.filterBy !== undefined) && (this.filterBy !== null)) ||
-                       ((this.trip !== undefined) && (this.trip !== null))
-                      )
+      ((this.trip !== undefined) && (this.trip !== null))
+    )
   },
   unmounted() {
   },

@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     tagImage(tag) {
-      return `src/assets/fonts/airbnb-label-imgs/${tag.replace(' & ', '-').replace(' ', '-').toLowerCase()}.jpg`
+      return `${import.meta.env.BASE_URL}images/airbnb-label-imgs/${tag.replace(' & ', '-').replace(' ', '-').toLowerCase()}.jpg`
     },
     // tagSelect(tag) {
     //   this.$store.dispatch({
