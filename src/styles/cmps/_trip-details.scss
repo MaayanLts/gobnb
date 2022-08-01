@@ -503,8 +503,25 @@
     padding-bottom: 60px;
 }
 
-.code-reservation {
-    color: green;
-    text-decoration: underline;
-    text-decoration-color: green;
+
+.trip-details-holder{
+    .svg-logo{
+        position: relative;
+        top: 0px;
+        right: -685px;
+    }
+}
+.reservation {
+    h2{
+        font-size: 37px;
+        font-family: 'Airbnb-bold';
+
+    }
+    .code-holder {
+        font-size: 20px;
+
+        .code-reservation {
+            font-size: 25px;
+        }
+    }
 }
