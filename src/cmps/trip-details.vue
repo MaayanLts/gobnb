@@ -329,6 +329,7 @@ export default {
 
         stayId: this.stay._id,
         hostId: this.stay.host._id,
+        gustId: this.logedUser._id,
         stayPreviewImg: this.stay.imgUrls[0],
         orderDate: new Date(),
         dates: this.dates,
@@ -341,16 +342,13 @@ export default {
         },
         destination: { country: this.stay.address.country },
         mainGuest: {
-          _id: this.$store.getters.loggedinUser._id,
-          fullName: this.$store.getters.loggedinUser.username,
+          // _id: this.$store.getters.loggedinUser._id,
+          // fullName: this.$store.getters.loggedinUser.username,
           imgUrl: "https://randomuser.me/api/portraits/men/32.jpg"
         },
         orderStatus: "pending"
       }
-      this.$store.commit({
-        type: "reserve",
-        trip,
-      })
+
 
       this.$store.dispatch({
         type: "saveOrder",
@@ -476,7 +474,7 @@ export default {
     this.infants = this.trip.guests.infants
     this.reservationCode = makeId(9)
     this.pets = this.trip.guests.pets
-    this.logedUser = this.$store.getters.getLoggedUser
+    this.logedUser = this.$store.getters.loggedinUser
     console.log('logedUser:', this.logedUser)
   },
 }

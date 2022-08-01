@@ -47,9 +47,9 @@ export default {
 			}
 		},
 
-		async getOrderById(context, {orderId}) {
+		async getOrderByGustId(context, {orderId}) {
 			try {
-				return await orderService.getOrderById(orderId)
+				return await orderService.getOrderByGustId(orderId)
 			} catch (err) {
 				4
 				console.log(err)

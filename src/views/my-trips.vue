@@ -1,11 +1,12 @@
 <template>
-    <div>Trips</div>
-    <div>Upcoming reservations</div>
-    <section class="stay-list" v-for="trip in myTrips" :key="trip._id" > 
-        <div class="graph-holder">
-            <div style="width: 300px"><img :src="stayPreviewImage(trip)" style="width: 100%" /></div>
-        </div>
-    </section> 
+  <div>Trips</div>
+  <div>Upcoming reservations</div>
+  <section class="stay-list" v-for="trip in myTrips" :key="trip._id">
+    <div class="graph-holder">
+      <div style="width: 300px"><img :src="stayPreviewImage(trip)"
+          style="width: 100%" /></div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -22,12 +23,12 @@ export default {
     stayPreview,
   },
   created() {
-        this.$store.commit('loadMyTrips')
-        this.myTrips = this.$store.getters.myTrips //orders for specific user
+    this.$store.commit('loadMyTrips')
+    this.myTrips = this.$store.getters.myTrips //orders for specific user
   },
   methods: {
-    stayPreviewImage(trip){
-        return `${import.meta.env.BASE_URL}images/${trip.stayPreviewImg}`
+    stayPreviewImage(trip) {
+      return `${import.meta.env.BASE_URL}images/${trip.stayPreviewImg}`
     }
   },
 }
