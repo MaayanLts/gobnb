@@ -111,7 +111,7 @@
           </div>
         </Transition>
         <div class="action-search clickable" @click="setFilterBy">
-          <img class="search-icon" src="/src/assets/logo/serch_icon.png"
+          <img class="search-icon" src=@/assets/logo/serch_icon.png
             alt="" />
           <span>Search</span>
         </div>
@@ -139,7 +139,7 @@ export default {
     }
   },
   created() {
-    this.trip = this.$store.getters.getTrip
+    this.trip = this.$store.getters.currentTrip
     this.dates = this.trip.dates
     this.adults = this.trip.guests.adults
     this.children = this.trip.guests.children
@@ -183,7 +183,7 @@ export default {
       })
 
       const trip = {
-        stayIddest: { country: this.filterBy.country },
+        destination: { country: this.filterBy.country },
         dates: this.dates,
         guests: {
           adults: this.adults,
@@ -193,7 +193,7 @@ export default {
         }
       }
       this.$store.commit({
-        type: "reserve",
+        type: "saveCurrentTrip",
         trip,
       })
     },

@@ -62,12 +62,13 @@
           </div>
           <div class="user-section center">
             <img class="globe-icon clickable"
-              src="/src/assets/logo/globe-icon-header Airbnb-5.svg" alt="">
+              src=@/assets/logo/globe-icon-header.svg alt="">
+              <!-- src="@/assets/logo/globe-icon-header Airbnb-5.svg" alt=""> -->
           </div>
           <div class="user-section user-btn" @click.stop="setLogin">
             <img class="burger-icon clickable"
-              src="/src/assets/logo/Hamburger_icon.svg" alt="">
-            <img class="user-img clickable" src="/src/assets/logo/user.jpg"
+              src=@/assets/logo/Hamburger_icon.svg alt="">
+            <img class="user-img clickable" src=@/assets/logo/user.jpg
               alt="">
           </div>
         </div>
@@ -135,19 +136,19 @@ export default {
       }
     },
     locationFilter() {
-      this.trip = this.$store.getters.getTrip
+      this.trip = this.$store.getters.currentTrip
       let location = 'Anywhere'
-      if (this.trip.stayIddest && this.trip.stayIddest.country)
+      if (this.trip && this.trip.destination && this.trip.destination.country)
       {
-        location = this.trip.stayIddest.country
+        location = this.trip.destination.country
       }
 
       return location
     },
     datesFilter() {
-      this.trip = this.$store.getters.getTrip
+      this.trip = this.$store.getters.currentTrip
       let dates = 'Any week'
-      if (this.trip.dates)
+      if (this.trip && this.trip.dates)
       {
         //dates = `${(new Date(this.trip.dates[0])).getDate()} - ${(new Date(this.trip.dates[1])).getMonth()}`
       }
@@ -172,7 +173,7 @@ export default {
 
   },
   created() {
-    this.trip = this.$store.getters.getTrip
+    this.trip = this.$store.getters.currentTrip
   },
 }
 </script>
