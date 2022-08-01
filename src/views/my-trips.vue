@@ -2,8 +2,8 @@
   <div class="main-layout">
     <h2 style="marging-bottom: 15px">Trips</h2>
     <span style="marging-bottom: 15px; font-size: 18px">Upcoming reservations</span>
-
-    <section class="stay-list" v-for="trip in myTrips" :key="trip._id" >  
+  
+    <!-- <section class="stay-list" v-for="trip in myTrips" :key="trip._id" >   -->
         <div class="graph-holder">
             <div style="width: 300px; height: 500px;">
             <img :src="stayPreviewImage(trip)" style="width: 100%" />
@@ -24,7 +24,7 @@
           </div>
           </div>
         </div>
-    </section>
+    <!-- </section> -->
 
   </div>  
 </template>
