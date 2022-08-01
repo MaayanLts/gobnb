@@ -1,5 +1,5 @@
-<template v-if="orders">
-    <div class="main-layout">
+<template>
+    <div class="main-layout " v-if="orders">
         <div class="backoffice">
             <div class="items-area">
 
@@ -291,7 +291,9 @@ export default {
             return { labels, datasets: [{ data, backgroundColor: ["gray"] }] }
         },
     },
-
+    onMounted() {
+        this.$store.dispatch('loadOrders')
+    },
     methods: {
         recentOrderDate(dates) {
             order.orderStatus === 'pending'

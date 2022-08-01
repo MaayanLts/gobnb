@@ -304,6 +304,8 @@ export default {
   data() {
     return {
       reservationCode: null,
+      logedUser: null,
+
       show: false,
       trip: null,
       dates: null,
@@ -322,10 +324,11 @@ export default {
   },
   methods: {
     reserve() {
+
       const trip = {
-        _id: '',
+
         stayId: this.stay._id,
-        hostId: 2,//this.stay.host._id,
+        hostId: this.stay.host._id,
         stayPreviewImg: this.stay.imgUrls[0],
         orderDate: new Date(),
         dates: this.dates,
@@ -338,8 +341,8 @@ export default {
         },
         destination: { country: this.stay.address.country },
         mainGuest: {
-          _id: 1,//this.$store.getters.loggedinUser._id,
-          fullName: 'David Schwimmer',//this.$store.getters.loggedinUser._id,
+          _id: this.$store.getters.loggedinUser._id,
+          fullName: this.$store.getters.loggedinUser.username,
           imgUrl: "https://randomuser.me/api/portraits/men/32.jpg"
         },
         orderStatus: "pending"
@@ -349,7 +352,7 @@ export default {
         trip,
       })
 
-      this.$store.commit({
+      this.$store.dispatch({
         type: "saveOrder",
         trip,
       })
@@ -366,7 +369,8 @@ export default {
       --this[guests]
     },
     setDates() {
-      if (!this.trip || !this.trip.dates || this.trip.dates.length === 0) {
+      if (!this.trip || !this.trip.dates || this.trip.dates.length === 0)
+      {
         let dateFrom = new Date()
         let dateTo = new Date()
 
@@ -472,6 +476,8 @@ export default {
     this.infants = this.trip.guests.infants
     this.reservationCode = makeId(9)
     this.pets = this.trip.guests.pets
+    this.logedUser = this.$store.getters.getLoggedUser
+    console.log('logedUser:', this.logedUser)
   },
 }
 </script>

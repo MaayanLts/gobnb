@@ -70,7 +70,9 @@ export default {
 			}
 		},
 
-		async saveOrder(context, {order}) {
+		async saveOrder(context, {trip}) {
+			console.log('trip:', trip)
+			const order = trip
 			try {
 				const isEdit = !!order._id
 				const savedOrder = await orderService.saveOrder(order)
