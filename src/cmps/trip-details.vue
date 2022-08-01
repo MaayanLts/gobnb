@@ -14,13 +14,15 @@
           <div @click="onOpenDateFrom" class="date-details-cell">
             <span class="check">Check in</span>
             <!-- < class="picker-date from"></ -->
-            <el-date-picker class="picker-date from" v-model="dates" type="daterange" start-placeholder="Check in" />
+            <el-date-picker class="picker-date from" v-model="dates"
+              type="daterange" start-placeholder="Check in" />
           </div>
 
           <div @click="onOpenDateTo" class="date-details-cell">
             <span class="check">Check out</span>
 
-            <el-date-picker @click="show = true" class="picker-date to bold-trip" v-model="dates" type="daterange"
+            <el-date-picker @click="show = true"
+              class="picker-date to bold-trip" v-model="dates" type="daterange"
               end-placeholder="Check out" />
           </div>
         </div>
@@ -29,8 +31,8 @@
             <span class="check">GUESTS</span>
             <span class="bold-trip">{{ hm }}</span>
           </div>
-          <div @click="dropOpen = !dropOpen" class="btn-arrow-details"><img class="icon-arrow"
-              src="../assets/logo/down-arrow.png" alt="">
+          <div @click="dropOpen = !dropOpen" class="btn-arrow-details"><img
+              class="icon-arrow" src="../assets/logo/down-arrow.png" alt="">
           </div>
         </div>
         <Transition name="fullSearch">
@@ -58,7 +60,8 @@
                     <span class="search-area-text-light"> Ages 2–12</span>
                   </div>
                   <div class="input-num">
-                    <button @click="decGust('children')" class="inc-btn">-</button>
+                    <button @click="decGust('children')"
+                      class="inc-btn">-</button>
                     <span>
                       {{ children }}
                     </span>
@@ -75,7 +78,8 @@
                     <span class="search-area-text-light"> Under 2</span>
                   </div>
                   <div class="input-num">
-                    <button @click="decGust('infants')" class="inc-btn">-</button>
+                    <button @click="decGust('infants')"
+                      class="inc-btn">-</button>
                     <span>
                       {{ infants }}
                     </span>
@@ -345,8 +349,8 @@ export default {
         },
         destination: { country: this.stay.address.country },
         mainGuest: {
-          // _id: this.$store.getters.loggedinUser._id,
-          // fullName: this.$store.getters.loggedinUser.username,
+          _id: this.$store.getters.loggedinUser._id,
+          fullName: this.$store.getters.loggedinUser.fullname,
           imgUrl: "https://randomuser.me/api/portraits/men/32.jpg"
         },
         orderStatus: "pending"
