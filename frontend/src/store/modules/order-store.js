@@ -1,4 +1,5 @@
 import { orderService } from '../../services/order.service.js'
+import { userService } from '../../services/user.service.js'
 
 export default {
 	state: {
@@ -11,7 +12,13 @@ export default {
 	},
 	mutations: {
 		loadOrders(state) {
-			state.orders = orderService.query()
+			state.orders = orderService.query(this.currentUserId)
+		},
+		saveOrder(state, {trip}){
+			trip.mainGuest._id = this.currentUser._id
+			trip.mainGuest.fullName = this.currentUser.name
+			state.orders.push(trip)
+			orderService.save(state.orders)
 		},
 		// approveOrder(state, { orderId }){
 		// 	let order = state.orders.find(order => order._id === orderId)

@@ -135,19 +135,19 @@ export default {
       }
     },
     locationFilter() {
-      this.trip = this.$store.getters.getTrip
+      this.trip = this.$store.getters.currentTrip
       let location = 'Anywhere'
-      if (this.trip.stayIddest && this.trip.stayIddest.country)
+      if (this.trip && this.trip.destination && this.trip.destination.country)
       {
-        location = this.trip.stayIddest.country
+        location = this.trip.destination.country
       }
 
       return location
     },
     datesFilter() {
-      this.trip = this.$store.getters.getTrip
+      this.trip = this.$store.getters.currentTrip
       let dates = 'Any week'
-      if (this.trip.dates)
+      if (this.trip && this.trip.dates)
       {
         //dates = `${(new Date(this.trip.dates[0])).getDate()} - ${(new Date(this.trip.dates[1])).getMonth()}`
       }
@@ -172,7 +172,7 @@ export default {
 
   },
   created() {
-    this.trip = this.$store.getters.getTrip
+    this.trip = this.$store.getters.currentTrip
   },
 }
 </script>

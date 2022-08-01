@@ -296,7 +296,7 @@ export default {
 
 
       const trip = {
-        stayIddest: { country: this.stay.address.country },
+        destination: { country: this.stay.address.country },
         dates: this.dates,
         guests: {
           adults: this.adults,
@@ -361,7 +361,7 @@ export default {
     }
   },
   created() {
-    this.trip = this.$store.getters.getTrip
+    this.trip = this.$store.getters.currentTrip
     this.dates = this.trip.dates
     let date_1 = ''
     let date_2 = ''

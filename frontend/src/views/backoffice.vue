@@ -3,7 +3,7 @@
     <div class="backoffice">
         <div class="items-area">
 
-            <div class="graph-holder">
+            <div class="graph-holder" style="display: none;">
                 <div class="card-title">
                     <span class="pr-5 pl-5">★ 4.9</span>
                     <span class="pr-5 pl-5"> • </span>{{ 37 }} reviews 
@@ -75,7 +75,7 @@
                 </div>
             </div> 
 
-            <div class="graph-holder" style="margin-right: 30px;margin-left: 30px;"> 
+            <div class="graph-holder" style="margin-right: 30px;margin-left: 30px;display: none;"> 
                 <div class="card-title">
                     <span>Plaça del Mar 1, Barcelona</span>
                 </div>
@@ -84,7 +84,7 @@
                 </div>
                     <!-- <DoughnutChart :chartData="scoreData" :options="scoreOptions" class="scores-chart"/> -->
             </div> 
-            <div class="graph-holder">
+            <div class="graph-holder" style="display: none;">
                     <div class="card-title">
                         <span>Pla de Palau 19, Barcelona</span>
                     </div>

@@ -323,19 +323,34 @@ export default {
   methods: {
     reserve() {
       const trip = {
-        stayIddest: { country: this.stay.address.country },
+        _id: '',
+        stayId: this.stay._id,
+        stayPreviewImg: this.stay.imgUrls[0],
+        orderDate: new Date(),
         dates: this.dates,
+        price: this.tripTotalPrice,
         guests: {
           adults: this.adults,
           children: this.children,
           infants: this.infants,
           pets: this.pets
-        }
+        },
+        destination: { country: this.stay.address.country },
+        mainGuest:{
+          _id: '',
+          fullName: '',
+        },
+        orderStatus: "pending"
       }
       this.$store.commit({
-        type: "reserve",
+        type: "reserve", 
         trip,
       })
+
+      // this.$store.commit({
+      //   type: "saveOrder", 
+      //   trip,
+      // })
 
       this.dialogVisible = true
     },
@@ -349,7 +364,7 @@ export default {
       --this[guests]
     },
     setDates(){
-      if (!this.trip.dates || this.trip.dates.length === 0){
+      if (!this.trip || !this.trip.dates || this.trip.dates.length === 0){
         let dateFrom = new Date()
         let dateTo =  new Date()
 
@@ -432,7 +447,7 @@ export default {
     }
   },
   created() {
-    this.trip = this.$store.getters.getTrip
+    this.trip = this.$store.getters.currentTrip
     this.setDates()
 
     // let dateTo = ''
