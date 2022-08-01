@@ -27,8 +27,7 @@ export default {
   },
   methods: {
     stayPreviewImage(trip){
-        const img =  'src/images/' + trip.stayPreviewImg
-        return img
+        return `${import.meta.env.BASE_URL}images/${trip.stayPreviewImg}`
     }
   },
 }
