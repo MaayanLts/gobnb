@@ -56,13 +56,11 @@
             <router-link class="host-btn" style="text-decoration: none" :to="hostLink">{{ switchToText }}</router-link>
           </div>
           <div class="user-section center">
-            <img class="globe-icon clickable" src=@/assets/logo/globe-icon-header.svg alt="">
+            <img class="globe-icon clickable" src=src/assets/logo/globe-icon-header.svg alt="">
           </div>
 
           <div class="user-section user-btn" @click.stop="setLogin">
             <img class="burger-icon clickable" src=@/assets/logo/Hamburger_icon.svg alt="">
-            <!-- <img class="user-img clickable" src=@/assets/logo/user.jpg alt=""> -->
-            <!-- <img class="burger-icon clickable" src=@/assets/logo/Hamburger_icon.svg alt=""> -->
             <img class="user-img clickable" src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
           </div>
         </div>
