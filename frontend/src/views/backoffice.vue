@@ -105,11 +105,11 @@
             <el-table-column prop="dates" label="Check in/Check out" width="180" :formatter="formatter"></el-table-column>
             <el-table-column prop="dates" label="Nights" width="67" :formatter="formatter"></el-table-column>
             <el-table-column prop="price" header-align="center" label="Price" width="90" :formatter="formatter"></el-table-column>
-            <el-table-column prop="destination.address" label="Stay"  @click="showStay" header-align="center">
+            <!-- <el-table-column prop="destination.address" label="Stay"  @click="showStay" header-align="center">
                 <template v-slot="scope">
                     <div class="address" @click="showStay(scope.row.stayId)">{{ scope.row.destination.address }}</div>  
                 </template>
-            </el-table-column>
+            </el-table-column> -->
             <el-table-column prop="mainGuest.fullName"  header-align="center" label="Main guest" width="230">
                 <template v-slot="scope">
                     <div class="main-guest-container">
@@ -228,11 +228,13 @@
         this.$store.commit('loadOrders')
         this.orders = this.$store.getters.orders
         this.oldOrders = this.orders.filter(function (order) {
-            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay > 1
+            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay > 1 && order.orderStatus !== 'pending'
         })
         this.recentOrders = this.orders.filter(function (order) {
-            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay <=1
-        })
+            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay <=1 || order.orderStatus === 'pending'
+        }).sort(function(a,b){
+            return new Date(b.orderDate) - new Date(a.orderDate);
+        });
 
        // const dataSet = this.orders
         console.log(this.scoreData.datasets[0])
@@ -253,7 +255,7 @@
     },
     methods: {
         recentOrderDate(dates){
-order.orderStatus  === 'pending'
+            order.orderStatus  === 'pending'
         },
         style(rev) {
             const width = 20*rev
@@ -279,7 +281,10 @@ order.orderStatus  === 'pending'
                 bookedInterval = Math.round(interval/oneHour)
                 if(bookedInterval === 0){
                     bookedInterval = Math.round(interval/oneMinute)
-                    formatedData = `${bookedInterval} minutes ago`
+                    if(bookedInterval > 0)
+                        formatedData = `${bookedInterval} minutes ago`
+                    else
+                        formatedData = 'new order'    
                 }else{
                     formatedData = `${bookedInterval} hours ago`
                 }
@@ -329,22 +334,26 @@ order.orderStatus  === 'pending'
         this.$store.commit({type: "changeOrderOrder", orderId: row._id, status: 'approved' })
         this.orders = this.$store.getters.orders
         this.oldOrders = this.orders.filter(function (order) {
-            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay > 1
+            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay > 1 && order.orderStatus !== 'pending'
         })
         this.recentOrders = this.orders.filter(function (order) {
-            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay <=1
-        })
+            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay <=1 || order.orderStatus === 'pending'
+        }).sort(function(a,b){
+            return new Date(b.orderDate) - new Date(a.orderDate);
+        });
       },
       handleDecline(index, row) {
         this.$store.commit({type: "changeOrderOrder", orderId: row._id, status: 'declined'})
 
         this.orders = this.$store.getters.orders
         this.oldOrders = this.orders.filter(function (order) {
-            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay > 1
+            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay > 1 && order.orderStatus !== 'pending'
         })
         this.recentOrders = this.orders.filter(function (order) {
-            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay <=1
-        })
+            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay <=1 || order.orderStatus === 'pending'
+        }).sort(function(a,b){
+            return new Date(b.orderDate) - new Date(a.orderDate);
+        });
       },
       statusLable(row){
         let lableType = ''

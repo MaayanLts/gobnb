@@ -1,9 +1,9 @@
 import { orderService } from '../../services/order.service.js'
-import { userService } from '../../services/user.service.js'
 
 export default {
 	state: {
 		orders: null,
+		currentUserId: 2, //hostUser - Does't matter right now All orders is belong to one user
 	},
 	getters: {
 		orders(state) {
@@ -13,10 +13,13 @@ export default {
 	mutations: {
 		loadOrders(state) {
 			state.orders = orderService.query(this.currentUserId)
+			//.filter(orders => orders.hostId === userId)
 		},
+
 		saveOrder(state, {trip}){
-			trip.mainGuest._id = this.currentUser._id
-			trip.mainGuest.fullName = this.currentUser.name
+			if(!state.orders){
+				state.orders = orderService.query(this.currentUserId) //For local storage I need all orders
+			}
 			state.orders.push(trip)
 			orderService.save(state.orders)
 		},
@@ -38,7 +41,6 @@ export default {
 
 			orderService.save(state.orders)
 		},
-		
 	},
 
 	modules: {},

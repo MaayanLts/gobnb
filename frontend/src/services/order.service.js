@@ -7,7 +7,7 @@ export const orderService = {
 
 const entityType = 'orders'
 
-function query() {
+function query(userId) {
 	let orders = JSON.parse(localStorage.getItem(entityType))
 	if (!orders) orders = _getOrdersFromJson()
 

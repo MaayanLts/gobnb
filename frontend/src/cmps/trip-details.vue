@@ -325,6 +325,7 @@ export default {
       const trip = {
         _id: '',
         stayId: this.stay._id,
+        hostId: 2,//this.stay.host._id,
         stayPreviewImg: this.stay.imgUrls[0],
         orderDate: new Date(),
         dates: this.dates,
@@ -337,8 +338,9 @@ export default {
         },
         destination: { country: this.stay.address.country },
         mainGuest:{
-          _id: '',
-          fullName: '',
+          _id: 1,//this.$store.getters.loggedinUser._id,
+          fullName: 'David Schwimmer',//this.$store.getters.loggedinUser._id,
+          imgUrl: "https://randomuser.me/api/portraits/men/32.jpg"
         },
         orderStatus: "pending"
       }
@@ -347,10 +349,10 @@ export default {
         trip,
       })
 
-      // this.$store.commit({
-      //   type: "saveOrder", 
-      //   trip,
-      // })
+      this.$store.commit({
+         type: "saveOrder", 
+         trip,
+      })
 
       this.dialogVisible = true
     },
