@@ -8,14 +8,14 @@ export default {
 		country: '',
 	},
 	getters: {
-		getOrders(state) {
+		getOrdersss(state) {
 			return state.orders
 		},
 	},
 	mutations: {
 		setOrders(state, {orders}) {
-			console.log('orders:', orders)
 			state.orders = orders
+			console.log('state.orders:', state.orders)
 		},
 
 		removeOrder(state, {orderId}) {
@@ -39,7 +39,6 @@ export default {
 			try {
 				var filterBy = context.state.filterBy ? context.state.filterBy : ''
 				const orders = await orderService.query(filterBy)
-				console.log('orders:', orders)
 				context.commit({type: 'setOrders', orders})
 
 				return orders

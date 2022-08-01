@@ -1,4 +1,4 @@
-<template>
+<template v-if="orders">
     <div class="main-layout">
         <div class="backoffice">
             <div class="items-area">
@@ -262,8 +262,9 @@ export default {
         //const interval = (new Date().getTime() - new Date(row.orderDate).getTime())
         //let bookedInterval = Math.round(interval/oneDay)
 
-        this.$store.commit('loadOrders')
-        this.orders = this.$store.getters.orders
+        this.orders = this.$store.getters.getOrdersss
+        console.log('this.orders:', this.orders)
+
         this.oldOrders = this.orders.filter(function (order) {
             return (new Date().getTime() - new Date(order.orderDate).getTime()) / oneDay > 1 && order.orderStatus !== 'pending'
         })
@@ -273,7 +274,7 @@ export default {
             return new Date(b.orderDate) - new Date(a.orderDate);
         });
 
-        // const dataSet = this.orders
+        const dataSet = this.orders
         console.log(this.scoreData.datasets[0])
     },
     computed: {
@@ -290,6 +291,7 @@ export default {
             return { labels, datasets: [{ data, backgroundColor: ["gray"] }] }
         },
     },
+
     methods: {
         recentOrderDate(dates) {
             order.orderStatus === 'pending'
