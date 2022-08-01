@@ -7,6 +7,8 @@
     <div>
 
       <div class="header">
+        <router-link class="main-header-logo" style="text-decoration: none" to="/" />
+        <router-link to="/login">!</router-link>
         <router-link class="main-header-logo" style="text-decoration: none" to="/">
           <svg class="svg-logo">
             <path
@@ -59,6 +61,8 @@
           <div class="user-section user-btn" @click.stop="setLogin">
             <img class="burger-icon clickable" src=@/assets/logo/Hamburger_icon.svg alt="">
             <img class="user-img clickable" src=@/assets/logo/user.jpg alt="">
+            <img class="burger-icon clickable" src=@/assets/logo/Hamburger_icon.svg alt="">
+            <img class="user-img clickable" src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
           </div>
         </div>
       </div>
@@ -122,18 +126,21 @@ export default {
       }
     },
     locationFilter() {
-      this.trip = this.$store.getters.getTrip
+      this.trip = this.$store.getters.currentTrip
       let location = 'Anywhere'
       if (this.trip.stayIddest && this.trip.stayIddest.country) {
         location = this.trip.stayIddest.country
-      }
+        if (this.trip && this.trip.destination && this.trip.destination.country) {
+          location = this.trip.destination.country
+        }
 
-      return location
+        return location
+      }
     },
     datesFilter() {
-      this.trip = this.$store.getters.getTrip
+      this.trip = this.$store.getters.currentTrip
       let dates = 'Any week'
-      if (this.trip.dates) {
+      if (this.trip && this.trip.dates) {
         //dates = `${(new Date(this.trip.dates[0])).getDate()} - ${(new Date(this.trip.dates[1])).getMonth()}`
       }
       return dates
@@ -157,7 +164,7 @@ export default {
 
   },
   created() {
-    this.trip = this.$store.getters.getTrip
+    this.trip = this.$store.getters.currentTrip
   },
 }
 </script>

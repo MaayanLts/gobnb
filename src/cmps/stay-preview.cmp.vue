@@ -46,9 +46,10 @@ export default {
   props: {
     stay: {
       type: Object,
-      required: true,
     },
-
+  //  stayId: {
+    //  type: String,
+  //  }
   },
   data() {
     return {
@@ -105,7 +106,7 @@ export default {
   },
   created() {
     this.filterBy = this.$store.getters.filterBy
-    this.trip = this.$store.getters.getTrip
+    this.trip = this.$store.getters.currentTrip
     this.isFiltered = (((this.filterBy !== undefined) && (this.filterBy !== null)) ||
       ((this.trip !== undefined) && (this.trip !== null))
     )
