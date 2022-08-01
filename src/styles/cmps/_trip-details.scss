@@ -462,8 +462,28 @@
 
 .host-info-modal-container {
     // border: 1px solid rgb(181, 79, 79);
+    margin-top: 70px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: flex-end;
+
+    img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+
+    .img-txt-holder-left-bar {
+        width: 50%;
+        padding-left: 30px;
+
+
+    }
+
+    .info-reservation-right-bar{
+        width: 50%;
+        padding-right: 30px;
+    }
 }
 
 .reservation {
@@ -472,14 +492,6 @@
     align-items: center;
     justify-content: center;
     // height: 800px;
-
-}
-
-.host-info-modal-container>img:nth-child(1) {
-    width: 120px;
-    // max-height: 320px;
-    border-radius: 50%;
-    margin-bottom: 30px;
 
 }
 
@@ -504,21 +516,24 @@
 }
 
 
-.trip-details-holder{
-    .svg-logo{
+.trip-details-holder {
+    .svg-logo {
         position: relative;
         top: 0px;
         right: -685px;
     }
 }
+
 .reservation {
-    h2{
+    h2 {
         font-size: 37px;
         font-family: 'Airbnb-bold';
 
     }
+
     .code-holder {
         font-size: 20px;
+        margin-top: 0;
 
         .code-reservation {
             font-size: 25px;

@@ -245,23 +245,24 @@
         <div class="reservation">
           <h2>You're going to {{ stay.address.city }}!</h2>
           <!-- <div class="txt-holder"> </div> -->
-          <h3 class="code-holder">Reservation Code: <span
-              class="code-reservation"> {{ reservationCode }}</span></h3>
+          <h3 class="code-holder">Reservation Code: <span class="code-reservation"> {{ reservationCode }}</span></h3>
 
 
           <div class="host-info-modal-container">
-            <img :src="stay.host.pictureUrl" alt="" srcset="">
-            <span class="host-reservation">your host {{ stay.host.fullname
-            }}</span>
+            <div class="img-txt-holder-left-bar">
+              <img :src="stay.host.pictureUrl" alt="" srcset="">
+              <span class="host-reservation">your host is {{ stay.host.fullname }}</span>
+            </div>
+            <span class="info-reservation-right-bar"> Thank you so much for choosing to stay
+              with us! We’ll send you
+              more information about check-in when your reservation date is
+              sooner.
+              In the meantime, if you feel like you have any questions or
+              concerns,
+              feel free to let us know, and we will do our best to accommodate
+              you.</span>
+
           </div>
-          <span class="info-reservation"> Thank you so much for choosing to stay
-            with us! We’ll send you
-            more information about check-in when your reservation date is
-            sooner.
-            In the meantime, if you feel like you have any questions or
-            concerns,
-            feel free to let us know, and we will do our best to accommodate
-            you.</span>
 
         </div>
         <template #footer>
@@ -332,8 +333,8 @@ export default {
     reserve() {
 
       const trip = {
-
-        stayId: this.stay._id,
+        stayId: '622f337b75c7d36e498aab74',
+        hostId: this.stay.host._id,
         hostId: this.stay.host._id,
         gustId: this.logedUser._id,
         stayPreviewImg: this.stay.imgUrls[0],
@@ -373,8 +374,7 @@ export default {
       --this[guests]
     },
     setDates() {
-      if (!this.trip || !this.trip.dates || this.trip.dates.length === 0)
-      {
+      if (!this.trip || !this.trip.dates || this.trip.dates.length === 0) {
         let dateFrom = new Date()
         let dateTo = new Date()
 
