@@ -97,20 +97,29 @@
 
         <div class="el-table-container small" v-if="recentOrders.length > 0">
             <div class="details-title small">Recent ordes</div>
+
+
             <el-table header-align="center" class="table-recent"
             ref="filterTable"
-            :data="recentOrders"
-            style="width: 100%" :header-cell-style="{ color: 'white' }">
-            <el-table-column prop="orderDate" label="Booked" width="110" :formatter="formatter" header-align="center"></el-table-column>
-            <el-table-column prop="dates" label="Check in/Check out" width="180" :formatter="formatter"></el-table-column>
-            <el-table-column prop="dates" label="Nights" width="67" :formatter="formatter"></el-table-column>
-            <el-table-column prop="price" header-align="center" label="Price" width="90" :formatter="formatter"></el-table-column>
+            :data="recentOrders" fit
+            :header-cell-style="{ background: '#DDDDDD' }">
+            <el-table-column prop="orderDate" label="Booked" width="110" :formatter="formatter" header-align="center">
+                <!-- <template v-slot="scope">
+                    <div>
+                        <div :style="orderColor(scope.row.orderDate)">{{ scope.row.mainGuest.fullName }}</div> 
+                    </div>
+                </template> -->
+            </el-table-column>
+            <el-table-column prop="dates" label="Check in/Check out" :min-width="180" :formatter="formatter"></el-table-column>
+            <el-table-column prop="dates" label="Nights" :min-width="67" :formatter="formatter">
+            </el-table-column>
+            <el-table-column prop="price" header-align="center" label="Price" :min-width="90" :formatter="formatter"></el-table-column>
             <!-- <el-table-column prop="destination.address" label="Stay"  @click="showStay" header-align="center">
                 <template v-slot="scope">
                     <div class="address" @click="showStay(scope.row.stayId)">{{ scope.row.destination.address }}</div>  
                 </template>
             </el-table-column> -->
-            <el-table-column prop="mainGuest.fullName"  header-align="center" label="Main guest" width="230">
+            <el-table-column prop="mainGuest.fullName"  header-align="center" label="Main guest" :min-width="230">
                 <template v-slot="scope">
                     <div class="main-guest-container">
                         <img class="main-guest-img" :src="scope.row.mainGuest.imgUrl"> 
@@ -118,8 +127,8 @@
                     </div>
                 </template>
             </el-table-column>
-            <el-table-column prop="guests.adults" width="75" label="Guests" :formatter="formatter"/>
-            <el-table-column prop="orderStatus" label="Status" header-align="center" width="360"  >
+            <el-table-column prop="guests.adults" :min-width="75" label="Guests" :formatter="formatter"/>
+            <el-table-column prop="orderStatus" label="Status" header-align="center" :min-width="360"  >
                 <template v-slot="scope">
                     <div class="buttons-container">
                         <el-tag class="el-tag-status" round
@@ -133,6 +142,7 @@
                 </template>
             </el-table-column>
             </el-table>
+
         </div>
 
         
@@ -281,9 +291,9 @@
                 bookedInterval = Math.round(interval/oneHour)
                 if(bookedInterval === 0){
                     bookedInterval = Math.round(interval/oneMinute)
-                    if(bookedInterval > 0)
-                        formatedData = `${bookedInterval} minutes ago`
-                    else
+                   // if(bookedInterval > 10)
+                       // formatedData = `${bookedInterval} minutes ago`
+                   // else
                         formatedData = 'new order'    
                 }else{
                     formatedData = `${bookedInterval} hours ago`
