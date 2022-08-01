@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     stayPreviewImage(trip) {
-      return `${import.meta.env.BASE_URL}images/${trip.stayPreviewImg}`
+      return `${import.meta.env.BASE_URL}images/porto-100.jpeg`
     }
   },
 }
