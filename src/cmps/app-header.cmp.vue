@@ -7,8 +7,8 @@
     <div>
 
       <div class="header">
-        <router-link class="main-header-logo" style="text-decoration: none"
-          to="/" />
+        <!-- <router-link class="main-header-logo" style="text-decoration: none" to="/" /> -->
+        <!-- <router-link to="/login"></router-link> -->
         <router-link class="main-header-logo" style="text-decoration: none"
           to="/">
           <svg class="svg-logo">
@@ -63,12 +63,10 @@
           </div>
           <div class="user-section center">
             <img class="globe-icon clickable"
-              src=@/assets/logo/globe-icon-header.svg alt="">
+              src=src/assets/logo/globe-icon-header.svg alt="">
           </div>
+
           <div class="user-section user-btn" @click.stop="setLogin">
-            <img class="burger-icon clickable"
-              src=@/assets/logo/Hamburger_icon.svg alt="">
-            <img class="user-img clickable" src=@/assets/logo/user.jpg alt="">
             <img class="burger-icon clickable"
               src=@/assets/logo/Hamburger_icon.svg alt="">
             <img class="user-img clickable"
