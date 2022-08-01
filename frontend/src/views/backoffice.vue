@@ -94,13 +94,12 @@
                 <!-- <BarChart class="revenue-chart" :chartData="ordersData" /> -->
             </div>  
         </div>
-        
-        <div class="details-title small">New ordes</div>
-        <div class="el-table-container small" v-if="pendingOrders.length > 0">
-            
-            <el-table header-align="center"
+
+        <div class="el-table-container small" v-if="recentOrders.length > 0">
+            <div class="details-title small">Recent ordes</div>
+            <el-table header-align="center" class="table-recent"
             ref="filterTable"
-            :data="pendingOrders"
+            :data="recentOrders"
             style="width: 100%" :header-cell-style="{ color: 'white' }">
             <el-table-column prop="orderDate" label="Booked" width="110" :formatter="formatter" header-align="center"></el-table-column>
             <el-table-column prop="dates" label="Check in/Check out" width="180" :formatter="formatter"></el-table-column>
@@ -126,9 +125,9 @@
                         <el-tag class="el-tag-status" round
                         :type="statusLable(scope.row)"
                         disable-transitions>{{scope.row.orderStatus}}</el-tag>
-                        <button class="table-button approve" v-if="scope.row.orderStatus === 'pending'" 
+                        <button class="table-button approve" 
                         @click="handleApprove(scope.$index, scope.row)">Approve</button>
-                        <button class="table-button decline" v-if="scope.row.orderStatus === 'pending'" 
+                        <button class="table-button decline" 
                         @click="handleDecline(scope.$index, scope.row)" >Decline</button> 
                     </div>  
                 </template>
@@ -194,7 +193,7 @@
       return {
         orders: null,
         oldOrders: null,
-        pendingOrders: null,
+        recentOrders: null,
         scoreData: {
             //labels: ["2", "3", "4", "5"],
             datasets: [
@@ -222,10 +221,18 @@
       }
     },
     created() {
+        var oneDay=1000*60*60*24
+        //const interval = (new Date().getTime() - new Date(row.orderDate).getTime())
+        //let bookedInterval = Math.round(interval/oneDay)
+
         this.$store.commit('loadOrders')
         this.orders = this.$store.getters.orders
-        this.oldOrders = this.orders.filter(order => order.orderStatus  !== 'pending')
-        this.pendingOrders = this.orders.filter(order => order.orderStatus  === 'pending')
+        this.oldOrders = this.orders.filter(function (order) {
+            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay > 1
+        })
+        this.recentOrders = this.orders.filter(function (order) {
+            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay <=1
+        })
 
        // const dataSet = this.orders
         console.log(this.scoreData.datasets[0])
@@ -245,6 +252,9 @@
     },
     },
     methods: {
+        recentOrderDate(dates){
+order.orderStatus  === 'pending'
+        },
         style(rev) {
             const width = 20*rev
             return 'width:' + width + '%'
@@ -318,15 +328,23 @@
       handleApprove(index, row) {
         this.$store.commit({type: "changeOrderOrder", orderId: row._id, status: 'approved' })
         this.orders = this.$store.getters.orders
-        this.oldOrders = this.orders.filter(order => order.orderStatus  !== 'pending')
-        this.pendingOrders = this.orders.filter(order => order.orderStatus  === 'pending')
+        this.oldOrders = this.orders.filter(function (order) {
+            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay > 1
+        })
+        this.recentOrders = this.orders.filter(function (order) {
+            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay <=1
+        })
       },
       handleDecline(index, row) {
         this.$store.commit({type: "changeOrderOrder", orderId: row._id, status: 'declined'})
 
         this.orders = this.$store.getters.orders
-        this.oldOrders = this.orders.filter(order => order.orderStatus  !== 'pending')
-        this.pendingOrders = this.orders.filter(order => order.orderStatus  === 'pending')
+        this.oldOrders = this.orders.filter(function (order) {
+            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay > 1
+        })
+        this.recentOrders = this.orders.filter(function (order) {
+            return (new Date().getTime() - new Date(order.orderDate).getTime())/oneDay <=1
+        })
       },
       statusLable(row){
         let lableType = ''
