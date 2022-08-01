@@ -6,7 +6,7 @@ const ENDPOINT = 'order'
 async function query(filterBy = {}) {
 	return await httpService.get(ENDPOINT, filterBy)
 }
-async function getOrderById(orderId) {
+async function getOrderByGustId(orderId) {
 	return await httpService.get(`${ENDPOINT}/${orderId}`)
 }
 async function removeOrder(orderId) {
@@ -50,7 +50,7 @@ function getEmptyOrder() {
 }
 export const orderService = {
 	query,
-	getOrderById,
+	getOrderByGustId,
 	getEmptyOrder,
 	removeOrder,
 	saveOrder,

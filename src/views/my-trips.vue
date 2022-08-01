@@ -43,12 +43,12 @@ export default {
     stayPreview,
   },
   created() {
-        this.$store.commit('loadMyTrips')
-        this.myTrips = this.$store.getters.myTrips //orders for specific user
+    this.$store.commit('loadMyTrips')
+    this.myTrips = this.$store.getters.myTrips //orders for specific user
   },
   methods: {
-    stayPreviewImage(trip){
-        return `${import.meta.env.BASE_URL}images/${trip.stayPreviewImg}`
+    stayPreviewImage(trip) {
+      return `${import.meta.env.BASE_URL}images/${trip.stayPreviewImg}`
     }
   },
 }

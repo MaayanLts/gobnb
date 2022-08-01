@@ -19,6 +19,7 @@ export const userStore = {
 			return users
 		},
 		loggedinUser({loggedinUser}) {
+			console.log('loggedinUser:', loggedinUser)
 			return loggedinUser
 		},
 		watchedUser({watchedUser}) {
