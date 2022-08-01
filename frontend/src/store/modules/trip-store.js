@@ -41,9 +41,6 @@ export default {
 			tripService.save(state.trip, 'currentTrip')
 		},
 		reserve(state, {trip}) {
-			trip.mainGuest._id = state.currentUser._id
-			trip.mainGuest.fullName = state.currentUser.name
-
 			state.myTrips = tripService.query('myTrips')
 			if(!state.myTrips)
 				state.myTrips = []

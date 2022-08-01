@@ -20,6 +20,7 @@ function getEmptyTrip() {
 		_id: makeId(),
 		stayId: '',
 		//dates: [new Date(), new Date()],
+		hostId: 0,
 		dates: [],
 		price: 0,
 		guests: {

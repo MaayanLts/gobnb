@@ -68,7 +68,7 @@
           <div class="user-section user-btn" @click.stop="setLogin">
             <img class="burger-icon clickable"
               src=@/assets/logo/Hamburger_icon.svg alt="">
-            <img class="user-img clickable" src=@/assets/logo/user.jpg
+            <img class="user-img clickable" src="https://randomuser.me/api/portraits/men/32.jpg"
               alt="">
           </div>
         </div>
