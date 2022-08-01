@@ -58,6 +58,7 @@ export default {
 			try {
 				var filterBy = context.state.filterBy ? context.state.filterBy : ''
 				const stays = await stayService.query(filterBy)
+				console.log(stays)
 				context.commit({type: 'setStays', stays: stays})
 
 				return stays
