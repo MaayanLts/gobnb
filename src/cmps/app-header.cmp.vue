@@ -139,16 +139,12 @@ export default {
     locationFilter() {
       this.trip = this.$store.getters.currentTrip
       let location = 'Anywhere'
-      if (this.trip.stayIddest && this.trip.stayIddest.country)
+      if (this.trip && this.trip.destination && this.trip.destination.country !== '')
       {
         location = this.trip.stayIddest.country
-        if (this.trip && this.trip.destination && this.trip.destination.country)
-        {
-          location = this.trip.destination.country
-        }
-
-        return location
       }
+
+      return location
     },
     datesFilter() {
       this.trip = this.$store.getters.currentTrip
