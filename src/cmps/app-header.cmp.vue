@@ -8,7 +8,7 @@
 
       <div class="header">
         <router-link class="main-header-logo" style="text-decoration: none" to="/" />
-        <router-link to="/login">!</router-link>
+        <router-link to="/login"></router-link>
         <router-link class="main-header-logo" style="text-decoration: none" to="/">
           <svg class="svg-logo">
             <path
