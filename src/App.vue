@@ -25,18 +25,9 @@ export default {
   },
   created() {
     this.$store.dispatch('loadStays')
-    this.$store.dispatch('loadOrders')
     this.$store.dispatch('loadUsers')
-    this.$store.commit('loadTrip')
-    // window.addEventListener("scroll", this.updatePosition)
   },
-  // destroyed() {
-  //   window.removeEventListener("scroll", this.updatePosition);
-  // },
   methods: {
-    // updatePosition(event){
-    //   this.isStickyStyle = (window.scrollY !== 0)
-    // },
   },
   computed: {
     stickyStyle() {

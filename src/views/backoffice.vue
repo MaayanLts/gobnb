@@ -258,24 +258,7 @@ export default {
         }
     },
     created() {
-        var oneDay = 1000 * 60 * 60 * 24
-        //const interval = (new Date().getTime() - new Date(row.orderDate).getTime())
-        //let bookedInterval = Math.round(interval/oneDay)
-
-        this.orders = this.$store.getters.getOrdersss
-        console.log('this.orders:', this.orders)
-
-        this.oldOrders = this.orders.filter(function (order) {
-            return (new Date().getTime() - new Date(order.orderDate).getTime()) / oneDay > 1 && order.orderStatus !== 'pending'
-        })
-        this.recentOrders = this.orders.filter(function (order) {
-            return (new Date().getTime() - new Date(order.orderDate).getTime()) / oneDay <= 1 || order.orderStatus === 'pending'
-        }).sort(function (a, b) {
-            return new Date(b.orderDate) - new Date(a.orderDate);
-        });
-
-        const dataSet = this.orders
-        console.log(this.scoreData.datasets[0])
+        this.loadOrders() //WHYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY ????????
     },
     computed: {
         ordersData() {
@@ -292,9 +275,26 @@ export default {
         },
     },
     onMounted() {
-        this.$store.dispatch('loadOrders')
+        //this.$store.dispatch('loadOrders')
     },
     methods: {
+        async loadOrders() {
+            var oneDay = 1000 * 60 * 60 * 24
+            this.orders = await this.$store.dispatch('loadOrders')
+
+            this.oldOrders = this.orders.filter(
+                function (order) {
+                    return (new Date().getTime() - new Date(order.orderDate).getTime()) / oneDay > 1 && order.orderStatus !== 'pending'
+                })
+
+            this.recentOrders = this.orders.
+                filter(function (order) {
+                    return (new Date().getTime() - new Date(order.orderDate).getTime()) / oneDay <= 1 || order.orderStatus === 'pending'
+                }).
+                sort(function (a, b) {
+                    return new Date(b.orderDate) - new Date(a.orderDate);
+            });
+        },
         recentOrderDate(dates) {
             order.orderStatus === 'pending'
         },
@@ -352,9 +352,6 @@ export default {
 
                 formatedData = `${from} - ${to}`
             }
-            //    if(column.label === 'Check out')
-            //         formatedData = this.formatedDate(row.dates[1])
-
             if (column.label === 'Nights')
             {
                 const oneDay = 1000 * 60 * 60 * 24;

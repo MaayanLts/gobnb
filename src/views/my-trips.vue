@@ -3,13 +3,11 @@
     <h2 style="marging-bottom: 15px">Trips</h2>
     <span style="marging-bottom: 15px; font-size: 18px">Upcoming reservations</span>
   
-    <!-- <section class="stay-list" v-for="trip in myTrips" :key="trip._id" >   -->
+    <section class="stay-list" v-for="trip in myTrips" :key="trip._id" >   
         <div class="graph-holder">
             <div style="width: 300px; height: 500px;">
             <img :src="stayPreviewImage(trip)" style="width: 100%" />
-            <!-- <img src="../../public/images/001.jpeg" style="width: 100%; border-radius: 20px" /> -->
-
-
+            <!-- <img src="../../public/images/001.jpeg" style="width: 100%; border-radius: 20px" />  -->
             <span style="marging-bottom: 15px; marging-top: 15px; font-size: 18px">Destination</span>
               <div class="stay-preview-info-container">
                 <div class="flex space-between">
@@ -24,7 +22,7 @@
           </div>
           </div>
         </div>
-    <!-- </section> -->
+    </section> 
 
   </div>  
 </template>
@@ -43,12 +41,17 @@ export default {
     stayPreview,
   },
   created() {
-    this.$store.commit('loadMyTrips')
-    this.myTrips = this.$store.getters.myTrips //orders for specific user
+    this.loadTrips()//this.$store.getters.getTrips //orders for specific user //WHYYYYYYYYYYYYYYYYYYYYYY ???
+  },
+  computed:{
+
   },
   methods: {
+    async loadTrips(stayId) {
+        this.myTrips = await this.$store.dispatch('loadTrips')
+    },
     stayPreviewImage(trip) {
-      return `${import.meta.env.BASE_URL}images/porto-100.jpeg`
+      return `${import.meta.env.BASE_URL}images/${trip.stayPreviewImg}`
     }
   },
 }

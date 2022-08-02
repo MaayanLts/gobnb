@@ -166,11 +166,6 @@
                         Show all {{ stay.amenities.length - 7 }} amenities
                     </div>
                 </div>
-
-                <!-- <div class="dates">
-                    <h2>days picker</h2>
-                </div> -->
-
             </section>
             <div class="right-bar">
                 <trip-details :stay="stay" />
