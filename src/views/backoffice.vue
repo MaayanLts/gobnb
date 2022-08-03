@@ -325,10 +325,10 @@ export default {
                     if (bookedInterval === 0)
                     {
                         bookedInterval = Math.round(interval / oneMinute)
-                        // if(bookedInterval > 10)
-                        // formatedData = `${bookedInterval} minutes ago`
-                        // else
-                        formatedData = 'new order'
+                        if(bookedInterval > 10)
+                            formatedData = `${bookedInterval} minutes ago`
+                        else
+                            formatedData = 'new order'
                     } else
                     {
                         formatedData = `${bookedInterval} hours ago`

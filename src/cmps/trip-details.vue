@@ -334,6 +334,9 @@ export default {
       const trip = {
         stayId: this.stay._id,
         hostId: this.stay.host.id, //use "id" instead of mongoDB "_id", this way we will control its value
+        hostName: this.stay.name, 
+        hostedBy: this.stay.host.fullname,
+        hostType: this.stay.propertyType,
         stayPreviewImg: this.stay.imgUrls[0],
         orderDate: new Date(),
         dates: this.trip.dates,
@@ -344,7 +347,7 @@ export default {
           infants: this.infants,
           pets: this.pets
         },
-        destination: { country: this.stay.address.country },
+        destination: { country: this.stay.address.country, address: this.stay.address.street },
         //mainGuest information would be added in the backend from loggedinUser
         orderStatus: "pending"
       }
