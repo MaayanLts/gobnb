@@ -155,7 +155,7 @@ export default {
       let location = 'Anywhere'
       if (this.trip && this.trip.destination && this.trip.destination.country !== '')
       {
-        location = this.trip.stayIddest.country
+        location = this.trip.destination.country
       }
 
       return location
