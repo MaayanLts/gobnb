@@ -14,7 +14,7 @@
           <div @click="onOpenDateFrom" class="date-details-cell">
             <span class="check">Check in</span>
             <!-- < class="picker-date from"></ -->
-            <el-date-picker class="picker-date from" v-model="dates"
+            <el-date-picker class="picker-date from" v-model="trip.dates"
               type="daterange" start-placeholder="Check in" />
           </div>
 
@@ -22,7 +22,7 @@
             <span class="check">Check out</span>
 
             <el-date-picker @click="show = true"
-              class="picker-date to bold-trip" v-model="dates" type="daterange"
+              class="picker-date to bold-trip" v-model="trip.dates" type="daterange"
               end-placeholder="Check out" />
           </div>
         </div>
@@ -287,7 +287,7 @@
         </div>
         <div class="trip-fee total">
           <span>Total</span>
-          <span>{{ tripTotalPrice }}</span>
+          <span>${{ tripTotalPrice }}</span>
         </div>
       </div>
     </div>
@@ -308,7 +308,7 @@ export default {
   data() {
     return {
       reservationCode: null,
-      logedUser: null,
+      //logedUser: null,
 
       show: false,
       trip: null,
@@ -328,15 +328,15 @@ export default {
   },
   methods: {
     reserve() {
-
       const trip = {
-        stayId: '622f337b75c7d36e498aab74',
-        hostId: this.stay.host._id,
-        hostId: this.stay.host._id,
-        gustId: this.logedUser._id,
+        stayId: this.stay._id,
+        hostId: this.stay.host.id, //use "id" instead of mongoDB "_id", this way we will control its value
+        hostName: this.stay.name, 
+        hostedBy: this.stay.host.fullname,
+        hostType: this.stay.propertyType,
         stayPreviewImg: this.stay.imgUrls[0],
         orderDate: new Date(),
-        dates: this.dates,
+        dates: this.trip.dates,
         price: this.tripTotalPrice,
         guests: {
           adults: this.adults,
@@ -344,15 +344,10 @@ export default {
           infants: this.infants,
           pets: this.pets
         },
-        destination: { country: this.stay.address.country },
-        mainGuest: {
-          _id: this.$store.getters.loggedinUser._id,
-          fullName: this.$store.getters.loggedinUser.fullname,
-          imgUrl: "https://randomuser.me/api/portraits/men/32.jpg"
-        },
+        destination: { country: this.stay.address.country, address: this.stay.address.street },
+        //mainGuest information would be added in the backend from loggedinUser
         orderStatus: "pending"
       }
-
 
       this.$store.dispatch({
         type: "saveOrder",
@@ -378,29 +373,12 @@ export default {
         dateFrom = dateFrom.setDate(dateFrom.getDate() + 7)
         dateTo = dateTo.setDate(dateTo.getDate() + 10)
 
-        this.$store.commit({ type: "setTripDates", dates: [dateFrom, dateTo] })
+        this.$store.commit({ type: "setCurrentTripDates", dates: [dateFrom, dateTo] })
       }
-
-      this.dates = this.trip.dates
     },
     getNights() {
-      //let dateTo = new Date()
-      //let dateFrom = new Date()
-
-      //if (this.dates&&this.dates.length > 0){
-      const dateFrom = new Date(this.dates[0])
-      const dateTo = new Date(this.dates[1])
-      //} else{
-      //   dateFrom = new Date(dateFrom.setDate(dateFrom.getDate() + 7))
-      //  dateTo = new Date(dateTo.setDate(dateTo.getDate() + 10))
-
-      // this.$store.commit({type: "setTripDates", dates: {dateFrom, dateTo}})
-      //this.dates.push(dateFrom)
-      // this.dates.push(dateTo) TODO: 
-      // }
-
-      //const dateTo = new Date(this.dates[1])
-      //const dateFrom = new Date(this.dates[0])
+      const dateFrom = new Date(this.trip.dates[0])
+      const dateTo = new Date(this.trip.dates[1])
       const difference = dateTo.getTime() - dateFrom.getTime()
       return (Math.ceil(difference / (1000 * 3600 * 24)))
     }
@@ -413,34 +391,23 @@ export default {
       return `src/images/${imgName}`
     },
     hm() {
-      //return `${this.adults} adults ${this.children} children`
-      return `${this.adults + this.children}` //adults ${this.children} children`
+      return `${this.adults + this.children}` 
     },
     nights() {
-      // const dateTo = new Date(this.dates[1])
-      // const dateFrom = new Date(this.dates[0])
-      // const difference = dateTo.getTime() - dateFrom.getTime()
-      // return (Math.ceil(difference / (1000 * 3600 * 24)))
       const nights = this.getNights()
       return nights
     },
     tripPrice() {
-      // const dateTo = new Date(this.dates[1])
-      // const dateFrom = new Date(this.dates[0])
-      // const difference = dateTo.getTime() - dateFrom.getTime()
       const price = Math.ceil(this.getNights() * this.stayPrice)
-      return price//(Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice
+      return price
     },
     serviceFee() {
       return `$${this.fee}`
     },
     tripTotalPrice() {
-      //const dateTo = new Date(this.dates[1])
-      //const dateFrom = new Date(this.dates[0])
-      // const difference = dateTo.getTime() - dateFrom.getTime()
       let totalPrice = this.getNights() * this.stayPrice + this.fee
-      totalPrice = `$${Math.ceil(totalPrice).toLocaleString()}`
-      return totalPrice//'$' + Math.ceil(totalPrice)   //((Math.ceil(difference / (1000 * 3600 * 24))) * this.stayPrice + this.fee)
+      totalPrice = `${Math.ceil(totalPrice).toLocaleString()}`
+      return totalPrice
     },
     none() {
       if (this.TotalDays === 0) return 'none'
@@ -454,22 +421,9 @@ export default {
     }
   },
   created() {
-    this.trip = this.$store.getters.currentTrip
     this.setDates()
-
-    // let dateTo = ''
-    // let dateFrom = ''
-    // if (this.trip.dates)
-    // {
-    //   dateTo = new Date(this.trip.dates[1])
-    //   dateFrom = new Date(this.trip.dates[0])
-    // } else
-    // {
-    //   dateTo = new Date()
-    //   dateFrom = new Date()
-    // }
-    //const difference = dateTo.getTime() - dateFrom.getTime()
-    this.TotalDays = this.getNights()//Math.ceil(difference / (1000 * 3600 * 24))
+    this.trip = this.$store.getters.currentTrip
+    this.TotalDays = this.getNights()
     this.stayPrice = this.stay.price
     this.fee = Math.round(this.stayPrice * 1.17)
     this.adults = (this.trip.guests.adults === 0) ? 1 : this.trip.guests.adults
@@ -477,8 +431,6 @@ export default {
     this.infants = this.trip.guests.infants
     this.reservationCode = makeId(9)
     this.pets = this.trip.guests.pets
-    this.logedUser = this.$store.getters.loggedinUser
-    console.log('logedUser:', this.logedUser)
   },
 }
 </script>

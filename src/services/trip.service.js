@@ -2,20 +2,22 @@ import {makeId} from '@/services/util.service.js?t=1658850766837'
 
 export const tripService = {
 	query,
-	getEmptyTrip,
 	save,
 }
 
 function query(entityType) {
-	let myTrips = JSON.parse(localStorage.getItem(entityType))
-	return myTrips
+	let trip = JSON.parse(localStorage.getItem(entityType))
+	if(!trip)
+		trip = _getEmptyTrip()
+
+	return trip
 }
 
 function save(entityType, trip) {
 	localStorage.setItem(entityType, JSON.stringify(trip))
 }
 
-function getEmptyTrip() {
+function _getEmptyTrip() {
 	const trip = {
 		_id: makeId(),
 		stayId: '',

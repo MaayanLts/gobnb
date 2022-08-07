@@ -69,8 +69,12 @@
           <div class="user-section user-btn" @click.stop="setLogin">
             <img class="burger-icon clickable"
               src=@/assets/logo/Hamburger_icon.svg alt="">
-            <img class="user-img clickable"
-              src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+            <img :style = "showLogedinUserImg()" class="user-img clickable" :src="loggedinUserImg" alt="">
+            <div :style = "showDefaultUserImg()" style="width:25px;">
+              <svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 100%; width: 100%; fill: #717171">
+                <path d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z"></path>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
@@ -89,17 +93,20 @@
 
 import { eventBus } from "../services/event-bus.service"
 import stayFilterSearch from "./stay-filter-search.cmp.vue"
-
+import { userService } from "../services/user.service"
 
 export default {
   data() {
     return {
       isOpen: false,
-      displaySearch: false
-      ,
+      displaySearch: false,
+      user: null,
     }
   },
   computed: {
+    loggedinUserImg(){
+      return (this.user) ? this.user.imgUrl : ''
+    },
     switchToText() {
       let text = "Switch to Host"
       if (this.$route.name === 'host')
@@ -141,7 +148,7 @@ export default {
       let location = 'Anywhere'
       if (this.trip && this.trip.destination && this.trip.destination.country !== '')
       {
-        location = this.trip.stayIddest.country
+        location = this.trip.destination.country
       }
 
       return location
@@ -160,6 +167,14 @@ export default {
     stayFilterSearch,
   },
   methods: {
+    showDefaultUserImg(){
+      this.user = userService.getLoggedinUser()
+      return (!this.user) ? ' ' : 'display: none'
+    },
+    showLogedinUserImg(){
+      this.user = userService.getLoggedinUser()
+      return (this.user) ? ' ' : 'display: none'
+    },
     display() {
       eventBus.emit('filter-open', !this.isOpen)
       this.displaySearch = !this.displaySearch
@@ -175,6 +190,11 @@ export default {
   },
   created() {
     this.trip = this.$store.getters.currentTrip
+    //userService.getLoggedinUser().fullname
+   // this.user2 = this.$store.getters.loggedinUser - WHY ????????????????
+
+   // console.log("user1: ", this.user1)
+   // console.log("user2: ", this.user2)
   },
 }
 </script>

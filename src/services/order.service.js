@@ -18,40 +18,40 @@ async function saveOrder(order) {
 		? await httpService.put(`${ENDPOINT}/${order._id}`, order)
 		: await httpService.post(ENDPOINT, order)
 }
-function getEmptyOrder() {
-	var emptyOrder = {
-		_id: '1',
-		stayId: '',
-		orderDate: '',
-		dates: [],
-		price: 0,
-		guests: {
-			adults: 0,
-			children: 0,
-			infants: 0,
-			pets: 0,
-		},
-		destinatio: {
-			country: '',
-			countryCode: 'Sp',
-			address: '',
-			lat: 0,
-			lng: 0,
-		},
-		mainGuest: {
-			_id: '',
-			fullName: '',
-			imgUrl: '',
-		},
-		orderStatus: '',
-	}
+// function getEmptyOrder() {
+// 	var emptyOrder = {
+// 		_id: '1',
+// 		stayId: '',
+// 		orderDate: '',
+// 		dates: [],
+// 		price: 0,
+// 		guests: {
+// 			adults: 0,
+// 			children: 0,
+// 			infants: 0,
+// 			pets: 0,
+// 		},
+// 		destinatio: {
+// 			country: '',
+// 			countryCode: 'Sp',
+// 			address: '',
+// 			lat: 0,
+// 			lng: 0,
+// 		},
+// 		mainGuest: {
+// 			_id: '',
+// 			fullName: '',
+// 			imgUrl: '',
+// 		},
+// 		orderStatus: '',
+// 	}
 
-	return emptyOrder
-}
+// 	return emptyOrder
+// }
 export const orderService = {
 	query,
-	getOrderByGustId,
-	getEmptyOrder,
+	//getOrderByGustId,
+	//getEmptyOrder,
 	removeOrder,
 	saveOrder,
 }
