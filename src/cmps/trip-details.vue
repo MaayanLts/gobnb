@@ -233,9 +233,6 @@
           </div>
         </div>
       </div>
-
-
-
       <el-dialog v-model="dialogVisible" width="30%">
         <svg class="svg-logo">
           <path
