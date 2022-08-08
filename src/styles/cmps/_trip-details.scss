@@ -460,30 +460,51 @@
     color: rgb(53, 44, 44);
 }
 
+.el-dialog__body{
+    padding: 0px !important;
+}
+
+.reservation-data-holder{
+    display: flex;
+}
+
 .host-info-modal-container {
     // border: 1px solid rgb(181, 79, 79);
-    margin-top: 70px;
+    //margin-top: 70px;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    margin-bottom: 10px;
+    .stay-img{
+        padding: 10px;
+        width: 100%;
+        border-radius: 20px;
+    }
 
-    img {
-        width: 60px;
-        height: 60px;
+    .host-img {
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
     }
 
     .img-txt-holder-left-bar {
+        padding: 10px;
         width: 50%;
-        padding-left: 30px;
-
-
+        align-self: flex-start;
+        align-content: center;
+        justify-content: center;
+        //padding-left: 30px;
     }
 
     .info-reservation-right-bar{
-        width: 50%;
-        padding-right: 30px;
+        margin-top: 10px;
+        white-space: pre-wrap;
+        word-break: keep-all; /*this stops the word breaking*/
     }
+}
+
+.reservation-stay-img-container{
+    width: 50%;
 }
 
 .reservation {
@@ -498,8 +519,6 @@
 
 .title-reservation {
     padding-bottom: 30px;
-
-
 }
 
 .host-reservation {
@@ -507,8 +526,15 @@
     line-height: 20px !important;
     color: rgb(34, 34, 34) !important;
     font-family: "Airbnb-bold";
-    padding-bottom: 25px;
+    text-align: end;
+    padding-left: 10px;
+    padding-top: 5px;
 
+}
+
+.host-name-img-container{
+    display: flex;
+    align-content: center;
 }
 
 .info-reservation {
@@ -525,18 +551,18 @@
 }
 
 .reservation {
-    h2 {
-        font-size: 37px;
+    h3 {
+        font-size: 22px;
         font-family: 'Airbnb-bold';
 
     }
 
     .code-holder {
-        font-size: 20px;
+        font-size: 18px;
         margin-top: 0;
-
+        opacity: 0.8;
         .code-reservation {
-            font-size: 25px;
+            font-size: 18px;
         }
     }
 }
