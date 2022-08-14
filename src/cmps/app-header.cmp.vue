@@ -63,7 +63,7 @@
           </div>
           <div class="user-section center">
             <img class="globe-icon clickable"
-              src=src/assets/logo/globe-icon-header.svg alt="">
+              src=@/assets/logo/globe-icon-header.svg alt="">
           </div>
 
           <div class="user-section user-btn" @click.stop="setLogin">
